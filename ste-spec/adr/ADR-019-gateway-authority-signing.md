@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-23  
+**Author:** Erik Gallmann  
 **Closes Blockers:** 1.1 (Gateway Authority Class Assignment), 1.2 (Context Bundle Signing Authority)
 
 ---

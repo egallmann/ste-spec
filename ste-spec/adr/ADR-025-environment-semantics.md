@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-29  
+**Author:** Erik Gallmann  
 **Closes Gap:** GAP-2 (Environment Definition / Blocker 5.1)
 
 ---

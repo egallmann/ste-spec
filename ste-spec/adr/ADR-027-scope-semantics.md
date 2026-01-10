@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-29  
+**Author:** Erik Gallmann  
 **Closes Gap:** GAP-1 (Scope Semantics Definition / Blocker 1.4)
 
 ---

@@ -3,6 +3,7 @@
 ## Status
 
 Accepted
+**Author:** Erik Gallmann
 
 ## Context
 

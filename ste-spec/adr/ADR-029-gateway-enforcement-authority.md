@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-30  
+**Author:** Erik Gallmann  
 **Closes Blockers:** 1.1 (Gateway Authority Class Assignment)  
 **Related:** ADR-019 (Gateway Authority and Signing Model), ADR-028 (Fabric Gateway Authority Boundaries)
 

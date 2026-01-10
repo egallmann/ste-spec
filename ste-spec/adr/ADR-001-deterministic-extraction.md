@@ -2,7 +2,8 @@
 
 ## Status
 
-**Accepted** — 2025-12-19
+**Accepted** — 2025-12-19  
+**Author:** Erik Gallmann
 
 ## Context
 
