@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-23  
+**Author:** Erik Gallmann  
 **Closes:** Axis 2 Blockers (Signing Scope Ambiguity)  
 **Depends On:** ADR-019 (Gateway Authority and Signing Model)
 

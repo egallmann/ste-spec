@@ -2,6 +2,7 @@
 
 **Status:** Ratified  
 **Date:** 2025-12-23  
+**Author:** Erik Gallmann  
 **Supersedes:** None  
 **Related:** ADR-019 (Gateway Authority and Signing Model), ADR-020 (ORG-Level Signing Scope), ADR-021 (Gateway Trust Verification Model), ADR-022 (Fail-Closed Semantics and Enforcement Scope)
 

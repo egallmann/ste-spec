@@ -2,6 +2,7 @@
 
 **Status:** Accepted  
 **Date:** 2025-12-29  
+**Author:** Erik Gallmann  
 **Closes Gap:** Implicit tribal knowledge about Fabric/Gateway roles  
 **Related:** ADR-019 (Gateway Authority and Signing Model), ADR-022 (Fail-Closed Enforcement Scope), ADR-024 (Cross-Component Contracts), ADR-026 (Invariant Conflict Detection Semantics), ADR-027 (Scope Semantics)
 
