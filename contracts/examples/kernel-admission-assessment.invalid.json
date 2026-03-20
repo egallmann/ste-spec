@@ -1,0 +1,30 @@
+{
+  "snapshot": {
+    "bundleHealth": "valid",
+    "freshnessStatus": "fresh",
+    "warnings": [],
+    "errors": []
+  },
+  "context": {
+    "declaredProfile": "greenfield",
+    "requiredProfile": "greenfield",
+    "authorityTier": "promoted",
+    "requestedOperation": "action"
+  },
+  "decision": {
+    "eligibility": "action_ready",
+    "admitted": true,
+    "freshnessClass": "current",
+    "requiredAcknowledgement": false,
+    "blockingReasons": [],
+    "advisories": [],
+    "preconditions": []
+  },
+  "summary": "Action is permitted under the current kernel admission state.",
+  "readyForAction": true,
+  "requiresAcknowledgement": false,
+  "blocking": false,
+  "policy": {
+    "source": "runtime"
+  }
+}
