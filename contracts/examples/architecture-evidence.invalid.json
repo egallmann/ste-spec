@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "bundle": {
+    "status": "valid",
+    "warnings": [],
+    "errors": []
+  },
+  "freshness": {
+    "status": "current"
+  },
+  "decision": {
+    "eligibility": "action_ready"
+  }
+}

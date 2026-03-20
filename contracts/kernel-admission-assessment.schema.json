@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/kernel-admission-assessment.schema.json",
+  "title": "KernelAdmissionAssessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "snapshot",
+    "context",
+    "decision",
+    "summary",
+    "readyForAction",
+    "requiresAcknowledgement",
+    "blocking"
+  ],
+  "properties": {
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundleHealth", "freshnessStatus", "warnings", "errors"],
+      "properties": {
+        "bundleHealth": {
+          "type": "string",
+          "enum": ["valid", "degraded", "invalid"]
+        },
+        "freshnessStatus": {
+          "type": "string",
+          "enum": ["fresh", "partial", "stale", "unknown"]
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "lastReconciled": {
+          "type": "string"
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaredProfile",
+        "requiredProfile",
+        "authorityTier",
+        "requestedOperation"
+      ],
+      "properties": {
+        "declaredProfile": {
+          "type": "string",
+          "enum": ["greenfield", "brownfield"]
+        },
+        "requiredProfile": {
+          "type": "string",
+          "enum": ["greenfield", "brownfield"]
+        },
+        "authorityTier": {
+          "type": "string",
+          "enum": ["promoted", "draft", "unknown"]
+        },
+        "requestedOperation": {
+          "type": "string",
+          "enum": ["review", "recommendation", "action"]
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eligibility",
+        "admitted",
+        "freshnessClass",
+        "requiredAcknowledgement",
+        "blockingReasons",
+        "advisories",
+        "preconditions"
+      ],
+      "properties": {
+        "eligibility": {
+          "type": "string",
+          "enum": [
+            "review_only",
+            "recommendation_only",
+            "action_requires_ack",
+            "action_ready",
+            "blocked"
+          ]
+        },
+        "admitted": {
+          "type": "boolean"
+        },
+        "freshnessClass": {
+          "type": "string",
+          "enum": ["current", "stale-unknown", "stale-confirmed"]
+        },
+        "requiredAcknowledgement": {
+          "type": "boolean"
+        },
+        "blockingReasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bundle_invalid",
+              "profile_incompatible",
+              "authority_not_promoted",
+              "freshness_unknown",
+              "freshness_stale",
+              "degraded_bundle",
+              "runtime_evidence_unavailable",
+              "requested_operation_not_permitted"
+            ]
+          }
+        },
+        "advisories": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "preconditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "summary": {
+      "type": "string"
+    },
+    "readyForAction": {
+      "type": "boolean"
+    },
+    "requiresAcknowledgement": {
+      "type": "boolean"
+    },
+    "blocking": {
+      "type": "boolean"
+    }
+  }
+}
