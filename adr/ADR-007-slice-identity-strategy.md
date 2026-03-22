@@ -319,10 +319,10 @@ When identity derivation rules change (future ADR updates):
 
 ## Traceability
 
-- **Requirements**: [BR-001: Accurate Documentation](../01-context/business-requirements.md#br-001)
+- **Requirements**: BR-001 (accurate documentation) — source requirements pack not published in `ste-spec`
 - **Stakeholders**: Extractor Developers, Development Teams, Intelligence Consumers
 - **Depth-6 Concern**: #2 - Slice Identity Invariants
-- **Related Views**: [Slice Schema](../05-interface-specifications/slice-schema.md), [Data View](../02-architecture-views/data-view.md)
+- **Related Views**: Slice schema and data-view specifications — not published in `ste-spec`
 
 ---
 

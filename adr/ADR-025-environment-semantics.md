@@ -9,7 +9,7 @@
 
 ## Context
 
-The STE-System specification references "environment" as a scoping dimension for canonical state (§7.1.1), relationship artifacts (ADR-018), and Fabric Attestations (§8.1.7). However, the specification does not define what "environment" means, how environment identifiers are established, or how environment semantics are enforced.
+The STE-System specification references "environment" as a scoping dimension for canonical state (§7.1.1), relationship artifacts (STE-System specification ADR-018; not published in `ste-spec`), and Fabric Attestations (§8.1.7). However, the specification does not define what "environment" means, how environment identifiers are established, or how environment semantics are enforced.
 
 This ambiguity creates critical correctness risks:
 
@@ -600,7 +600,7 @@ These behaviors are **testable, observable, and falsifiable** by inspection or r
 **Requirements:**
 - §7.1.1 Canonical State (G-CAN-1: "For any given environment and element identity, canonical state is unambiguous")
 - §8.1.7 Fabric Attestation (includes environment in attestation scope)
-- ADR-018 Relationship Artifacts (environment-scoped)
+- STE-System ADR-018 Relationship Artifacts (environment-scoped; not published in `ste-spec`)
 
 **Views:**
 - `specifications/ste-system.iso42010.md` §7.1 (Canonical State)

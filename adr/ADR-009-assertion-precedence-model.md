@@ -354,7 +354,7 @@ Stored metadata:
 
 - [ADR-006: Explicit Unknowns](./ADR-006-explicit-unknowns.md) - Unknowns are distinct from assertions
 - [ADR-008: Correctness and Consistency Contract](./ADR-008-correctness-consistency-contract.md) - Consistency model for extracted and asserted facts
-- [Governance Architecture](../03-cross-cutting-concerns/governance-architecture.md) - Assertion governance details
+- Governance architecture (assertion governance details) — external product documentation not published in `ste-spec`
 
 ## Implementation Notes
 
@@ -403,10 +403,10 @@ Assertions stored as slices with:
 
 ## Traceability
 
-- **Requirements**: [BR-006: Provenance and Auditability](../01-context/business-requirements.md#br-006)
+- **Requirements**: BR-006 (provenance and auditability) — source requirements pack not published in `ste-spec`
 - **Stakeholders**: Development Teams, Security/Compliance Teams, Enterprise Architects
 - **Depth-6 Concern**: #4 - Manual Assertions Governance
-- **Related Views**: [Governance Architecture](../03-cross-cutting-concerns/governance-architecture.md), [Intelligence API](../05-interface-specifications/intelligence-api.md)
+- **Related Views**: Governance architecture and Intelligence API specifications — not published in `ste-spec`
 
 ---
 
