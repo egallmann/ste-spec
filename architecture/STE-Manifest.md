@@ -32,9 +32,10 @@ live. It does not define those rules itself.
 10. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
 11. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
 12. **ADR doctrine:** `adr/README.md`, `adr/ARCHITECTURE_BOUNDARY_DECISION.md`
-13. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
-14. **Governance / security:** `governance/`, `SECURITY.md`
-15. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
+13. **Repository README contract:** `adr/ADR-036-repository-readme-contract.md`, `architecture/STE-Repository-README-Checklist.md`
+14. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
+15. **Governance / security:** `governance/`, `SECURITY.md`
+16. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
 
 # 3. Canonical Authority Split
 
@@ -80,6 +81,7 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `adr/ADR-033-closed-object-discipline.md`
 - `adr/ADR-034-rule-projection-envelope-authority.md` (proposed; envelope authority)
 - `adr/ADR-035-architecture-ir-ontology-authority.md`
+- `adr/ADR-036-repository-readme-contract.md`
 
 # 7. Orientation Surfaces
 
@@ -98,6 +100,7 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `architecture/STE-System-Core.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `architecture/STE-Diagram-Conventions.md`
+- `architecture/STE-Repository-README-Checklist.md`
 - `execution/STE-Cognitive-Execution-Model.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `glossary.md`

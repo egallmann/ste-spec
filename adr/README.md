@@ -40,6 +40,7 @@ contracts, invariants, or implementation tests.
 - `ADR-033-closed-object-discipline.md`
 - `ADR-034-rule-projection-envelope-authority.md` (proposed)
 - `ADR-035-architecture-ir-ontology-authority.md`
+- `ADR-036-repository-readme-contract.md`
 
 ## Relationship to Other Surfaces
 
