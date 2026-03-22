@@ -4,19 +4,31 @@ import json
 from pathlib import Path
 
 import jsonschema
+import pytest
 
 from scripts.publish_architecture_ir_fragments import OUTPUT_PATH, publish_architecture_ir_fragments
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-KERNEL_SCHEMA_PATH = (
-    REPO_ROOT.parent / "ste-kernel" / "architecture-ir" / "architecture-ir.schema.json"
-)
+KERNEL_CONTRACT_PIN_PATH = REPO_ROOT / "contracts" / "architecture-ir-kernel-contract-pin.json"
 DECISION_ID = "decision:c6ab3dd75821e8181aea60442b230e4cdb24d63ea5ebe6436448ba94caf6ef28"
 
 
+def _load_kernel_contract_pin() -> dict:
+    return json.loads(KERNEL_CONTRACT_PIN_PATH.read_text(encoding="utf-8"))
+
+
+def _kernel_schema_path_from_pin() -> Path:
+    pin = _load_kernel_contract_pin()
+    relative_path = pin["kernel_bundle"]["architecture_ir_schema_json"]
+    return REPO_ROOT.parent / Path(relative_path)
+
+
 def _load_kernel_schema() -> dict:
-    return json.loads(KERNEL_SCHEMA_PATH.read_text(encoding="utf-8"))
+    schema_path = _kernel_schema_path_from_pin()
+    if not schema_path.exists():
+        pytest.skip(f"kernel schema unavailable at pinned path: {schema_path}")
+    return json.loads(schema_path.read_text(encoding="utf-8"))
 
 
 def _build_compiled_document(records: list[dict]) -> dict:
@@ -65,7 +77,10 @@ def test_publish_architecture_ir_fragments_writes_conventional_artifact() -> Non
 
     assert output_path == OUTPUT_PATH
     assert output_path.exists()
-    assert output_path.read_bytes()[:3] != b"\xef\xbb\xbf"
+    artifact_bytes = output_path.read_bytes()
+    assert artifact_bytes[:3] != b"\xef\xbb\xbf"
+    assert artifact_bytes.endswith(b"\n")
+    assert b"\r\n" not in artifact_bytes
 
     records = json.loads(output_path.read_text(encoding="utf-8"))
     assert isinstance(records, list)
@@ -92,3 +107,28 @@ def test_publish_architecture_ir_fragments_is_deterministic() -> None:
 
     assert second_path == first_path
     assert first_bytes == second_bytes
+
+
+def test_published_artifact_matches_generator_output() -> None:
+    temp_root = REPO_ROOT / "tests" / ".tmp"
+    temp_root.mkdir(exist_ok=True)
+    generated_path = temp_root / "spec-ir-fragments.generated.json"
+    try:
+        publish_architecture_ir_fragments(generated_path)
+        assert generated_path.read_bytes() == OUTPUT_PATH.read_bytes()
+    finally:
+        generated_path.unlink(missing_ok=True)
+
+
+def test_kernel_contract_pin_is_well_formed() -> None:
+    pin = _load_kernel_contract_pin()
+
+    assert pin["ir_version"] == "0.1.0"
+    assert pin["schema_id"] == "https://ste-kernel.local/schema/architecture-ir/0.1.0/architecture-ir.schema.json"
+    assert set(pin["kernel_bundle"]) == {
+        "architecture_ir_yaml",
+        "architecture_ir_schema_json",
+        "architecture_ir_normative_markdown",
+        "adapter_contracts_yaml",
+    }
+    assert pin["kernel_bundle"]["architecture_ir_schema_json"] == "ste-kernel/architecture-ir/architecture-ir.schema.json"
