@@ -24,6 +24,19 @@ this file states only cross-repo obligations.
 
 ---
 
+## Open Boundary Note
+
+The open-versus-closed architectural boundary is defined in
+[`OPEN_CLOSED_BOUNDARY.md`](OPEN_CLOSED_BOUNDARY.md) and the public-compatible
+surface inventory is defined in
+[`PUBLIC_SYSTEM_SURFACES.md`](PUBLIC_SYSTEM_SURFACES.md).
+
+Those documents identify which subsystem roles are:
+
+- open and publicly standardizable
+- mixed / interface-only
+- closed in implementation while still publicly describable at the role level
+
 ## Authority Boundaries
 
 ### Documentation authority

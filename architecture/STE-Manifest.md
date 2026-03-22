@@ -22,17 +22,19 @@ live. It does not define those rules itself.
 2. **Core concepts:** `architecture/STE-Foundations.md`, `architecture/STE-Reference-Embodiment.md` (informative spine), `architecture/STE-Worked-Example-Walkthrough.md` (informative end-to-end thread), `invariants/STE-Invariant-Hierarchy.md` (and referenced invariant docs)
 3. **System components:** `architecture/STE-System-Components-and-Responsibilities.md`, `architecture/STE-System-Core.md`
 4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR), `architecture/STE-Diagram-Conventions.md` (figure style)
-5. **Execution models**
+5. **Boundary surfaces:** `architecture/OPEN_CLOSED_BOUNDARY.md`, `architecture/PUBLIC_SYSTEM_SURFACES.md`, `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
+6. **Execution models**
    - Workspace cognition: `execution/STE-Cognitive-Execution-Model.md`
    - Kernel integration: `execution/STE-Kernel-Execution-Model.md`
-6. **Contracts and schemas:** `contracts/README.md`
-7. **Determinism (integration plane):** `architecture/STE-Determinism-and-Canonical-Identity.md`
-8. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
-9. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
-10. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
-11. **ADR doctrine:** `adr/README.md`
-12. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
-13. **Governance / security:** `governance/`, `SECURITY.md`
+7. **Contracts and schemas:** `contracts/README.md`
+8. **Determinism (integration plane):** `architecture/STE-Determinism-and-Canonical-Identity.md`
+9. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
+10. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
+11. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
+12. **ADR doctrine:** `adr/README.md`, `adr/ARCHITECTURE_BOUNDARY_DECISION.md`
+13. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
+14. **Governance / security:** `governance/`, `SECURITY.md`
+15. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
 
 # 3. Canonical Authority Split
 
@@ -87,6 +89,9 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `architecture/STE-Integration-Model.md`
 - `architecture/STE-Architecture-Intermediate-Representation.md`
+- `architecture/OPEN_CLOSED_BOUNDARY.md`
+- `architecture/PUBLIC_SYSTEM_SURFACES.md`
+- `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
 - `architecture/STE-Reference-Embodiment.md`
 - `architecture/STE-Worked-Example-Walkthrough.md`
 - `architecture/STE-Canonical-Project-Artifacts.md`
@@ -97,6 +102,10 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `execution/STE-Kernel-Execution-Model.md`
 - `glossary.md`
 - `governance/`
+
+Files under `internal/` are tracked for internal planning but are **not** public
+canonical specification surfaces and **MUST NOT** be cited as external
+compatibility authority.
 
 # 8. Synchronization Order
 

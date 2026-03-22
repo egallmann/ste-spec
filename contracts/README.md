@@ -84,6 +84,16 @@ Normative integration narrative: `architecture/STE-Integration-Model.md`.
 | **Compiled_IR_Document** | Merged validated IR | **Derived** by `ste-kernel` from fragments + mapping rules |
 | **KernelAdmissionAssessment** | Admission JSON | **Derived** by `ste-kernel` from projected slice + policy |
 
+Contract lock for this boundary:
+
+- adapter fragments are deterministic normalized record arrays
+- `spec-ir-fragments.json` is an adapter input artifact, not a grouped-envelope schema
+- `ste-runtime` publishes `ArchitectureEvidence` only
+- runtime IR is derived inside `ste-kernel`
+- `ste-kernel` alone compiles merged `Compiled_IR_Document`
+- `ste-kernel` alone emits `KernelAdmissionAssessment`
+- `Compiled_IR_Document` is derived integration-state, not documentation-state authority
+
 ## Related orientation
 
 - `architecture/STE-Reference-Embodiment.md`

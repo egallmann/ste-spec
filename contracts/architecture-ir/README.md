@@ -17,4 +17,8 @@ Fragment records carry their own `content_hash` values in `provenance.derivation
 
 - `spec-ir-fragments.json` — array of spec IR fragment objects (components, invariants, relations).
 
+`spec-ir-fragments.json` is a deterministic adapter input artifact for
+`ste-kernel` merge. It is **not** a schema for a second fragment envelope and it
+does not make `ste-spec` the compiler of merged IR.
+
 See also [`../README.md`](../README.md) for contract layout across `contracts/`.

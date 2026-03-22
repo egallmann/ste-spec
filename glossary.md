@@ -50,6 +50,26 @@ Classification of how a record’s truth is established: **explicit** (authorita
 
 **Observed** signals about the workspace and tooling, carried in the `ArchitectureEvidence` contract (bundle health, freshness, diagnostics). Runtime-state is **factual evidence**, not architectural authority. It informs admission only through kernel evaluation of evidence-shaped fields, never by substituting for declared architecture.
 
+### Open core
+
+The set of public-compatible STE surfaces that may be standardized, published,
+and relied on by external compatible implementations. Open-core surfaces
+typically include deterministic schemas, artifact formats, semantic ontology,
+and validation contracts. See
+[`architecture/OPEN_CLOSED_BOUNDARY.md`](architecture/OPEN_CLOSED_BOUNDARY.md)
+and
+[`architecture/PUBLIC_SYSTEM_SURFACES.md`](architecture/PUBLIC_SYSTEM_SURFACES.md).
+
+### Closed intelligence layer
+
+The set of internal intelligence-bearing STE subsystems whose existence and role
+may be described publicly, but whose implementation remains private. Closed
+intelligence layers typically include private heuristics, scoring, orchestration,
+activation, projection, adversarial reasoning, or inference behavior. Deterministic
+validation layers remain suitable for public standardization even when adjacent
+intelligence-bearing systems remain closed. See
+[`architecture/OPEN_CLOSED_BOUNDARY.md`](architecture/OPEN_CLOSED_BOUNDARY.md).
+
 ## Invariant Hierarchy
 
 ### Prime Invariant
