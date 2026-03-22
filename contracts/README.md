@@ -12,7 +12,7 @@ into a fictional team thread, read `architecture/STE-Worked-Example-Walkthrough.
 |----------|---------|
 | `architecture-evidence.schema.json` | **`ArchitectureEvidence`** — factual bundle health and freshness from `ste-runtime` |
 | `kernel-admission-assessment.schema.json` | **`KernelAdmissionAssessment`** — caller-facing admission from `ste-kernel` |
-| [`architecture-ir/spec-ir-fragments.json`](architecture-ir/spec-ir-fragments.json) | **Spec adapter IR fragments** — published `SpecAdapter` input to kernel merge (see [`architecture-ir/README.md`](architecture-ir/README.md)) |
+| [`architecture-ir/spec-ir-fragments.json`](architecture-ir/spec-ir-fragments.json) | **Spec adapter IR fragments** — generator-owned published `SpecAdapter` input to kernel merge (see [`architecture-ir/README.md`](architecture-ir/README.md)) |
 | `examples/` | Non-normative examples |
 
 ### Draft / pre-normative (rule projections)

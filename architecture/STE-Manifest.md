@@ -52,6 +52,9 @@ live. It does not define those rules itself.
 - `contracts/examples/`
 - Referenced IR bundle: see `contracts/README.md` (kernel-owned)
 
+`contracts/architecture-ir/spec-ir-fragments.json` is a generator-owned published
+artifact. Regenerate and validate it with `python scripts/run_local_contract_checks.py`.
+
 # 5. Handoff Invariant Surfaces
 
 - `invariants/STE-Cross-Component-Contract-Invariants.md`

@@ -54,6 +54,13 @@ Repeatable **internal Markdown link** check (repository-local targets only):
 
 `python scripts/check_internal_md_links.py` (non-zero exit if any target file is missing).
 
+Focused **local contract guard** bundle:
+
+`python scripts/run_local_contract_checks.py`
+
+This runs the publication tests and internal Markdown link check together so
+published contract artifacts and repo-local references do not drift.
+
 ## Scope
 
 This repository contains architectural specification artifacts only. Runtime

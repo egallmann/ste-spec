@@ -17,6 +17,10 @@ def _canonical_json_bytes(value: object) -> bytes:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
 
 
+def _publication_json_bytes(value: object) -> bytes:
+    return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
 def _content_hash(fragment: dict) -> str:
     return "sha256:" + hashlib.sha256(_canonical_json_bytes(fragment)).hexdigest()
 
@@ -107,7 +111,7 @@ def build_spec_ir_records() -> list[dict]:
 
 def publish_architecture_ir_fragments(output_path: Path = OUTPUT_PATH) -> Path:
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_bytes(_canonical_json_bytes(build_spec_ir_records()))
+    output_path.write_bytes(_publication_json_bytes(build_spec_ir_records()))
     return output_path
 
 

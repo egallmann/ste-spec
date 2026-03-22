@@ -2,17 +2,17 @@
 
 ## Specification Maturity
 
-**Current Status**: Converged Architecture Under Review
+**Current Status**: Stable Handoff Contracts and Core Doctrine Under Review
 
-This specification represents a converged architectural design. Core invariants, execution semantics, and governance protocols have stabilized through iterative refinement and self-validation.
+This specification publishes a stable cross-repository handoff subset while broader doctrine and draft governance extensions remain under review. Core invariants, execution semantics, and authority boundaries are stable; draft contract families remain explicitly pre-normative.
 
 **Maturity Indicators**:
 - System-of-interest definition: Stable
 - Invariant hierarchy: Converged
 - Cognitive Execution Model: Stable
 - Divergence taxonomy: Converged
-- Governance protocols: Stable
-- Architectural decisions: Converged (operational decisions remain in flux)
+- Governance protocols: Stable at the handoff boundary; some governance extension contracts remain draft
+- Architectural decisions: Converged for the published handoff boundary (operational and governance extension details remain in flux)
 
 ## Versioning
 
@@ -22,7 +22,7 @@ This specification follows semantic versioning (MAJOR.MINOR.PATCH):
 - **MINOR**: New viewpoints, protocols, ADRs, or non-breaking constraint additions
 - **PATCH**: Clarifications, corrections, documentation improvements, or terminology refinements
 
-**Current Version**: 1.0.0 (Initial Public Release)
+**Current Version**: 1.0.0 (stable public handoff-contract subset)
 
 ## Evolution Stance
 
@@ -37,6 +37,13 @@ Core architectural elements are considered stable:
 - Documentation-state governance protocols
 
 Changes to these elements would constitute MAJOR version changes and require careful impact analysis.
+
+The following remain explicitly **draft / pre-normative** within this repository:
+
+- `contracts/rule-projection/`
+- `contracts/governance-decision-record/`
+- `adr/ADR-034-rule-projection-envelope-authority.md`
+- `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ### Design Freedom Preserved
 
@@ -164,7 +171,7 @@ The following are **explicitly deferred** until **rule-projection** and **govern
 
 ---
 
-**Last Updated**: 2026-01-02  
+**Last Updated**: 2026-03-21  
 **Version**: 1.0.0  
-**Status**: Converged Architecture Under Review
+**Status**: Stable Handoff Contracts and Core Doctrine Under Review
 
