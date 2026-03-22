@@ -23,6 +23,7 @@ This file is canonical and must remain aligned with:
 - STE-Cognitive-Execution-Model
 - STE-RECON-Protocol
 - STE-Integration-Model
+- STE-Architecture-Intermediate-Representation
 - STE-Kernel-Execution-Model
 
 ---
@@ -78,7 +79,7 @@ This separation ensures clarity, stability, and non-overlapping responsibilities
 STE **MUST** treat three related planes as distinct:
 
 1. **Documentation-state** — declared truth in repositories (AI-DOC, ADRs, manifests, schemas).
-2. **Integration-state** — the merged, validated **`Compiled_IR_Document`** consumed by `ste-kernel` for orchestration and admission projection.
+2. **Integration-state** — the merged, validated **`Compiled_IR_Document`** consumed by `ste-kernel` for orchestration and admission projection. Integration-state is the mechanical instantiation of **Architecture IR** at a pinned `ir_version`; **normative semantics** for that IR (entities, relationships, provenance classes, lifecycle, completeness, governance, Architecture Index) live in `architecture/STE-Architecture-Intermediate-Representation.md`, while **JSON Schema and compiled enumerations** remain **referenced** from `ste-kernel` per `contracts/README.md`.
 3. **Runtime evidence** — factual **`ArchitectureEvidence`** from `ste-runtime` (bundle health, freshness); non-decision-bearing at the handoff boundary.
 
 Normative handoff contracts and roles: `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, `glossary.md`.

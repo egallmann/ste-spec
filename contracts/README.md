@@ -40,7 +40,9 @@ when the envelope becomes normative.
 
 The **Architecture IR** schema, merge configuration, and identity rules are
 **versioned and maintained in `ste-kernel`**. `ste-spec` **references** them as
-the mechanical authority for `Compiled_IR_Document`:
+the mechanical authority for `Compiled_IR_Document`. **Semantic** Architecture IR
+(ontology, lifecycle, completeness, governance, Architecture Index) is **normative**
+in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).
 
 - `ste-kernel/architecture-ir/architecture-ir.schema.json`
 - `ste-kernel/architecture-ir/architecture-ir.yaml`
@@ -82,9 +84,20 @@ Normative integration narrative: `architecture/STE-Integration-Model.md`.
 | **Compiled_IR_Document** | Merged validated IR | **Derived** by `ste-kernel` from fragments + mapping rules |
 | **KernelAdmissionAssessment** | Admission JSON | **Derived** by `ste-kernel` from projected slice + policy |
 
+Contract lock for this boundary:
+
+- adapter fragments are deterministic normalized record arrays
+- `spec-ir-fragments.json` is an adapter input artifact, not a grouped-envelope schema
+- `ste-runtime` publishes `ArchitectureEvidence` only
+- runtime IR is derived inside `ste-kernel`
+- `ste-kernel` alone compiles merged `Compiled_IR_Document`
+- `ste-kernel` alone emits `KernelAdmissionAssessment`
+- `Compiled_IR_Document` is derived integration-state, not documentation-state authority
+
 ## Related orientation
 
 - `architecture/STE-Reference-Embodiment.md`
+- `architecture/STE-Architecture-Intermediate-Representation.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `invariants/STE-Failure-Taxonomy-Boundaries.md`
 - `execution/STE-Kernel-Execution-Model.md`
