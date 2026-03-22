@@ -12,10 +12,24 @@ This architecture description references several detailed protocol and schema do
 
 **AI-DOC Technical Specifications:**
 - `STE-AI-DOC-Schema.md` — Schema definition for AI-DOC artifacts
+- `STE-AI-DOC-Sliceability-Protocol.md` — Sliceability rules for AI-DOC artifacts
+- `STE-AI-DOC-Invariants.md` — AI-DOC-specific invariant constraints
+
+**Prime and system invariants (doctrine):** Enumerated constraints (PRIME-1–5, SYS-1–16) appear in [`invariants/STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md) (section 2, Layers 1–2). Standalone `STE-Prime-Invariant.md` and `STE-System-Invariants.md` files are not included in the v1.0.0 public release bundle for this repository.
 
 The architectural principles and operational concepts for RECON and AI-DOC are described in this document. Detailed implementation protocols may be published in future releases.
 
 **Technology References:** All technology references throughout this document (cloud providers, CI systems, platforms) are informative examples only and are not required for conformance.
+
+**Integration plane:** For the converged **multi-repository** model (Architecture IR,
+`ste-kernel` boot and admission, `ArchitectureEvidence` handoff), use
+[`STE-Integration-Model.md`](./STE-Integration-Model.md),
+[`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md),
+and [`STE-System-Components-and-Responsibilities.md`](./STE-System-Components-and-Responsibilities.md). The
+**`ste-runtime` repository** implements RECON/RSS-style tooling and evidence
+production; it **does not** by itself realize the organizational **Fabric /
+Gateway / Trust Registry** services described later in this document unless a
+separate deployment explicitly provides them.
 
 ---
 
@@ -32,15 +46,12 @@ This file must be updated whenever changes affect system component relationships
 
 This file is canonical and must remain synchronized with:
 
-- STE-Manifest  
-- STE-Foundations  
-- STE-Prime-Invariant  
-- STE-System-Invariants (SYS-1 through SYS-16)
-- STE-Cognitive-Execution-Model  
-- STE-Invariant-Hierarchy
-- STE-AI-DOC-Schema
-- STE-AI-DOC-Sliceability-Protocol
-- STE-AI-DOC-Invariants  
+- [`STE-Manifest.md`](./STE-Manifest.md) (STE-Manifest)  
+- [`STE-Foundations.md`](./STE-Foundations.md) (STE-Foundations)  
+- **STE-Prime-Invariant** and **STE-System-Invariants (SYS-1 through SYS-16)** — enumerated in [`STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md); standalone prime/system invariant files are not published in this repository (see Publication Notice)  
+- [`STE-Cognitive-Execution-Model.md`](../execution/STE-Cognitive-Execution-Model.md) (STE-Cognitive-Execution-Model)  
+- [`STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md) (STE-Invariant-Hierarchy)  
+- **STE-AI-DOC-Schema**, **STE-AI-DOC-Sliceability-Protocol**, **STE-AI-DOC-Invariants** — not published as standalone files in this repository (see Publication Notice); concepts are reflected in this document and related architecture prose  
 
 ---
 
@@ -82,6 +93,8 @@ With STE:
 # 3. System Overview
 
 STE operates across **two distinct governance boundaries**: workspace development and runtime execution. Both boundaries enforce constraints but through different mechanisms and at different trust levels.
+
+**Scope note (reference repositories):** Diagrams under **runtime execution** (Fabric, Gateway, Trust Registry, and service boxes labeled like **STE RUNTIME**) describe **organizational / production-style deployment patterns**. They are **not** a claim that the public **`ste-runtime` repository** implements every box shown. For the **reference multi-repository integration** path (IR merge, evidence, admission), use the **Integration plane** paragraph in the Publication Notice above and `architecture/STE-Integration-Model.md`.
 
 ## 3.1 Workspace Development Boundary
 
@@ -125,6 +138,44 @@ The workspace boundary governs local development, experimentation, and provision
 │   └─────────────────────────────────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
+```
+
+**View (informative):** The ASCII diagram above emphasizes **workspace cognition**
+(IDE, CEM, toolchain, human). The same workspace also participates in the **STE
+integration plane**: **adapter publication surfaces** (ADR, spec, and rules **IR
+fragments**, plus **`ArchitectureEvidence`** from `ste-runtime`) feed **`ste-kernel`**
+for deterministic **load → merge → validate → admit**—without implying the kernel
+**owns** rule semantics (those remain with `ste-rules-library` / **rules-engine**;
+see `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`,
+and `architecture/STE-Worked-Example-Walkthrough.md`). An optional **governance**
+verify (for example attestation reconstruction in **CI**) is **mechanical** at the
+merge path and **composes** with kernel integration; it is not a sixth adapter unless
+published in `ste-kernel/contracts/adapter-contracts.yaml` with merge policy.
+
+**Integration plane slice (informative diagram):**
+
+```mermaid
+flowchart LR
+  subgraph pubs [Publication_surfaces]
+    ADRf[ADR_IR_fragments]
+    SPECf[spec_ir_fragments]
+    RULESf[rules_IR_fragments]
+    EVID[ArchitectureEvidence]
+  end
+
+  subgraph orch [ste_kernel]
+    SK[load_merge_validate_admit]
+  end
+
+  subgraph opt [Optional_mechanical]
+    GOV[governance_CI_verify]
+  end
+
+  ADRf --> SK
+  SPECf --> SK
+  RULESf --> SK
+  EVID --> SK
+  SK -.->|"same_commit_tree"| GOV
 ```
 
 **Enforcement Characteristics:**
@@ -218,7 +269,7 @@ The runtime boundary governs production reasoning with cryptographic enforcement
 
 ## 3.3 Boundary Comparison
 
-|| Aspect | Workspace Boundary | Runtime Boundary |
+| Aspect | Workspace Boundary | Runtime Boundary |
 |--------|-------------------|------------------|
 | **State Type** | Provisional, experimental | Canonical, authoritative |
 | **Enforcement** | Soft (LLM) + Hard (tools/human) | Cryptographic (Gateway/Fabric) |
@@ -1655,7 +1706,7 @@ Trust Registry governs cryptographic verification:
 
 | Component | Enforcement Type | Reliability |
 |-----------|------------------|-------------|
-| **Workspace Boundary** |||
+| **Workspace Boundary** | | |
 | Cursor Rules | Hard | Configuration-enforced |
 | RSS Context Selection | Hard | Process-enforced |
 | MCP Domain Validators | Hard | API-enforced |
@@ -1665,7 +1716,7 @@ Trust Registry governs cryptographic verification:
 | DAST | Hard | Scan-enforced |
 | Playwright | Hard | Test-enforced |
 | Human Approval | Hard | Gate-enforced |
-| **Runtime Boundary** |||
+| **Runtime Boundary** | | |
 | Fabric Attestation Signing | Hard (Cryptographic) | Private key signing |
 | Gateway Signature Verification | Hard (Cryptographic) | Public key verification |
 | Gateway Structural Validation | Hard (Cryptographic) | Format enforcement |

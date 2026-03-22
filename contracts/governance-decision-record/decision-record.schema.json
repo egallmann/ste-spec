@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/governance-decision-record/decision-record.schema.json",
+  "title": "GovernanceDecisionRecord (DRAFT)",
+  "description": "Draft row shape for durable governance decisions referencing a rule projection. Pre-normative.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision_id",
+    "projection_id",
+    "adr_id",
+    "outcome",
+    "actor",
+    "recorded_at"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "description": "Stable row identifier."
+    },
+    "projection_id": {
+      "type": "string",
+      "description": "Must match rule-projection-envelope.projection_id."
+    },
+    "rules_closure_hash": {
+      "type": "string",
+      "description": "Closure identity for mechanical verify (often rules_catalog_hash)."
+    },
+    "adr_id": {
+      "type": "string"
+    },
+    "adr_content_hash": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["pass", "fail", "waived", "override"]
+    },
+    "actor": {
+      "type": "string"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "override_of": {
+      "type": "string",
+      "description": "Prior decision_id when superseding."
+    },
+    "envelope_path": {
+      "type": "string"
+    },
+    "notes_uri": {
+      "type": "string"
+    }
+  }
+}

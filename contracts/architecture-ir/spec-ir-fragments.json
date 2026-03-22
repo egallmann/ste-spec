@@ -1,0 +1,107 @@
+[
+  {
+    "id": "component:architecture_graph",
+    "kind": "component",
+    "name": "architecture_graph",
+    "type": "service",
+    "boundary": "kernel",
+    "owners": [
+      "ste-spec"
+    ],
+    "provenance": {
+      "source": {
+        "adapter": "spec",
+        "artifact_uri": "spec://contracts/architecture-ir/spec-ir-fragments.json",
+        "artifact_kind": "spec-ir-fragment"
+      },
+      "last_updated": "2026-03-21T00:00:00.000Z",
+      "derivation_chain": [
+        {
+          "step": 0,
+          "adapter": "spec",
+          "operation": "publish_spec_ir_fragment",
+          "input_ref": "spec://architecture/STE-Architecture.md#architecture-graph",
+          "adapter_schema_version": "1.0",
+          "content_hash": "sha256:b4d874494d1749c7ad75fffd7868542f9cc4dbb1b2e37a0262646c04f105dd8d"
+        }
+      ]
+    }
+  },
+  {
+    "id": "invariant:kernel.boot.readiness.contract",
+    "kind": "invariant",
+    "invariant_key": "kernel.boot.readiness.contract",
+    "statement": "The kernel boot readiness contract must be published deterministically.",
+    "scope": "kernel_boot",
+    "enforcement_level": "must",
+    "enforcement_mechanism": "governance",
+    "verification_method": "manual",
+    "rationale": "Boot orchestration must consume only published contract-backed artifacts.",
+    "provenance": {
+      "source": {
+        "adapter": "spec",
+        "artifact_uri": "spec://contracts/architecture-ir/spec-ir-fragments.json",
+        "artifact_kind": "spec-ir-fragment"
+      },
+      "last_updated": "2026-03-21T00:00:00.000Z",
+      "derivation_chain": [
+        {
+          "step": 0,
+          "adapter": "spec",
+          "operation": "publish_spec_ir_fragment",
+          "input_ref": "spec://invariants/INV-0007-closed-object-contract-discipline",
+          "adapter_schema_version": "1.0",
+          "content_hash": "sha256:d27ddc35ed4120b61a121ac433f6a592af49b817f02a27f71ac3432d79bbd456"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:component.implements.decision.architecture_graph.c6ab3dd75821",
+    "type": "component_implements_decision",
+    "from_id": "component:architecture_graph",
+    "to_id": "decision:c6ab3dd75821e8181aea60442b230e4cdb24d63ea5ebe6436448ba94caf6ef28",
+    "provenance": {
+      "source": {
+        "adapter": "spec",
+        "artifact_uri": "spec://contracts/architecture-ir/spec-ir-fragments.json",
+        "artifact_kind": "spec-ir-fragment"
+      },
+      "last_updated": "2026-03-21T00:00:00.000Z",
+      "derivation_chain": [
+        {
+          "step": 0,
+          "adapter": "spec",
+          "operation": "publish_spec_ir_fragment",
+          "input_ref": "spec://architecture/STE-Architecture.md#architecture-graph",
+          "adapter_schema_version": "1.0",
+          "content_hash": "sha256:0df4e50974799b4033f30f764779ed8b3afb53c315cda4e83c929ba81c7c9b3d"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:invariant.constrains.component.kernel.boot.readiness.contract.architecture_graph",
+    "type": "invariant_constrains_component",
+    "from_id": "invariant:kernel.boot.readiness.contract",
+    "to_id": "component:architecture_graph",
+    "provenance": {
+      "source": {
+        "adapter": "spec",
+        "artifact_uri": "spec://contracts/architecture-ir/spec-ir-fragments.json",
+        "artifact_kind": "spec-ir-fragment"
+      },
+      "last_updated": "2026-03-21T00:00:00.000Z",
+      "derivation_chain": [
+        {
+          "step": 0,
+          "adapter": "spec",
+          "operation": "publish_spec_ir_fragment",
+          "input_ref": "spec://invariants/INV-0007-closed-object-contract-discipline",
+          "adapter_schema_version": "1.0",
+          "content_hash": "sha256:410101d935d06f5497d362acacbbb80f85eb35c4bcd63e85e6ef8fe938c94244"
+        }
+      ]
+    }
+  }
+]

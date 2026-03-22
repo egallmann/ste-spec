@@ -14,8 +14,8 @@ This specification references several detailed invariant and protocol documents 
 The architectural principles and constraints defined in these documents are enumerated within this specification's published files. Formal standalone documents may be published in future releases.
 
 For the current release, constraint definitions are found in:
-- Prime and System Invariants: Enumerated in this document (sections 3.1 and 3.2)
-- Framework Invariants: Described in STE-Architecture.md (section on Framework Synchronization Layer)
+- Prime and System Invariants: Enumerated in this document (section 2 — Layers 1 and 2)
+- Framework Invariants: Described in [`architecture/STE-Architecture.md`](../architecture/STE-Architecture.md) (Framework Synchronization Layer)
 
 ---
 

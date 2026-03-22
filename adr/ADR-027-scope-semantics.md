@@ -9,7 +9,7 @@
 
 ## Context
 
-The STE-System specification references "scope" as a critical dimension for authority verification (§6.2.1 Trust Registry, §8.1.2 PREREQ-6), artifact partitioning (ADR-018 Relationship Artifacts), and execution eligibility (§8.1.3 CEM Envelope). However, the specification does not define what "scope" means structurally, how scope identifiers are formed, or how scope matching is performed.
+The STE-System specification references "scope" as a critical dimension for authority verification (§6.2.1 Trust Registry, §8.1.2 PREREQ-6), artifact partitioning (STE-System specification ADR-018 Relationship Artifacts; not published in `ste-spec`), and execution eligibility (§8.1.3 CEM Envelope). However, the specification does not define what "scope" means structurally, how scope identifiers are formed, or how scope matching is performed.
 
 This ambiguity creates critical correctness risks:
 
@@ -458,7 +458,7 @@ attestation:
 
 ## Relationship Artifacts
 
-**Scoping:** Relationship artifacts (ADR-018) are scoped:
+**Scoping:** Relationship artifacts (STE-System ADR-018) are scoped:
 
 ```yaml
 relationship:
@@ -742,7 +742,7 @@ These behaviors are **testable, observable, and falsifiable** by inspection or r
 
 - **ADR-025: Environment Semantics** - Establishes environment as orthogonal dimension to scope. This ADR ensures scope does not embed environment (R-SCOPE-7).
 - **ADR-019: Gateway Authority and Signing Model** - Establishes Gateway enforces but does not attest. This ADR establishes Gateway enforces scope matching (PREREQ-6) but does not define scope semantics.
-- **ADR-018: Relationship Artifacts** - Establishes relationship artifacts are scoped. This ADR clarifies scope does not constrain edge endpoints.
+- **STE-System ADR-018: Relationship Artifacts** (not published in `ste-spec`) — Establishes relationship artifacts are scoped. ADR-027 clarifies scope does not constrain edge endpoints.
 - **ADR-021: Gateway Trust Verification Model** - Establishes Trust Registry verification algorithm. This ADR extends Trust Registry schema with `ScopeSemanticsVersion` field.
 
 ## Traceability

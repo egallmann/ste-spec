@@ -2,17 +2,17 @@
 
 ## Specification Maturity
 
-**Current Status**: Converged Architecture Under Review
+**Current Status**: Stable Handoff Contracts and Core Doctrine Under Review
 
-This specification represents a converged architectural design. Core invariants, execution semantics, and governance protocols have stabilized through iterative refinement and self-validation.
+This specification publishes a stable cross-repository handoff subset while broader doctrine and draft governance extensions remain under review. Core invariants, execution semantics, and authority boundaries are stable; draft contract families remain explicitly pre-normative.
 
 **Maturity Indicators**:
 - System-of-interest definition: Stable
 - Invariant hierarchy: Converged
 - Cognitive Execution Model: Stable
 - Divergence taxonomy: Converged
-- Governance protocols: Stable
-- Architectural decisions: Converged (operational decisions remain in flux)
+- Governance protocols: Stable at the handoff boundary; some governance extension contracts remain draft
+- Architectural decisions: Converged for the published handoff boundary (operational and governance extension details remain in flux)
 
 ## Versioning
 
@@ -22,7 +22,7 @@ This specification follows semantic versioning (MAJOR.MINOR.PATCH):
 - **MINOR**: New viewpoints, protocols, ADRs, or non-breaking constraint additions
 - **PATCH**: Clarifications, corrections, documentation improvements, or terminology refinements
 
-**Current Version**: 1.0.0 (Initial Public Release)
+**Current Version**: 1.0.0 (stable public handoff-contract subset)
 
 ## Evolution Stance
 
@@ -37,6 +37,13 @@ Core architectural elements are considered stable:
 - Documentation-state governance protocols
 
 Changes to these elements would constitute MAJOR version changes and require careful impact analysis.
+
+The following remain explicitly **draft / pre-normative** within this repository:
+
+- `contracts/rule-projection/`
+- `contracts/governance-decision-record/`
+- `adr/ADR-034-rule-projection-envelope-authority.md`
+- `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ### Design Freedom Preserved
 
@@ -84,13 +91,14 @@ This specification intentionally publishes architectural viewpoints without comp
 - Constraint specifications (invariants and protocols)
 - Execution semantics (stage definitions and responsibilities)
 - Authority boundaries (who signs, enforces, executes)
+- Multi-repository **integration boundaries** and **kernel execution sequencing** at contract level (`architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`)
 
 **Intentionally Excluded**:
 - Implementation details (how to build)
 - Deployment views (where to deploy)
 - Operational procedures (how to operate)
 - Runtime optimization (how to tune performance)
-- Complete realization (end-to-end system description)
+- Exhaustive operational runbooks and step-by-step end-to-end deployment guides (contract-level end-to-end narrative is in-scope; operator playbooks are not)
 
 **This follows ISO/IEC/IEEE 42010 principles regarding architectural description.** The standard requires viewpoints addressing stakeholder concerns, not exhaustive system documentation. Implementation details are preserved as design freedom, not architectural specification.
 
@@ -151,9 +159,19 @@ Reference implementations and operational guidance exist separately from this sp
 
 As long as implementations satisfy the architectural invariants and execution semantics defined here, they are conformant. This specification intentionally preserves implementation design freedom.
 
+## Deferred governance–kernel bridge (informative)
+
+The following are **explicitly deferred** until **rule-projection** and **governance-decision-record** drafts stabilize and `ste-rules-library` prototype CLIs stop churning:
+
+- **Normative signing algorithm** and **key management** for projection envelopes.
+- **Full remote registry** product (prefer **git-committed** index / local JSONL first).
+- **New Architecture IR adapter leg** or **sixth public adapter** for governance-only fragments—requires **merge policy** change in `ste-kernel/contracts/adapter-contracts.yaml` and coordinated `ste-spec` ADR.
+
+**Current bridge (prototype):** `ste-rules-library/scripts/governance_cli.py` + `.github/workflows/governance-cli.yml`; orientation in `architecture/STE-Worked-Example-Walkthrough.md` step **7**. **RulesAdapter** wording in `ste-kernel/contracts/adapter-contracts.yaml` acknowledges future **published sub-surfaces** without adding a new adapter name.
+
 ---
 
-**Last Updated**: 2026-01-02  
+**Last Updated**: 2026-03-21  
 **Version**: 1.0.0  
-**Status**: Converged Architecture Under Review
+**Status**: Stable Handoff Contracts and Core Doctrine Under Review
 
