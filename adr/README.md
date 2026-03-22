@@ -38,9 +38,11 @@ contracts, invariants, or implementation tests.
 - `ADR-031-runtime-kernel-responsibility-boundary.md`
 - `ADR-032-fail-closed-enforcement-model.md`
 - `ADR-033-closed-object-discipline.md`
+- `ADR-034-rule-projection-envelope-authority.md` (proposed)
 
 ## Relationship to Other Surfaces
 
 - `contracts/` defines normative shape
 - `invariants/` defines normative rules
 - `adr/` defines architectural rationale
+- `architecture/STE-Integration-Model.md` and `execution/STE-Kernel-Execution-Model.md` integrate ADR-030–034 with repository boundaries

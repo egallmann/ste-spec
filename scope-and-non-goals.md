@@ -48,6 +48,7 @@ This specification provides:
 - Divergence taxonomy and classification rules
 - Authority boundary model
 - Documentation-state validation requirements
+- **Cross-repository integration contracts** (runtime/kernel handoff schemas, adapter boundary narrative, kernel execution sequencing) without prescribing repository-internal code structure
 
 **Normative Constraints**:
 - What must be true for reasoning to proceed
@@ -66,7 +67,7 @@ This specification provides:
 **Implementation Details**:
 - Programming languages or frameworks
 - Data structures or algorithms
-- Runtime architectures
+- Internal runtime implementation architectures (while **integration contracts** and **boundary responsibilities** remain in scope per above)
 - Performance optimization strategies
 - Deployment mechanisms
 - Directory structures or file organization (examples in documents are illustrative only)

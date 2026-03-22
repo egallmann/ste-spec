@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/rule-projection/rule-projection-envelope.schema.json",
+  "title": "RuleProjectionEnvelope (DRAFT)",
+  "description": "Draft envelope for an ADR-bound authoritative rule projection. Pre-normative: do not rely on $id stability until promoted in ste-spec ADR + INV index.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "envelope_version",
+    "projection_id",
+    "adr_binding",
+    "ruleset_pin",
+    "projection_kind"
+  ],
+  "properties": {
+    "envelope_version": {
+      "type": "string",
+      "description": "Draft envelope format version (semver of this sketch, not ruleset)."
+    },
+    "projection_id": {
+      "type": "string",
+      "description": "Stable identifier for this projection instance (UUID or content-addressed id)."
+    },
+    "projection_kind": {
+      "type": "string",
+      "enum": [
+        "adr_rule_projection",
+        "steelman_attestation",
+        "decision_record",
+        "other"
+      ],
+      "description": "Discriminator for downstream gates and UI."
+    },
+    "adr_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adr_id"],
+      "properties": {
+        "adr_id": {
+          "type": "string",
+          "description": "ADR identifier in the authoring kit namespace."
+        },
+        "adr_content_hash": {
+          "type": "string",
+          "description": "Optional content-address of ADR body at bind time (recommended for signatures)."
+        },
+        "adr_revision": {
+          "type": "string",
+          "description": "Optional human or tool revision label."
+        }
+      }
+    },
+    "ruleset_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleset_version"],
+      "properties": {
+        "ruleset_version": {
+          "type": "string",
+          "description": "Semver or declared catalog version of ste-rules-library (or fork)."
+        },
+        "rules_catalog_hash": {
+          "type": "string",
+          "description": "Optional hash over the ordered rule closure used for the projection."
+        },
+        "closure_expansion": {
+          "type": "string",
+          "description": "Optional URI or CAS key explaining how to expand from pin to full closure."
+        }
+      }
+    },
+    "rule_projection_payload": {
+      "type": "object",
+      "description": "Machine-native slice: rule ids, prompts, checks, or references. Shape TBD per rules-engine.",
+      "additionalProperties": true
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional signed attestation or detached signature blob from rules-engine (format TBD)."
+    },
+    "human_projection_ref": {
+      "type": "string",
+      "description": "Optional URI or artifact id for human-oriented summary derived from this envelope."
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Issuance timestamp; must not affect deterministic verify inputs (use content hashes for identity)."
+    }
+  }
+}

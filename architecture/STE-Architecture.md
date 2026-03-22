@@ -17,6 +17,15 @@ The architectural principles and operational concepts for RECON and AI-DOC are d
 
 **Technology References:** All technology references throughout this document (cloud providers, CI systems, platforms) are informative examples only and are not required for conformance.
 
+**Integration plane:** For the converged **multi-repository** model (Architecture IR,
+`ste-kernel` boot and admission, `ArchitectureEvidence` handoff), use
+`architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`,
+and `architecture/STE-System-Components-and-Responsibilities.md`. The
+**`ste-runtime` repository** implements RECON/RSS-style tooling and evidence
+production; it **does not** by itself realize the organizational **Fabric /
+Gateway / Trust Registry** services described later in this document unless a
+separate deployment explicitly provides them.
+
 ---
 
 # 1. Purpose of This Document
@@ -83,6 +92,8 @@ With STE:
 
 STE operates across **two distinct governance boundaries**: workspace development and runtime execution. Both boundaries enforce constraints but through different mechanisms and at different trust levels.
 
+**Scope note (reference repositories):** Diagrams under **runtime execution** (Fabric, Gateway, Trust Registry, and service boxes labeled like **STE RUNTIME**) describe **organizational / production-style deployment patterns**. They are **not** a claim that the public **`ste-runtime` repository** implements every box shown. For the **reference multi-repository integration** path (IR merge, evidence, admission), use the **Integration plane** paragraph in the Publication Notice above and `architecture/STE-Integration-Model.md`.
+
 ## 3.1 Workspace Development Boundary
 
 The workspace boundary governs local development, experimentation, and provisional reasoning:
@@ -125,6 +136,44 @@ The workspace boundary governs local development, experimentation, and provision
 │   └─────────────────────────────────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
+```
+
+**View (informative):** The ASCII diagram above emphasizes **workspace cognition**
+(IDE, CEM, toolchain, human). The same workspace also participates in the **STE
+integration plane**: **adapter publication surfaces** (ADR, spec, and rules **IR
+fragments**, plus **`ArchitectureEvidence`** from `ste-runtime`) feed **`ste-kernel`**
+for deterministic **load → merge → validate → admit**—without implying the kernel
+**owns** rule semantics (those remain with `ste-rules-library` / **rules-engine**;
+see `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`,
+and `architecture/STE-Worked-Example-Walkthrough.md`). An optional **governance**
+verify (for example attestation reconstruction in **CI**) is **mechanical** at the
+merge path and **composes** with kernel integration; it is not a sixth adapter unless
+published in `ste-kernel/contracts/adapter-contracts.yaml` with merge policy.
+
+**Integration plane slice (informative diagram):**
+
+```mermaid
+flowchart LR
+  subgraph pubs [Publication_surfaces]
+    ADRf[ADR_IR_fragments]
+    SPECf[spec_ir_fragments]
+    RULESf[rules_IR_fragments]
+    EVID[ArchitectureEvidence]
+  end
+
+  subgraph orch [ste_kernel]
+    SK[load_merge_validate_admit]
+  end
+
+  subgraph opt [Optional_mechanical]
+    GOV[governance_CI_verify]
+  end
+
+  ADRf --> SK
+  SPECf --> SK
+  RULESf --> SK
+  EVID --> SK
+  SK -.->|"same_commit_tree"| GOV
 ```
 
 **Enforcement Characteristics:**
