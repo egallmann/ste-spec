@@ -28,11 +28,47 @@ The explicit, machine-readable substrate that grounds **workspace cognition** (A
 
 ### Integration-State
 
-The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document`) that `ste-kernel` consumes for orchestration and admission. Integration-state is **derived** from publication surfaces and runtime evidence inputs. It is authoritative for **kernel integration decisions** only in the sense that the kernel MUST treat validated IR as the sole merged input to admission projection—not as a replacement for documentation-state in repositories.
+The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document`) that `ste-kernel` consumes for orchestration and admission. Integration-state is **derived** from publication surfaces and runtime evidence inputs. It is authoritative for **kernel integration decisions** only in the sense that the kernel MUST treat validated IR as the sole merged input to admission projection—not as a replacement for documentation-state in repositories. **Normative semantics** for Architecture IR (entity and relationship ontology, provenance classes, lifecycle, completeness, governance, Architecture Index) are defined in [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md); **mechanical** JSON Schema and compiled enumerations are **referenced** from `ste-kernel` per [`contracts/README.md`](contracts/README.md).
+
+### Architecture Intermediate Representation (Architecture IR, semantic)
+
+The **canonical machine-oriented architecture model** STE uses to name entities, relationships, provenance, lifecycle, completeness, governance, evidence, gaps, reviews, overrides, remediation, and the **Architecture Index**. The **semantic** specification lives in [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md). **`Compiled_IR_Document`** is the **mechanical** realization at a pinned `ir_version` and **MAY** encode only a subset of semantic types directly; see that document’s **Realization** section.
+
+### Architecture Index
+
+A **time-bounded snapshot** of architecture **system state**: entity and relationship registries, unresolved gaps, validation summary, source coverage, and stable registry locations. Distinct from **`Compiled_IR_Document`**, which is integration-state for kernel merge and admission; the two **MAY** overlap but **MUST NOT** be conflated as identical authority.
+
+### Completeness (architecture model)
+
+A measure of whether the **architecture model** for a declared scope has required nodes, edges, provenance, and governance fields (**complete**, **partial**, **reference_only**, **conflicted**). **MUST NOT** be confused with implementation or delivery completion.
+
+### Provenance class
+
+Classification of how a record’s truth is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in `ste-kernel`.
 
 ### Runtime-State (evidence)
 
 **Observed** signals about the workspace and tooling, carried in the `ArchitectureEvidence` contract (bundle health, freshness, diagnostics). Runtime-state is **factual evidence**, not architectural authority. It informs admission only through kernel evaluation of evidence-shaped fields, never by substituting for declared architecture.
+
+### Open core
+
+The set of public-compatible STE surfaces that may be standardized, published,
+and relied on by external compatible implementations. Open-core surfaces
+typically include deterministic schemas, artifact formats, semantic ontology,
+and validation contracts. See
+[`architecture/OPEN_CLOSED_BOUNDARY.md`](architecture/OPEN_CLOSED_BOUNDARY.md)
+and
+[`architecture/PUBLIC_SYSTEM_SURFACES.md`](architecture/PUBLIC_SYSTEM_SURFACES.md).
+
+### Closed intelligence layer
+
+The set of internal intelligence-bearing STE subsystems whose existence and role
+may be described publicly, but whose implementation remains private. Closed
+intelligence layers typically include private heuristics, scoring, orchestration,
+activation, projection, adversarial reasoning, or inference behavior. Deterministic
+validation layers remain suitable for public standardization even when adjacent
+intelligence-bearing systems remain closed. See
+[`architecture/OPEN_CLOSED_BOUNDARY.md`](architecture/OPEN_CLOSED_BOUNDARY.md).
 
 ## Invariant Hierarchy
 

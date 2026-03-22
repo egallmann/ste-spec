@@ -39,6 +39,7 @@ contracts, invariants, or implementation tests.
 - `ADR-032-fail-closed-enforcement-model.md`
 - `ADR-033-closed-object-discipline.md`
 - `ADR-034-rule-projection-envelope-authority.md` (proposed)
+- `ADR-035-architecture-ir-ontology-authority.md`
 
 ## Relationship to Other Surfaces
 
