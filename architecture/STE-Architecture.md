@@ -24,6 +24,7 @@ The architectural principles and operational concepts for RECON and AI-DOC are d
 **Integration plane:** For the converged **multi-repository** model (Architecture IR,
 `ste-kernel` boot and admission, `ArchitectureEvidence` handoff), use
 [`STE-Integration-Model.md`](./STE-Integration-Model.md),
+[`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md) (semantic Architecture IR ontology),
 [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md),
 and [`STE-System-Components-and-Responsibilities.md`](./STE-System-Components-and-Responsibilities.md). The
 **`ste-runtime` repository** implements RECON/RSS-style tooling and evidence

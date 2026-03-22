@@ -33,6 +33,7 @@ The same legend appears in `architecture/STE-Manifest.md`.
 - `architecture/STE-System-Core.md` (non-optional integration subset registry)
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `architecture/STE-Integration-Model.md`
+- `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR ontology)
 - `execution/STE-Kernel-Execution-Model.md`
 - `contracts/README.md`
 - `invariants/STE-Cross-Component-Contract-Invariants.md`

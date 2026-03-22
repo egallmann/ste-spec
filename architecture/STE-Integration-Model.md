@@ -8,6 +8,12 @@ This document defines the **conceptual integration model** for how
 details of merge and validation are **referenced** to the Architecture IR
 contract bundle in `ste-kernel`.
 
+**Semantic Architecture IR:** canonical ontology and rules (entities,
+relationships, provenance, lifecycle, completeness, governance, Architecture
+Index) are **normative** in
+[`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md);
+see `adr/ADR-035-architecture-ir-ontology-authority.md`.
+
 **Story (informative):** for one narrative that moves from workspace discipline through
 publication surfaces to `ste-kernel`, read
 `architecture/STE-Worked-Example-Walkthrough.md`.
@@ -186,6 +192,8 @@ flowchart LR
 
 ## Related Documents
 
+- `architecture/STE-Architecture-Intermediate-Representation.md`
+- `adr/ADR-035-architecture-ir-ontology-authority.md`
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
