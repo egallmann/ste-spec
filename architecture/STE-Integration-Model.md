@@ -108,6 +108,23 @@ an admission slice.
 **Merge order (normative):** ADR → Spec → Runtime → Rules (see
 `ste-kernel/architecture-ir/architecture-ir.yaml`, mirrored in kernel docs).
 
+**Adapter handoff sequence (informative diagram):** complements the artifact
+flow figure above; same legend as [`STE-Diagram-Conventions.md`](./STE-Diagram-Conventions.md).
+
+```mermaid
+sequenceDiagram
+  participant AdrAdapter as adr_architecture_kit
+  participant SpecAdapter as ste_spec
+  participant RulesAdapter as ste_rules_library
+  participant RuntimeAdapter as ste_runtime
+  participant Kernel as ste_kernel
+  AdrAdapter->>Kernel: IR_fragment_surface
+  SpecAdapter->>Kernel: spec_ir_fragments
+  RulesAdapter->>Kernel: rules_IR_fragments
+  RuntimeAdapter->>Kernel: ArchitectureEvidence
+  Note over Kernel: load_merge_validate_project_evaluate
+```
+
 ### Runtime evidence flow
 
 **`ste-runtime`** produces **`ArchitectureEvidence`** (schema in

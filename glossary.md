@@ -24,7 +24,7 @@ STE uses related but distinct state notions. **MUST** use the term that matches 
 
 ### Documentation-State
 
-The explicit, machine-readable substrate that grounds **workspace cognition** (AI-DOC, inventories, architecture prose, ADR sources). **Normative artifact classes** and publication roles by repository are mapped in `architecture/STE-Canonical-Project-Artifacts.md`. Documentation-state is authoritative for what the organization has **declared** about the system (distinct from **integration-state** and **runtime evidence**).
+The explicit, machine-readable substrate that grounds **workspace cognition** (AI-DOC, inventories, architecture prose, ADR sources). **Normative artifact classes** and publication roles by repository are mapped in [`architecture/STE-Canonical-Project-Artifacts.md`](architecture/STE-Canonical-Project-Artifacts.md). Documentation-state is authoritative for what the organization has **declared** about the system (distinct from **integration-state** and **runtime evidence**).
 
 ### Integration-State
 
@@ -40,13 +40,15 @@ The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document
 
 The highest-level constraint governing all STE reasoning. Prohibits implicit assumptions, undeclared state, unbounded reasoning, unvalidated modifications, and non-framework concepts. All other invariants derive from the Prime Invariant.
 
-**Formal Definition**: Five enumerated constraints (PRIME-1 through PRIME-5) in STE-Prime-Invariant.md.
+**Formal Definition**: Five enumerated constraints (PRIME-1 through PRIME-5) are summarized in [`invariants/STE-Invariant-Hierarchy.md`](invariants/STE-Invariant-Hierarchy.md) (section 2, Layer 1 — Prime Invariant). A standalone `STE-Prime-Invariant.md` is not published in this repository.
 
 ### System Invariants
 
 Global rules governing the entire STE cognitive system. Define system-wide requirements for explicitness, determinism, validator enforcement, divergence resolution, and documentation-state discipline. Apply universally to all reasoning tasks, domains, and artifacts.
 
-**Formal Definition**: Sixteen enumerated constraints (SYS-1 through SYS-16) in STE-System-Invariants.md.
+**Formal Definition**: Sixteen enumerated constraints (SYS-1 through SYS-16) are summarized in [`invariants/STE-Invariant-Hierarchy.md`](invariants/STE-Invariant-Hierarchy.md) (section 2, Layer 2 — System Invariants). A standalone `STE-System-Invariants.md` is not published in this repository.
+
+**Note:** Files named `INV-0001-*.md` under `invariants/` are **cross-component contract invariants** for kernel/runtime handoffs. They use a different identifier scheme than **SYS-1–SYS-16** (doctrine system invariants).
 
 ### Domain Invariants
 

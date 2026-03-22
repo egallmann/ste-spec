@@ -14,13 +14,14 @@ live. It does not define those rules itself.
 - **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adr/` where they govern handoffs.
 - **Orientation (viewpoint):** `architecture/`, `execution/`, and `governance/` prose.
 - **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` — one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
+- **Figures (orientation):** `architecture/STE-Diagram-Conventions.md` — Mermaid vs box/Unicode diagrams; figures are **informative** unless a document explicitly says a figure is normative.
 
 # 2. Suggested Reading Order (table of contents)
 
 1. **Overview:** `README.md`, `status.md`, `scope-and-non-goals.md`, `glossary.md`
 2. **Core concepts:** `architecture/STE-Foundations.md`, `architecture/STE-Reference-Embodiment.md` (informative spine), `architecture/STE-Worked-Example-Walkthrough.md` (informative end-to-end thread), `invariants/STE-Invariant-Hierarchy.md` (and referenced invariant docs)
 3. **System components:** `architecture/STE-System-Components-and-Responsibilities.md`, `architecture/STE-System-Core.md`
-4. **Integration model:** `architecture/STE-Integration-Model.md`
+4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Diagram-Conventions.md` (figure style)
 5. **Execution models**
    - Workspace cognition: `execution/STE-Cognitive-Execution-Model.md`
    - Kernel integration: `execution/STE-Kernel-Execution-Model.md`
@@ -86,6 +87,7 @@ live. It does not define those rules itself.
 - `architecture/STE-Canonical-Project-Artifacts.md`
 - `architecture/STE-System-Core.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
+- `architecture/STE-Diagram-Conventions.md`
 - `execution/STE-Cognitive-Execution-Model.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `glossary.md`

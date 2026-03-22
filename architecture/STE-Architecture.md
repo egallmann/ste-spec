@@ -12,6 +12,10 @@ This architecture description references several detailed protocol and schema do
 
 **AI-DOC Technical Specifications:**
 - `STE-AI-DOC-Schema.md` — Schema definition for AI-DOC artifacts
+- `STE-AI-DOC-Sliceability-Protocol.md` — Sliceability rules for AI-DOC artifacts
+- `STE-AI-DOC-Invariants.md` — AI-DOC-specific invariant constraints
+
+**Prime and system invariants (doctrine):** Enumerated constraints (PRIME-1–5, SYS-1–16) appear in [`invariants/STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md) (section 2, Layers 1–2). Standalone `STE-Prime-Invariant.md` and `STE-System-Invariants.md` files are not included in the v1.0.0 public release bundle for this repository.
 
 The architectural principles and operational concepts for RECON and AI-DOC are described in this document. Detailed implementation protocols may be published in future releases.
 
@@ -19,8 +23,9 @@ The architectural principles and operational concepts for RECON and AI-DOC are d
 
 **Integration plane:** For the converged **multi-repository** model (Architecture IR,
 `ste-kernel` boot and admission, `ArchitectureEvidence` handoff), use
-`architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`,
-and `architecture/STE-System-Components-and-Responsibilities.md`. The
+[`STE-Integration-Model.md`](./STE-Integration-Model.md),
+[`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md),
+and [`STE-System-Components-and-Responsibilities.md`](./STE-System-Components-and-Responsibilities.md). The
 **`ste-runtime` repository** implements RECON/RSS-style tooling and evidence
 production; it **does not** by itself realize the organizational **Fabric /
 Gateway / Trust Registry** services described later in this document unless a
@@ -41,15 +46,12 @@ This file must be updated whenever changes affect system component relationships
 
 This file is canonical and must remain synchronized with:
 
-- STE-Manifest  
-- STE-Foundations  
-- STE-Prime-Invariant  
-- STE-System-Invariants (SYS-1 through SYS-16)
-- STE-Cognitive-Execution-Model  
-- STE-Invariant-Hierarchy
-- STE-AI-DOC-Schema
-- STE-AI-DOC-Sliceability-Protocol
-- STE-AI-DOC-Invariants  
+- [`STE-Manifest.md`](./STE-Manifest.md) (STE-Manifest)  
+- [`STE-Foundations.md`](./STE-Foundations.md) (STE-Foundations)  
+- **STE-Prime-Invariant** and **STE-System-Invariants (SYS-1 through SYS-16)** — enumerated in [`STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md); standalone prime/system invariant files are not published in this repository (see Publication Notice)  
+- [`STE-Cognitive-Execution-Model.md`](../execution/STE-Cognitive-Execution-Model.md) (STE-Cognitive-Execution-Model)  
+- [`STE-Invariant-Hierarchy.md`](../invariants/STE-Invariant-Hierarchy.md) (STE-Invariant-Hierarchy)  
+- **STE-AI-DOC-Schema**, **STE-AI-DOC-Sliceability-Protocol**, **STE-AI-DOC-Invariants** — not published as standalone files in this repository (see Publication Notice); concepts are reflected in this document and related architecture prose  
 
 ---
 
@@ -267,7 +269,7 @@ The runtime boundary governs production reasoning with cryptographic enforcement
 
 ## 3.3 Boundary Comparison
 
-|| Aspect | Workspace Boundary | Runtime Boundary |
+| Aspect | Workspace Boundary | Runtime Boundary |
 |--------|-------------------|------------------|
 | **State Type** | Provisional, experimental | Canonical, authoritative |
 | **Enforcement** | Soft (LLM) + Hard (tools/human) | Cryptographic (Gateway/Fabric) |
@@ -1704,7 +1706,7 @@ Trust Registry governs cryptographic verification:
 
 | Component | Enforcement Type | Reliability |
 |-----------|------------------|-------------|
-| **Workspace Boundary** |||
+| **Workspace Boundary** | | |
 | Cursor Rules | Hard | Configuration-enforced |
 | RSS Context Selection | Hard | Process-enforced |
 | MCP Domain Validators | Hard | API-enforced |
@@ -1714,7 +1716,7 @@ Trust Registry governs cryptographic verification:
 | DAST | Hard | Scan-enforced |
 | Playwright | Hard | Test-enforced |
 | Human Approval | Hard | Gate-enforced |
-| **Runtime Boundary** |||
+| **Runtime Boundary** | | |
 | Fabric Attestation Signing | Hard (Cryptographic) | Private key signing |
 | Gateway Signature Verification | Hard (Cryptographic) | Public key verification |
 | Gateway Structural Validation | Hard (Cryptographic) | Format enforcement |
