@@ -1,0 +1,11 @@
+{
+  "description": "Pinned pointer from ste-spec to the ste-kernel Architecture IR mechanical bundle. Update when ste-kernel bumps ir_version or schema_id.",
+  "ir_version": "0.1.0",
+  "schema_id": "https://ste-kernel.local/schema/architecture-ir/0.1.0/architecture-ir.schema.json",
+  "kernel_bundle": {
+    "architecture_ir_yaml": "ste-kernel/architecture-ir/architecture-ir.yaml",
+    "architecture_ir_schema_json": "ste-kernel/architecture-ir/architecture-ir.schema.json",
+    "architecture_ir_normative_markdown": "ste-kernel/documentation/ARCHITECTURE_IR.md",
+    "adapter_contracts_yaml": "ste-kernel/contracts/adapter-contracts.yaml"
+  }
+}

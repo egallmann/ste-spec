@@ -16,8 +16,20 @@ handoff.
 - `INV-0007-closed-object-contract-discipline.md`
 - `INV-0008-invalid-bundle-requires-error-diagnostics.md`
 - `INV-0009-degraded-bundle-requires-diagnostic-context.md`
+- `INV-0010-rule-projection-envelope-discipline.md` (draft scope; see file status)
 
 ## Related Contracts
 
 - `contracts/architecture-evidence.schema.json`
 - `contracts/kernel-admission-assessment.schema.json`
+- `contracts/architecture-ir/spec-ir-fragments.json`
+- `contracts/rule-projection/` (draft rule projection envelope; pre-normative)
+- `contracts/governance-decision-record/` (draft governance decision rows; pre-normative)
+
+## Failure Layering
+
+- `invariants/STE-Failure-Taxonomy-Boundaries.md`
+
+## Related orientation
+
+- `architecture/STE-System-Core.md`

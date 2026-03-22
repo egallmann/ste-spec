@@ -22,6 +22,8 @@ This file is canonical and must remain aligned with:
 - STE-Artifact-Specifications  
 - STE-Cognitive-Execution-Model
 - STE-RECON-Protocol
+- STE-Integration-Model
+- STE-Kernel-Execution-Model
 
 ---
 
@@ -68,6 +70,26 @@ STE cleanly separates:
 - **how state is bootstrapped** (RECON protocol)  
 
 This separation ensures clarity, stability, and non-overlapping responsibilities.
+
+---
+
+## 2.3a Documentation-State, Integration-State, and Runtime Evidence
+
+STE **MUST** treat three related planes as distinct:
+
+1. **Documentation-state** — declared truth in repositories (AI-DOC, ADRs, manifests, schemas).
+2. **Integration-state** — the merged, validated **`Compiled_IR_Document`** consumed by `ste-kernel` for orchestration and admission projection.
+3. **Runtime evidence** — factual **`ArchitectureEvidence`** from `ste-runtime` (bundle health, freshness); non-decision-bearing at the handoff boundary.
+
+Normative handoff contracts and roles: `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, `glossary.md`.
+
+**Documentation-state map:** `architecture/STE-Canonical-Project-Artifacts.md`.
+
+**Non-optional integration subset (registry):** `architecture/STE-System-Core.md`.
+
+**Informative (human-first):** how workspace cognition and the integration spine relate
+as **one design problem with two operational faces** — see section **One design problem,
+two operational faces (human-first)** in `architecture/STE-Reference-Embodiment.md`.
 
 ---
 
@@ -130,6 +152,8 @@ Invariants must be:
 - internally consistent  
 - mapped to divergence types  
 - placed in the correct hierarchy layer  
+
+**Invariant vs Rule:** In STE doctrine and the invariant hierarchy, use **invariant** for normative constraints. In the **integration plane**, **rules** are additionally a distinct artifact class (for example governance rules from `ste-rules-library`) and map to IR **`rule`** entities where applicable. **MUST NOT** treat “invariant” and “rule” as interchangeable when discussing Architecture IR or kernel admission inputs.
 
 ---
 
@@ -199,9 +223,17 @@ Synchronization prevents the framework itself from drifting.
 | **Execution Model** | Govern how reasoning proceeds |
 | **Sync Layer** | Maintain coherence of the entire framework |
 | **RECON Protocol** | Bootstrap explicit state from existing artifacts |
+| **Multi-repository integration** | Adapter publication surfaces, merged Architecture IR, kernel admission (`architecture/STE-System-Components-and-Responsibilities.md`) |
 
 All components must work together.  
 None may contradict another.
+
+## 4.1 Worked example (informative)
+
+For **one** onboarding narrative that threads workspace tooling, optional scoped
+agent passes, publication surfaces, and `ste-kernel` consumption—without adding
+MUSTs—read `architecture/STE-Worked-Example-Walkthrough.md`. See also the **reading
+legend** in `README.md` and `architecture/STE-Manifest.md`.
 
 ---
 
