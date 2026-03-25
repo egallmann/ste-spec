@@ -9,6 +9,14 @@ This manifest is the canonical map of published authority surfaces in
 It points to where contract shape, rules, decisions, and orientation artifacts
 live. It does not define those rules itself.
 
+For kernel enforcement paths that depend on instance-level evaluation, the
+Manifest also serves as the primary published surface for resolving system
+identity and declared Environments, and for resolving environment-relevant
+component participation or applicability where accepted doctrine already
+supports that distinction. This does not create a new Manifest authority class
+or require per-environment component modeling unless the declared enforcement
+path depends on it.
+
 ## 1.1 Reading legend (normative vs orientation vs illustration)
 
 - **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adr/` where they govern handoffs; Architecture IR **semantics** in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).

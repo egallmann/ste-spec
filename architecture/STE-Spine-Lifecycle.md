@@ -53,6 +53,8 @@ does not redefine artifact taxonomy, which remains canonical in
 - Evidence and lifecycle feedback use a conformance-state overlay on top of the
   locked Spine states. That overlay affects execution eligibility without
   replacing the canonical Spine lifecycle.
+- The same System may occupy different lifecycle and conformance postures in
+  different Environments because evaluation is instance-scoped.
 
 ## Related Documents
 

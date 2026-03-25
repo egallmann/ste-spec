@@ -149,6 +149,11 @@ and governance-side prerequisites before allowing execution. It approves
 boundary execution eligibility; it does not replace runtime systems, direct
 business execution, or CI/CD.
 
+At this boundary, `ste-kernel` evaluates a System Instance: the active System
+as resolved in one explicit Environment under the active evaluation scope.
+Environment remains orthogonal to scope and is part of instance-level
+eligibility rather than incidental metadata.
+
 ### Adjudicator boundary (rules-engine → governance; `ste-kernel` orchestrates)
 
 **Informative.** **Rule closure materialization** (projection envelopes with **hashes**,

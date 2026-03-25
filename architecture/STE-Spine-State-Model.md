@@ -158,6 +158,9 @@ divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
   [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md).
 - `Lifecycle stage`, `Spine lifecycle state`, and `conformance state` are
   distinct terms in this model.
+- Spine lifecycle state and conformance overlay state apply to the evaluated
+  System Instance or evaluated scope, not to an abstract System detached from
+  Environment.
 - Not every artifact class traverses every state.
 - `Published`, `Compiled`, and `Admitted` are integration and admission states,
   not states of every repository artifact.

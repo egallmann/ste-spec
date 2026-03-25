@@ -116,6 +116,26 @@ and admission boundary.
 - refusing execution when required conditions are not satisfied
 - recording enforcement decisions and violations
 
+### Evaluation Scope Definitions
+
+- `System` means the governed architecture subject or bounded whole under
+  evaluation.
+- `Environment` means the explicit deployment or operational context in which
+  canonical state, evidence, and enforcement inputs apply. It remains
+  orthogonal to scope per `ADR-025` and `ADR-027`.
+- `System Instance` means a System as evaluated in one specific Environment.
+- `Evaluation Scope` means the exact System Instance slice the kernel evaluates
+  for execution eligibility, including required artifacts, evidence,
+  governance inputs, and environment-specific context.
+
+**MUST:** The kernel determines execution eligibility at the System Instance
+level.
+
+**MUST:** The same System may be eligible in one Environment and non-eligible
+in another.
+
+**MUST:** Environment is part of evaluation identity, not incidental metadata.
+
 ### Kernel Is Not An Authority Creator
 
 **MUST:** The Kernel does not create authority.
@@ -147,6 +167,14 @@ Kernel inputs are:
 - evidence inputs
 - governance configuration inputs
 - environment and system context required by the active enforcement path
+
+Manifest inputs resolve the active System Instance for the enforcement path.
+They define or resolve system identity, declared Environments where the
+enforcement path depends on them, and environment-relevant component
+participation or applicability where accepted doctrine already supports that
+distinction. This clarification does not create a new Manifest authority class
+or require per-environment component modeling unless the declared enforcement
+path depends on it.
 
 ### Kernel Outputs
 
@@ -202,10 +230,14 @@ This minimum set is enforced through the execution eligibility matrix and
 checklist. Missing or unverifiable required artifacts make the execution
 request non-eligible.
 
+For instance-scoped evaluation, the current manifest is also the primary input
+for resolving system identity and declared Environments where the active
+enforcement path depends on them.
+
 ## Kernel Execution Eligibility Checklist
 
 Before allowing execution, the kernel evaluates this checklist against the
-active execution scope:
+active evaluation scope:
 
 - required Logical ADRs are accepted
 - required Physical-System ADR is accepted
@@ -232,6 +264,10 @@ input set.
 
 **MUST NOT:** The kernel MUST NOT infer missing acceptance, missing authority,
 or missing governance completeness.
+
+**MUST:** The kernel evaluates lifecycle state, conformance state, evidence,
+and governance completeness for the active System Instance, not for an abstract
+System detached from environment.
 
 ## Evidence and Lifecycle Effects
 

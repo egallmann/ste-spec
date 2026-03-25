@@ -86,6 +86,12 @@ An **integration** is a declared dependency or coupling between this system and 
 
 A **system** is the bounded whole under architecture governance (the product, platform, or program). It is the implicit or explicit root scope for namespaces, indices, and coverage summaries.
 
+An evaluated **System Instance** is that System considered in one explicit
+Environment for a given evaluation scope. Environment remains orthogonal to
+scope; the same System may therefore present different lifecycle,
+completeness, governance, or conformance-relevant posture in different
+Environments.
+
 ### 2.10 `evidence`
 
 **Evidence** is observable material (measurements, attestations, build outputs, runtime bundle health) that supports truth claims. **MUST NOT** treat evidence as an admission decision at the runtime/kernel handoff; evidence is **factual input** to evaluation (see [`STE-Integration-Model.md`](./STE-Integration-Model.md), invariants INV-0001, INV-0002).
