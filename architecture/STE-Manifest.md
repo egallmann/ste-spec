@@ -1,4 +1,4 @@
-﻿# System of Thought Engineering (STE) â€” Manifest
+# System of Thought Engineering (STE) — Manifest
 ## Canonical Artifact Map
 
 # 1. Purpose
@@ -19,8 +19,8 @@ live. It does not define those rules itself.
 - **Analysis-only (non-normative):**
   `architecture/STE-Spine-Extracted-Doctrine.md` is reconstruction material for
   audit and traceability only.
-- **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` â€” one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
-- **Figures (orientation):** `architecture/STE-Diagram-Standards.md` â€” canonical diagram representation and projection doctrine; `architecture/STE-Diagram-Conventions.md` provides editorial guidance only. Figures are projection artifacts and are **informative** unless a document explicitly says a figure is normative.
+- **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` — one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
+- **Figures (orientation):** `architecture/STE-Diagram-Standards.md` — canonical diagram representation and projection doctrine; `architecture/STE-Diagram-Conventions.md` provides editorial guidance only. Figures are projection artifacts and are **informative** unless a document explicitly says a figure is normative.
 
 # 2. Suggested Reading Order (table of contents)
 
@@ -46,10 +46,10 @@ live. It does not define those rules itself.
 
 # 3. Canonical Authority Split
 
-- `contracts/` â€” normative serialized contract shape
-- `invariants/` â€” normative rules and semantic constraints
-- `adr/` â€” architectural decisions and rationale
-- `architecture/`, `execution/`, `governance/` â€” generally orientation and
+- `contracts/` — normative serialized contract shape
+- `invariants/` — normative rules and semantic constraints
+- `adr/` — architectural decisions and rationale
+- `architecture/`, `execution/`, `governance/` — generally orientation and
   viewpoint material, except explicitly named accepted supporting-doctrine files
 
 For the Spine tranche:
@@ -80,7 +80,7 @@ If wording appears inconsistent, precedence is:
 - `contracts/kernel-admission-assessment.schema.json`
 - `contracts/architecture-ir/spec-ir-fragments.json`
 - `contracts/architecture-ir-kernel-contract-pin.json` (pinned `ir_version` / `schema_id` pointer)
-- `contracts/rule-projection/` (draft rule projection envelope; pre-normativeâ€”see `contracts/README.md`)
+- `contracts/rule-projection/` (draft rule projection envelope; pre-normative—see `contracts/README.md`)
 - `contracts/governance-decision-record/` (draft decision rows referencing projections; pre-normative)
 - `contracts/examples/`
 - Referenced IR bundle: see `contracts/README.md` (kernel-owned)
@@ -164,4 +164,3 @@ When the runtime/kernel handoff changes, update:
 3. `adr/` for rationale
 4. `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, and `contracts/README.md` when boundaries shift
 5. orientation surfaces only as needed for navigation
-

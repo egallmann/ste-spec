@@ -61,8 +61,9 @@ This ADR does not define:
 ## Lifecycle Placement in the STE Spine
 
 This ADR governs Derived projection posture across the STE Spine by defining how
-representational views express lifecycle, authority, and flow without becoming
-authoritative sources themselves.
+representational outputs generated from lifecycle material express lifecycle,
+authority, and flow without becoming authoritative sources or separate
+lifecycle states themselves.
 
 ## Consequences
 

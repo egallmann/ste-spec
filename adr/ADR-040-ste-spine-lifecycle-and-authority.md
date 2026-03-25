@@ -171,14 +171,44 @@ The Spine system lifecycle states are:
 
 This is a system lifecycle model, not a universal single-artifact state machine.
 
-State participation is:
+| State | Meaning | Applicable artifact classes or lifecycle segment | Authority effect | Generation / derivation effect |
+| --- | --- | --- | --- | --- |
+| Drafted | Normative intent or corrective intent has been written but is not yet authoritative for its scope. | Normative intent work and next-cycle remediation outputs | Does not assign or change authority ownership. | Does not authorize downstream implementation, proof, or publication as accepted Spine output. |
+| Accepted | Normative intent is authoritative for its scope. | Normative artifacts | Makes the accepted normative intent authoritative for its scope without changing repository authority ownership. | Authorizes downstream implementation, proof, and publication work against the accepted intent. |
+| Implemented | Executable logic exists in implementation repositories for the accepted scope. | Implementation artifacts | Does not elevate implementation to normative authority. | Makes the implementation eligible for proof / verification. |
+| Verified | Proof output exists for the implementation or publication surface under review. | Proof Logic and the implementation segment it verifies | Does not elevate implementation to normative authority. | Makes the verified scope eligible for publication / integration input. |
+| Published | Declared integration inputs are available through the required publication surfaces. | Derived publication outputs and other declared integration inputs | Does not make Derived artifacts authoritative. | Makes the published inputs eligible for compilation. |
+| Compiled | Validated compiled integration-state exists. | Derived compiled integration-state | Does not replace Architecture IR semantic authority or change authority ownership. | Makes the validated compiled state eligible for admission evaluation and downstream projection. |
+| Admitted | Caller-facing admission output exists. | Admission decision segment | Does not change normative authority ownership; it establishes the caller-facing decision result at the kernel boundary. | Makes the admitted or operative runtime path eligible for execution. |
+| Executed | Runtime execution has occurred for the relevant admitted or operative path. | Runtime execution segment | Does not change authority ownership. | Makes runtime facts eligible to be emitted as evidence. |
+| Observed | Factual evidence exists. | Evidence artifacts | Does not change authority ownership; it establishes observational authority within the evidence boundary. | Makes evidence eligible for assessment and governance input. |
+| Assessed | Interpretive outputs exist. | Reports and assessment outputs | Does not create normative authority. | Makes assessment results eligible for governance decision. |
+| Remediated | Corrective action or governance disposition has been explicitly recorded for the next cycle. | Governance outputs and internal remediation tracking | Does not by itself create new normative authority. | Makes next-cycle intent update eligible to re-enter Drafted or Accepted. |
+| Superseded | Earlier accepted normative intent is no longer the current authoritative intent. | Normative artifacts | Ends current applicability of the earlier accepted normative intent without changing authority ownership. | Prevents superseded intent from acting as the current accepted basis for new downstream work. |
 
-- Normative: Drafted -> Accepted -> Superseded
-- Implementation: Implemented -> Verified
-- Derived: Published -> Compiled -> Admitted
-- Runtime: Executed -> Observed
-- Reports: Assessed
-- Governance: Remediated -> Intent Update
+Allowed transition constraints are:
+
+- `Drafted -> Accepted`
+- `Accepted -> Implemented`
+- `Implemented -> Verified`
+- `Verified -> Published`
+- `Published -> Compiled`
+- `Compiled -> Admitted`
+- `Admitted -> Executed`
+- `Executed -> Observed`
+- `Observed -> Assessed`
+- `Assessed -> Remediated`
+- `Accepted -> Superseded`
+- `Remediated -> Drafted`
+- `Remediated -> Accepted`
+
+Transitions not named by the Spine are invalid or undefined at this lifecycle
+level.
+
+No state change by itself changes canonical authority ownership.
+
+State constrains readiness and eligibility to generate downstream artifacts. It
+does not reassign ownership of truth.
 
 Where narrower accepted doctrine already defines local lifecycle states, such as
 Architecture IR record states, those local vocabularies remain valid in their
@@ -205,7 +235,7 @@ Observation occurs in the runtime evidence layer.
 
 - `ste-runtime` produces `ArchitectureEvidence`
 - evidence is factual only
-- evidence may inform freshness, bundle health, and subsequent evaluation
+- evidence informs freshness, bundle health, and subsequent evaluation
 - evidence must not embed caller-facing admission decision semantics
 
 ### 7. Assessment points
@@ -270,7 +300,7 @@ Evidence is the observational layer of the Spine.
 Reports are the interpretive layer of the Spine.
 
 - reports summarize, assess, compare, or review
-- reports may consume authoritative or observed inputs
+- reports consume authoritative or observed inputs
 - reports do not become authoritative because they are useful or versioned
 
 ### 13. Projection role
@@ -278,7 +308,11 @@ Reports are the interpretive layer of the Spine.
 Projection is the representational layer of the Spine.
 
 - canonical diagrams and similar projection artifacts are derived views
-- projections help explain lifecycle, authority, flow, and governance state
+- projections are generated from compiled, observed, or assessed material to
+  explain lifecycle, authority, flow, and governance state
+- projection is a representational posture, not a state family or artifact
+  class
+- projection generation does not affect authority or canonicity
 - projections do not introduce semantics absent from accepted authoritative
   sources
 

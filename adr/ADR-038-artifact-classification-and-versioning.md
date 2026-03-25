@@ -59,7 +59,8 @@ class boundary, or different versioning posture, this ADR controls.
 
 This ADR applies across the full STE Spine by classifying which artifact
 families participate in intent, implementation, proof, compilation, evidence,
-assessment, and governance without defining the runtime sequence itself.
+assessment, and governance without defining the lifecycle sequence or state
+machine itself.
 
 ## Relationship to the STE Spine
 

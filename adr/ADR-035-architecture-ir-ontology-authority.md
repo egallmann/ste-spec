@@ -31,7 +31,8 @@ schema ownership.
 
 This ADR anchors the semantic meaning of Architecture IR across Intent
 Definition and Architecture IR Compilation while preserving the separate
-kernel-owned mechanics of compiled integration-state.
+kernel-owned mechanics of compiled integration-state. Compiled state does not
+change semantic authority ownership.
 
 ## Relationship to Enforcement Model
 

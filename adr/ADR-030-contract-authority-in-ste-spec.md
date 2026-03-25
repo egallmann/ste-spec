@@ -21,7 +21,8 @@ Rationale and boundary intent live in `adr/`.
 
 This ADR sits in the Intent Definition stage of the STE Spine and governs the
 normative contract authority that shapes Publication / Integration Input at the
-runtime/kernel boundary.
+runtime/kernel boundary. It anchors those stages without defining the full
+Spine sequence or state machine.
 
 ## Rationale
 
