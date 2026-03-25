@@ -220,6 +220,10 @@ Enforcement in the Spine occurs primarily at the kernel boundary.
 
 - `ste-kernel` loads required publication-surface inputs
 - `ste-kernel` merges and validates IR
+- `ste-kernel` is the lifecycle enforcement control point for execution
+  eligibility at the admission boundary
+- `ste-kernel` verifies required authority, lifecycle state, and governance
+  prerequisites before emitting caller-facing admission output
 - invalid runtime evidence is fail-closed at the kernel boundary
 - admission evaluation must run only on validated IR
 - closed-object discipline prevents undeclared semantic channels across the

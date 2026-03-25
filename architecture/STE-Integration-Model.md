@@ -143,6 +143,9 @@ decision semantics.
 **`ste-kernel`** is the **sole** integration orchestrator for merge, IR
 validation, and admission evaluation at this boundary. It **MUST** fail closed
 when boot or IR validation fails (see `execution/STE-Kernel-Execution-Model.md`).
+It is also the deterministic enforcement point for execution eligibility at the
+admission boundary: it verifies required authority, lifecycle state, evidence,
+and governance-side prerequisites before allowing execution.
 
 ### Adjudicator boundary (rules-engine → governance; `ste-kernel` orchestrates)
 

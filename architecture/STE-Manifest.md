@@ -104,6 +104,7 @@ artifact class. Regenerate and validate it with
 - `invariants/INV-0008-invalid-bundle-requires-error-diagnostics.md`
 - `invariants/INV-0009-degraded-bundle-requires-diagnostic-context.md`
 - `invariants/INV-0010-rule-projection-envelope-discipline.md` (draft scope; projection vs governance decision record)
+- `invariants/INV-0011-kernel-fails-closed-on-unverifiable-execution-prerequisites.md`
 
 # 6. Handoff ADR Surfaces
 

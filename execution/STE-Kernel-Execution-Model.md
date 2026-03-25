@@ -2,10 +2,10 @@
 
 ## Purpose
 
-This document defines the **normative execution sequence** for `ste-kernel`
-integration: boot through admission. It is **conceptual**; field-level rules and
-schema mechanics are in `ste-spec/contracts/` and the **referenced** IR bundle
-under `ste-kernel`.
+This document defines the **normative execution sequence** and **normative
+kernel enforcement contract** for `ste-kernel` integration: boot through
+admission. Field-level rules and schema mechanics are in `ste-spec/contracts/`
+and the referenced IR bundle under `ste-kernel`.
 
 ---
 
@@ -69,6 +69,118 @@ admission JSON alongside boot failure (kernel boot contract).
 
 **MUST:** Invalid or incomplete evidence handling follows INV-0006 and related
 handoff invariants.
+
+**MUST:** If required execution prerequisites cannot be verified, the kernel
+fails closed and refuses execution eligibility.
+
+---
+
+## Kernel Enforcement Model
+
+### Kernel Enforcement Responsibility
+
+`ste-kernel` is the deterministic enforcement control point at the integration
+and admission boundary.
+
+`ste-kernel` is responsible for:
+
+- verifying artifact authority
+- verifying required lifecycle state
+- determining execution eligibility
+- refusing execution when required conditions are not satisfied
+- recording enforcement decisions and violations
+
+### Kernel Is Not An Authority Creator
+
+**MUST:** The Kernel does not create authority.
+
+**MUST:** The Kernel enforces authority defined by accepted artifacts,
+lifecycle state, and governance configuration.
+
+### Kernel Inputs
+
+Kernel inputs are:
+
+- ADR artifacts required for the active execution scope
+- Manifest inputs
+- Architecture Index inputs
+- rules inputs available on declared publication surfaces
+- lifecycle state and accepted-status inputs
+- evidence inputs
+- governance configuration inputs
+- environment and system context required by the active enforcement path
+
+### Kernel Outputs
+
+Kernel outputs are:
+
+- execution allowed or denied
+- violations
+- required lifecycle transitions or missing prerequisites
+- audit record
+- enforcement decision log
+
+## Execution Eligibility Matrix
+
+`Publication` is a lifecycle role, not an artifact class. Projection artifacts
+are derived representational outputs and are not execution-authorizing inputs.
+
+| Artifact / Input | Required lifecycle state | Required authority condition | Kernel may use artifact? | Kernel must block execution if invalid or unverifiable? |
+| --- | --- | --- | --- | --- |
+| ADR-L | `Accepted` | Accepted normative authority in `ste-spec` or accepted authoritative source referenced by doctrine | Yes | Yes, when required for the active execution scope |
+| ADR-PS | `Accepted` | Accepted normative authority | Yes | Yes, when required for the active execution scope |
+| ADR-PC | `Accepted` | Accepted normative authority | Yes | Yes, when required for the active execution scope |
+| Rules | `Published`, or equivalent active availability on the declared publication surface | Published rule inputs are available from their accepted authority surface; rule projections or decision records are not self-authorizing | Yes | Yes, when required by the active enforcement path |
+| Manifest | `Accepted`, or current published repository authority surface where the enforcement path depends on it | Authoritative manifest surface is current enough for the enforcement path being used | Yes | Yes, if the manifest is required to resolve required kernel inputs |
+| Architecture Index | `Assessed`, or latest accepted or published governance snapshot as applicable to the enforcement path | Used as governance or system-state input and not as replacement normative authority | Yes | Yes, when the active enforcement path declares index completeness or gap status as required |
+| Evidence | `Observed` | Factual evidence only, valid within the evidence boundary | Yes | Yes |
+| Governance configuration | `Assessed` and/or `Remediated`, as applicable to current governance completeness | Accepted governance-side inputs are complete enough for the execution path; draft governance-decision contracts are not mandatory authority sources | Yes | Yes, when governance completeness is required and cannot be verified |
+
+## Kernel Execution Eligibility Checklist
+
+Before allowing execution, the kernel evaluates this checklist against the
+active execution scope:
+
+- required Logical ADRs are accepted
+- required Physical-System ADR is accepted
+- required Physical-Component ADRs are accepted
+- required rules inputs are active and available on declared publication surfaces
+- no blocking gaps or violations exist for the requested execution path
+- required manifest input is current and loadable
+- required Architecture Index input is present when the active enforcement path depends on governance or system-state completeness
+- governance configuration is complete enough for the requested execution path
+- required invariants are satisfied
+- required evidence checks pass
+- required lifecycle state for each execution-authorizing input is verified
+
+**MUST:** If any required checklist condition fails or cannot be verified, the
+Kernel MUST refuse execution.
+
+**MUST:** `cannot be verified` and `verified as failing` both produce refusal.
+
+**MUST:** Checklist evaluation is deterministic and replayable from the same
+input set.
+
+**MUST NOT:** The kernel MUST NOT infer missing acceptance, missing authority,
+or missing governance completeness.
+
+## Audit and Traceability Requirement
+
+**MUST:** The kernel must produce an audit-capable enforcement decision record
+for every allow or deny result.
+
+The enforcement record must include:
+
+- what was checked
+- what passed
+- what failed
+- why execution was allowed or denied
+- which artifact versions or identities were used
+- which lifecycle states were relied on
+- which authority conditions were relied on
+
+The audit record is an output of enforcement, not a new authority source. It
+does not create authority; it documents enforcement of existing authority.
 
 ---
 
@@ -160,6 +272,7 @@ consuming only declared publication surfaces.
 - `architecture/STE-Integration-Model.md`
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
+- `invariants/INV-0011-kernel-fails-closed-on-unverifiable-execution-prerequisites.md`
 - `invariants/STE-Failure-Taxonomy-Boundaries.md`
 
 ## Canon Status

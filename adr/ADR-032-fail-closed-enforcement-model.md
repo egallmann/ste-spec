@@ -18,7 +18,9 @@ Invalid runtime evidence is fail-closed at the kernel boundary.
 This ADR operates at the enforcement point between Observation (Evidence),
 Architecture IR Compilation, and Admission Decision by requiring invalid
 boundary evidence or other invalid publication inputs to block downstream
-compilation and admission outcomes.
+compilation and admission outcomes. The same fail-closed boundary applies when
+required execution prerequisites are invalid or unverifiable, not only when
+evidence payloads are malformed.
 
 ## Relationship to Enforcement Model
 

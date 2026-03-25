@@ -21,6 +21,8 @@ This ADR defines the boundary between Runtime Execution and Observation
 (Evidence) on the runtime side and Admission Decision on the kernel side.
 Runtime-side lifecycle participation stops at Observation (Evidence);
 caller-facing decision output appears at Admission Decision in `ste-kernel`.
+Admission authority at that boundary includes deterministic execution
+eligibility determination before caller-facing admission output is emitted.
 
 ## Rationale
 
