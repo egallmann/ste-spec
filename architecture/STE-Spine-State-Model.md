@@ -92,11 +92,15 @@ Accepted IR record states map at this lifecycle level as follows:
 
 ## Notes
 
+- Detailed artifact placement and direct kernel input mapping are explained in
+  [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md).
 - Not every artifact class traverses every state.
 - `Published`, `Compiled`, and `Admitted` are integration and admission states,
   not states of every repository artifact.
 - `Assessed` covers report, validation, and review outputs already present in
   accepted doctrine.
+- `Admitted` names the state of the derived caller-facing admission output.
+  Interpretive reports about admission remain in `Assessed`.
 - Evidence-driven non-conformance and incident outcomes are enforcement
   statuses and governance triggers layered on this state model. They are not
   additional lifecycle states.

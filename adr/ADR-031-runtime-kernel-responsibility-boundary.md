@@ -17,15 +17,9 @@ caller-facing decision authority.
 
 ## Lifecycle Placement in the STE Spine
 
-This ADR defines the boundary between Runtime Execution and Observation
-(Evidence) on the runtime side and Admission Decision on the kernel side.
-Runtime-side lifecycle participation stops at Observation (Evidence);
-caller-facing decision output appears at Admission Decision in `ste-kernel`.
-Admission authority at that boundary includes deterministic execution
-eligibility determination before caller-facing admission output is emitted for
-actions that change system state, process production data, provision or modify
-infrastructure, invoke workflows or agents, or produce externally visible
-effects.
+This ADR operates at Admission Decision by assigning caller-facing admission
+output to `ste-kernel`. It also affects Observation (Evidence) by confining
+`ste-runtime` to factual evidence production before the kernel boundary.
 
 ## Rationale
 

@@ -58,9 +58,11 @@ class boundary, or different versioning posture, this ADR controls.
 ## Lifecycle Placement in the STE Spine
 
 This ADR applies across the full STE Spine by classifying which artifact
-families participate in intent, implementation, proof, compilation, evidence,
-assessment, and governance without defining the lifecycle sequence or state
-machine itself.
+families participate in Intent Definition, Implementation, Proof /
+Verification, Publication / Integration Input, Architecture IR Compilation,
+Admission Decision, Observation (Evidence), Assessment (Reports), and
+Governance Decision without defining the lifecycle sequence or state machine
+itself.
 
 ## Relationship to the STE Spine
 

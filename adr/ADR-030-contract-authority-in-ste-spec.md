@@ -19,10 +19,11 @@ Rationale and boundary intent live in `adr/`.
 
 ## Lifecycle Placement in the STE Spine
 
-This ADR sits in the Intent Definition stage of the STE Spine and governs the
-normative contract authority that shapes Publication / Integration Input at the
-runtime/kernel boundary. It anchors those stages without defining the full
-Spine sequence or state machine.
+This ADR operates in the Intent Definition stage of the STE Spine by governing
+the normative contract authority that shapes Publication / Integration Input at
+the runtime/kernel boundary. It also affects Publication / Integration Input by
+constraining which contract-backed artifacts can participate there without
+defining the full Spine sequence or state machine.
 
 ## Rationale
 

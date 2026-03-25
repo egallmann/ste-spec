@@ -144,13 +144,17 @@ Artifact participation is:
 - Normative artifacts define intent, governance outcomes, and supersession
 - Implementation artifacts realize executable behavior
 - Proof Logic verifies behavior and defines deterministic expected outcomes
-- Derived artifacts carry publication, compiled integration-state, and some
-  admission outputs without becoming authoritative by default
+- Derived artifacts carry publication surfaces, compiled integration-state,
+  caller-facing admission artifacts, and some projections without becoming
+  authoritative by default
 - Evidence artifacts record factual runtime observations
-- Reports interpret evidence, validation, and projection material
-- Orientation artifacts explain and navigate
+- Reports interpret evidence, compiled material, and projection material
+- Orientation artifacts explain and navigate indirectly
 - Internal artifacts support local planning and remediation without becoming
   public authority
+
+Detailed placement, direct kernel input status, and indirect governance
+influence are mapped in supporting doctrine.
 
 ### 4. State transitions
 
