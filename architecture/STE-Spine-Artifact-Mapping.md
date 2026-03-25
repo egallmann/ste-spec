@@ -39,6 +39,12 @@ Implementation, Proof Logic, Reports, Orientation, and Internal artifacts can
 influence or constrain boundary behavior indirectly, but they are not direct
 kernel handoff inputs in this model.
 
+Rule declarations and published rule inputs participate in this model through
+the existing taxonomy rather than through a separate `Rules` artifact class.
+Accepted rule declarations are part of normative or published boundary
+material where doctrine says so. Rule projections and rule-evaluation result
+envelopes remain derived and draft/interface-only unless separately promoted.
+
 `Canonical` names the governing source for a subject area, such as ADR-038 for
 taxonomy or ADR-040 for the Spine. `Derived` names an artifact class and
 posture; it does not mean "less important."

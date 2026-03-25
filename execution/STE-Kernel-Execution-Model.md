@@ -191,16 +191,70 @@ Kernel outputs are:
 `Publication` is a lifecycle role, not an artifact class. Projection artifacts
 are derived representational outputs and are not execution-authorizing inputs.
 
-| Artifact / Input | Required lifecycle state | Required authority condition | Kernel may use artifact? | Kernel must block execution if invalid or unverifiable? |
-| --- | --- | --- | --- | --- |
-| ADR-L | `Accepted` | Accepted normative authority in `ste-spec` or accepted authoritative source referenced by doctrine | Yes | Yes, when required for the active execution scope |
-| ADR-PS | `Accepted` | Accepted normative authority | Yes | Yes, when required for the active execution scope |
-| ADR-PC | `Accepted` | Accepted normative authority | Yes | Yes, when required for the active execution scope |
-| Rules | `Published`, or equivalent active availability on the declared publication surface | Published rule inputs are available from their accepted authority surface; rule projections or decision records are not self-authorizing | Yes | Yes, when required by the active enforcement path |
-| Manifest | `Accepted`, or current published repository authority surface where the enforcement path depends on it | Authoritative manifest surface is current enough for the enforcement path being used | Yes | Yes, if the manifest is required to resolve required kernel inputs |
-| Architecture Index | `Assessed`, or latest accepted or published governance snapshot as applicable to the enforcement path | Used as governance or system-state input and not as replacement normative authority | Yes | Yes, when the active enforcement path declares index completeness or gap status as required |
-| Evidence | `Observed` | Factual evidence only, valid within the evidence boundary | Yes | Yes |
-| Governance configuration | `Assessed` and/or `Remediated`, as applicable to current governance completeness | Accepted governance-side inputs are complete enough for the execution path; draft governance-decision contracts are not mandatory authority sources | Yes | Yes, when governance completeness is required and cannot be verified |
+| Artifact / Input | Required lifecycle state | Required authority condition | Rule evaluation requirement | Kernel may use artifact? | Kernel must block execution if invalid or unverifiable? |
+| --- | --- | --- | --- | --- | --- |
+| ADR-L | `Accepted` | Accepted normative authority in `ste-spec` or accepted authoritative source referenced by doctrine | Applicable rules may constrain whether accepted logical intent is execution-authorizing for the active System Instance. | Yes | Yes, when required for the active execution scope |
+| ADR-PS | `Accepted` | Accepted normative authority | Applicable rules may constrain system-level eligibility for the active System Instance. | Yes | Yes, when required for the active execution scope |
+| ADR-PC | `Accepted` | Accepted normative authority | Applicable rules may constrain component-level eligibility and dependency participation for the active System Instance. | Yes | Yes, when required for the active execution scope |
+| Rules | `Published`, or equivalent active availability on the declared publication surface | Published rule inputs are available from their accepted authority surface; rule projections or decision records are not self-authorizing | Applicable rules must be resolved, applicable to the active evaluation scope, and satisfied before execution is allowed. | Yes | Yes, when required by the active enforcement path |
+| Manifest | `Accepted`, or current published repository authority surface where the enforcement path depends on it | Authoritative manifest surface is current enough for the enforcement path being used | Applicable rules may depend on manifest-resolved system identity, declared environments, and environment-relevant component applicability. | Yes | Yes, if the manifest is required to resolve required kernel inputs |
+| Architecture Index | `Assessed`, or latest accepted or published governance snapshot as applicable to the enforcement path | Used as governance or system-state input and not as replacement normative authority | Applicable gap, violation, and governance rules may depend on current Architecture Index completeness or unresolved state. | Yes | Yes, when the active enforcement path declares index completeness or gap status as required |
+| Evidence | `Observed` | Factual evidence only, valid within the evidence boundary | Applicable evidence, conformance, expiration, and re-verification rules may require specific evidence subjects or freshness conditions. | Yes | Yes |
+| Governance configuration | `Assessed` and/or `Remediated`, as applicable to current governance completeness | Accepted governance-side inputs are complete enough for the execution path; draft governance-decision contracts are not mandatory authority sources | Applicable organizational, suspension, and review-triggering rules may depend on governance completeness and explicit blocking disposition. | Yes | Yes, when governance completeness is required and cannot be verified |
+
+## Rule Evaluation Model
+
+`Rule` means a declared policy or constraint input that the kernel evaluates in
+addition to authority, lifecycle, conformance, evidence, and governance
+inputs.
+
+Rules are first-class inputs to kernel enforcement and governance evaluation.
+In ADR-038 terms, rule material remains expressed through the existing
+taxonomy, not a new artifact class. Rule declarations are normative or
+published rule surfaces where doctrine says so. Rule projections, closure
+artifacts, and rule evaluation result envelopes remain derived and
+draft/interface-only unless separately promoted.
+
+Rule evaluation is part of System Instance evaluation. Rule applicability is
+resolved against the active evaluation scope and Environment. Rule inputs come
+from accepted rule surfaces or accepted published rule inputs already allowed
+by doctrine. Draft projection envelopes or governance decision records are not
+self-authorizing rule sources.
+
+### Rule Applicability
+
+Rules may apply at these levels:
+
+- global
+- organization
+- system
+- environment
+- component
+
+### Rule Categories
+
+Rules may include:
+
+- lifecycle rules
+- environment rules
+- evidence rules
+- conformance rules
+- gap / violation rules
+- dependency rules
+- time / expiration rules
+- organizational policy rules
+
+Rules can constrain lifecycle states, constrain environments, require specific
+evidence, restrict execution, require re-verification, and participate at
+system, environment, component, and governance boundaries without becoming a
+second authority model.
+
+**MUST:** Execution is allowed only if authority is valid, required lifecycle
+state is valid, conformance state is valid, required evidence is present and
+valid, and applicable rules are satisfied.
+
+**MUST:** If applicable rules cannot be resolved or evaluated, the kernel must
+refuse execution.
 
 ## Execution Eligibility by Conformance State
 
@@ -243,15 +297,20 @@ active evaluation scope:
 - required Physical-System ADR is accepted
 - required Physical-Component ADRs are accepted
 - required rules inputs are active and available on declared publication surfaces
+- applicable rules have been resolved for the active evaluation scope
+- rule applicability has been resolved across global, organization, system, environment, and component levels
 - no blocking gaps or violations exist for the requested execution path
 - required manifest input is current and loadable
 - required Architecture Index input is present when the active enforcement path depends on governance or system-state completeness
 - governance configuration is complete enough for the requested execution path
 - required invariants are satisfied
 - required evidence checks pass
+- required evidence named by applicable rules is present and valid
 - referenced evidence subjects are present and valid
 - active scope conformance state is `Verified`
 - no current subject is in `Divergent`, `Non-conformant`, `Suspended`, or `Retired`
+- no blocking rule violation exists
+- any re-verification requirement triggered by rule logic has been satisfied before execution
 - required lifecycle state for each execution-authorizing input is verified
 
 **MUST:** If any required checklist condition fails or cannot be verified, the
@@ -320,6 +379,40 @@ until assessed. Confirmed violation moves the scope into `Non-conformant`.
 Blocking governance disposition or required hard stop moves the scope into
 `Suspended`. Remediation plus re-verification returns the scope to `Verified`.
 Retired scopes remain non-executable.
+
+## Rule Violation Outcomes And Precedence
+
+Rule violations are kernel enforcement outcomes. They do not create new
+taxonomy classes or new Spine states.
+
+Possible rule-violation outcomes are:
+
+- Block execution
+- Allow with warning
+- Require review
+- Trigger lifecycle transition where accepted doctrine already implies one
+- Trigger suspension where accepted doctrine already implies a blocking
+  governance or enforcement disposition
+
+`Allow with warning` records a non-blocking rule finding and audit output. It
+does not create permissive authority expansion.
+
+`Require review` routes into governance and assessment flow. It does not create
+a hidden side channel.
+
+`Trigger suspension` maps to the existing conformance and governance model. It
+does not create a new state family.
+
+Rule precedence is:
+
+- suspension rules override all
+- safety rules override environment rules
+- organization rules override system rules
+
+Within the same precedence tier, more specific applicability wins. Lower-tier
+rules cannot relax higher-tier blocking constraints. If two applicable rules
+conflict and precedence does not resolve them deterministically, kernel
+evaluation fails closed.
 
 ## Audit and Traceability Requirement
 

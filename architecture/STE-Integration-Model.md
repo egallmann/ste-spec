@@ -148,6 +148,10 @@ admission boundary: it verifies required authority, lifecycle state, evidence,
 and governance-side prerequisites before allowing execution. It approves
 boundary execution eligibility; it does not replace runtime systems, direct
 business execution, or CI/CD.
+Kernel admission and execution-eligibility evaluation also include applicable
+rule evaluation for the active System Instance. Rule projections remain
+draft/interface-only where separately marked; this clarification does not make
+projection envelopes a promoted rule-authority surface.
 
 At this boundary, `ste-kernel` evaluates a System Instance: the active System
 as resolved in one explicit Environment under the active evaluation scope.
