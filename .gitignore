@@ -9,3 +9,6 @@ dist/
 build/
 coverage/
 reports/
+
+# Local Spine analysis artifact
+architecture/STE-Spine-Assessment.md

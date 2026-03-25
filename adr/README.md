@@ -42,8 +42,13 @@ contracts, invariants, or implementation tests.
 - `ADR-035-architecture-ir-ontology-authority.md`
 - `ADR-036-repository-readme-contract.md`
 
+### STE Spine Consolidation
+
+- `ADR-040-ste-spine-lifecycle-and-authority.md`
+
 ## Relationship to Other Surfaces
 
+- `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md` support ADR-040 with consolidated Spine doctrine
 - `contracts/` defines normative shape
 - `invariants/` defines normative rules
 - `adr/` defines architectural rationale

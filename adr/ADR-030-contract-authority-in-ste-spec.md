@@ -17,6 +17,12 @@ Cross-repository handoff contracts are governed in `ste-spec`.
 Contract shape lives in `contracts/`. Contract rules live in `invariants/`.
 Rationale and boundary intent live in `adr/`.
 
+## Lifecycle Placement in the STE Spine
+
+This ADR sits in the Intent Definition stage of the STE Spine and governs the
+normative contract authority that shapes Publication / Integration Input at the
+runtime/kernel boundary.
+
 ## Rationale
 
 This keeps a single normative source for payload structure, semantic rules, and

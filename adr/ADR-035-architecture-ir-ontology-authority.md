@@ -27,6 +27,22 @@ Mechanical JSON Schema and compiled enumerations remain **referenced** from
 `contracts/architecture-ir-kernel-contract-pin.json`. This ADR does not move
 schema ownership.
 
+## Lifecycle Placement in the STE Spine
+
+This ADR anchors the semantic meaning of Architecture IR across Intent
+Definition and Architecture IR Compilation while preserving the separate
+kernel-owned mechanics of compiled integration-state.
+
+## Relationship to Enforcement Model
+
+This ADR supplies the IR Semantics step in the chain `Doctrine -> Object Shape
+-> IR Semantics -> Enforcement -> Admission` by defining what Architecture IR
+terms mean. It depends on
+[`ADR-033-closed-object-discipline.md`](ADR-033-closed-object-discipline.md)
+for encoded boundary shape and informs
+[`ADR-032-fail-closed-enforcement-model.md`](ADR-032-fail-closed-enforcement-model.md)
+when semantically inconsistent material must be rejected before admission.
+
 ## Rationale
 
 - Preserves a single **meaning** authority in `ste-spec` while keeping **shape**
