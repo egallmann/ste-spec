@@ -1,18 +1,20 @@
 # Cross-Component Contracts
 
 This directory is the canonical home for published **runtime/kernel handoff**
-contracts governed by `ste-spec` (see `adr/ADR-030-contract-authority-in-ste-spec.md`).
+contracts governed by `ste-spec` (see
+`adr/ADR-030-contract-authority-in-ste-spec.md`).
 
-**Story (informative):** for a single walkthrough that shows how handoff artifacts fit
-into a fictional team thread, read `architecture/STE-Worked-Example-Walkthrough.md`.
+**Story (informative):** for a single walkthrough that shows how handoff
+artifacts fit into a fictional team thread, read
+`architecture/STE-Worked-Example-Walkthrough.md`.
 
 ## ste-spec-owned artifacts (normative shape)
 
 | Artifact | Purpose |
 |----------|---------|
-| `architecture-evidence.schema.json` | **`ArchitectureEvidence`** — factual bundle health and freshness from `ste-runtime` |
-| `kernel-admission-assessment.schema.json` | **`KernelAdmissionAssessment`** — caller-facing admission from `ste-kernel` |
-| [`architecture-ir/spec-ir-fragments.json`](architecture-ir/spec-ir-fragments.json) | **Spec adapter IR fragments** — generator-owned published `SpecAdapter` input to kernel merge (see [`architecture-ir/README.md`](architecture-ir/README.md)) |
+| `architecture-evidence.schema.json` | **`ArchitectureEvidence`** - factual bundle health, freshness, and subject-linked validation or invalidation references from `ste-runtime` |
+| `kernel-admission-assessment.schema.json` | **`KernelAdmissionAssessment`** - caller-facing admission from `ste-kernel` |
+| [`architecture-ir/spec-ir-fragments.json`](architecture-ir/spec-ir-fragments.json) | **Spec adapter IR fragments** - generator-owned published `SpecAdapter` input to kernel merge (see [`architecture-ir/README.md`](architecture-ir/README.md)) |
 | `examples/` | Non-normative examples |
 
 ### Draft / pre-normative (rule projections)
@@ -29,29 +31,33 @@ into a fictional team thread, read `architecture/STE-Worked-Example-Walkthrough.
 | `governance-decision-record/README.md` | Minimum **decision row** semantics (references **projection**; distinct artifact family) |
 | `governance-decision-record/decision-record.schema.json` | **Draft** JSON Schema for append-only / CI replay rows |
 
-Promotion path: ADR + update this table + `invariants/STE-Cross-Component-Contract-Invariants.md`
-when the envelope becomes normative.
+Promotion path: ADR + update this table +
+`invariants/STE-Cross-Component-Contract-Invariants.md` when the envelope
+becomes normative.
 
-**Behavioral rules** for these payloads live under `invariants/` (INV-000x index:
-`invariants/STE-Cross-Component-Contract-Invariants.md`). **Rationale** lives under
-`adr/`.
+**Behavioral rules** for these payloads live under `invariants/` (INV-000x
+index: `invariants/STE-Cross-Component-Contract-Invariants.md`). **Rationale**
+lives under `adr/`.
 
 ## Referenced mechanical contract bundle (kernel-owned)
 
 The **Architecture IR** schema, merge configuration, and identity rules are
 **versioned and maintained in `ste-kernel`**. `ste-spec` **references** them as
-the mechanical authority for `Compiled_IR_Document`. **Semantic** Architecture IR
-(ontology, lifecycle, completeness, governance, Architecture Index) is **normative**
-in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).
+the mechanical authority for `Compiled_IR_Document`. **Semantic** Architecture
+IR (ontology, lifecycle, completeness, governance, Architecture Index) is
+**normative** in
+`architecture/STE-Architecture-Intermediate-Representation.md`
+(`adr/ADR-035-architecture-ir-ontology-authority.md`).
 
 - `ste-kernel/architecture-ir/architecture-ir.schema.json`
 - `ste-kernel/architecture-ir/architecture-ir.yaml`
 - `ste-kernel/documentation/ARCHITECTURE_IR.md`
 - `ste-kernel/contracts/adapter-contracts.yaml`
 
-**Pinned pointer (ste-spec):** `contracts/architecture-ir-kernel-contract-pin.json`
-records the current **`ir_version`**, **`schema_id`**, and relative paths into the
-`ste-kernel` bundle. Update it when the kernel bumps the IR contract.
+**Pinned pointer (ste-spec):**
+`contracts/architecture-ir-kernel-contract-pin.json` records the current
+**`ir_version`**, **`schema_id`**, and relative paths into the `ste-kernel`
+bundle. Update it when the kernel bumps the IR contract.
 
 **MUST NOT:** Duplicate changing mechanical JSON Schema in `ste-spec` unless a
 handoff requirement explicitly demands it.
@@ -61,11 +67,12 @@ handoff requirement explicitly demands it.
 **Informative** JSON under `contracts/examples/` illustrates shape only.
 
 For **machine-verifiable** convergence, use **golden contract bundles** (pinned
-fragment sets, stable `ArchitectureEvidence` / `KernelAdmissionAssessment` fixtures
-where applicable, and expected **`Compiled_IR_Document`** identity such as
-`document_id` or canonical byte hash per **`ir_version`**) exercised by **`ste-kernel`**
-verify commands or CI jobs that invoke them. That gate catches schema staleness and
-integration regressions without elevating narrative examples to normative truth.
+fragment sets, stable `ArchitectureEvidence` / `KernelAdmissionAssessment`
+fixtures where applicable, and expected **`Compiled_IR_Document`** identity
+such as `document_id` or canonical byte hash per **`ir_version`**) exercised by
+**`ste-kernel`** verify commands or CI jobs that invoke them. That gate catches
+schema staleness and integration regressions without elevating narrative
+examples to normative truth.
 
 ## Adapter publication surfaces (informative summary)
 
@@ -80,7 +87,7 @@ Normative integration narrative: `architecture/STE-Integration-Model.md`.
 | **Canonical handoff schemas** | Files in this `contracts/` directory | `ste-spec` |
 | **Spec IR fragments** | `architecture-ir/spec-ir-fragments.json` | `ste-spec` publishes; `ste-kernel` consumes |
 | **ADR / Rules IR fragments** | Adapter-published JSON arrays | Respective repositories publish; `ste-kernel` consumes |
-| **ArchitectureEvidence** | Runtime output | `ste-runtime` produces; `ste-kernel` consumes |
+| **ArchitectureEvidence** | Runtime output linked to evaluated subjects | `ste-runtime` produces; `ste-kernel` consumes |
 | **Compiled_IR_Document** | Merged validated IR | **Derived** by `ste-kernel` from fragments + mapping rules |
 | **KernelAdmissionAssessment** | Admission JSON | **Derived** by `ste-kernel` from projected slice + policy |
 
@@ -93,6 +100,11 @@ Contract lock for this boundary:
 - `ste-kernel` alone compiles merged `Compiled_IR_Document`
 - `ste-kernel` alone emits `KernelAdmissionAssessment`
 - `Compiled_IR_Document` is derived integration-state, not documentation-state authority
+
+`ArchitectureEvidence` remains factual only. Its required `subjects` linkage
+identifies which ADRs, requirements, invariants, rules, systems, or components
+the evidence validates or invalidates. Subject linkage does not make evidence a
+caller-facing admission decision or a new authority source.
 
 ## Related orientation
 

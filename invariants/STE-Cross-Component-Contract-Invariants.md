@@ -18,6 +18,7 @@ handoff.
 - `INV-0009-degraded-bundle-requires-diagnostic-context.md`
 - `INV-0010-rule-projection-envelope-discipline.md` (draft scope; see file status)
 - `INV-0011-kernel-fails-closed-on-unverifiable-execution-prerequisites.md`
+- `INV-0012-evidence-must-reference-evaluated-subjects.md`
 
 ## Related Contracts
 

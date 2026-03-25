@@ -174,6 +174,18 @@ are derived representational outputs and are not execution-authorizing inputs.
 | Evidence | `Observed` | Factual evidence only, valid within the evidence boundary | Yes | Yes |
 | Governance configuration | `Assessed` and/or `Remediated`, as applicable to current governance completeness | Accepted governance-side inputs are complete enough for the execution path; draft governance-decision contracts are not mandatory authority sources | Yes | Yes, when governance completeness is required and cannot be verified |
 
+## Execution Eligibility by Conformance State
+
+| Conformance state | Execution eligible? | Kernel effect |
+| --- | --- | --- |
+| `Accepted` | No | Accepted intent alone is insufficient for execution eligibility. |
+| `Implemented` | No | Implemented scope must still be verified for conformance. |
+| `Verified` | Yes | Verified is the only execution-eligible conformance state for active scope. |
+| `Divergent` | No | Drift or conflicting evidence blocks execution pending assessment. |
+| `Non-conformant` | No | Confirmed violation blocks execution pending remediation. |
+| `Suspended` | No | Governance- or enforcement-blocked scope remains non-executable. |
+| `Retired` | No | Retired scope remains non-executable. |
+
 ## Minimum Required Artifact Set for Execution Eligibility
 
 The minimum required artifact set for an execution-eligible system is:
@@ -205,6 +217,9 @@ active execution scope:
 - governance configuration is complete enough for the requested execution path
 - required invariants are satisfied
 - required evidence checks pass
+- referenced evidence subjects are present and valid
+- active scope conformance state is `Verified`
+- no current subject is in `Divergent`, `Non-conformant`, `Suspended`, or `Retired`
 - required lifecycle state for each execution-authorizing input is verified
 
 **MUST:** If any required checklist condition fails or cannot be verified, the
@@ -232,9 +247,19 @@ This execution model does not add lifecycle states to the Spine.
 - incidents or severe violations do not create `Suspended` or `Review Required`
   as new lifecycle states; they are expressed as denial, blocking violation,
   and governance-required remediation within the existing Spine
+- evidence is evaluated per referenced subject; subject linkage identifies what
+  the evidence validates or invalidates without turning evidence into a
+  caller-facing decision
 
 **MUST:** The kernel considers required lifecycle state together with
 evidence-derived enforcement status when determining execution eligibility.
+
+**MUST:** The kernel considers conformance state, not only accepted status,
+when determining execution eligibility.
+
+See `architecture/STE-Spine-State-Model.md` for the conformance-state overlay,
+lifecycle feedback transition table, and escalation definitions that govern how
+subject-linked evidence affects execution eligibility.
 
 ## Violation Handling
 
@@ -253,6 +278,12 @@ Blocking violations cause denial. Non-blocking findings may be recorded without
 permissive authority expansion. Unverifiable prerequisites are treated as
 blocking for execution eligibility. Violation handling does not invent new
 lifecycle states; it uses denial plus existing governance and remediation flow.
+
+Invalidating evidence on a required subject moves the scope into `Divergent`
+until assessed. Confirmed violation moves the scope into `Non-conformant`.
+Blocking governance disposition or required hard stop moves the scope into
+`Suspended`. Remediation plus re-verification returns the scope to `Verified`.
+Retired scopes remain non-executable.
 
 ## Audit and Traceability Requirement
 
@@ -370,6 +401,7 @@ consuming only declared publication surfaces.
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `invariants/INV-0011-kernel-fails-closed-on-unverifiable-execution-prerequisites.md`
+- `invariants/INV-0012-evidence-must-reference-evaluated-subjects.md`
 - `invariants/STE-Failure-Taxonomy-Boundaries.md`
 
 ## Canon Status

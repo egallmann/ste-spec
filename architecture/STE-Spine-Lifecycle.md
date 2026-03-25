@@ -47,6 +47,9 @@ which remains canonical in
 - States describe readiness or result posture within that ordered system.
 - Stage completion does not change authority ownership. It changes what
   downstream work is eligible to occur.
+- Evidence and lifecycle feedback use a conformance-state overlay on top of the
+  locked Spine states. That overlay affects execution eligibility without
+  replacing the canonical Spine lifecycle.
 
 ## Related Documents
 

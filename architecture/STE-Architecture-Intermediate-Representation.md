@@ -90,6 +90,12 @@ A **system** is the bounded whole under architecture governance (the product, pl
 
 **Evidence** is observable material (measurements, attestations, build outputs, runtime bundle health) that supports truth claims. **MUST NOT** treat evidence as an admission decision at the runtime/kernel handoff; evidence is **factual input** to evaluation (see [`STE-Integration-Model.md`](./STE-Integration-Model.md), invariants INV-0001, INV-0002).
 
+Runtime-emitted `ArchitectureEvidence` **MUST** identify the subject or
+subjects it validates or invalidates. Those subjects may be requirements,
+invariants, rules, systems, components, or accepted ADR scope identifiers.
+Subject linkage identifies what the evidence is about. It does not make
+evidence a decision authority.
+
 ### 2.11 `gap`
 
 A **gap** is a declared absence of required linkage, missing artifact, unknown freshness, or unresolved conflict in the architecture model. Gaps are first-class governance inputs and **SHOULD** appear in an **Unresolved Registry** when mechanical encoding does not yet provide a distinct compiled `kind`.
