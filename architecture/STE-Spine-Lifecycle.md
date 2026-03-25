@@ -6,8 +6,8 @@ This document is normative supporting doctrine for the STE Spine lifecycle.
 
 It explains and maps the lifecycle defined canonically in
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md).
-It does not override ADR-040, and it does not redefine artifact taxonomy,
-which remains canonical in
+It uses ADR-040 for Spine-local terminology, does not override ADR-040, and
+does not redefine artifact taxonomy, which remains canonical in
 [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
 ## Lifecycle Stages
@@ -44,7 +44,10 @@ which remains canonical in
 ## Stage and State Interpretation
 
 - Lifecycle stages describe ordered system segments.
-- States describe readiness or result posture within that ordered system.
+- Spine lifecycle states describe readiness or result posture within that
+  ordered system.
+- Conformance states are an execution-eligibility overlay on top of the locked
+  Spine lifecycle states. They do not replace those states.
 - Stage completion does not change authority ownership. It changes what
   downstream work is eligible to occur.
 - Evidence and lifecycle feedback use a conformance-state overlay on top of the

@@ -32,6 +32,6 @@ architectural intent.
 
 ## Consequences
 
-- Runtime and kernel representations are subordinate implementation views.
+- Runtime and kernel representations are subordinate implementation surfaces.
 - Contract changes require coordinated `ste-spec` updates.
 - Repo-local tests consume `ste-spec` artifacts rather than inventing parallel authority.

@@ -55,6 +55,30 @@ If wording appears to conflict:
 - supporting Spine doctrine follows those ADRs
 - analysis-only material yields to accepted doctrine and supporting doctrine
 
+## Terminology
+
+For the Spine:
+
+- `canonical` means the governing source for a subject area. It does not mean
+  merely important, published, or widely referenced.
+- `supporting doctrine` means normative explanatory material subordinate to the
+  governing ADRs. It explains or maps accepted doctrine without overriding it.
+- `analysis-only` means non-normative reconstruction, assessment, or audit
+  material. It does not define doctrine.
+- `lifecycle` means the ordered end-to-end Spine stage sequence. It is distinct
+  from both Spine lifecycle states and conformance overlay states.
+- `state` means readiness or result posture within the Spine model. A state
+  does not by itself reassign authority ownership.
+- `authority` means who or what governs truth within a defined scope. Current
+  applicability may change by state, but authority ownership does not change by
+  state alone.
+- `publication` means a lifecycle role that exposes declared boundary material
+  for downstream integration use. It is not an artifact class.
+- `projection` means a derived representational posture generated from
+  lifecycle material. It is not a lifecycle state or taxonomy class.
+- `view` means a representational or explanatory perspective. It does not
+  create authority and does not create a taxonomy class by default.
+
 ## Decision
 
 STE defines the **Spine** as the canonical lifecycle and authority-transition
@@ -134,8 +158,8 @@ This ADR does not add or rename artifact classes.
 
 For Spine modeling:
 
-- `Publication` is a lifecycle role or posture applied to some canonical
-  classes, especially Derived outputs and declared boundary surfaces
+- `Publication` is a lifecycle role applied to some canonical classes,
+  especially Derived outputs and declared boundary surfaces
 - `Projection` is a derived representational posture
 - `Report` maps to the canonical `Reports` class
 
@@ -174,6 +198,8 @@ The Spine system lifecycle states are:
 - Superseded
 
 This is a system lifecycle model, not a universal single-artifact state machine.
+Its lifecycle stages, Spine lifecycle states, and conformance overlay states
+are related but distinct terms.
 
 | State | Meaning | Applicable artifact classes or lifecycle segment | Authority effect | Generation / derivation effect |
 | --- | --- | --- | --- | --- |
@@ -315,7 +341,8 @@ Reports are the interpretive layer of the Spine.
 
 Projection is the representational layer of the Spine.
 
-- canonical diagrams and similar projection artifacts are derived views
+- canonical diagrams and similar projection outputs are derived
+  representational outputs
 - projections are generated from compiled, observed, or assessed material to
   explain lifecycle, authority, flow, and governance state
 - projection is a representational posture, not a state family or artifact
@@ -352,7 +379,7 @@ The Spine distinguishes these change categories:
   verification harnesses
 - **Runtime change**: modifies execution or observation behavior within runtime
   responsibilities
-- **Projection change**: modifies derived representational views without
+- **Projection change**: modifies derived representational outputs without
   changing authoritative meaning
 - **Report change**: modifies interpretive or assessment outputs without
   changing authoritative meaning

@@ -70,6 +70,18 @@ ADR-040 is the canonical definition of the STE Spine lifecycle and
 authority-transition model. This ADR remains the canonical taxonomy and
 versioning posture authority that the Spine uses.
 
+## Terminology Boundary
+
+In this ADR, `artifact` means a member of the STE artifact taxonomy.
+
+`derived` means the canonical `Derived` artifact class and posture defined by
+this taxonomy. It is not a loose synonym for any produced output.
+
+`publication artifact` remains an exception label or posture applied by
+doctrine. It does not create a new top-level artifact class.
+
+`projection` and `view` are not artifact classes in this ADR.
+
 ## Rules
 
 - Normative artifacts MUST be versioned.

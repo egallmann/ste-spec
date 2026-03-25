@@ -7,8 +7,9 @@ lifecycle state model.
 
 It supports
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
-and does not override the canonical Spine definition. It is a system lifecycle
-framing, not a universal single-artifact state machine. Where accepted doctrine
+and uses ADR-040 for Spine-local terminology. It does not override the
+canonical Spine definition. It is a system lifecycle framing, not a universal
+single-artifact state machine. Where accepted doctrine
 already defines narrower lifecycle states, such as the Architecture IR record
 states in
 [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md),
@@ -31,7 +32,7 @@ this document maps rather than replaces them.
 | Remediated | Governance outcome has required or recorded corrective action. | No. | No. | Yes. Remediation is ready to feed the next cycle into Drafted or Accepted intent. |
 | Superseded | Earlier authoritative intent has been replaced. | No. | Yes, by ending current normative applicability of the earlier accepted intent. | No. Superseded intent does not act as the current accepted basis for new downstream work. |
 
-## State Usage By Artifact Class
+## State Applicability By Artifact Class
 
 | Artifact class or lifecycle segment | Valid states | Invalid / not used |
 | --- | --- | --- |
@@ -155,6 +156,8 @@ divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
 
 - Detailed artifact placement and direct kernel input mapping are explained in
   [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md).
+- `Lifecycle stage`, `Spine lifecycle state`, and `conformance state` are
+  distinct terms in this model.
 - Not every artifact class traverses every state.
 - `Published`, `Compiled`, and `Admitted` are integration and admission states,
   not states of every repository artifact.
