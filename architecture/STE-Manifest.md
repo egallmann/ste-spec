@@ -1,4 +1,4 @@
-# System of Thought Engineering (STE) — Manifest
+﻿# System of Thought Engineering (STE) â€” Manifest
 ## Canonical Artifact Map
 
 # 1. Purpose
@@ -12,37 +12,40 @@ live. It does not define those rules itself.
 ## 1.1 Reading legend (normative vs orientation vs illustration)
 
 - **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adr/` where they govern handoffs; Architecture IR **semantics** in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).
-- **Orientation (viewpoint):** `architecture/`, `execution/`, and `governance/` prose.
-- **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` — one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
-- **Figures (orientation):** `architecture/STE-Diagram-Conventions.md` — Mermaid vs box/Unicode diagrams; figures are **informative** unless a document explicitly says a figure is normative.
+- **Orientation (viewpoint):** `architecture/`, `execution/`, and `governance/`
+  prose. These surfaces provide navigation and viewpoint material and do not
+  override normative authority.
+- **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` â€” one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
+- **Figures (orientation):** `architecture/STE-Diagram-Standards.md` â€” canonical diagram representation and projection doctrine; `architecture/STE-Diagram-Conventions.md` provides editorial guidance only. Figures are projection artifacts and are **informative** unless a document explicitly says a figure is normative.
 
 # 2. Suggested Reading Order (table of contents)
 
 1. **Overview:** `README.md`, `status.md`, `scope-and-non-goals.md`, `glossary.md`
 2. **Core concepts:** `architecture/STE-Foundations.md`, `architecture/STE-Reference-Embodiment.md` (informative spine), `architecture/STE-Worked-Example-Walkthrough.md` (informative end-to-end thread), `invariants/STE-Invariant-Hierarchy.md` (and referenced invariant docs)
 3. **System components:** `architecture/STE-System-Components-and-Responsibilities.md`, `architecture/STE-System-Core.md`
-4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR), `architecture/STE-Diagram-Conventions.md` (figure style)
-5. **Boundary surfaces:** `architecture/OPEN_CLOSED_BOUNDARY.md`, `architecture/PUBLIC_SYSTEM_SURFACES.md`, `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
-6. **Execution models**
+4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR), `architecture/STE-Diagram-Standards.md` (diagram doctrine), `architecture/STE-Diagram-Conventions.md` (editorial figure guidance)
+5. **Spine doctrine:** `adr/ADR-040-ste-spine-lifecycle-and-authority.md`, `architecture/STE-Spine-Extracted-Doctrine.md`, `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, `architecture/STE-Spine-State-Model.md`
+6. **Boundary surfaces:** `architecture/OPEN_CLOSED_BOUNDARY.md`, `architecture/PUBLIC_SYSTEM_SURFACES.md`, `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
+7. **Execution models**
    - Workspace cognition: `execution/STE-Cognitive-Execution-Model.md`
    - Kernel integration: `execution/STE-Kernel-Execution-Model.md`
-7. **Contracts and schemas:** `contracts/README.md`
-8. **Determinism (integration plane):** `architecture/STE-Determinism-and-Canonical-Identity.md`
-9. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
-10. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
-11. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
-12. **ADR doctrine:** `adr/README.md`, `adr/ARCHITECTURE_BOUNDARY_DECISION.md`
-13. **Repository README contract:** `adr/ADR-036-repository-readme-contract.md`, `architecture/STE-Repository-README-Checklist.md`
-14. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
-15. **Governance / security:** `governance/`, `SECURITY.md`
-16. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
+8. **Contracts and schemas:** `contracts/README.md`
+9. **Determinism (integration plane):** `architecture/STE-Determinism-and-Canonical-Identity.md`
+10. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
+11. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
+12. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
+13. **ADR doctrine:** `adr/README.md`, `adr/ARCHITECTURE_BOUNDARY_DECISION.md`
+14. **Repository README contract:** `adr/ADR-036-repository-readme-contract.md`, `architecture/STE-Repository-README-Checklist.md`
+15. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
+16. **Governance / security:** `governance/`, `SECURITY.md`
+17. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
 
 # 3. Canonical Authority Split
 
-- `contracts/` — normative serialized contract shape
-- `invariants/` — normative rules and semantic constraints
-- `adr/` — architectural decisions and rationale
-- `architecture/`, `execution/`, `governance/` — orientation and viewpoint material
+- `contracts/` â€” normative serialized contract shape
+- `invariants/` â€” normative rules and semantic constraints
+- `adr/` â€” architectural decisions and rationale
+- `architecture/`, `execution/`, `governance/` â€” orientation and viewpoint material
 
 # 4. Contract Surfaces
 
@@ -50,13 +53,15 @@ live. It does not define those rules itself.
 - `contracts/kernel-admission-assessment.schema.json`
 - `contracts/architecture-ir/spec-ir-fragments.json`
 - `contracts/architecture-ir-kernel-contract-pin.json` (pinned `ir_version` / `schema_id` pointer)
-- `contracts/rule-projection/` (draft rule projection envelope; pre-normative—see `contracts/README.md`)
+- `contracts/rule-projection/` (draft rule projection envelope; pre-normativeâ€”see `contracts/README.md`)
 - `contracts/governance-decision-record/` (draft decision rows referencing projections; pre-normative)
 - `contracts/examples/`
 - Referenced IR bundle: see `contracts/README.md` (kernel-owned)
 
-`contracts/architecture-ir/spec-ir-fragments.json` is a generator-owned published
-artifact. Regenerate and validate it with `python scripts/run_local_contract_checks.py`.
+`contracts/architecture-ir/spec-ir-fragments.json` is a generator-owned
+published artifact. "Published" here names a publication role, not a separate
+artifact class. Regenerate and validate it with
+`python scripts/run_local_contract_checks.py`.
 
 # 5. Handoff Invariant Surfaces
 
@@ -82,6 +87,7 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `adr/ADR-034-rule-projection-envelope-authority.md` (proposed; envelope authority)
 - `adr/ADR-035-architecture-ir-ontology-authority.md`
 - `adr/ADR-036-repository-readme-contract.md`
+- `adr/ADR-040-ste-spine-lifecycle-and-authority.md`
 
 # 7. Orientation Surfaces
 
@@ -99,7 +105,13 @@ artifact. Regenerate and validate it with `python scripts/run_local_contract_che
 - `architecture/STE-Canonical-Project-Artifacts.md`
 - `architecture/STE-System-Core.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
+- `architecture/STE-Diagram-Standards.md`
 - `architecture/STE-Diagram-Conventions.md`
+- `architecture/STE-Spine-Extracted-Doctrine.md`
+- `architecture/STE-Spine-Lifecycle.md`
+- `architecture/STE-Spine-Authority.md`
+- `architecture/STE-Spine-Artifact-Mapping.md`
+- `architecture/STE-Spine-State-Model.md`
 - `architecture/STE-Repository-README-Checklist.md`
 - `execution/STE-Cognitive-Execution-Model.md`
 - `execution/STE-Kernel-Execution-Model.md`
@@ -119,3 +131,4 @@ When the runtime/kernel handoff changes, update:
 3. `adr/` for rationale
 4. `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, and `contracts/README.md` when boundaries shift
 5. orientation surfaces only as needed for navigation
+

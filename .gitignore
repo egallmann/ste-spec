@@ -1,3 +1,14 @@
 __pycache__/
 .pytest_cache/
 .codex-tmp/
+plan/
+
+# Proof artifacts, build output, test output, generated reports (do not commit)
+lifecycle-proof/
+dist/
+build/
+coverage/
+reports/
+
+# Local Spine analysis artifact
+architecture/STE-Spine-Assessment.md

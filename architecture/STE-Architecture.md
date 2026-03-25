@@ -32,6 +32,43 @@ production; it **does not** by itself realize the organizational **Fabric /
 Gateway / Trust Registry** services described later in this document unless a
 separate deployment explicitly provides them.
 
+## STE System Model Summary
+
+This section is orientation only. It summarizes the converged STE system model
+and points to the canonical doctrine that defines it.
+
+- **Artifact classes:** STE classifies artifacts as Normative, Implementation,
+  Proof Logic, Derived, Evidence, Reports, Orientation, and Internal. Canonical
+  posture is defined in
+  [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md)
+  and [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
+- **Authority types:** `ste-spec` holds Normative Authority, implementation
+  repositories hold Implementation Truth, proof artifacts hold Proof Authority,
+  `ste-runtime` produces evidence only, and `ste-kernel` holds caller-facing
+  Admission Authority. Canonical wording is in
+  [`STE-Spine-Authority.md`](./STE-Spine-Authority.md).
+- **Lifecycle stages:** The Spine lifecycle is Intent Definition,
+  Implementation, Proof / Verification, Publication / Integration Input,
+  Architecture IR Compilation, Admission Decision, Runtime Execution,
+  Observation (Evidence), Assessment (Reports), Governance Decision, and Intent
+  Update / Remediation. Canonical wording is in
+  [`STE-Spine-Lifecycle.md`](./STE-Spine-Lifecycle.md).
+- **Kernel vs runtime boundary:** `ste-runtime` produces factual
+  `ArchitectureEvidence`; `ste-kernel` performs validation, Compiled IR
+  orchestration, and caller-facing admission. Canonical boundary doctrine is in
+  [`STE-Integration-Model.md`](./STE-Integration-Model.md) and
+  [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md).
+- **Architecture IR role:** Architecture IR is the canonical semantic model in
+  `ste-spec`, while Compiled IR remains kernel-owned derived integration-state.
+  Canonical doctrine is in
+  [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
+  and [`../adr/ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md).
+- **Governance loop:** Evidence, validation, review, override, remediation, and
+  updated intent form a closed Governance loop rather than a one-way pipeline.
+  Canonical lifecycle consolidation is in
+  [`STE-Spine-Lifecycle.md`](./STE-Spine-Lifecycle.md) and
+  [`STE-Spine-Authority.md`](./STE-Spine-Authority.md).
+
 ---
 
 # 1. Purpose of This Document
@@ -101,47 +138,18 @@ STE operates across **two distinct governance boundaries**: workspace developmen
 
 The workspace boundary governs local development, experimentation, and provisional reasoning:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│              WORKSPACE DEVELOPMENT BOUNDARY                     │
-│                                                                 │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                    CURSOR (Governed)                    │   │
-│   │  • Rules injection (STE invariants, security)           │   │
-│   │  • MCP configuration (domain validators)                │   │
-│   │  • Workflow enforcement                                 │   │
-│   │  • Context assembly via RSS                             │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                     LLM (Governed)                      │   │
-│   │  • CEM defines execution stages                         │   │
-│   │  • Invariants constrain reasoning                       │   │
-│   │  • Self-validation against constraints                  │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                  TOOLCHAIN (Governed)                   │   │
-│   │  • Static analysis, unit tests                          │   │
-│   │  • MCP domain validators (IAM, AWS, etc.)               │   │
-│   │  • DAST, Playwright                                     │   │
-│   │  • Automated enforcement                                │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                              │                                  │
-│                              ▼                                  │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │                    HUMAN (Oversight)                    │   │
-│   │  • Final approval gate                                  │   │
-│   │  • Override authority                                   │   │
-│   │  • Invariant evolution                                  │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+  subgraph Workspace["WORKSPACE DEVELOPMENT BOUNDARY"]
+    Cursor["CURSOR (Governed)<br/>- Rules injection (STE invariants, security)<br/>- MCP configuration (domain validators)<br/>- Workflow enforcement<br/>- Context assembly via RSS"]
+    Llm["LLM (Governed)<br/>- CEM defines execution stages<br/>- Invariants constrain reasoning<br/>- Self-validation against constraints"]
+    Toolchain["TOOLCHAIN (Governed)<br/>- Static analysis, unit tests<br/>- MCP domain validators (IAM, AWS, etc.)<br/>- DAST, Playwright<br/>- Automated enforcement"]
+    Human["HUMAN (Oversight)<br/>- Final approval gate<br/>- Override authority<br/>- Invariant evolution"]
+    Cursor --> Llm --> Toolchain --> Human
+  end
 ```
 
-**View (informative):** The ASCII diagram above emphasizes **workspace cognition**
+**View (informative):** The diagram above emphasizes **workspace cognition**
 (IDE, CEM, toolchain, human). The same workspace also participates in the **STE
 integration plane**: **adapter publication surfaces** (ADR, spec, and rules **IR
 fragments**, plus **`ArchitectureEvidence`** from `ste-runtime`) feed **`ste-kernel`**
@@ -189,69 +197,23 @@ flowchart LR
 
 The runtime boundary governs production reasoning with cryptographic enforcement and fail-closed admission control:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│              RUNTIME EXECUTION BOUNDARY                         │
-│          (Cryptographic Enforcement, Fail-Closed)               │
-│                                                                 │
-│   ┌─────────────────┐                                           │
-│   │ Agent/Workspace │                                           │
-│   │  (Task Request) │                                           │
-│   └────────┬────────┘                                           │
-│            │                                                    │
-│            ▼                                                    │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              STE RUNTIME                                │   │
-│   │  • Assembles Minimally Viable Context (MVC)             │   │
-│   │  • Constructs Context Bundle (scope, environment)       │   │
-│   │  • Requests attestation from Fabric                     │   │
-│   │  • Constructs Eligibility Proposal                      │   │
-│   │  • Transports attestation verbatim (no modification)    │   │
-│   └────────────────────┬────────────────────────────────────┘   │
-│                        │ (requests attestation)                │
-│                        ▼                                        │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              AI-DOC FABRIC                              │   │
-│   │  **Attestation Authority**                              │   │
-│   │  • Resolves canonical semantic state                    │   │
-│   │  • Detects conflicts (invariant violations)             │   │
-│   │  • Signs attestation cryptographically                  │   │
-│   │  • Returns signed attestation to Runtime                │   │
-│   └────────────────────┬────────────────────────────────────┘   │
-│                        │ (signed attestation)                  │
-│                        ▼                                        │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              STE RUNTIME                                │   │
-│   │  • Receives signed attestation                          │   │
-│   │  • Constructs Eligibility Proposal                      │   │
-│   │  • Submits to Gateway (no attestation modification)     │   │
-│   └────────────────────┬────────────────────────────────────┘   │
-│                        │ (Eligibility Proposal)                │
-│                        ▼                                        │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              STE GATEWAY                                │   │
-│   │  **Enforcement Authority**                              │   │
-│   │  • Verifies attestation signature (Trust Registry)      │   │
-│   │  • Validates scope, environment, TTL                    │   │
-│   │  • Checks conflict_status field                         │   │
-│   │  • Enforces binary decision: ALLOW or DENY              │   │
-│   │  • No reasoning, no semantic validation                 │   │
-│   └────────────────────┬────────────────────────────────────┘   │
-│                        │                                        │
-│                        ├─── DENY ───► Execution Blocked        │
-│                        │                                        │
-│                        └─── ALLOW ───┐                          │
-│                                       │ (decision + payload)   │
-│                                       ▼                         │
-│   ┌─────────────────────────────────────────────────────────┐   │
-│   │              MODEL PROVIDER                             │   │
-│   │  **Execution Authority**                                │   │
-│   │  • Receives context only after Gateway ALLOW            │   │
-│   │  • Executes reasoning with provided context             │   │
-│   │  • No access to Fabric or canonical state directly      │   │
-│   └─────────────────────────────────────────────────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+  subgraph RuntimeBoundary["RUNTIME EXECUTION BOUNDARY<br/>(Cryptographic Enforcement, Fail-Closed)"]
+    Request["Agent/Workspace<br/>(Task Request)"]
+    RuntimeA["STE RUNTIME<br/>- Assembles Minimally Viable Context (MVC)<br/>- Constructs Context Bundle (scope, environment)<br/>- Requests attestation from Fabric<br/>- Constructs Eligibility Proposal<br/>- Transports attestation verbatim (no modification)"]
+    Fabric["AI-DOC FABRIC<br/><b>Attestation Authority</b><br/>- Resolves canonical semantic state<br/>- Detects conflicts (invariant violations)<br/>- Signs attestation cryptographically<br/>- Returns signed attestation to Runtime"]
+    RuntimeB["STE RUNTIME<br/>- Receives signed attestation<br/>- Constructs Eligibility Proposal<br/>- Submits to Gateway (no attestation modification)"]
+    Gateway["STE GATEWAY<br/><b>Enforcement Authority</b><br/>- Verifies attestation signature (Trust Registry)<br/>- Validates scope, environment, TTL<br/>- Checks conflict_status field<br/>- Enforces binary decision: ALLOW or DENY<br/>- No reasoning, no semantic validation"]
+    Blocked["Execution Blocked"]
+    Model["MODEL PROVIDER<br/><b>Execution Authority</b><br/>- Receives context only after Gateway ALLOW<br/>- Executes reasoning with provided context<br/>- No access to Fabric or canonical state directly"]
+    Request --> RuntimeA
+    RuntimeA -->|"requests attestation"| Fabric
+    Fabric -->|"signed attestation"| RuntimeB
+    RuntimeB -->|"Eligibility Proposal"| Gateway
+    Gateway -->|"DENY"| Blocked
+    Gateway -->|"ALLOW<br/>(decision + payload)"| Model
+  end
 ```
 
 **Enforcement Characteristics:**
@@ -291,61 +253,20 @@ Workspace state becomes canonical state through organizational version control a
 
 ### Canonization Flow
 
+```mermaid
+flowchart TD
+  Workspace["1. WORKSPACE BOUNDARY (Provisional State)<br/>- Developer + STE-governed tooling<br/>- Local feature branch<br/>- Fast iteration with soft enforcement"]
+  VersionControl["2. VERSION CONTROL (Organizational Boundary)<br/>- Push to remote repository<br/>- Branch protection policies<br/>- Audit trail of all changes"]
+  CIGates["3. CI/CD SECURITY GATES (Hard Enforcement)<br/>- Static analysis (SAST)<br/>- Dynamic analysis (DAST)<br/>- Dependency scanning<br/>- Secret scanning<br/>- Unit and integration tests<br/>- Code review and approval<br/>- Merge authorization<br/>- BLOCKS merge if security gates fail"]
+  Canonical["4. CANONICAL STATE (Target Branch)<br/>- Security-vetted artifacts<br/>- Organizational source of truth<br/>- Authoritative state for RECON"]
+  AiDoc["5. AI-DOC (Semantic Documentation)<br/>- RECON extracts from canonical artifacts<br/>- Populates 13-domain structure<br/>- Builds semantic graph"]
+  Runtime["6. RUNTIME BOUNDARY (Cryptographic Enforcement)<br/>- Fabric signs attestations<br/>- Gateway verifies cryptographically<br/>- Model Provider executes with verified context"]
+  Workspace -->|"Developer commits and pushes changes"| VersionControl
+  VersionControl -->|"CI/CD pipeline triggers"| CIGates
+  CIGates -->|"Only after ALL gates pass"| Canonical
+  Canonical -->|"RECON operates on this state"| AiDoc
+  AiDoc -->|"Fabric attests to this state"| Runtime
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ 1. WORKSPACE BOUNDARY (Provisional State)                  │
-│    • Developer + STE-governed tooling                       │
-│    • Local feature branch                                   │
-│    • Fast iteration with soft enforcement                   │
-└──────────────────┬──────────────────────────────────────────┘
-                   │ Developer commits and pushes changes
-                   ▼
-┌─────────────────────────────────────────────────────────────┐
-│ 2. VERSION CONTROL (Organizational Boundary)               │
-│    • Push to remote repository                              │
-│    • Branch protection policies                             │
-│    • Audit trail of all changes                             │
-└──────────────────┬──────────────────────────────────────────┘
-                   │ CI/CD pipeline triggers
-                   ▼
-┌─────────────────────────────────────────────────────────────┐
-│ 3. CI/CD SECURITY GATES (Hard Enforcement)                 │
-│    • Static analysis (SAST)                                 │
-│    • Dynamic analysis (DAST)                                │
-│    • Dependency scanning                                    │
-│    • Secret scanning                                        │
-│    • Unit and integration tests                             │
-│    • Code review and approval                               │
-│    • Merge authorization                                    │
-│    └─ BLOCKS merge if security gates fail                   │
-└──────────────────┬──────────────────────────────────────────┘
-                   │ Only after ALL gates pass
-                   ▼
-┌─────────────────────────────────────────────────────────────┐
-│ 4. CANONICAL STATE (Target Branch)                         │
-│    • Security-vetted artifacts                              │
-│    • Organizational source of truth                         │
-│    • Authoritative state for RECON                          │
-└──────────────────┬──────────────────────────────────────────┘
-                   │ RECON operates on this state
-                   ▼
-┌─────────────────────────────────────────────────────────────┐
-│ 5. AI-DOC (Semantic Documentation)                         │
-│    • RECON extracts from canonical artifacts                │
-│    • Populates 13-domain structure                          │
-│    • Builds semantic graph                                  │
-└──────────────────┬──────────────────────────────────────────┘
-                   │ Fabric attests to this state
-                   ▼
-┌─────────────────────────────────────────────────────────────┐
-│ 6. RUNTIME BOUNDARY (Cryptographic Enforcement)            │
-│    • Fabric signs attestations                              │
-│    • Gateway verifies cryptographically                     │
-│    • Model Provider executes with verified context          │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### Security Properties
 
 **Workspace changes do NOT directly reach production reasoning.**
 
@@ -384,35 +305,19 @@ Organizations typically maintain multiple environments (nonprod, production) wit
 
 **Recommended Architecture:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│         FABRIC CONTROL PLANE (Single Service)               │
-│                                                             │
-│  Request Router:                                           │
-│  • Receives: {scope, environment, requested_by}            │
-│  • Routes to appropriate data plane                        │
-│  • Returns signed attestation                              │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────────────┐       ┌─────────────────────┐     │
-│  │ NONPROD DATA PLANE  │       │  PROD DATA PLANE    │     │
-│  │                     │       │                     │     │
-│  │ • Signing Key:      │       │ • Signing Key:      │     │
-│  │   (nonprod)         │       │   (production)      │     │
-│  │ • Auth Scope:       │       │ • Auth Scope:       │     │
-│  │   nonprod role      │       │   production role   │     │
-│  │ • Storage:          │       │ • Storage:          │     │
-│  │   nonprod bucket    │       │   production bucket │     │
-│  │ • Branch:           │       │ • Branch:           │     │
-│  │   develop           │       │   master            │     │
-│  │ • AI-DOC: nonprod   │       │ • AI-DOC: prod      │     │
-│  └─────────────────────┘       └─────────────────────┘     │
-│           │                             │                   │
-│           ▼                             ▼                   │
-│    Signs with NONPROD_KEY        Signs with PROD_KEY       │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+  subgraph Control["FABRIC CONTROL PLANE (Single Service)"]
+    Router["Request Router<br/>- Receives: {scope, environment, requested_by}<br/>- Routes to appropriate data plane<br/>- Returns signed attestation"]
+    subgraph Planes[" "]
+      Nonprod["NONPROD DATA PLANE<br/>- Signing Key: (nonprod)<br/>- Auth Scope: nonprod role<br/>- Storage: nonprod bucket<br/>- Branch: develop<br/>- AI-DOC: nonprod"]
+      Prod["PROD DATA PLANE<br/>- Signing Key: (production)<br/>- Auth Scope: production role<br/>- Storage: production bucket<br/>- Branch: master<br/>- AI-DOC: prod"]
+    end
+    Router --> Nonprod
+    Router --> Prod
+    Nonprod -->|"Signs with NONPROD_KEY"| NonprodKey["NONPROD_KEY"]
+    Prod -->|"Signs with PROD_KEY"| ProdKey["PROD_KEY"]
+  end
 ```
 
 **Non-normative implementation examples (specific platforms not required):**
@@ -446,8 +351,8 @@ Organizations typically maintain multiple environments (nonprod, production) wit
 1. Runtime requests attestation with (scope, environment)
 2. Fabric control plane extracts environment parameter
 3. Fabric routes to appropriate data plane:
-   - `environment: "nonprod"` → nonprod data plane
-   - `environment: "production"` → production data plane
+   - `environment: 'nonprod'` → nonprod data plane
+   - `environment: 'production'` → production data plane
 4. Data plane resolves canonical state:
    - Reads from environment-specific branch/storage/config
    - Detects conflicts within environment state
@@ -456,36 +361,25 @@ Organizations typically maintain multiple environments (nonprod, production) wit
 
 ### Multi-Environment Deployment Flow
 
-**Development → Nonprod → Production:**
+**Development -> Nonprod -> Production:**
 
-```
-Feature Branch (workspace)
-     │
-     ├─ CI/CD gates (nonprod validation)
-     ▼
-Develop Branch (nonprod canonical)
-     │
-     ├─ RECON extracts → Nonprod AI-DOC
-     │
-     ├─ Fabric nonprod data plane attests
-     │    (signs with NONPROD_KEY, environment: "nonprod")
-     │
-     ├─ Nonprod Gateway enforces
-     │
-     ├─ Nonprod testing/validation
-     │
-     ├─ Promotion approval gates
-     ▼
-Master Branch (production canonical)
-     │
-     ├─ RECON extracts → Production AI-DOC
-     │
-     ├─ Fabric production data plane attests
-     │    (signs with PROD_KEY, environment: "production")
-     │
-     ├─ Production Gateway enforces
-     │
-     └─ Production reasoning
+```mermaid
+flowchart TD
+  Feature["Feature Branch (workspace)"]
+  Develop["Develop Branch (nonprod canonical)"]
+  NonprodAiDoc["RECON extracts -> Nonprod AI-DOC"]
+  NonprodAttest["Fabric nonprod data plane attests<br/>(signs with NONPROD_KEY, environment: 'nonprod')"]
+  NonprodGateway["Nonprod Gateway enforces"]
+  NonprodTest["Nonprod testing/validation"]
+  Promotion["Promotion approval gates"]
+  Master["Master Branch (production canonical)"]
+  ProdAiDoc["RECON extracts -> Production AI-DOC"]
+  ProdAttest["Fabric production data plane attests<br/>(signs with PROD_KEY, environment: 'production')"]
+  ProdGateway["Production Gateway enforces"]
+  Production["Production reasoning"]
+  Feature -->|"CI/CD gates (nonprod validation)"| Develop
+  Develop --> NonprodAiDoc --> NonprodAttest --> NonprodGateway --> NonprodTest --> Promotion --> Master
+  Master --> ProdAiDoc --> ProdAttest --> ProdGateway --> Production
 ```
 
 ### Environment Isolation Properties
@@ -522,14 +416,14 @@ Gateway verification includes:
 
 ```
 Scenario 1: Nonprod key signs production attestation
-  - Attestation environment: "production"
+  - Attestation environment: 'production'
   - Signing identity: fabric-nonprod-signing-authority
   - Trust Registry: nonprod authority authorized for ["nonprod"] only
   - Result: DENY (AUTHORITY_MISMATCH)
 
 Scenario 2: Valid nonprod attestation submitted to production Gateway
-  - Attestation environment: "nonprod"
-  - Claimed environment: "production"
+  - Attestation environment: 'nonprod'
+  - Claimed environment: 'production'
   - Result: DENY (ENVIRONMENT_MISMATCH)
 ```
 
@@ -903,122 +797,51 @@ Agent/Workspace
 
 ## 5.1 Bootstrap Flow (RECON)
 
+```mermaid
+flowchart TD
+  Artifacts["Project Artifacts<br/>(code, config, schemas, etc.)"]
+  Recon["RECON (6 phases)<br/>1. Discovery - Enumerate files<br/>2. Extraction - Parse structures<br/>3. Inference - Infer invariants<br/>4. Normalization - Align to schema<br/>5. Population - Fill 13 domains<br/>6. Divergence - Map inconsistency"]
+  subgraph AIDoc["AI-DOC (13 Domains)"]
+    ProjectIdentity["Project Identity"]
+    ApiSurface["API Surface"]
+    DataModels["Data Models"]
+    InternalDeps["Internal Deps"]
+    ExternalIntegrations["External Integrat."]
+    Consumers["Consumers"]
+    Config["Config"]
+    Errors["Errors"]
+    Testing["Testing"]
+    BusinessDomain["Business Domain"]
+    CodeConventions["Code Conv."]
+    Observability["Observability"]
+    SliceMetadata["All items include _slice metadata<br/>for RSS graph traversal"]
+  end
+  Artifacts --> Recon --> AIDoc
 ```
-┌─────────────────┐
-│ Project         │
-│ Artifacts       │
-│ (code, config,  │
-│  schemas, etc.) │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────────────────────────┐
-│            RECON (6 phases)         │
-│                                     │
-│ 1. Discovery    - Enumerate files   │
-│ 2. Extraction   - Parse structures  │
-│ 3. Inference    - Infer invariants  │
-│ 4. Normalization- Align to schema   │
-│ 5. Population   - Fill 13 domains   │
-│ 6. Divergence   - Map inconsistency │
-└────────────────┬────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────┐
-│      AI-DOC (13 Domains)            │
-│                                     │
-│ ┌─────────┐ ┌─────────┐ ┌────────┐  │
-│ │ Project │ │  API    │ │  Data  │  │
-│ │Identity │ │ Surface │ │ Models │  │
-│ └─────────┘ └─────────┘ └────────┘  │
-│ ┌─────────┐ ┌─────────┐ ┌────────┐  │
-│ │Internal │ │External │ │Consum- │  │
-│ │  Deps   │ │Integrat.│ │  ers   │  │
-│ └─────────┘ └─────────┘ └────────┘  │
-│ ┌─────────┐ ┌─────────┐ ┌────────┐  │
-│ │ Config  │ │ Errors  │ │Testing │  │
-│ └─────────┘ └─────────┘ └────────┘  │
-│ ┌─────────┐ ┌─────────┐ ┌────────┐  │
-│ │Business │ │ Code    │ │Observ- │  │
-│ │ Domain  │ │ Conv.   │ │ability │  │
-│ └─────────┘ └─────────┘ └────────┘  │
-│                                     │
-│ All items include _slice metadata   │
-│ for RSS graph traversal             │
-└─────────────────────────────────────┘
-```
-
-## 5.2 Workspace Reasoning Flow
 
 This flow describes reasoning in workspace/development contexts with post-reasoning validation:
 
-```
-┌──────────────────┐
-│  Human Request   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│   RSS (Runtime   │
-│  State-Slicing)  │◄──── AI-DOC
-│                  │
-│ Selects relevant │
-│ state for task   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Context Assembly │
-│                  │
-│ • Sliced AI-DOC  │
-│ • CEM            │
-│ • Invariants     │
-│ • Task request   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  LLM Reasoning   │
-│  (CEM-governed)  │
-│                  │
-│ Stages 1-9       │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Candidate Output │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────────────────────────────────────────┐
-│                 VALIDATION STACK                     │
-│                                                      │
-│  ┌────────────┐  ┌────────────┐  ┌────────────┐     │
-│  │ CEM Self-  │  │  Static    │  │    MCP     │     │
-│  │ Validation │  │  Analysis  │  │ Validators │     │
-│  └────────────┘  └────────────┘  └────────────┘     │
-│                                                      │
-│  ┌────────────┐  ┌────────────┐  ┌────────────┐     │
-│  │   Unit     │  │   DAST     │  │ Playwright │     │
-│  │   Tests    │  │            │  │            │     │
-│  └────────────┘  └────────────┘  └────────────┘     │
-│                                                      │
-└────────────────────────┬─────────────────────────────┘
-                         │
-                         ▼
-              ┌──────────────────┐
-              │ Human Validation │
-              │   (Approval)     │
-              └────────┬─────────┘
-                       │
-                       ▼
-              ┌──────────────────┐
-              │ Accepted Output  │
-              │                  │
-              │ • Updates AI-DOC │
-              │   if state-      │
-              │   mutating       │
-              └──────────────────┘
+```mermaid
+flowchart TD
+  Request["Human Request"]
+  AiDoc["AI-DOC"]
+  Rss["RSS (Runtime State-Slicing)<br/>Selects relevant state for task"]
+  Context["Context Assembly<br/>- Sliced AI-DOC<br/>- CEM<br/>- Invariants<br/>- Task request"]
+  Reasoning["LLM Reasoning<br/>(CEM-governed)<br/>Stages 1-9"]
+  Candidate["Candidate Output"]
+  subgraph Validation["VALIDATION STACK"]
+    Cem["CEM Self-Validation"]
+    Static["Static Analysis"]
+    Mcp["MCP Validators"]
+    Unit["Unit Tests"]
+    Dast["DAST"]
+    Playwright["Playwright"]
+  end
+  Human["Human Validation<br/>(Approval)"]
+  Accepted["Accepted Output<br/>- Updates AI-DOC if state-mutating"]
+  Request --> Rss
+  AiDoc --> Rss
+  Rss --> Context --> Reasoning --> Candidate --> Validation --> Human --> Accepted
 ```
 
 **Characteristics:**
@@ -1030,101 +853,21 @@ This flow describes reasoning in workspace/development contexts with post-reason
 
 This flow describes production reasoning with pre-reasoning cryptographic enforcement:
 
-```
-┌──────────────────┐
-│ Agent/Workspace  │
-│ (Task Request)   │
-└────────┬─────────┘
-         │
-         ▼
-┌─────────────────────────────────────┐
-│        STE RUNTIME SERVICE          │
-│                                     │
-│ 1. Assemble MVC via RSS             │
-│ 2. Construct Context Bundle         │
-│    • Scope (invariant set)          │
-│    • Environment (prod/staging)     │
-│    • Context payload                │
-└────────┬────────────────────────────┘
-         │
-         │ (Request attestation)
-         ▼
-┌─────────────────────────────────────┐
-│        AI-DOC FABRIC                │
-│    (Attestation Authority)          │
-│                                     │
-│ 1. Resolve canonical semantic state │
-│    • Load invariants for scope      │
-│    • Load AI-DOC for environment    │
-│    • Load configuration             │
-│                                     │
-│ 2. Detect conflicts                 │
-│    • Check invariant consistency    │
-│    • Validate semantic coherence    │
-│                                     │
-│ 3. Sign attestation                 │
-│    • scope, environment             │
-│    • conflict_status                │
-│    • issued_at, expires_at          │
-│    • cryptographic signature        │
-└────────┬────────────────────────────┘
-         │
-         │ (Signed Fabric Attestation)
-         ▼
-┌─────────────────────────────────────┐
-│        STE RUNTIME SERVICE          │
-│                                     │
-│ 1. Receive signed attestation       │
-│ 2. Construct Eligibility Proposal   │
-│    • Context Bundle                 │
-│    • Fabric Attestation (verbatim)  │
-│ 3. Submit to Gateway                │
-│    (no modification to attestation) │
-└────────┬────────────────────────────┘
-         │
-         │ (Eligibility Proposal)
-         ▼
-┌─────────────────────────────────────┐
-│        STE GATEWAY                  │
-│    (Enforcement Authority)          │
-│                                     │
-│ 1. Verify attestation signature     │
-│    (via Trust Registry)             │
-│                                     │
-│ 2. Validate structure                │
-│    • Required fields present        │
-│    • scope matches claimed scope    │
-│    • environment matches claimed    │
-│                                     │
-│ 3. Check temporal validity          │
-│    • current_time ≤ expires_at      │
-│                                     │
-│ 4. Check conflict_status            │
-│    • "none" → proceed               │
-│    • "detected" → DENY              │
-│                                     │
-│ 5. Enforce eligibility decision     │
-└────────┬────────────────────────────┘
-         │
-         ├─── DENY ───► Execution Blocked
-         │              (return category)
-         │
-         └─── ALLOW ──┐
-                      │
-                      │ (decision + context payload)
-                      ▼
-         ┌─────────────────────────────────┐
-         │      MODEL PROVIDER             │
-         │   (Execution Authority)         │
-         │                                 │
-         │ 1. Receive context only after   │
-         │    Gateway ALLOW                │
-         │                                 │
-         │ 2. Execute reasoning with       │
-         │    provided context             │
-         │                                 │
-         │ 3. Return reasoning output      │
-         └─────────────────────────────────┘
+```mermaid
+flowchart TD
+  Request["Agent/Workspace<br/>(Task Request)"]
+  RuntimeA["STE RUNTIME SERVICE<br/>1. Assemble MVC via RSS<br/>2. Construct Context Bundle<br/>- Scope (invariant set)<br/>- Environment (prod/staging)<br/>- Context payload"]
+  Fabric["AI-DOC FABRIC<br/>(Attestation Authority)<br/>1. Resolve canonical semantic state<br/>- Load invariants for scope<br/>- Load AI-DOC for environment<br/>- Load configuration<br/>2. Detect conflicts<br/>- Check invariant consistency<br/>- Validate semantic coherence<br/>3. Sign attestation<br/>- scope, environment<br/>- conflict_status<br/>- issued_at, expires_at<br/>- cryptographic signature"]
+  RuntimeB["STE RUNTIME SERVICE<br/>1. Receive signed attestation<br/>2. Construct Eligibility Proposal<br/>- Context Bundle<br/>- Fabric Attestation (verbatim)<br/>3. Submit to Gateway<br/>(no modification to attestation)"]
+  Gateway["STE GATEWAY<br/>(Enforcement Authority)<br/>1. Verify attestation signature<br/>(via Trust Registry)<br/>2. Validate structure<br/>- Required fields present<br/>- scope matches claimed scope<br/>- environment matches claimed<br/>3. Check temporal validity<br/>- current_time <= expires_at<br/>4. Check conflict_status<br/>- 'none' -> proceed<br/>- 'detected' -> DENY<br/>5. Enforce eligibility decision"]
+  Denied["Execution Blocked<br/>(return category)"]
+  Model["MODEL PROVIDER<br/>(Execution Authority)<br/>1. Receive context only after Gateway ALLOW<br/>2. Execute reasoning with provided context<br/>3. Return reasoning output"]
+  Request --> RuntimeA
+  RuntimeA -->|"Request attestation"| Fabric
+  Fabric -->|"Signed Fabric Attestation"| RuntimeB
+  RuntimeB -->|"Eligibility Proposal"| Gateway
+  Gateway -->|"DENY"| Denied
+  Gateway -->|"ALLOW<br/>(decision + context payload)"| Model
 ```
 
 **Characteristics:**
@@ -1142,157 +885,51 @@ This flow describes production reasoning with pre-reasoning cryptographic enforc
 
 ## 5.3 Operational AI-DOC Maintenance Flow
 
-```
-┌──────────────────┐
-│ Source Code      │
-│ Change Detected  │
-│ (file watcher,   │
-│  git hook, user) │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Incremental      │
-│ RECON Protocol   │
-│                  │
-│ • Identify       │
-│   affected items │
-│ • Re-extract     │
-│ • Update refs    │
-│ • Validate       │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Currency         │
-│ Validator        │
-│                  │
-│ Check: timestamp │
-│ Source < Extract │
-└────────┬─────────┘
-         │
-         ├─── PASS ───► AI-DOC Current
-         │
-         └─── FAIL ───┐
-                      │
-                      ▼
-           ┌──────────────────┐
-           │ Doc-State-       │
-           │ Staleness        │
-           │ Divergence       │
-           └──────────────────┘
+```mermaid
+flowchart TD
+  Source["Source Code<br/>Change Detected<br/>(file watcher, git hook, user)"]
+  Recon["Incremental RECON Protocol<br/>- Identify affected items<br/>- Re-extract<br/>- Update refs<br/>- Validate"]
+  Currency["Currency Validator<br/>Check: timestamp<br/>Source < Extract"]
+  Current["AI-DOC Current"]
+  Divergence["Doc-State-<br/>Staleness<br/>Divergence"]
+  Source --> Recon --> Currency
+  Currency -->|"PASS"| Current
+  Currency -->|"FAIL"| Divergence
 ```
 
-**Lazy Population Flow (Phase 0-3):**
-
-```
-Phase 0 (Minimal RECON)
-        │ (~10-30 seconds)
-        ▼
-┌──────────────────┐
-│ Minimal AI-DOC   │
-│ • project/       │
-│ • entrypoints/   │
-│ • api/           │
-└────────┬─────────┘
-         │
-         ├───────► STE Enters Governed Mode
-         │
-         ▼
-Phase 1 (Background)
-        │ (Critical path domains)
-        ▼
-Phase 2 (On-Demand)
-        │ (User consent per domain)
-        ▼
-Phase 3 (Background)
-        │ (Remaining domains)
-        ▼
-Full RECON Equivalence
+```mermaid
+flowchart TD
+    p0["Phase 0 (Minimal RECON)<br/>(~10-30 seconds)"] --> minimal["Minimal AI-DOC<br/>? project/<br/>? entrypoints/<br/>? api/"]
+    minimal --> governed["STE Enters Governed Mode"]
+    minimal --> p1["Phase 1 (Background)<br/>(Critical path domains)"]
+    p1 --> p2["Phase 2 (On-Demand)<br/>(User consent per domain)"]
+    p2 --> p3["Phase 3 (Background)<br/>(Remaining domains)"]
+    p3 --> full["Full RECON Equivalence"]
 ```
 
 **Hybrid Context Assembly Flow:**
 
-```
-┌──────────────────┐
-│ Task Request     │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Task Analysis    │
-│ (Entry Points)   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Check AI-DOC     │
-│ Availability     │
-└────────┬─────────┘
-         │
-         ├─── All Populated ───► Tier 1 (Full RSS, 100% confidence)
-         │
-         ├─── Some Populated ──► Tier 2 (RSS + Semantic, 70-90% confidence)
-         │                          │
-         │                          └──► ⚠️ User Notification
-         │
-         └─── None Populated ───► Tier 3 (Semantic only, 30-60% confidence)
-                                     │
-                                     └──► 🔴 User Warning + Consent
+```mermaid
+flowchart TD
+    request["Task Request"] --> analysis["Task Analysis<br/>(Entry Points)"]
+    analysis --> availability["Check AI-DOC<br/>Availability"]
+    availability -->|"All Populated"| tier1["Tier 1<br/>(Full RSS, 100% confidence)"]
+    availability -->|"Some Populated"| tier2["Tier 2<br/>(RSS + Semantic, 70-90% confidence)"]
+    availability -->|"None Populated"| tier3["Tier 3<br/>(Semantic only, 30-60% confidence)"]
+    tier2 --> notice["User Notification"]
+    tier3 --> warning["User Warning + Consent"]
 ```
 
 ## 5.4 Invariant Lifecycle Flow
 
-```
-┌──────────────────┐
-│  Gap Identified  │
-│  (human/agent)   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Agent Loads     │
-│  Context         │
-│                  │
-│ • Architecture   │
-│ • Hierarchy      │
-│ • Template       │
-│ • Existing inv.  │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│  Agent Proposes  │
-│  Invariant(s)    │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Human Reviews    │
-│ & Approves       │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Agent Authors    │
-│ (using template) │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Integration      │
-│                  │
-│ • Inventory      │
-│ • Directory      │
-│ • Cross-refs     │
-│ • Architecture   │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│ Validation &     │
-│ Reconvergence    │
-└──────────────────┘
+```mermaid
+flowchart TD
+    gap["Gap Identified<br/>(human/agent)"] --> context["Agent Loads Context<br/><br/>• Architecture<br/>• Hierarchy<br/>• Template<br/>• Existing inv."]
+    context --> propose["Agent Proposes<br/>Invariant(s)"]
+    propose --> review["Human Reviews<br/>& Approves"]
+    review --> author["Agent Authors<br/>(using template)"]
+    author --> integrate["Integration<br/><br/>• Inventory<br/>• Directory<br/>• Cross-refs<br/>• Architecture"]
+    integrate --> validate["Validation &<br/>Reconvergence"]
 ```
 
 ---
@@ -1729,21 +1366,14 @@ Trust Registry governs cryptographic verification:
 
 The soft enforcement (LLM) is surrounded by hard enforcement at every layer:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   CRYPTOGRAPHIC LAYER                           │
-│         (Runtime: Fabric → Gateway → Trust Registry)            │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │              WORKSPACE HARD ENFORCEMENT                   │  │
-│  │              (Cursor Rules, RSS Selection)                │  │
-│  │  ┌─────────────────────────────────────────────────────┐  │  │
-│  │  │              SOFT: LLM (CEM)                        │  │  │
-│  │  └─────────────────────────────────────────────────────┘  │  │
-│  │              WORKSPACE HARD ENFORCEMENT                   │  │
-│  │         (Validation Stack, Human Approval)                │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                   CRYPTOGRAPHIC LAYER                           │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+  subgraph Crypto["CRYPTOGRAPHIC LAYER<br/>(Runtime: Fabric -> Gateway -> Trust Registry)"]
+    WorkspaceTop["WORKSPACE HARD ENFORCEMENT<br/>(Cursor Rules, RSS Selection)"]
+    Llm["SOFT: LLM (CEM)"]
+    WorkspaceBottom["WORKSPACE HARD ENFORCEMENT<br/>(Validation Stack, Human Approval)"]
+    WorkspaceTop --> Llm --> WorkspaceBottom
+  end
 ```
 
 **LLM compliance is probabilistic, but non-compliant outputs are caught by surrounding hard enforcement.**

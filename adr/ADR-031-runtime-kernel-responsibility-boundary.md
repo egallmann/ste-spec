@@ -15,6 +15,11 @@ caller-facing decision authority.
 
 `ste-kernel` is the caller-facing admission authority.
 
+## Lifecycle Placement in the STE Spine
+
+This ADR defines the boundary between Runtime Execution and Observation
+(Evidence) on the runtime side and Admission Decision on the kernel side.
+
 ## Rationale
 
 Separating evidence from decision semantics keeps runtime factual and kernel
