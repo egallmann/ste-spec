@@ -77,6 +77,32 @@ fails closed and refuses execution eligibility.
 
 ## Kernel Enforcement Model
 
+### Kernel Boundary
+
+Inside the Kernel:
+
+- lifecycle enforcement authority
+- authority verification authority
+- execution eligibility decision authority
+- rule enforcement authority
+- admission control point
+- audit producer
+
+Outside the Kernel:
+
+- business logic execution
+- direct infrastructure deployment
+- CI/CD replacement
+- runtime system replacement
+- authority creation
+- governance decision creation
+
+**MUST:** The kernel enforces accepted authority. It does not create new
+authority or governance decisions.
+
+**MUST:** The kernel is the admission and execution-eligibility control point.
+It is not the actor that performs the business operation being approved.
+
 ### Kernel Enforcement Responsibility
 
 `ste-kernel` is the deterministic enforcement control point at the integration
@@ -96,6 +122,18 @@ and admission boundary.
 
 **MUST:** The Kernel enforces authority defined by accepted artifacts,
 lifecycle state, and governance configuration.
+
+### Definition of Execution
+
+Execution is any action that:
+
+- changes system state
+- processes production data
+- provisions or modifies infrastructure
+- invokes workflows or agents
+- produces externally visible effects
+
+**MUST:** The kernel must approve execution before execution occurs.
 
 ### Kernel Inputs
 
@@ -136,6 +174,22 @@ are derived representational outputs and are not execution-authorizing inputs.
 | Evidence | `Observed` | Factual evidence only, valid within the evidence boundary | Yes | Yes |
 | Governance configuration | `Assessed` and/or `Remediated`, as applicable to current governance completeness | Accepted governance-side inputs are complete enough for the execution path; draft governance-decision contracts are not mandatory authority sources | Yes | Yes, when governance completeness is required and cannot be verified |
 
+## Minimum Required Artifact Set for Execution Eligibility
+
+The minimum required artifact set for an execution-eligible system is:
+
+- required Logical ADRs
+- required Physical-System ADR
+- required Physical-Component ADRs
+- active rules
+- current manifest
+- current Architecture Index when the active enforcement path depends on governance or system-state completeness
+- no blocking gaps or violations
+
+This minimum set is enforced through the execution eligibility matrix and
+checklist. Missing or unverifiable required artifacts make the execution
+request non-eligible.
+
 ## Kernel Execution Eligibility Checklist
 
 Before allowing execution, the kernel evaluates this checklist against the
@@ -164,20 +218,63 @@ input set.
 **MUST NOT:** The kernel MUST NOT infer missing acceptance, missing authority,
 or missing governance completeness.
 
+## Evidence and Lifecycle Effects
+
+This execution model does not add lifecycle states to the Spine.
+
+- implementation deployed or otherwise realized remains within the existing
+  `Implemented` state model and does not create a separate deployment state
+- evidence that validates conformance supports continued use of `Observed`,
+  `Assessed`, and existing downstream eligibility
+- evidence that shows a violation produces a blocking or non-blocking
+  enforcement status and feeds `Assessed` and `Remediated` through the
+  existing governance flow
+- incidents or severe violations do not create `Suspended` or `Review Required`
+  as new lifecycle states; they are expressed as denial, blocking violation,
+  and governance-required remediation within the existing Spine
+
+**MUST:** The kernel considers required lifecycle state together with
+evidence-derived enforcement status when determining execution eligibility.
+
+## Violation Handling
+
+**MUST:** The kernel denies execution for blocking violations.
+
+**MUST:** The kernel records each blocking or non-blocking violation it relies
+on during enforcement.
+
+**MUST:** The kernel requires a lifecycle transition where accepted doctrine
+already implies one.
+
+**MUST:** The kernel produces an audit record for violation-driven allow or
+deny outcomes.
+
+Blocking violations cause denial. Non-blocking findings may be recorded without
+permissive authority expansion. Unverifiable prerequisites are treated as
+blocking for execution eligibility. Violation handling does not invent new
+lifecycle states; it uses denial plus existing governance and remediation flow.
+
 ## Audit and Traceability Requirement
 
 **MUST:** The kernel must produce an audit-capable enforcement decision record
 for every allow or deny result.
 
-The enforcement record must include:
+The required decision record must include:
 
+- execution allowed or denied
+- reason
+- artifacts evaluated
+- lifecycle states used
+- rules applied
+- timestamp or equivalent decision-time marker
+- artifact versions or identities used
 - what was checked
 - what passed
 - what failed
-- why execution was allowed or denied
-- which artifact versions or identities were used
-- which lifecycle states were relied on
-- which authority conditions were relied on
+- authority conditions relied on
+
+The decision record is the audit-capable enforcement record for the allow or
+deny outcome.
 
 The audit record is an output of enforcement, not a new authority source. It
 does not create authority; it documents enforcement of existing authority.

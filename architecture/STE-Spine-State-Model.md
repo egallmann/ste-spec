@@ -97,6 +97,9 @@ Accepted IR record states map at this lifecycle level as follows:
   not states of every repository artifact.
 - `Assessed` covers report, validation, and review outputs already present in
   accepted doctrine.
+- Evidence-driven non-conformance and incident outcomes are enforcement
+  statuses and governance triggers layered on this state model. They are not
+  additional lifecycle states.
 - State changes do not reassign repository authority ownership.
 - `Remediated` names the governance-response segment of the loop. It does not
   imply that all remediation is complete; it means corrective action is

@@ -145,7 +145,9 @@ validation, and admission evaluation at this boundary. It **MUST** fail closed
 when boot or IR validation fails (see `execution/STE-Kernel-Execution-Model.md`).
 It is also the deterministic enforcement point for execution eligibility at the
 admission boundary: it verifies required authority, lifecycle state, evidence,
-and governance-side prerequisites before allowing execution.
+and governance-side prerequisites before allowing execution. It approves
+boundary execution eligibility; it does not replace runtime systems, direct
+business execution, or CI/CD.
 
 ### Adjudicator boundary (rules-engine → governance; `ste-kernel` orchestrates)
 
