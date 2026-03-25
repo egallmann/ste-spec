@@ -2,10 +2,16 @@
 
 ## Purpose
 
-This document consolidates authority categories used across the STE Spine.
+This document is normative supporting doctrine for authority categories and
+boundary explanation across the STE Spine.
 
 It preserves the accepted authority split already established by ADR-030,
 ADR-031, ADR-035, ADR-038, INV-0001, and INV-0002.
+
+It supports
+[`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+and does not override that ADR or redefine the taxonomy posture controlled by
+[`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
 ## Authority Categories
 

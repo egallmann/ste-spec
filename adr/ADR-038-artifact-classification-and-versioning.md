@@ -43,11 +43,29 @@ distinction, and reproducibility expectation only. It does not redefine
 contract authority or Architecture IR authority. The architecture document is
 the detailed doctrine model.
 
+## Authority and Precedence
+
+This ADR is the canonical authority for STE artifact taxonomy and versioning
+posture.
+
+Spine doctrine may map these classes into lifecycle stages, authority
+categories, and state transitions, but it must not redefine the taxonomy or
+change class posture established here.
+
+If a supporting Spine document appears to imply a new artifact class, altered
+class boundary, or different versioning posture, this ADR controls.
+
 ## Lifecycle Placement in the STE Spine
 
 This ADR applies across the full STE Spine by classifying which artifact
 families participate in intent, implementation, proof, compilation, evidence,
 assessment, and governance without defining the runtime sequence itself.
+
+## Relationship to the STE Spine
+
+ADR-040 is the canonical definition of the STE Spine lifecycle and
+authority-transition model. This ADR remains the canonical taxonomy and
+versioning posture authority that the Spine uses.
 
 ## Rules
 

@@ -2,11 +2,13 @@
 
 ## Purpose
 
-This document consolidates the STE Spine lifecycle from accepted doctrine.
+This document is normative supporting doctrine for the STE Spine lifecycle.
 
-It does not redefine artifact taxonomy, Architecture IR ontology, or runtime
-and kernel responsibilities. The canonical decision for the Spine is
+It explains and maps the lifecycle defined canonically in
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md).
+It does not override ADR-040, and it does not redefine artifact taxonomy,
+which remains canonical in
+[`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
 ## Lifecycle Stages
 

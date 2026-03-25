@@ -4,8 +4,14 @@
 
 This file reconstructs the implicit STE Spine from accepted doctrine only.
 
-It is analysis-only. It does not introduce new runtime behavior, repository
-responsibilities, or artifact taxonomy changes.
+It is analysis-only, non-normative, and reconstructive. It does not introduce
+new runtime behavior, repository responsibilities, or artifact taxonomy
+changes.
+
+It is useful for traceability and audit of the Spine consolidation, but it is
+not a source of doctrine. ADR-040 remains canonical for the Spine definition,
+ADR-038 remains canonical for taxonomy and versioning posture, and supporting
+Spine doctrine in `architecture/` remains subordinate to those ADRs.
 
 Primary source set for this extraction:
 
@@ -40,6 +46,9 @@ tranche:
 
 Where accepted sources use different terms for the same part of the lifecycle,
 this file records the mismatch instead of silently reconciling it.
+
+This precedence is analytical guidance for this extraction. It does not create
+new authority above accepted doctrine.
 
 ## Lifecycle Stages Already Described
 
@@ -376,9 +385,9 @@ Accepted doctrine already defines the major parts of the STE Spine:
 - reports and projections as non-authoritative outputs
 - governance feedback into the next cycle
 
-What is missing prior to this tranche is not the underlying doctrine, but a
-single canonical document that makes the full lifecycle and authority-transition
-model explicit.
+What was missing prior to this tranche was not the underlying doctrine, but a
+single canonical document that made the full lifecycle and
+authority-transition model explicit. ADR-040 now fills that role.
 
 ## Related Documents
 

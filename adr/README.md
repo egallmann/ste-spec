@@ -46,9 +46,15 @@ contracts, invariants, or implementation tests.
 
 - `ADR-040-ste-spine-lifecycle-and-authority.md`
 
+ADR-040 is the canonical definition of the STE Spine lifecycle and
+authority-transition model. ADR-038 remains the canonical artifact taxonomy and
+versioning posture authority. Supporting Spine documents live in
+`architecture/` and are subordinate to those ADRs.
+
 ## Relationship to Other Surfaces
 
-- `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md` support ADR-040 with consolidated Spine doctrine
+- `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md` are normative supporting doctrine for ADR-040 and do not override ADR-040 or ADR-038
+- `architecture/STE-Spine-Extracted-Doctrine.md` is analysis-only and non-normative
 - `contracts/` defines normative shape
 - `invariants/` defines normative rules
 - `adr/` defines architectural rationale

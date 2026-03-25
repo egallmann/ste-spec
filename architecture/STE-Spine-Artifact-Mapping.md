@@ -2,9 +2,13 @@
 
 ## Purpose
 
-This document maps ADR-038 canonical artifact classes to the STE Spine
-lifecycle.
+This document is normative supporting doctrine for applying ADR-038 canonical
+artifact classes to the STE Spine lifecycle.
 
+It supports
+[`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+and explicitly defers taxonomy and versioning authority to
+[`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 It does not redefine artifact taxonomy. `Publication` and `Projection` are used
 here only as helper labels for Spine modeling:
 
