@@ -34,6 +34,27 @@ authority-transition definition. It does not redefine:
 - repository responsibilities
 - draft governance artifacts as normative status
 
+## Authority and Precedence
+
+This ADR is the canonical definition of the STE Spine lifecycle and
+authority-transition model.
+
+ADR-038 remains the canonical artifact taxonomy and versioning posture
+authority used by the Spine.
+
+The supporting Spine documents in `architecture/` are normative supporting
+doctrine where they explain, map, or summarize this ADR. They do not override
+this ADR, and they do not redefine ADR-038 taxonomy.
+
+Analysis-oriented Spine material is non-normative and does not define doctrine.
+
+If wording appears to conflict:
+
+- ADR-040 controls for Spine lifecycle and authority-transition definition
+- ADR-038 controls for artifact taxonomy and versioning posture
+- supporting Spine doctrine follows those ADRs
+- analysis-only material yields to accepted doctrine and supporting doctrine
+
 ## Decision
 
 STE defines the **Spine** as the canonical lifecycle and authority-transition
@@ -297,6 +318,9 @@ The Spine distinguishes these change categories:
 ## Consequences
 
 - The STE Spine now has one canonical lifecycle and authority definition.
+- Supporting Spine documents explain and map this ADR but do not override it.
+- ADR-038 remains the canonical taxonomy and versioning authority for Spine
+  artifact classes.
 - Readers no longer need to reconstruct the full model only by joining multiple
   accepted doctrine sources.
 - ADR-038 artifact taxonomy remains unchanged.
@@ -307,11 +331,13 @@ The Spine distinguishes these change categories:
 
 ## Related
 
+Supporting doctrine:
 - [`../architecture/STE-Spine-Extracted-Doctrine.md`](../architecture/STE-Spine-Extracted-Doctrine.md)
 - [`../architecture/STE-Spine-Lifecycle.md`](../architecture/STE-Spine-Lifecycle.md)
 - [`../architecture/STE-Spine-Authority.md`](../architecture/STE-Spine-Authority.md)
 - [`../architecture/STE-Spine-Artifact-Mapping.md`](../architecture/STE-Spine-Artifact-Mapping.md)
 - [`../architecture/STE-Spine-State-Model.md`](../architecture/STE-Spine-State-Model.md)
+Canonical related ADRs:
 - [`ADR-030-contract-authority-in-ste-spec.md`](./ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-031-runtime-kernel-responsibility-boundary.md`](./ADR-031-runtime-kernel-responsibility-boundary.md)
 - [`ADR-032-fail-closed-enforcement-model.md`](./ADR-032-fail-closed-enforcement-model.md)

@@ -2,11 +2,15 @@
 
 ## Purpose
 
-This document defines the STE Spine system lifecycle state model.
+This document is normative supporting doctrine for the STE Spine system
+lifecycle state model.
 
-It is a system lifecycle framing, not a universal single-artifact state machine.
-Where accepted doctrine already defines narrower lifecycle states, such as the
-Architecture IR record states in
+It supports
+[`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+and does not override the canonical Spine definition. It is a system lifecycle
+framing, not a universal single-artifact state machine. Where accepted doctrine
+already defines narrower lifecycle states, such as the Architecture IR record
+states in
 [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md),
 this document maps rather than replaces them.
 

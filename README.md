@@ -70,7 +70,8 @@ authority.
 - `adr/`
   - architectural decisions and rationale
 - `architecture/`, `execution/`, `governance/`
-  - orientation and viewpoint material
+  - mostly orientation and viewpoint material, with named accepted exceptions
+    for normative supporting doctrine
 - root specification entrypoints such as `README.md`, `status.md`,
   `scope-and-non-goals.md`, and `glossary.md`
 
@@ -214,10 +215,22 @@ Use the following authority split when reading this repository:
     as assigned by
     [`adr/ADR-035-architecture-ir-ontology-authority.md`](adr/ADR-035-architecture-ir-ontology-authority.md)
 - Orientation
-  - `architecture/`, `execution/`, and `governance/`
+  - most of `architecture/`, `execution/`, and `governance/`
   - `status.md`
   - `scope-and-non-goals.md`
   - `glossary.md`
+- Accepted normative supporting doctrine exceptions
+  - `architecture/STE-Spine-Lifecycle.md`
+  - `architecture/STE-Spine-Authority.md`
+  - `architecture/STE-Spine-Artifact-Mapping.md`
+  - `architecture/STE-Spine-State-Model.md`
+  - these files are normative supporting doctrine subordinate to
+    [`adr/ADR-040-ste-spine-lifecycle-and-authority.md`](adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+    and
+    [`adr/ADR-038-artifact-classification-and-versioning.md`](adr/ADR-038-artifact-classification-and-versioning.md)
+    and do not override accepted ADR authority
+  - `architecture/STE-Spine-Extracted-Doctrine.md` is analysis-only and
+    non-normative
 - Illustrative
   - `architecture/STE-Worked-Example-Walkthrough.md`
   - figure conventions and explanatory diagrams where explicitly informative
@@ -272,6 +285,8 @@ When changing this repository:
   - `invariants/` for rules
   - `adr/` for rationale
   - orientation docs only when navigation or explanation must change
+- update named accepted supporting-doctrine exceptions in line with their
+  governing ADRs rather than treating them as generic orientation prose
 - keep README subordinate to normative sources
 - run the local checks
 - preserve the distinction between normative, orientation, and illustrative
