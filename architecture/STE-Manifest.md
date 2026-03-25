@@ -12,9 +12,13 @@ live. It does not define those rules itself.
 ## 1.1 Reading legend (normative vs orientation vs illustration)
 
 - **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adr/` where they govern handoffs; Architecture IR **semantics** in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).
-- **Orientation (viewpoint):** `architecture/`, `execution/`, and `governance/`
-  prose. These surfaces provide navigation and viewpoint material and do not
-  override normative authority.
+- **Accepted normative supporting doctrine:** `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md`. These files are accepted supporting doctrine subordinate to ADR-040 and ADR-038 and do not override accepted ADR authority.
+- **Orientation (viewpoint):** most of `architecture/`, `execution/`, and
+  `governance/` is navigation and viewpoint material and does not override
+  normative authority.
+- **Analysis-only (non-normative):**
+  `architecture/STE-Spine-Extracted-Doctrine.md` is reconstruction material for
+  audit and traceability only.
 - **Worked example (illustration):** `architecture/STE-Worked-Example-Walkthrough.md` â€” one fictional thread tying workspace tooling to integration surfaces; **not** additional MUSTs.
 - **Figures (orientation):** `architecture/STE-Diagram-Standards.md` â€” canonical diagram representation and projection doctrine; `architecture/STE-Diagram-Conventions.md` provides editorial guidance only. Figures are projection artifacts and are **informative** unless a document explicitly says a figure is normative.
 
@@ -24,7 +28,7 @@ live. It does not define those rules itself.
 2. **Core concepts:** `architecture/STE-Foundations.md`, `architecture/STE-Reference-Embodiment.md` (informative spine), `architecture/STE-Worked-Example-Walkthrough.md` (informative end-to-end thread), `invariants/STE-Invariant-Hierarchy.md` (and referenced invariant docs)
 3. **System components:** `architecture/STE-System-Components-and-Responsibilities.md`, `architecture/STE-System-Core.md`
 4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR), `architecture/STE-Diagram-Standards.md` (diagram doctrine), `architecture/STE-Diagram-Conventions.md` (editorial figure guidance)
-5. **Spine doctrine:** `adr/ADR-040-ste-spine-lifecycle-and-authority.md` (canonical Spine definition), `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, `architecture/STE-Spine-State-Model.md` (normative supporting doctrine subordinate to ADR-040 and ADR-038), `architecture/STE-Spine-Extracted-Doctrine.md` (analysis-only, non-normative reconstruction)
+5. **Spine doctrine:** `adr/ADR-040-ste-spine-lifecycle-and-authority.md` (canonical Spine definition), `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, `architecture/STE-Spine-State-Model.md` (accepted normative supporting doctrine subordinate to ADR-040 and ADR-038), `architecture/STE-Spine-Extracted-Doctrine.md` (analysis-only, non-normative reconstruction)
 6. **Boundary surfaces:** `architecture/OPEN_CLOSED_BOUNDARY.md`, `architecture/PUBLIC_SYSTEM_SURFACES.md`, `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
 7. **Execution models**
    - Workspace cognition: `execution/STE-Cognitive-Execution-Model.md`
@@ -45,21 +49,20 @@ live. It does not define those rules itself.
 - `contracts/` â€” normative serialized contract shape
 - `invariants/` â€” normative rules and semantic constraints
 - `adr/` â€” architectural decisions and rationale
-- `architecture/`, `execution/`, `governance/` â€” orientation and viewpoint
-  material unless a document is explicitly identified as normative supporting
-  doctrine
+- `architecture/`, `execution/`, `governance/` â€” generally orientation and
+  viewpoint material, except explicitly named accepted supporting-doctrine files
 
 For the Spine tranche:
 
 - `adr/ADR-040-ste-spine-lifecycle-and-authority.md` is the canonical Spine
-  definition
+  lifecycle and authority-transition definition
 - `adr/ADR-038-artifact-classification-and-versioning.md` is the canonical
   artifact taxonomy and versioning posture authority
 - `architecture/STE-Spine-Lifecycle.md`,
   `architecture/STE-Spine-Authority.md`,
   `architecture/STE-Spine-Artifact-Mapping.md`, and
-  `architecture/STE-Spine-State-Model.md` are normative supporting doctrine and
-  do not override ADR-040 or ADR-038
+  `architecture/STE-Spine-State-Model.md` are accepted supporting doctrine that
+  explain and map the Spine without overriding ADR-040 or ADR-038
 - `architecture/STE-Spine-Extracted-Doctrine.md` is analysis-only and
   non-normative
 
@@ -131,16 +134,22 @@ artifact class. Regenerate and validate it with
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `architecture/STE-Diagram-Standards.md`
 - `architecture/STE-Diagram-Conventions.md`
-- `architecture/STE-Spine-Lifecycle.md`
-- `architecture/STE-Spine-Authority.md`
-- `architecture/STE-Spine-Artifact-Mapping.md`
-- `architecture/STE-Spine-State-Model.md`
 - `architecture/STE-Spine-Extracted-Doctrine.md` (analysis-only; non-normative)
 - `architecture/STE-Repository-README-Checklist.md`
 - `execution/STE-Cognitive-Execution-Model.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `glossary.md`
 - `governance/`
+
+## 7.1 Accepted Supporting Doctrine Exceptions
+
+- `architecture/STE-Spine-Lifecycle.md`
+- `architecture/STE-Spine-Authority.md`
+- `architecture/STE-Spine-Artifact-Mapping.md`
+- `architecture/STE-Spine-State-Model.md`
+
+These accepted supporting-doctrine files explain and map the Spine but do not
+override ADR-040 or ADR-038.
 
 Files under `internal/` are tracked for internal planning but are **not** public
 canonical specification surfaces and **MUST NOT** be cited as external
