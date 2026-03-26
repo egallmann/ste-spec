@@ -16,13 +16,25 @@ does not redefine artifact taxonomy, which remains canonical in
 
 - Read the stages from left to right in the exact lifecycle order defined by
   ADR-040.
-- The node labels are lifecycle stages, not artifact classes.
+- The figure shows lifecycle flow, not artifact taxonomy; the node labels are
+  lifecycle stages, not artifact classes.
 - Artifact classes are defined by ADR-038 and are not shown here as separate
   stages.
-- Authority and canonicity are defined by the ADRs and doctrine text, not by
-  this diagram.
+- The Spine shows how artifacts move through lifecycle boundaries, are
+  evaluated, and influence downstream decisions.
+- Authority shifts happen at named lifecycle boundaries defined by doctrine,
+  not by diagram styling alone.
+- Normative authority defines intent, implementation produces implementation
+  truth, proof produces verification results, and governance decisions can feed
+  the next cycle of intent change.
+- `ste-kernel` performs deterministic validation, compilation, and
+  caller-facing admission at the integration boundary.
+- Runtime produces evidence only; it does not emit caller-facing admission
+  decisions.
 - `Publication` and `Projection` are overlays or postures in this model, not
   standalone artifact classes or lifecycle stages.
+- Authority and canonicity are defined by the ADRs and doctrine text, not by
+  this diagram.
 - If this diagram and ADR-040 ever differ, ADR-040 governs and this diagram
   must be corrected.
 
@@ -49,6 +61,12 @@ flowchart LR
     assessment -.-> projection_overlay
 ```
 
+Early lifecycle segments are dominated by authored normative intent,
+implementation truth, and proof results. Later lifecycle segments include
+derived integration-state, evidence, reports, and projections. This is a
+posture distinction across the lifecycle, not a new lifecycle partition or
+taxonomy.
+
 This diagram is a projection of the canonical lifecycle defined in ADR-040. If
 this figure and ADR-040 ever differ, ADR-040 is authoritative and this diagram
 must be updated.
@@ -56,7 +74,7 @@ must be updated.
 ## Lifecycle Stages
 
 | Stage | Description | Responsible repository | Artifact classes present | Authority type | Inputs | Outputs | Entry criteria | Exit criteria | Primary state result |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Intent Definition | Normative intent is written and accepted through ADRs, invariants, contracts, and canonical doctrine. Doctrine often speaks of contract authority, invariant surfaces, and architecture decisions rather than "intent definition" as a stage label. | `ste-spec` | Normative, Orientation | Normative Authority | Prior doctrine, change need, accepted constraints | ADRs, invariants, contracts, doctrine updates | Need for new or revised intent is identified | Accepted authoritative intent exists in accepted doctrine or accepted contract shape | Accepted |
 | Implementation | Executable behavior is realized in repository source. Doctrine defines this as versioned implementation truth rather than normative authority. | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Implementation | Implementation Truth | Accepted doctrine and repository-local implementation work | Source changes and executable logic | Accepted intent exists for the affected scope | Implementation exists as versioned source and is ready for proof / verification | Implemented |
 | Proof / Verification | Proof logic verifies or certifies expected behavior. Doctrine uses "Proof Logic", validation, and deterministic baselines rather than one universal verification stage label. | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Proof Logic, Reports | Proof Authority | Accepted doctrine, implementation source, proof harnesses | Tests, deterministic baselines, proof outcomes, validation summaries | Implementation or doctrine requiring proof is present | Verification outcome exists and the verified scope is ready for publication / integration input | Verified |
