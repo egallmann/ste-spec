@@ -19,12 +19,8 @@ lifecycle and authority model across multiple surfaces:
 - reports and projections as non-authoritative outputs
 - governance review, override, remediation, and feedback loops
 
-What is missing is one explicit canonical statement of the end-to-end Spine.
-Readers can reconstruct the lifecycle from accepted doctrine, but they must join
-multiple viewpoints to do so.
-
-This ADR consolidates that implicit model into one canonical lifecycle and
-authority-transition definition. It does not redefine:
+This ADR states the end-to-end model explicitly as the canonical Spine
+lifecycle and authority-transition definition. It does not redefine:
 
 - artifact taxonomy from ADR-038
 - Architecture IR ontology from ADR-035
@@ -34,26 +30,29 @@ authority-transition definition. It does not redefine:
 - repository responsibilities
 - draft governance artifacts as normative status
 
-## Authority and Precedence
+## Terminology
 
-This ADR is the canonical definition of the STE Spine lifecycle and
-authority-transition model.
+For the Spine:
 
-ADR-038 remains the canonical artifact taxonomy and versioning posture
-authority used by the Spine.
-
-The supporting Spine documents in `architecture/` are normative supporting
-doctrine where they explain, map, or summarize this ADR. They do not override
-this ADR, and they do not redefine ADR-038 taxonomy.
-
-Analysis-oriented Spine material is non-normative and does not define doctrine.
-
-If wording appears to conflict:
-
-- ADR-040 controls for Spine lifecycle and authority-transition definition
-- ADR-038 controls for artifact taxonomy and versioning posture
-- supporting Spine doctrine follows those ADRs
-- analysis-only material yields to accepted doctrine and supporting doctrine
+- `canonical` means the governing source for a subject area. It does not mean
+  merely important, published, or widely referenced.
+- `supporting doctrine` means normative explanatory material subordinate to the
+  governing ADRs. It explains or maps accepted doctrine without overriding it.
+- `analysis-only` means non-normative reconstruction, assessment, or audit
+  material. It does not define doctrine.
+- `lifecycle` means the ordered end-to-end Spine stage sequence. It is distinct
+  from both Spine lifecycle states and conformance overlay states.
+- `state` means readiness or result posture within the Spine model. A state
+  does not by itself reassign authority ownership.
+- `authority` means who or what governs truth within a defined scope. Current
+  applicability may change by state, but authority ownership does not change by
+  state alone.
+- `publication` means a lifecycle role that exposes declared boundary material
+  for downstream integration use. It is not an artifact class.
+- `projection` means a derived representational posture generated from
+  lifecycle material. It is not a lifecycle state or taxonomy class.
+- `view` means a representational or explanatory perspective. It does not
+  create authority and does not create a taxonomy class by default.
 
 ## Decision
 
@@ -72,7 +71,38 @@ model connecting:
 - governance decision
 - intent update / remediation
 
-### 1. Lifecycle stages
+## Spine Model Overview
+
+This ADR is the canonical definition of the STE Spine lifecycle and
+authority-transition model.
+
+ADR-038 remains the canonical artifact taxonomy and versioning posture
+authority used by the Spine.
+
+The supporting Spine documents in `architecture/` are normative supporting
+doctrine. They explain, map, or summarize this ADR without redefining the
+Spine or the taxonomy controlled by ADR-038.
+
+Analysis-oriented Spine material is non-normative and does not define
+doctrine.
+
+If wording appears to conflict:
+
+- ADR-040 controls for Spine lifecycle and authority-transition definition
+- ADR-038 controls for artifact taxonomy and versioning posture
+- supporting doctrine follows those ADRs
+- analysis-only material yields to accepted doctrine and supporting doctrine
+
+### Core Distinctions
+
+| Concept | What it answers | Examples in the Spine | What it does not answer |
+| --- | --- | --- | --- |
+| Lifecycle stage | Where evaluated scope sits in the end-to-end Spine sequence | `Implementation`, `Admission Decision`, `Observation (Evidence)` | Whether the scope is authoritative, current, or execution-eligible |
+| Lifecycle state | What readiness or result posture applies within the lifecycle model | `Accepted`, `Verified`, `Observed`, `Superseded` | Who owns truth or whether an artifact class changes authority |
+| Authority category | Who or what governs truth within a defined scope or boundary | Normative Authority, Implementation Truth, Governance Authority | Which lifecycle stage the scope occupies or which state currently applies |
+| Canonical or derived posture | Whether a surface is source truth or generated from source truth | accepted doctrine is canonical; compiled IR, admission artifacts, and projections are derived | Whether the surface is current, verified, or admitted |
+
+## Lifecycle Model
 
 The canonical Spine lifecycle stages are:
 
@@ -92,7 +122,11 @@ These stage names provide one explicit end-to-end vocabulary for the lifecycle.
 Where accepted source doctrine uses narrower or different terminology, those
 source terms remain valid within their original documents.
 
-### 2. Authority model
+For the canonical visual projection and reading guide for this lifecycle, see
+[`../architecture/STE-Spine-Lifecycle.md`](../architecture/STE-Spine-Lifecycle.md).
+That page is a non-authoritative projection subordinate to this ADR.
+
+## Authority Model
 
 The Spine uses the following authority categories:
 
@@ -117,7 +151,7 @@ factual observation within its boundary. Kernel admission output is final
 caller-facing decision authority at the runtime/kernel handoff. Compiled IR is
 derived integration-state. Reports and projections are non-authoritative.
 
-### 3. Artifact participation in the lifecycle
+## Artifact Participation / Placement
 
 ADR-038 artifact classes remain canonical:
 
@@ -134,8 +168,8 @@ This ADR does not add or rename artifact classes.
 
 For Spine modeling:
 
-- `Publication` is a lifecycle role or posture applied to some canonical
-  classes, especially Derived outputs and declared boundary surfaces
+- `Publication` is a lifecycle role applied to some canonical classes,
+  especially Derived outputs and declared boundary surfaces
 - `Projection` is a derived representational posture
 - `Report` maps to the canonical `Reports` class
 
@@ -144,15 +178,34 @@ Artifact participation is:
 - Normative artifacts define intent, governance outcomes, and supersession
 - Implementation artifacts realize executable behavior
 - Proof Logic verifies behavior and defines deterministic expected outcomes
-- Derived artifacts carry publication, compiled integration-state, and some
-  admission outputs without becoming authoritative by default
+- Derived artifacts carry publication surfaces, compiled integration-state,
+  caller-facing admission artifacts, and some projections without becoming
+  authoritative by default
 - Evidence artifacts record factual runtime observations
-- Reports interpret evidence, validation, and projection material
-- Orientation artifacts explain and navigate
+- Reports interpret evidence, compiled material, and projection material
+- Orientation artifacts explain and navigate indirectly
 - Internal artifacts support local planning and remediation without becoming
   public authority
 
-### 4. State transitions
+Canonical participation and derived participation remain distinct in this
+model. Canonical artifacts define or govern intent, implementation truth, proof
+inputs, and runtime observations within their accepted boundaries. Derived
+artifacts carry published inputs, compiled integration-state, caller-facing
+admission outputs, and projections without becoming canonical by derivation.
+
+| Artifact class | Primary lifecycle participation | Canonical or derived posture | Downstream role |
+| --- | --- | --- | --- |
+| Normative | Intent Definition, Governance Decision, Intent Update / Remediation | Canonical | Defines intent, constraints, governance outcomes, and supersession |
+| Implementation | Implementation, Runtime Execution | Canonical within implementation scope | Realizes executable behavior and produces attributable runtime effects |
+| Proof Logic | Proof / Verification | Canonical within proof scope | Produces verification outcomes and proof baselines |
+| Derived | Publication / Integration Input, Architecture IR Compilation, Admission Decision, Assessment (Reports) | Derived | Carries published inputs, compiled integration-state, admission outputs, and projections |
+| Evidence | Observation (Evidence) | Canonical within the evidence boundary | Carries factual runtime observations into assessment and governance |
+| Reports | Proof / Verification, Assessment (Reports), Governance Decision | Derived interpretive output | Carries interpretive outputs into governance and review |
+
+Detailed placement, direct kernel input status, and indirect governance
+influence are mapped in supporting doctrine.
+
+## State and Transitions
 
 The Spine system lifecycle states are:
 
@@ -170,45 +223,77 @@ The Spine system lifecycle states are:
 - Superseded
 
 This is a system lifecycle model, not a universal single-artifact state machine.
+Its lifecycle stages, Spine lifecycle states, and conformance overlay states
+are related but distinct terms.
 
-State participation is:
+| State | Meaning | Applicable artifact classes or lifecycle segment | Authority effect | Generation / derivation effect |
+| --- | --- | --- | --- | --- |
+| Drafted | Normative intent or corrective intent has been written but is not yet authoritative for its scope. | Normative intent work and next-cycle remediation outputs | Does not assign or change authority ownership. | Does not authorize downstream implementation, proof, or publication as accepted Spine output. |
+| Accepted | Normative intent is authoritative for its scope. | Normative artifacts | Makes the accepted normative intent authoritative for its scope without changing repository authority ownership. | Authorizes downstream implementation, proof, and publication work against the accepted intent. |
+| Implemented | Executable logic exists in implementation repositories for the accepted scope. | Implementation artifacts | Does not elevate implementation to normative authority. | Makes the implementation eligible for proof / verification. |
+| Verified | Proof output exists for the implementation or publication surface under review. | Proof Logic and the implementation segment it verifies | Does not elevate implementation to normative authority. | Makes the verified scope eligible for publication / integration input. |
+| Published | Declared integration inputs are available through the required publication surfaces. | Derived publication outputs and other declared integration inputs | Does not make Derived artifacts authoritative. | Makes the published inputs eligible for compilation. |
+| Compiled | Validated compiled integration-state exists. | Derived compiled integration-state | Does not replace Architecture IR semantic authority or change authority ownership. | Makes the validated compiled state eligible for admission evaluation and downstream projection. |
+| Admitted | Caller-facing admission output exists. | Admission decision segment | Does not change normative authority ownership; it establishes the caller-facing decision result at the kernel boundary. | Makes the admitted or operative runtime path eligible for execution. |
+| Executed | Runtime execution has occurred for the relevant admitted or operative path. | Runtime execution segment | Does not change authority ownership. | Makes runtime facts eligible to be emitted as evidence. |
+| Observed | Factual evidence exists. | Evidence artifacts | Does not change authority ownership; it establishes observational authority within the evidence boundary. | Makes evidence eligible for assessment and governance input. |
+| Assessed | Interpretive outputs exist. | Reports and assessment outputs | Does not create normative authority. | Makes assessment results eligible for governance decision. |
+| Remediated | Corrective action or governance disposition has been explicitly recorded for the next cycle. | Governance outputs and internal remediation tracking | Does not by itself create new normative authority. | Makes next-cycle intent update eligible to re-enter Drafted or Accepted. |
+| Superseded | Earlier accepted normative intent is no longer the current authoritative intent. | Normative artifacts | Ends current applicability of the earlier accepted normative intent without changing authority ownership. | Prevents superseded intent from acting as the current accepted basis for new downstream work. |
 
-- Normative: Drafted -> Accepted -> Superseded
-- Implementation: Implemented -> Verified
-- Derived: Published -> Compiled -> Admitted
-- Runtime: Executed -> Observed
-- Reports: Assessed
-- Governance: Remediated -> Intent Update
+Allowed transition constraints are:
+
+- `Drafted -> Accepted`
+- `Accepted -> Implemented`
+- `Implemented -> Verified`
+- `Verified -> Published`
+- `Published -> Compiled`
+- `Compiled -> Admitted`
+- `Admitted -> Executed`
+- `Executed -> Observed`
+- `Observed -> Assessed`
+- `Assessed -> Remediated`
+- `Accepted -> Superseded`
+- `Remediated -> Drafted`
+- `Remediated -> Accepted`
+
+Transitions not named by the Spine are invalid or undefined at this lifecycle
+level.
+
+No state change by itself changes canonical authority ownership.
+
+State constrains readiness and eligibility to generate downstream artifacts. It
+does not reassign ownership of truth.
 
 Where narrower accepted doctrine already defines local lifecycle states, such as
 Architecture IR record states, those local vocabularies remain valid in their
 own scope.
 
-### 5. Enforcement points
+## Enforcement, Observation, and Assessment
 
 Enforcement in the Spine occurs primarily at the kernel boundary.
 
 - `ste-kernel` loads required publication-surface inputs
 - `ste-kernel` merges and validates IR
+- `ste-kernel` is the lifecycle enforcement control point for execution
+  eligibility at the admission boundary
+- `ste-kernel` verifies required authority, lifecycle state, and governance
+  prerequisites before emitting caller-facing admission output
 - invalid runtime evidence is fail-closed at the kernel boundary
 - admission evaluation must run only on validated IR
 - closed-object discipline prevents undeclared semantic channels across the
   runtime/kernel handoff
 
-This ADR does not add new enforcement behavior. It consolidates the accepted
+This ADR does not add new enforcement behavior. It states the accepted
 enforcement locations already defined by ADR-031, ADR-032, ADR-033, and the
-kernel execution model.
-
-### 6. Observation points
+kernel execution model in the Spine model.
 
 Observation occurs in the runtime evidence layer.
 
 - `ste-runtime` produces `ArchitectureEvidence`
 - evidence is factual only
-- evidence may inform freshness, bundle health, and subsequent evaluation
+- evidence informs freshness, bundle health, and subsequent evaluation
 - evidence must not embed caller-facing admission decision semantics
-
-### 7. Assessment points
 
 Assessment occurs after compiled or observed material is available for
 interpretation.
@@ -223,7 +308,7 @@ Assessment outputs include:
 Assessment outputs are interpretive. They inform governance and review but do
 not become normative authority by themselves.
 
-### 8. Governance decision points
+## Governance, Architecture IR, and Compiled IR
 
 Governance decision points occur where accepted doctrine records:
 
@@ -237,16 +322,12 @@ The strongest accepted governance model for this stage is in the Architecture IR
 governance loop. Draft governance-decision contracts and draft rule-projection
 envelopes remain draft and are not promoted by this ADR.
 
-### 9. Architecture IR role
-
 Architecture IR is the canonical semantic model of the Spine.
 
 - `ste-spec` owns what Architecture IR means
 - Architecture IR is the single conceptual graph into which authoritative ADR
   material, implementation attribution, and runtime observations compile
 - Architecture IR is broader than any single compiled document instance
-
-### 10. Compiled IR role
 
 Compiled IR is the derived integration-state used by `ste-kernel` for
 validation, orchestration, projection, and admission evaluation.
@@ -257,7 +338,14 @@ validation, orchestration, projection, and admission evaluation.
 - mechanical schema, merge order, identity, and compiled enums remain kernel
   authority per the pinned contract references
 
-### 11. Evidence role
+## Publication and Projection
+
+Publication is a lifecycle role in the Spine.
+
+- publication exposes declared boundary material for downstream integration use
+- publication does not create an artifact class
+- publication does not change artifact authority ownership
+- publication does not change artifact canonicity
 
 Evidence is the observational layer of the Spine.
 
@@ -265,24 +353,40 @@ Evidence is the observational layer of the Spine.
 - evidence is authoritative within its observational boundary
 - evidence is input to evaluation, not itself the caller-facing decision
 
-### 12. Report role
-
 Reports are the interpretive layer of the Spine.
 
 - reports summarize, assess, compare, or review
-- reports may consume authoritative or observed inputs
+- reports consume authoritative or observed inputs
 - reports do not become authoritative because they are useful or versioned
-
-### 13. Projection role
 
 Projection is the representational layer of the Spine.
 
-- canonical diagrams and similar projection artifacts are derived views
-- projections help explain lifecycle, authority, flow, and governance state
+- canonical diagrams and similar projection outputs are derived
+  representational outputs
+- projections are generated from compiled, observed, or assessed material to
+  explain lifecycle, authority, flow, and governance state
+- projection is a representational posture, not a state family or artifact
+  class
+- projection generation does not affect authority or canonicity
 - projections do not introduce semantics absent from accepted authoritative
   sources
 
-### 14. Feedback loop into intent
+## Spine Invariants
+
+- Every canonical artifact participates in the Spine lifecycle according to its
+  class and scope.
+- Only canonical artifacts define architecture intent.
+- Publication does not change artifact authority ownership or canonicity.
+- Projections are derived and non-canonical.
+- Evidence is authoritative only as runtime observation within its boundary.
+- Evidence does not redefine intent artifacts.
+- Assessment links evidence and compiled material back to intent and governance
+  inputs.
+- Authority governs truth ownership and accepted transitions; state governs
+  readiness and applicability and does not by itself reassign authority
+  ownership.
+
+## Feedback and Change Categories
 
 The Spine is a loop, not only a one-way pipeline.
 
@@ -298,8 +402,6 @@ Governance feedback from:
 feeds the next cycle of intent definition, implementation, proof, and
 publication.
 
-### 15. Change categories
-
 The Spine distinguishes these change categories:
 
 - **Normative change**: modifies accepted intent, doctrine, contracts,
@@ -310,26 +412,24 @@ The Spine distinguishes these change categories:
   verification harnesses
 - **Runtime change**: modifies execution or observation behavior within runtime
   responsibilities
-- **Projection change**: modifies derived representational views without
+- **Projection change**: modifies derived representational outputs without
   changing authoritative meaning
 - **Report change**: modifies interpretive or assessment outputs without
   changing authoritative meaning
 
 ## Consequences
 
-- The STE Spine now has one canonical lifecycle and authority definition.
+- The STE Spine has one canonical lifecycle and authority definition.
 - Supporting Spine documents explain and map this ADR but do not override it.
 - ADR-038 remains the canonical taxonomy and versioning authority for Spine
   artifact classes.
-- Readers no longer need to reconstruct the full model only by joining multiple
-  accepted doctrine sources.
 - ADR-038 artifact taxonomy remains unchanged.
 - ADR-035 semantic versus mechanical Architecture IR split remains unchanged.
 - ADR-030 and ADR-031 boundary authority remains unchanged.
 - Runtime and kernel responsibilities remain unchanged.
 - Draft governance artifacts remain draft unless separately promoted.
 
-## Related
+## Related Documents
 
 Supporting doctrine:
 - [`../architecture/STE-Spine-Extracted-Doctrine.md`](../architecture/STE-Spine-Extracted-Doctrine.md)

@@ -25,6 +25,10 @@ inline adjudication; the **durable** boundary keeps **rule closure and signing**
    rule text for these envelopes; it **MAY** verify, route, or cache **rules-engine**
    outputs per published contracts.
 
+4. Kernel rule evaluation may be normative in `ste-spec` doctrine without
+   promoting this envelope family to accepted contract status. Until promotion,
+   the envelope remains draft and interface-only.
+
 ## Rationale
 
 Centralizes **contract authority** (ADR-030) for a new handoff family without collapsing

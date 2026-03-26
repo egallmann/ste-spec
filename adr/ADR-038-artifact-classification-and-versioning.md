@@ -10,10 +10,10 @@ Existing `ste-spec` doctrine already distinguishes documentation-state,
 integration-state, runtime evidence, repository boundaries, contract authority,
 and Architecture IR authority.
 
-What is missing is a binding system decision for artifact classification and
+This ADR establishes a binding system decision for artifact classification and
 version-control posture across STE repositories. Without that decision,
-repositories can drift in what they treat as source truth, regenerable output,
-runtime evidence, and reports.
+repositories could drift in what they treat as source truth, regenerable
+output, runtime evidence, and reports.
 
 ## Decision
 
@@ -38,10 +38,10 @@ Repositories MUST use the doctrine in
 `architecture/STE-Artifact-Classification-and-Versioning.md` when determining
 version-control posture.
 
-This ADR defines artifact classification posture, authority-versus-versioning
-distinction, and reproducibility expectation only. It does not redefine
-contract authority or Architecture IR authority. The architecture document is
-the detailed doctrine model.
+This ADR defines artifact classification posture, the
+authority-versus-versioning distinction, and the reproducibility expectation.
+It does not redefine contract authority or Architecture IR authority. The
+architecture document is the detailed doctrine model.
 
 ## Authority and Precedence
 
@@ -58,14 +58,29 @@ class boundary, or different versioning posture, this ADR controls.
 ## Lifecycle Placement in the STE Spine
 
 This ADR applies across the full STE Spine by classifying which artifact
-families participate in intent, implementation, proof, compilation, evidence,
-assessment, and governance without defining the runtime sequence itself.
+families participate in Intent Definition, Implementation, Proof /
+Verification, Publication / Integration Input, Architecture IR Compilation,
+Admission Decision, Observation (Evidence), Assessment (Reports), and
+Governance Decision without defining the lifecycle sequence or state machine
+itself.
 
 ## Relationship to the STE Spine
 
 ADR-040 is the canonical definition of the STE Spine lifecycle and
 authority-transition model. This ADR remains the canonical taxonomy and
 versioning posture authority that the Spine uses.
+
+## Terminology Boundary
+
+In this ADR, `artifact` means a member of the STE artifact taxonomy.
+
+`derived` means the canonical `Derived` artifact class and posture defined by
+this taxonomy. It is not a loose synonym for any produced output.
+
+`publication artifact` remains an exception label or posture applied by
+doctrine. It does not create a new top-level artifact class.
+
+`projection` and `view` are not artifact classes in this ADR.
 
 ## Rules
 
@@ -142,7 +157,7 @@ authority boundaries instead of collapsing them into version-control status.
 - Generated outputs do not become authoritative by being committed.
 - No runtime or contract behavior changes are introduced.
 
-## Related
+## Related Documents
 
 - [`ADR-030-contract-authority-in-ste-spec.md`](ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-035-architecture-ir-ontology-authority.md`](ADR-035-architecture-ir-ontology-authority.md)

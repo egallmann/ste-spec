@@ -19,9 +19,11 @@ Rationale and boundary intent live in `adr/`.
 
 ## Lifecycle Placement in the STE Spine
 
-This ADR sits in the Intent Definition stage of the STE Spine and governs the
-normative contract authority that shapes Publication / Integration Input at the
-runtime/kernel boundary.
+This ADR operates in the Intent Definition stage of the STE Spine by governing
+the normative contract authority that shapes Publication / Integration Input at
+the runtime/kernel boundary. It also affects Publication / Integration Input by
+constraining which contract-backed artifacts can participate there without
+defining the full Spine sequence or state machine.
 
 ## Rationale
 
@@ -30,6 +32,6 @@ architectural intent.
 
 ## Consequences
 
-- Runtime and kernel representations are subordinate implementation views.
+- Runtime and kernel representations are subordinate implementation surfaces.
 - Contract changes require coordinated `ste-spec` updates.
 - Repo-local tests consume `ste-spec` artifacts rather than inventing parallel authority.

@@ -18,6 +18,9 @@ contracts, invariants, or implementation tests.
 - `ADR-008-correctness-consistency-contract.md`
 - `ADR-009-assertion-precedence-model.md`
 
+**ADR numbers 010 through 018 are not used in this repository** (intentionally
+unallocated). The published series continues at ADR-019.
+
 ### STE Authority and Enforcement Model
 
 - `ADR-019-gateway-authority-signing.md`
@@ -41,6 +44,7 @@ contracts, invariants, or implementation tests.
 - `ADR-034-rule-projection-envelope-authority.md` (proposed)
 - `ADR-035-architecture-ir-ontology-authority.md`
 - `ADR-036-repository-readme-contract.md`
+- `ADR-041-compiler-and-merge-authority.md`
 
 ### STE Spine Consolidation
 

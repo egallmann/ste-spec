@@ -16,7 +16,10 @@ The runtime/kernel handoff uses closed objects by default.
 ## Lifecycle Placement in the STE Spine
 
 This ADR governs Publication / Integration Input and the admission-boundary
-handoff by preventing undeclared fields from becoming hidden semantic channels.
+handoff by constraining the allowed shape of material presented at the boundary.
+It also affects Architecture IR Compilation and Admission Decision by
+preventing undeclared fields from becoming hidden semantic channels in
+downstream processing.
 
 ## Relationship to Enforcement Model
 
