@@ -115,6 +115,8 @@ The canonical Spine lifecycle stages are:
 These stage names provide one explicit end-to-end vocabulary for the lifecycle.
 Where accepted source doctrine uses narrower or different terminology, those
 source terms remain valid within their original documents.
+For the primary visual projection and reading guide for this lifecycle, see
+[`../architecture/STE-Spine-Lifecycle.md`](../architecture/STE-Spine-Lifecycle.md).
 
 ### 2. Authority model
 

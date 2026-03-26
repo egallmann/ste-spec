@@ -10,6 +10,49 @@ It uses ADR-040 for Spine-local terminology, does not override ADR-040, and
 does not redefine artifact taxonomy, which remains canonical in
 [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
+## Canonical Spine Diagram
+
+### How to read this diagram
+
+- Read the stages from left to right in the exact lifecycle order defined by
+  ADR-040.
+- The node labels are lifecycle stages, not artifact classes.
+- Artifact classes are defined by ADR-038 and are not shown here as separate
+  stages.
+- Authority and canonicity are defined by the ADRs and doctrine text, not by
+  this diagram.
+- `Publication` and `Projection` are overlays or postures in this model, not
+  standalone artifact classes or lifecycle stages.
+- If this diagram and ADR-040 ever differ, ADR-040 governs and this diagram
+  must be corrected.
+
+```mermaid
+flowchart LR
+    intent["Intent Definition"] --> implementation["Implementation"]
+    implementation --> proof["Proof / Verification"]
+    proof --> publication["Publication / Integration Input"]
+    publication --> compilation["Architecture IR Compilation"]
+    compilation --> admission["Admission Decision"]
+    admission --> runtime["Runtime Execution"]
+    runtime --> observation["Observation (Evidence)"]
+    observation --> assessment["Assessment (Reports)"]
+    assessment --> governance["Governance Decision"]
+    governance --> remediation["Intent Update / Remediation"]
+    remediation --> intent
+
+    publication_overlay["Publication overlay:<br/>Lifecycle role applied to canonical classes at the integration boundary.<br/>Not an artifact class or separate stage."]
+    publication_overlay -.-> publication
+
+    projection_overlay["Projection overlay:<br/>Derived representational posture.<br/>Fed by compiled, observed, and assessed material.<br/>Not a stage, state, or artifact class."]
+    compilation -.-> projection_overlay
+    observation -.-> projection_overlay
+    assessment -.-> projection_overlay
+```
+
+This diagram is a projection of the canonical lifecycle defined in ADR-040. If
+this figure and ADR-040 ever differ, ADR-040 is authoritative and this diagram
+must be updated.
+
 ## Lifecycle Stages
 
 | Stage | Description | Responsible repository | Artifact classes present | Authority type | Inputs | Outputs | Entry criteria | Exit criteria | Primary state result |
