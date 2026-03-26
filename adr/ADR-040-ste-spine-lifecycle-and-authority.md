@@ -93,6 +93,15 @@ If wording appears to conflict:
 - supporting doctrine follows those ADRs
 - analysis-only material yields to accepted doctrine and supporting doctrine
 
+### Core Distinctions
+
+| Concept | What it answers | Examples in the Spine | What it does not answer |
+| --- | --- | --- | --- |
+| Lifecycle stage | Where evaluated scope sits in the end-to-end Spine sequence | `Implementation`, `Admission Decision`, `Observation (Evidence)` | Whether the scope is authoritative, current, or execution-eligible |
+| Lifecycle state | What readiness or result posture applies within the lifecycle model | `Accepted`, `Verified`, `Observed`, `Superseded` | Who owns truth or whether an artifact class changes authority |
+| Authority category | Who or what governs truth within a defined scope or boundary | Normative Authority, Implementation Truth, Governance Authority | Which lifecycle stage the scope occupies or which state currently applies |
+| Canonical or derived posture | Whether a surface is source truth or generated from source truth | accepted doctrine is canonical; compiled IR, admission artifacts, and projections are derived | Whether the surface is current, verified, or admitted |
+
 ## Lifecycle Model
 
 The canonical Spine lifecycle stages are:
@@ -177,6 +186,21 @@ Artifact participation is:
 - Orientation artifacts explain and navigate indirectly
 - Internal artifacts support local planning and remediation without becoming
   public authority
+
+Canonical participation and derived participation remain distinct in this
+model. Canonical artifacts define or govern intent, implementation truth, proof
+inputs, and runtime observations within their accepted boundaries. Derived
+artifacts carry published inputs, compiled integration-state, caller-facing
+admission outputs, and projections without becoming canonical by derivation.
+
+| Artifact class | Primary lifecycle participation | Canonical or derived posture | Downstream role |
+| --- | --- | --- | --- |
+| Normative | Intent Definition, Governance Decision, Intent Update / Remediation | Canonical | Defines intent, constraints, governance outcomes, and supersession |
+| Implementation | Implementation, Runtime Execution | Canonical within implementation scope | Realizes executable behavior and produces attributable runtime effects |
+| Proof Logic | Proof / Verification | Canonical within proof scope | Produces verification outcomes and proof baselines |
+| Derived | Publication / Integration Input, Architecture IR Compilation, Admission Decision, Assessment (Reports) | Derived | Carries published inputs, compiled integration-state, admission outputs, and projections |
+| Evidence | Observation (Evidence) | Canonical within the evidence boundary | Carries factual runtime observations into assessment and governance |
+| Reports | Proof / Verification, Assessment (Reports), Governance Decision | Derived interpretive output | Carries interpretive outputs into governance and review |
 
 Detailed placement, direct kernel input status, and indirect governance
 influence are mapped in supporting doctrine.
@@ -316,6 +340,13 @@ validation, orchestration, projection, and admission evaluation.
 
 ## Publication and Projection
 
+Publication is a lifecycle role in the Spine.
+
+- publication exposes declared boundary material for downstream integration use
+- publication does not create an artifact class
+- publication does not change artifact authority ownership
+- publication does not change artifact canonicity
+
 Evidence is the observational layer of the Spine.
 
 - evidence is factual only
@@ -339,6 +370,21 @@ Projection is the representational layer of the Spine.
 - projection generation does not affect authority or canonicity
 - projections do not introduce semantics absent from accepted authoritative
   sources
+
+## Spine Invariants
+
+- Every canonical artifact participates in the Spine lifecycle according to its
+  class and scope.
+- Only canonical artifacts define architecture intent.
+- Publication does not change artifact authority ownership or canonicity.
+- Projections are derived and non-canonical.
+- Evidence is authoritative only as runtime observation within its boundary.
+- Evidence does not redefine intent artifacts.
+- Assessment links evidence and compiled material back to intent and governance
+  inputs.
+- Authority governs truth ownership and accepted transitions; state governs
+  readiness and applicability and does not by itself reassign authority
+  ownership.
 
 ## Feedback and Change Categories
 

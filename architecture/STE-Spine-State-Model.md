@@ -166,6 +166,11 @@ divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
   [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md).
 - `Lifecycle stage`, `Spine lifecycle state`, and `conformance state` are
   distinct terms in this model.
+- Lifecycle state affects readiness and applicability within the Spine model.
+- Conformance overlay state affects execution eligibility for evaluated scope.
+- Authority ownership determines who governs truth and accepted transitions.
+- Canonical status is orthogonal to state; a state change does not by itself
+  make a surface canonical or derived.
 - Spine lifecycle state and conformance overlay state apply to the evaluated
   System Instance or evaluated scope, not to an abstract System detached from
   Environment.

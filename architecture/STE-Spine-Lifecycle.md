@@ -258,6 +258,13 @@ must be updated.
 - The same System may occupy different lifecycle and conformance postures in
   different Environments because evaluation is instance-scoped.
 
+| Concept | Meaning in this document | Example question it answers |
+| --- | --- | --- |
+| Lifecycle stage | Where evaluated scope sits in the ordered Spine flow | "Is this scope in `Proof / Verification` or `Assessment (Reports)`?" |
+| Lifecycle state | Readiness or result posture within the Spine model | "Is this scope `Accepted`, `Verified`, or `Observed`?" |
+| Authority | Who governs truth or transition meaning within a boundary | "Does `ste-kernel`, `ste-runtime`, or accepted doctrine control this result?" |
+| Canonical status | Whether a surface is source truth or derived from source truth | "Is this accepted doctrine, implementation truth, evidence, or a derived projection?" |
+
 ## Related Documents
 
 - [`STE-Spine-Extracted-Doctrine.md`](./STE-Spine-Extracted-Doctrine.md)

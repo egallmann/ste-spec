@@ -34,6 +34,12 @@ posture controlled by
 
 ## Interpretation Notes
 
+| Question | Governed by | Effect |
+| --- | --- | --- |
+| Who owns truth within scope? | Authority category | Determines which surface is authoritative for that subject area or boundary |
+| Does a state change transfer authority? | No | State affects readiness or applicability, not authority ownership |
+| How can accepted intent change? | Accepted doctrine under governance authority | Governance may direct change, but reports or evidence do not change accepted intent by themselves |
+
 - Normative authority governs intent and doctrine, but it does not rewrite
   factual evidence after the fact.
 - Implementation truth realizes doctrine but does not override accepted

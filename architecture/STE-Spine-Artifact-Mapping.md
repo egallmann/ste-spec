@@ -41,6 +41,30 @@ Implementation, Proof Logic, Reports, Orientation, and Internal artifacts can
 influence or constrain boundary behavior indirectly, but they are not direct
 kernel handoff inputs in this model.
 
+Normative, Implementation, Proof Logic, Derived, Evidence, and Reports directly
+produce downstream artifacts or outputs in this model. Orientation and Internal
+artifacts constrain, explain, or prepare work without acting as direct
+boundary outputs.
+
+## Control Loop Mapping
+
+| Lifecycle segment | Primary artifact classes | Primary outputs | Constrains next segment? | Validated by runtime evidence? | Feeds back to intent? |
+| --- | --- | --- | --- | --- | --- |
+| Intent Definition | Normative, Orientation | Accepted intent, contracts, invariants, doctrine updates | Yes | Indirectly | Yes |
+| Implementation | Implementation | Executable behavior and attributable observed effects | Yes | Indirectly | Indirectly |
+| Proof / Verification | Proof Logic, Reports | Verification outcomes, baselines, validation summaries | Yes | Indirectly | Indirectly |
+| Publication / Integration Input | Normative, Derived, Evidence | Declared publication inputs and boundary evidence surfaces | Yes | Where evidence participates directly | Indirectly |
+| Architecture IR Compilation / Admission Decision | Derived | Compiled integration-state and caller-facing admission output | Yes | Indirectly, through later observation and assessment | Indirectly |
+| Runtime Execution | Implementation, Evidence | Runtime activity and observable runtime facts | Yes | Directly, through observation | Indirectly |
+| Observation (Evidence) | Evidence | `ArchitectureEvidence` and related factual observations | Yes | Directly | Yes |
+| Assessment (Reports) | Reports, Derived | Interpretive outputs, reviews, validation summaries | Yes | Yes, through evidence inputs | Yes |
+| Governance Decision / Intent Update | Normative, Reports, Internal | Governance outcomes, remediation records, updated intent inputs | Yes | Indirectly, through assessed evidence | Yes |
+
+This loop maps the accepted Spine sequence without adding new stage labels.
+When readers use terms such as `Design`, that participation is carried here by
+accepted intent definition surfaces and Architecture IR semantics rather than
+by a separate Spine stage.
+
 Rule declarations and published rule inputs participate in this model through
 the existing taxonomy rather than through a separate `Rules` artifact class.
 Accepted rule declarations are part of normative or published boundary
