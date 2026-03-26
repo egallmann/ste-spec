@@ -73,19 +73,153 @@ must be updated.
 
 ## Lifecycle Stages
 
-| Stage | Description | Responsible repository | Artifact classes present | Authority type | Inputs | Outputs | Entry criteria | Exit criteria | Primary state result |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Intent Definition | Normative intent is written and accepted through ADRs, invariants, contracts, and canonical doctrine. Doctrine often speaks of contract authority, invariant surfaces, and architecture decisions rather than "intent definition" as a stage label. | `ste-spec` | Normative, Orientation | Normative Authority | Prior doctrine, change need, accepted constraints | ADRs, invariants, contracts, doctrine updates | Need for new or revised intent is identified | Accepted authoritative intent exists in accepted doctrine or accepted contract shape | Accepted |
-| Implementation | Executable behavior is realized in repository source. Doctrine defines this as versioned implementation truth rather than normative authority. | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Implementation | Implementation Truth | Accepted doctrine and repository-local implementation work | Source changes and executable logic | Accepted intent exists for the affected scope | Implementation exists as versioned source and is ready for proof / verification | Implemented |
-| Proof / Verification | Proof logic verifies or certifies expected behavior. Doctrine uses "Proof Logic", validation, and deterministic baselines rather than one universal verification stage label. | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Proof Logic, Reports | Proof Authority | Accepted doctrine, implementation source, proof harnesses | Tests, deterministic baselines, proof outcomes, validation summaries | Implementation or doctrine requiring proof is present | Verification outcome exists and the verified scope is ready for publication / integration input | Verified |
-| Publication / Integration Input | Contract-backed publication surfaces expose fragments and evidence to the integration boundary. Publication is a lifecycle role applied to canonical classes; it does not create a new artifact class. | `adr-architecture-kit`, `ste-spec`, `ste-runtime`, `ste-rules-library` | Derived, Evidence, Normative | Derived Artifact, Observational Authority | Published fragments, `ArchitectureEvidence`, contract-backed paths | Kernel-consumable fragments and evidence | Declared publication surfaces are available and required proof for the publication surface has completed | Required integration inputs are available to `ste-kernel` for downstream compilation | Published |
-| Architecture IR Compilation | `ste-kernel` loads, merges, and validates a compiled IR candidate from publication inputs. Doctrine speaks of merge, validation, and `Compiled_IR_Document` semantics. | `ste-kernel` | Derived | Derived Artifact | Publication surfaces, merge policy, pinned IR contract references | Validated `Compiled_IR_Document` or fail-closed boot failure | Required inputs are loaded | Validated compiled integration-state exists or boot aborts fail-closed | Compiled |
-| Admission Decision | `ste-kernel` projects the admission slice and emits the caller-facing admission decision. Doctrine uses "admission evaluation" and `KernelAdmissionAssessment`. | `ste-kernel` | Derived | Decision Authority (Admission) | Validated IR snapshot, projected admission slice, policy context | `KernelAdmissionAssessment` | Validated IR exists; admission has not yet run | Caller-facing admission output exists or execution is blocked | Admitted |
-| Runtime Execution | Runtime performs execution work within its repository boundary. Doctrine places runtime as execution and evidence production only. | `ste-runtime` | Implementation, Evidence | Implementation Truth, Observational Authority | Runtime implementation, admitted or operative runtime path, runtime context | Runtime activity and factual observations | Runtime execution path is invoked from an admitted or operative path | Execution has occurred and runtime facts are ready to be emitted as evidence | Executed |
-| Observation (Evidence) | Runtime produces factual evidence only. Doctrine uses `ArchitectureEvidence`, runtime evidence, bundle health, and freshness. | `ste-runtime` | Evidence | Observational Authority (Evidence) | Runtime execution facts, bundle health, freshness state | `ArchitectureEvidence` and related factual observations | Runtime has observable facts to report | Evidence exists without caller-facing decision semantics and is ready for assessment | Observed |
-| Assessment (Reports) | Validation, review, and assessment outputs interpret evidence and compiled or projected material. Projection is a representational posture generated from compiled, observed, or assessed material; it is not a state-bearing class. | `ste-kernel`, `ste-rules-library`, governance-side consumers | Reports, Derived | Interpretive Output (Reports) | Evidence, compiled IR, projections, review inputs | Assessments, validation summaries, reviews, report outputs | Evidence or compiled/projected material is available | Interpretive outputs exist and are ready for governance consumption | Assessed |
-| Governance Decision | Governance review, override, and remediation decide how unresolved issues are accepted, deferred, or corrected. Accepted doctrine is strongest in the Architecture IR governance model and does not promote draft governance-decision contracts in this tranche. | `ste-spec`, `ste-rules-library`, governance-side consumers | Normative, Reports, Internal | Governance Authority | Reviews, unresolved gaps, override and remediation inputs | Overrides, remediation records, accepted governance outcomes | Assessment or review has produced governance-relevant findings | Governance outcome is explicit and recorded for the next cycle | Remediated |
-| Intent Update / Remediation | Governance feedback modifies authoritative intent or drives corrective implementation work for the next cycle. Doctrine uses the Architecture Index feedback loop and remediation ledger rather than one fixed title for this stage. | `ste-spec` with affected implementation repositories | Normative, Implementation, Proof Logic, Internal | Governance Authority leading back to Normative Authority | Governance outcome, remediation work, next-cycle architecture inputs | Updated doctrine, supersession, implementation follow-up | Governance outcome requires doctrine or implementation change | Next-cycle intent is re-entered in Drafted or Accepted form in the authoritative layer | Drafted or Accepted |
+### Stage Overview
+
+| Stage | Responsible repository | Artifact classes present | Authority type | Primary state result |
+| --- | --- | --- | --- | --- |
+| Intent Definition | `ste-spec` | Normative, Orientation | Normative Authority | Accepted |
+| Implementation | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Implementation | Implementation Truth | Implemented |
+| Proof / Verification | `ste-kernel`, `ste-runtime`, `ste-rules-library`, `adr-architecture-kit` | Proof Logic, Reports | Proof Authority | Verified |
+| Publication / Integration Input | `adr-architecture-kit`, `ste-spec`, `ste-runtime`, `ste-rules-library` | Derived, Evidence, Normative | Derived Artifact, Observational Authority | Published |
+| Architecture IR Compilation | `ste-kernel` | Derived | Derived Artifact | Compiled |
+| Admission Decision | `ste-kernel` | Derived | Decision Authority (Admission) | Admitted |
+| Runtime Execution | `ste-runtime` | Implementation, Evidence | Implementation Truth, Observational Authority | Executed |
+| Observation (Evidence) | `ste-runtime` | Evidence | Observational Authority (Evidence) | Observed |
+| Assessment (Reports) | `ste-kernel`, `ste-rules-library`, governance-side consumers | Reports, Derived | Interpretive Output (Reports) | Assessed |
+| Governance Decision | `ste-spec`, `ste-rules-library`, governance-side consumers | Normative, Reports, Internal | Governance Authority | Remediated |
+| Intent Update / Remediation | `ste-spec` with affected implementation repositories | Normative, Implementation, Proof Logic, Internal | Governance Authority leading back to Normative Authority | Drafted or Accepted |
+
+### Stage Details
+
+#### Intent Definition
+
+- Description: Normative intent is written and accepted through ADRs,
+  invariants, contracts, and canonical doctrine. Doctrine often speaks of
+  contract authority, invariant surfaces, and architecture decisions rather
+  than "intent definition" as a stage label.
+- Inputs: Prior doctrine, change need, accepted constraints.
+- Outputs: ADRs, invariants, contracts, doctrine updates.
+- Entry criteria: Need for new or revised intent is identified.
+- Exit criteria: Accepted authoritative intent exists in accepted doctrine or
+  accepted contract shape.
+
+#### Implementation
+
+- Description: Executable behavior is realized in repository source. Doctrine
+  defines this as versioned implementation truth rather than normative
+  authority.
+- Inputs: Accepted doctrine and repository-local implementation work.
+- Outputs: Source changes and executable logic.
+- Entry criteria: Accepted intent exists for the affected scope.
+- Exit criteria: Implementation exists as versioned source and is ready for
+  proof / verification.
+
+#### Proof / Verification
+
+- Description: Proof logic verifies or certifies expected behavior. Doctrine
+  uses "Proof Logic", validation, and deterministic baselines rather than one
+  universal verification stage label.
+- Inputs: Accepted doctrine, implementation source, proof harnesses.
+- Outputs: Tests, deterministic baselines, proof outcomes, validation
+  summaries.
+- Entry criteria: Implementation or doctrine requiring proof is present.
+- Exit criteria: Verification outcome exists and the verified scope is ready
+  for publication / integration input.
+
+#### Publication / Integration Input
+
+- Description: Contract-backed publication surfaces expose fragments and
+  evidence to the integration boundary. Publication is a lifecycle role
+  applied to canonical classes; it does not create a new artifact class.
+- Inputs: Published fragments, `ArchitectureEvidence`, contract-backed paths.
+- Outputs: Kernel-consumable fragments and evidence.
+- Entry criteria: Declared publication surfaces are available and required
+  proof for the publication surface has completed.
+- Exit criteria: Required integration inputs are available to `ste-kernel` for
+  downstream compilation.
+
+#### Architecture IR Compilation
+
+- Description: `ste-kernel` loads, merges, and validates a compiled IR
+  candidate from publication inputs. Doctrine speaks of merge, validation, and
+  `Compiled_IR_Document` semantics.
+- Inputs: Publication surfaces, merge policy, pinned IR contract references.
+- Outputs: Validated `Compiled_IR_Document` or fail-closed boot failure.
+- Entry criteria: Required inputs are loaded.
+- Exit criteria: Validated compiled integration-state exists or boot aborts
+  fail-closed.
+
+#### Admission Decision
+
+- Description: `ste-kernel` projects the admission slice and emits the
+  caller-facing admission decision. Doctrine uses "admission evaluation" and
+  `KernelAdmissionAssessment`.
+- Inputs: Validated IR snapshot, projected admission slice, policy context.
+- Outputs: `KernelAdmissionAssessment`.
+- Entry criteria: Validated IR exists; admission has not yet run.
+- Exit criteria: Caller-facing admission output exists or execution is
+  blocked.
+
+#### Runtime Execution
+
+- Description: Runtime performs execution work within its repository boundary.
+  Doctrine places runtime as execution and evidence production only.
+- Inputs: Runtime implementation, admitted or operative runtime path, runtime
+  context.
+- Outputs: Runtime activity and factual observations.
+- Entry criteria: Runtime execution path is invoked from an admitted or
+  operative path.
+- Exit criteria: Execution has occurred and runtime facts are ready to be
+  emitted as evidence.
+
+#### Observation (Evidence)
+
+- Description: Runtime produces factual evidence only. Doctrine uses
+  `ArchitectureEvidence`, runtime evidence, bundle health, and freshness.
+- Inputs: Runtime execution facts, bundle health, freshness state.
+- Outputs: `ArchitectureEvidence` and related factual observations.
+- Entry criteria: Runtime has observable facts to report.
+- Exit criteria: Evidence exists without caller-facing decision semantics and
+  is ready for assessment.
+
+#### Assessment (Reports)
+
+- Description: Validation, review, and assessment outputs interpret evidence
+  and compiled or projected material. Projection is a representational posture
+  generated from compiled, observed, or assessed material; it is not a
+  state-bearing class.
+- Inputs: Evidence, compiled IR, projections, review inputs.
+- Outputs: Assessments, validation summaries, reviews, report outputs.
+- Entry criteria: Evidence or compiled/projected material is available.
+- Exit criteria: Interpretive outputs exist and are ready for governance
+  consumption.
+
+#### Governance Decision
+
+- Description: Governance review, override, and remediation decide how
+  unresolved issues are accepted, deferred, or corrected. Accepted doctrine is
+  strongest in the Architecture IR governance model and does not promote draft
+  governance-decision contracts in this tranche.
+- Inputs: Reviews, unresolved gaps, override and remediation inputs.
+- Outputs: Overrides, remediation records, accepted governance outcomes.
+- Entry criteria: Assessment or review has produced governance-relevant
+  findings.
+- Exit criteria: Governance outcome is explicit and recorded for the next
+  cycle.
+
+#### Intent Update / Remediation
+
+- Description: Governance feedback modifies authoritative intent or drives
+  corrective implementation work for the next cycle. Doctrine uses the
+  Architecture Index feedback loop and remediation ledger rather than one fixed
+  title for this stage.
+- Inputs: Governance outcome, remediation work, next-cycle architecture
+  inputs.
+- Outputs: Updated doctrine, supersession, implementation follow-up.
+- Entry criteria: Governance outcome requires doctrine or implementation
+  change.
+- Exit criteria: Next-cycle intent is re-entered in Drafted or Accepted form
+  in the authoritative layer.
 
 ## Stage Notes
 
