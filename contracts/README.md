@@ -14,6 +14,9 @@ artifacts fit into a fictional team thread, read
 |----------|---------|
 | `architecture-evidence.schema.json` | **`ArchitectureEvidence`** - factual bundle health, freshness, and subject-linked validation or invalidation references from `ste-runtime` |
 | `kernel-admission-assessment.schema.json` | **`KernelAdmissionAssessment`** - caller-facing admission from `ste-kernel` |
+| [`architecture-ir/architecture-ir.schema.json`](architecture-ir/architecture-ir.schema.json) | **`Compiled_IR_Document`** mechanical JSON Schema (Architecture IR) |
+| [`architecture-ir/architecture-ir.yaml`](architecture-ir/architecture-ir.yaml) | Merge and identity YAML bundle for Architecture IR |
+| [`architecture-ir/ARCHITECTURE_IR.md`](architecture-ir/ARCHITECTURE_IR.md) | Mechanical specification narrative for Architecture IR |
 | [`architecture-ir/spec-ir-fragments.json`](architecture-ir/spec-ir-fragments.json) | **Spec adapter IR fragments** - generator-owned published `SpecAdapter` input to kernel merge (see [`architecture-ir/README.md`](architecture-ir/README.md)) |
 | `examples/` | Non-normative examples |
 
@@ -39,28 +42,31 @@ becomes normative.
 index: `invariants/STE-Cross-Component-Contract-Invariants.md`). **Rationale**
 lives under `adr/`.
 
-## Referenced mechanical contract bundle (kernel-owned)
+**Freshness layering** across `ArchitectureEvidence` and
+`KernelAdmissionAssessment` is normative in
+[`freshness-contract-mapping.md`](freshness-contract-mapping.md).
 
-The **Architecture IR** schema, merge configuration, and identity rules are
-**versioned and maintained in `ste-kernel`**. `ste-spec` **references** them as
-the mechanical authority for `Compiled_IR_Document`. **Semantic** Architecture
-IR (ontology, lifecycle, completeness, governance, Architecture Index) is
-**normative** in
+## Architecture IR mechanical bundle (ste-spec-owned)
+
+The **Architecture IR** JSON Schema, YAML merge contract, split entity and
+relationship definitions, and mechanical narrative (`ARCHITECTURE_IR.md`) are
+**normative in `ste-spec`** under `contracts/architecture-ir/`. **Semantic**
+Architecture IR (ontology, lifecycle, completeness, governance, Architecture
+Index) remains **normative** in
 `architecture/STE-Architecture-Intermediate-Representation.md`
 (`adr/ADR-035-architecture-ir-ontology-authority.md`).
 
-- `ste-kernel/architecture-ir/architecture-ir.schema.json`
-- `ste-kernel/architecture-ir/architecture-ir.yaml`
-- `ste-kernel/documentation/ARCHITECTURE_IR.md`
-- `ste-kernel/contracts/adapter-contracts.yaml`
+**`ste-kernel`** **consumes** this bundle (for example by resolving the sibling
+`ste-spec` checkout in the STE-workspace layout) and **does not** own the
+normative mechanical definition.
 
-**Pinned pointer (ste-spec):**
-`contracts/architecture-ir-kernel-contract-pin.json` records the current
-**`ir_version`**, **`schema_id`**, and relative paths into the `ste-kernel`
-bundle. Update it when the kernel bumps the IR contract.
+**Adapter publication policy** (which paths adapters publish to) remains
+versioned in `ste-kernel/contracts/adapter-contracts.yaml` as **kernel
+integration policy**, not as a substitute for the IR interchange contract.
 
-**MUST NOT:** Duplicate changing mechanical JSON Schema in `ste-spec` unless a
-handoff requirement explicitly demands it.
+**Pinned pointer (ste-spec):** `contracts/architecture-ir-contract-pin.json`
+records the current **`ir_version`**, **`schema_id`**, and relative paths under
+this repository. Update it when the IR contract bumps.
 
 ## Golden contract bundles (anti-drift gate)
 
@@ -113,3 +119,4 @@ caller-facing admission decision or a new authority source.
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `invariants/STE-Failure-Taxonomy-Boundaries.md`
 - `execution/STE-Kernel-Execution-Model.md`
+

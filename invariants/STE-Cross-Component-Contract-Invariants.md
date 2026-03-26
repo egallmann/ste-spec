@@ -5,6 +5,12 @@
 This document indexes the atomic invariants that govern the runtime-to-kernel
 handoff.
 
+**Filename note:** Files here use the **`INV-xxxx-*`** pattern as **cross-component
+contract invariants** for kernel/runtime handoffs. That naming scheme is
+**distinct** from **SYS-*** system invariants summarized in
+[`STE-Invariant-Hierarchy.md`](STE-Invariant-Hierarchy.md); see also
+[`glossary.md`](../glossary.md) (Invariant Hierarchy / System Invariants note).
+
 ## Canonical Invariants
 
 - `INV-0001-runtime-evidence-factual-only.md`
@@ -24,7 +30,10 @@ handoff.
 
 - `contracts/architecture-evidence.schema.json`
 - `contracts/kernel-admission-assessment.schema.json`
+- `contracts/freshness-contract-mapping.md` (normative freshness layering)
 - `contracts/architecture-ir/spec-ir-fragments.json`
+- `contracts/architecture-ir/architecture-ir.schema.json`
+- `contracts/architecture-ir-contract-pin.json`
 - `contracts/rule-projection/` (draft rule projection envelope; pre-normative)
 - `contracts/governance-decision-record/` (draft governance decision rows; pre-normative)
 

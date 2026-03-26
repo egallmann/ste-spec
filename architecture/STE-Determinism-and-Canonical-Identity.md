@@ -28,8 +28,9 @@ defined by the IR bundle.
 
 Authoritative **`ir_version`** and **`schema_id`** values and co-required bundle paths
 are recorded for human and CI drift checks in
-`contracts/architecture-ir-kernel-contract-pin.json` (update when `ste-kernel` bumps
-the bundle). Mechanical rules remain in `ste-kernel` as referenced below.
+`contracts/architecture-ir-contract-pin.json` (update when the Architecture IR
+contract version or `schema_id` changes). Mechanical rules are normative under
+`contracts/architecture-ir/`; `ste-kernel` implements merge and validation.
 
 ---
 
@@ -55,7 +56,7 @@ NOT** double as a freshness or provenance authority.
 ### Stable merge order
 
 **MUST:** Adapter merge precedence is **ADR → Spec → Runtime → Rules** (see
-`ste-kernel/architecture-ir/architecture-ir.yaml`).
+`contracts/architecture-ir/architecture-ir.yaml`).
 
 **MUST:** Compiled entity and relationship arrays MUST be sorted by `id` in
 UTF-8 byte order where required by the IR contract.
@@ -82,7 +83,7 @@ identity remains stable for fixed inputs.
 
 ## Referenced specifications
 
-- `ste-kernel/documentation/ARCHITECTURE_IR.md`
+- `contracts/architecture-ir/ARCHITECTURE_IR.md`
 - `ste-kernel/documentation/BOOT_SEQUENCE.md`
 - `glossary.md` (terminology)
 

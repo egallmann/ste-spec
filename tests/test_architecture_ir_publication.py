@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -10,24 +10,24 @@ from scripts.publish_architecture_ir_fragments import OUTPUT_PATH, publish_archi
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-KERNEL_CONTRACT_PIN_PATH = REPO_ROOT / "contracts" / "architecture-ir-kernel-contract-pin.json"
+CONTRACT_PIN_PATH = REPO_ROOT / "contracts" / "architecture-ir-contract-pin.json"
 DECISION_ID = "decision:c6ab3dd75821e8181aea60442b230e4cdb24d63ea5ebe6436448ba94caf6ef28"
 
 
-def _load_kernel_contract_pin() -> dict:
-    return json.loads(KERNEL_CONTRACT_PIN_PATH.read_text(encoding="utf-8"))
+def _load_contract_pin() -> dict:
+    return json.loads(CONTRACT_PIN_PATH.read_text(encoding="utf-8"))
 
 
-def _kernel_schema_path_from_pin() -> Path:
-    pin = _load_kernel_contract_pin()
-    relative_path = pin["kernel_bundle"]["architecture_ir_schema_json"]
-    return REPO_ROOT.parent / Path(relative_path)
+def _schema_path_from_pin() -> Path:
+    pin = _load_contract_pin()
+    relative_path = pin["spec_bundle"]["architecture_ir_schema_json"]
+    return REPO_ROOT / Path(relative_path)
 
 
-def _load_kernel_schema() -> dict:
-    schema_path = _kernel_schema_path_from_pin()
+def _load_architecture_ir_schema() -> dict:
+    schema_path = _schema_path_from_pin()
     if not schema_path.exists():
-        pytest.skip(f"kernel schema unavailable at pinned path: {schema_path}")
+        pytest.skip(f"Architecture IR schema unavailable at pinned path: {schema_path}")
     return json.loads(schema_path.read_text(encoding="utf-8"))
 
 
@@ -36,7 +36,7 @@ def _build_compiled_document(records: list[dict]) -> dict:
     relationships = [record for record in records if "type" in record]
     return {
         "ir_version": "0.1.0",
-        "schema_id": "https://ste-kernel.local/schema/architecture-ir/0.1.0/architecture-ir.schema.json",
+        "schema_id": "https://github.com/egallmann/ste-spec/contracts/architecture-ir/architecture-ir.schema.json",
         "document_id": "sha256:" + "e" * 64,
         "assembled_at": "2026-03-21T00:00:00.000Z",
         "namespace": "repo:ste-workspace:boot",
@@ -95,7 +95,7 @@ def test_publish_architecture_ir_fragments_writes_conventional_artifact() -> Non
         for record in records
     )
 
-    jsonschema.validate(instance=_build_compiled_document(records), schema=_load_kernel_schema())
+    jsonschema.validate(instance=_build_compiled_document(records), schema=_load_architecture_ir_schema())
 
 
 def test_publish_architecture_ir_fragments_is_deterministic() -> None:
@@ -120,15 +120,16 @@ def test_published_artifact_matches_generator_output() -> None:
         generated_path.unlink(missing_ok=True)
 
 
-def test_kernel_contract_pin_is_well_formed() -> None:
-    pin = _load_kernel_contract_pin()
+def test_architecture_ir_contract_pin_is_well_formed() -> None:
+    pin = _load_contract_pin()
 
     assert pin["ir_version"] == "0.1.0"
-    assert pin["schema_id"] == "https://ste-kernel.local/schema/architecture-ir/0.1.0/architecture-ir.schema.json"
-    assert set(pin["kernel_bundle"]) == {
+    assert pin["schema_id"] == "https://github.com/egallmann/ste-spec/contracts/architecture-ir/architecture-ir.schema.json"
+    assert set(pin["spec_bundle"]) == {
         "architecture_ir_yaml",
         "architecture_ir_schema_json",
         "architecture_ir_normative_markdown",
-        "adapter_contracts_yaml",
     }
-    assert pin["kernel_bundle"]["architecture_ir_schema_json"] == "ste-kernel/architecture-ir/architecture-ir.schema.json"
+    assert pin["spec_bundle"]["architecture_ir_schema_json"] == "contracts/architecture-ir/architecture-ir.schema.json"
+    assert set(pin["kernel_adapter_policy"]) == {"adapter_contracts_yaml"}
+    assert pin["kernel_adapter_policy"]["adapter_contracts_yaml"] == "ste-kernel/contracts/adapter-contracts.yaml"

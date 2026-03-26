@@ -87,7 +87,7 @@ If wording appears inconsistent, precedence is:
 - `contracts/architecture-evidence.schema.json`
 - `contracts/kernel-admission-assessment.schema.json`
 - `contracts/architecture-ir/spec-ir-fragments.json`
-- `contracts/architecture-ir-kernel-contract-pin.json` (pinned `ir_version` / `schema_id` pointer)
+- `contracts/architecture-ir-contract-pin.json` (pinned `ir_version` / `schema_id` pointer)
 - `contracts/rule-projection/` (draft rule projection envelope; pre-normative - see `contracts/README.md`)
 - `contracts/governance-decision-record/` (draft decision rows referencing projections; pre-normative)
 - `contracts/examples/`

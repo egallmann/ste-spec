@@ -9,7 +9,7 @@ This document is the **normative semantic specification** of the STE **Architect
 **Authority split:**
 
 - **Normative in this document:** meaning of Architecture IR terms; allowed semantic entity and relationship types; provenance, lifecycle, completeness, and governance classifications; architecture control loop; Architecture Index responsibilities.
-- **Mechanical authority (referenced, not duplicated):** JSON Schema shape, merge order, identity hashing, and compiled relationship `type` enums for `Compiled_IR_Document` are **versioned in `ste-kernel`** and **pinned** from `ste-spec` per [`contracts/README.md`](../contracts/README.md) and [`contracts/architecture-ir-kernel-contract-pin.json`](../contracts/architecture-ir-kernel-contract-pin.json).
+- **Mechanical authority (in `ste-spec`, not duplicated here):** JSON Schema shape, merge order, identity hashing, and compiled relationship `type` enums for `Compiled_IR_Document` are **normative** under [`contracts/architecture-ir/`](../contracts/architecture-ir/) and **pinned** per [`contracts/architecture-ir-contract-pin.json`](../contracts/architecture-ir-contract-pin.json) (see [`contracts/README.md`](../contracts/README.md)).
 
 **MUST NOT:** Treat this document as the mechanical JSON Schema for `Compiled_IR_Document`. **MUST NOT:** Treat `Compiled_IR_Document` as a substitute for declared documentation-state in repositories; it is **integration-state** (see [`glossary.md`](../glossary.md), [`STE-Foundations.md`](./STE-Foundations.md) §2.3a).
 

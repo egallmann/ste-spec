@@ -1,0 +1,103 @@
+﻿ir_version: "0.1.0"
+schema_id: "https://github.com/egallmann/ste-spec/contracts/architecture-ir/architecture-ir.schema.json"
+document_contract: "compiled-document"
+authoring_mode: "split-yaml-bundle"
+schema_maintenance: "manual"
+
+extension_allowlist: []
+
+merge_adapter_order:
+  - adr
+  - spec
+  - runtime
+  - rules
+
+merge_contract:
+  precedence_rule: "field-level first-defined-wins in merge_adapter_order"
+  array_rule: "replace atomically"
+  deduplication_key: "id"
+  sort_order: "compiled entity and relationship arrays sorted by id using UTF-8 byte order"
+  null_policy: "forbidden in compiled document"
+
+split_layout:
+  entities:
+    capabilities: "entities/capability.yaml"
+    decisions: "entities/decision.yaml"
+    components: "entities/component.yaml"
+    invariants: "entities/invariant.yaml"
+    rules: "entities/rule.yaml"
+    evidences: "entities/evidence.yaml"
+  relationships:
+    decision_supports_capability: "relationships/decision_supports_capability.yaml"
+    component_implements_decision: "relationships/component_implements_decision.yaml"
+    invariant_constrains_component: "relationships/invariant_constrains_component.yaml"
+    rule_evaluates_decision: "relationships/rule_evaluates_decision.yaml"
+    evidence_supports_component: "relationships/evidence_supports_component.yaml"
+
+assembly_rules:
+  - "Normalize adapter inputs before id generation."
+  - "Use RFC 8785 JCS over UTF-8 for every content_hash and document_id calculation."
+  - "Omit optional keys rather than emitting null values."
+  - "Omit root extensions when extension_allowlist is empty."
+  - "Fail compilation when any incoming entity or relationship lacks provenance."
+
+identity_policy:
+  canonicalization: "RFC 8785 JCS over UTF-8"
+  namespace_required_in_payload_for_id: true
+  document_id:
+    hash: "sha256"
+    excludes:
+      - document_id
+      - assembled_at
+    extensions_policy: "omit root extensions key when extension_allowlist is empty"
+  entity_id_priority:
+    decision:
+      primary: adr_id
+      fallback: decision_key
+    capability:
+      primary: slug
+    invariant:
+      primary: invariant_key
+    rule:
+      primary:
+        - rule_id
+        - version
+  relationship_id_components:
+    - namespace
+    - type
+    - from_id
+    - to_id
+
+runtime_mapping_policy:
+  payload_ref_hash: "sha256 over RFC 8785 JCS canonical JSON of the normalized runtime evidence payload"
+  observed_at_fallback: "use deterministic assembly timestamp when runtime source omits observed_at and record the fallback in provenance.derivation_chain"
+  bundle_level_component_fallback: "attach bundle-only runtime evidence to component:architecture_graph within the active namespace when no concrete component references are available"
+  spec_vs_rules_ownership:
+    spec: "Prefer invariant when spec defines normative data; promote to rule only when spec owns executable checks"
+    rules: "Own executable governance rules and rule_evaluates_decision relationships when the rules library is the source of execution semantics"
+
+adapter_mapping:
+  adr:
+    produces:
+      - decision
+      - capability
+      - component
+      - invariant
+    notes:
+      - "ADR relationship registry values project into the fixed kernel edge set documented in documentation/ARCHITECTURE_IR.md."
+  spec:
+    produces:
+      - invariant
+      - rule
+      - component
+      - capability
+  runtime:
+    produces:
+      - evidence
+      - component
+    notes:
+      - "payload_ref is derived from canonical normalized runtime evidence JSON."
+      - "When runtime evidence is bundle-level only, create or target the namespace-local component:architecture_graph singleton."
+  rules:
+    produces:
+      - rule

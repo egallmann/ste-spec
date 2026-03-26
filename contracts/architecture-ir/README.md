@@ -1,6 +1,9 @@
-# Architecture IR — spec fragments (canonical)
+# Architecture IR — mechanical bundle and spec fragments (canonical)
 
-This directory holds **normative, canonical** JSON for STE **spec IR fragments** published from `ste-spec` (for example component and invariant nodes and their relations).
+This directory holds the **normative Architecture IR mechanical bundle** for
+`Compiled_IR_Document` (`architecture-ir.schema.json`, `architecture-ir.yaml`,
+split `entities/` and `relationships/` definitions, and `ARCHITECTURE_IR.md`),
+plus **spec IR fragments** published from `ste-spec`.
 
 ## On-disk serialization
 
@@ -15,6 +18,10 @@ Fragment records carry their own `content_hash` values in `provenance.derivation
 
 ## Files
 
+- `architecture-ir.schema.json` — JSON Schema for `Compiled_IR_Document`.
+- `architecture-ir.yaml` — merge and identity YAML bundle.
+- `ARCHITECTURE_IR.md` — mechanical specification narrative.
+- `entities/` and `relationships/` — split schema bundle inputs maintained with the YAML contract.
 - `spec-ir-fragments.json` — array of spec IR fragment objects (components, invariants, relations).
 
 `spec-ir-fragments.json` is a deterministic adapter input artifact for

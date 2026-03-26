@@ -28,7 +28,7 @@ The explicit, machine-readable substrate that grounds **workspace cognition** (A
 
 ### Integration-State
 
-The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document`) that `ste-kernel` consumes for orchestration and admission. Integration-state is **derived** from publication surfaces and runtime evidence inputs. It is authoritative for **kernel integration decisions** only in the sense that the kernel MUST treat validated IR as the sole merged input to admission projection—not as a replacement for documentation-state in repositories. **Normative semantics** for Architecture IR (entity and relationship ontology, provenance classes, lifecycle, completeness, governance, Architecture Index) are defined in [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md); **mechanical** JSON Schema and compiled enumerations are **referenced** from `ste-kernel` per [`contracts/README.md`](contracts/README.md).
+The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document`) that `ste-kernel` consumes for orchestration and admission. Integration-state is **derived** from publication surfaces and runtime evidence inputs. It is authoritative for **kernel integration decisions** only in the sense that the kernel MUST treat validated IR as the sole merged input to admission projection—not as a replacement for documentation-state in repositories. **Normative semantics** for Architecture IR (entity and relationship ontology, provenance classes, lifecycle, completeness, governance, Architecture Index) are defined in [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md); **mechanical** JSON Schema, YAML merge bundle, and compiled enumerations are **normative** under [`contracts/architecture-ir/`](contracts/architecture-ir/) per [`contracts/README.md`](contracts/README.md).
 
 ### Architecture Intermediate Representation (Architecture IR, semantic)
 
@@ -44,7 +44,7 @@ A measure of whether the **architecture model** for a declared scope has require
 
 ### Provenance class
 
-Classification of how a record’s truth is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in `ste-kernel`.
+Classification of how a record’s truth is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
 
 ### Runtime-State (evidence)
 
@@ -392,7 +392,11 @@ Complete realization of a viewpoint with exhaustive detail. This specification i
 
 ### Architecture IR
 
-The versioned, schema-governed **graph interchange** that `ste-kernel` compiles and validates. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **authoritative in the `ste-kernel` repository** and **referenced normatively** from `ste-spec`.
+The versioned, schema-governed **graph interchange** that `ste-kernel` merges and validates after adapter publication. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **normative in `ste-spec`** under [`contracts/architecture-ir/`](contracts/architecture-ir/). See also [`ADR-041-compiler-and-merge-authority.md`](adr/ADR-041-compiler-and-merge-authority.md).
+
+### ArchModel
+
+The **internal** normalized model used inside **`adr-architecture-kit`** during authoring-time compilation passes. **ArchModel** is **not** a cross-repository interchange contract and **MUST NOT** be confused with **Architecture IR** or **`Compiled_IR_Document`**.
 
 ### ADR-V (vision logical ADR)
 
@@ -440,7 +444,7 @@ A stable, contract-backed path or export through which an adapter publishes frag
 
 ### Canonical Artifact
 
-An artifact that is authoritative for a stated purpose: for example `ste-spec` JSON Schemas for handoff shape, `ste-spec` published `spec-ir-fragments.json`, adapter-published fragment files per the boot contract, and the versioned Architecture IR schema bundle owned by `ste-kernel`. **Derived** artifacts include merged `Compiled_IR_Document` and internal projections.
+An artifact that is authoritative for a stated purpose: for example `ste-spec` JSON Schemas for handoff shape, `ste-spec` published `spec-ir-fragments.json`, the versioned Architecture IR mechanical bundle under `contracts/architecture-ir/`, adapter-published fragment files per the boot contract, and `ste-kernel/contracts/adapter-contracts.yaml` for adapter publication policy. **Derived** artifacts include merged `Compiled_IR_Document` and internal projections.
 
 ### STE-system-core
 
@@ -453,7 +457,7 @@ The **non-optional** subset of workspace and **integration** obligations that **
 - **AI-DOC**: Artificial Intelligence Documentation (semantic index)
 - **CEM**: Cognitive Execution Model
 - **E-ADR**: Exploratory Architectural Decision Record
-- **IR**: Architecture IR (graph interchange compiled by `ste-kernel`)
+- **IR**: Architecture IR (graph interchange; mechanical contract in `ste-spec`, merged and validated by `ste-kernel`)
 - **MVC**: Minimally Viable Context
 - **RECON**: Reconciliation Protocol
 - **RSS**: Runtime State Slicing
