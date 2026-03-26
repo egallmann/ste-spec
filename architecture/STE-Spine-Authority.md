@@ -1,6 +1,6 @@
 # STE Spine Authority
 
-## Purpose
+## Purpose and Scope
 
 This document is normative supporting doctrine for authority categories and
 boundary explanation across the STE Spine.
@@ -8,13 +8,18 @@ boundary explanation across the STE Spine.
 It preserves the accepted authority split already established by ADR-030,
 ADR-031, ADR-035, ADR-038, INV-0001, and INV-0002.
 
-It supports
+## Authority Boundary
+
+This document supports
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
-and uses ADR-040 for Spine-local terminology. It does not override that ADR or
-redefine the taxonomy posture controlled by
+and uses ADR-040 for Spine-local terminology.
+
+ADR-040 remains canonical for the Spine lifecycle and authority-transition
+model. This document does not override that ADR or redefine the taxonomy
+posture controlled by
 [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
-## Authority Categories
+## Core Model
 
 | Authority type | Definition | Owned by repository | Artifact classes | Lifecycle stages | Can override | Cannot override |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -25,9 +30,9 @@ redefine the taxonomy posture controlled by
 | Observational Authority (Evidence) | Factual observation within the evidence boundary, including runtime bundle health and freshness. | `ste-runtime` and other explicitly defined evidence producers | Evidence | Observation (Evidence) | Interpretive reports that misstate the observed facts | Normative Authority, kernel admission authority, governance authority, implementation source truth |
 | Interpretive Output (Reports) | Summaries, assessments, diffs, validation outputs, and review material derived from authoritative or observed inputs. | Proof, validation, execution, or governance tooling | Reports | Proof / Verification, Assessment (Reports), Governance Decision | Nothing automatically; it can inform governance but is not authoritative by itself | Normative Authority, Observational Authority, Decision Authority |
 | Decision Authority (Admission) | Final caller-facing admission and eligibility semantics at the runtime/kernel handoff, carried by the derived admission artifact emitted by `ste-kernel`. | `ste-kernel` | Derived | Admission Decision | Caller-facing uncertainty about admission outcome at this boundary | Normative Authority in general doctrine, factual runtime evidence, governance authority outside the admission boundary |
-| Governance Authority | Explicit review, override, remediation, and next-cycle intent steering under accepted governance doctrine. | `ste-spec` and governance-side consumers; `ste-rules-library` supplies rule logic but is not the normative store of all decisions | Normative, Reports, Internal | Governance Decision, Intent Update / Remediation | Internal plans, non-authoritative reports, unresolved review state once explicit governance action is taken | Normative Authority already accepted unless changed through accepted doctrine, factual evidence, kernel admission output as the caller-facing decision artifact |
+| Governance Authority | Explicit review, override, remediation, and next-cycle intent steering under accepted governance doctrine. | `ste-spec` and governance-side consumers; `ste-rules-library` supplies rule logic but is not the normative store of all decisions | Normative, Reports, Internal | Governance Decision, Intent Update / Remediation | Internal plans, non-authoritative reports, unresolved review state once explicit governance action is taken | Accepted normative authority unless changed through accepted doctrine, factual evidence, kernel admission output as the caller-facing decision artifact |
 
-## Override Notes
+## Interpretation Notes
 
 - Normative authority governs intent and doctrine, but it does not rewrite
   factual evidence after the fact.

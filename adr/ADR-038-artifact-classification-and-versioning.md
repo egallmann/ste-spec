@@ -10,10 +10,10 @@ Existing `ste-spec` doctrine already distinguishes documentation-state,
 integration-state, runtime evidence, repository boundaries, contract authority,
 and Architecture IR authority.
 
-What is missing is a binding system decision for artifact classification and
+This ADR establishes a binding system decision for artifact classification and
 version-control posture across STE repositories. Without that decision,
-repositories can drift in what they treat as source truth, regenerable output,
-runtime evidence, and reports.
+repositories could drift in what they treat as source truth, regenerable
+output, runtime evidence, and reports.
 
 ## Decision
 
@@ -38,10 +38,10 @@ Repositories MUST use the doctrine in
 `architecture/STE-Artifact-Classification-and-Versioning.md` when determining
 version-control posture.
 
-This ADR defines artifact classification posture, authority-versus-versioning
-distinction, and reproducibility expectation only. It does not redefine
-contract authority or Architecture IR authority. The architecture document is
-the detailed doctrine model.
+This ADR defines artifact classification posture, the
+authority-versus-versioning distinction, and the reproducibility expectation.
+It does not redefine contract authority or Architecture IR authority. The
+architecture document is the detailed doctrine model.
 
 ## Authority and Precedence
 
@@ -157,7 +157,7 @@ authority boundaries instead of collapsing them into version-control status.
 - Generated outputs do not become authoritative by being committed.
 - No runtime or contract behavior changes are introduced.
 
-## Related
+## Related Documents
 
 - [`ADR-030-contract-authority-in-ste-spec.md`](ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-035-architecture-ir-ontology-authority.md`](ADR-035-architecture-ir-ontology-authority.md)

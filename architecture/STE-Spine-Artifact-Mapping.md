@@ -1,23 +1,25 @@
 # STE Spine Artifact Mapping
 
-## Purpose
+## Purpose and Scope
 
 This document is normative supporting doctrine for applying ADR-038 canonical
 artifact classes to the STE Spine lifecycle.
 
-It supports
+## Authority Boundary
+
+This document supports
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
 and explicitly defers taxonomy and versioning authority to
 [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
-It does not redefine artifact taxonomy, and Spine-local term meanings follow
-ADR-040. `Publication` and `Projection` are used here only as helper labels for
-Spine modeling:
+
+It does not redefine artifact taxonomy. Spine-local term meanings follow
+ADR-040. In this document:
 
 - `Publication` = lifecycle role applied to some canonical classes
 - `Projection` = derived representational posture
 - `Report` = canonical `Reports` class
 
-## Artifact Mapping
+## Core Model
 
 | Artifact class | What it is | Primary Spine stages | Authority / posture | Can directly produce | Can influence / constrain | Direct kernel input? |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -49,7 +51,7 @@ envelopes remain derived and draft/interface-only unless separately promoted.
 taxonomy or ADR-040 for the Spine. `Derived` names an artifact class and
 posture; it does not mean "less important."
 
-## Publication and Projection Notes
+## Interpretation Notes
 
 ### Publication
 

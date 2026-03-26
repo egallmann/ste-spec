@@ -1,21 +1,27 @@
 # STE Spine State Model
 
-## Purpose
+## Purpose and Scope
 
 This document is normative supporting doctrine for the STE Spine system
 lifecycle state model.
 
-It supports
+## Authority Boundary
+
+This document supports
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
-and uses ADR-040 for Spine-local terminology. It does not override the
-canonical Spine definition. It is a system lifecycle framing, not a universal
+and uses ADR-040 for Spine-local terminology.
+
+ADR-040 remains canonical for the Spine lifecycle and authority-transition
+model. This document is a system lifecycle framing, not a universal
 single-artifact state machine. Where accepted doctrine
 already defines narrower lifecycle states, such as the Architecture IR record
 states in
 [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md),
 this document maps rather than replaces them.
 
-## State List
+## Core Model
+
+### State List
 
 | State | Meaning | Affects authority? | Affects canonicity? | Permits downstream generation / derivation? |
 | --- | --- | --- | --- | --- |
@@ -32,7 +38,7 @@ this document maps rather than replaces them.
 | Remediated | Governance outcome has required or recorded corrective action. | No. | No. | Yes. Remediation is ready to feed the next cycle into Drafted or Accepted intent. |
 | Superseded | Earlier authoritative intent has been replaced. | No. | Yes, by ending current normative applicability of the earlier accepted intent. | No. Superseded intent does not act as the current accepted basis for new downstream work. |
 
-## State Applicability By Artifact Class
+### State Applicability By Artifact Class
 
 | Artifact class or lifecycle segment | Valid states | Invalid / not used |
 | --- | --- | --- |
@@ -46,7 +52,7 @@ this document maps rather than replaces them.
 | Internal governance / remediation material | Remediated | Drafted, Accepted, Implemented, Verified, Published, Compiled, Admitted, Executed, Observed, Assessed, Superseded |
 | Orientation | Not a primary state driver in the public authority chain | All lifecycle states as authoritative progression markers |
 
-## Required Mapping Notes
+### Required Mapping Notes
 
 - Normative: Drafted -> Accepted -> Superseded
 - Implementation: Implemented -> Verified
@@ -63,7 +69,7 @@ Accepted IR record states map at this lifecycle level as follows:
 - `deprecated` -> transitional retirement posture prior to Superseded
 - `superseded` -> Superseded
 
-## Transition Conditions
+### Transition Conditions
 
 | Transition | Allowed? | Preconditions | Result | Notes |
 | --- | --- | --- | --- | --- |
@@ -81,7 +87,7 @@ Accepted IR record states map at this lifecycle level as follows:
 | Remediated -> Accepted | Yes | Corrective or updated intent is accepted directly into authoritative doctrine. | New accepted intent exists. | This starts the next cycle in accepted form. |
 | Accepted -> Superseded | Yes | Later accepted intent has replaced the earlier accepted intent for that scope. | Earlier accepted intent is no longer current. | Supersession applies to normative intent, not implementation state. |
 
-## Conformance State Overlay
+### Conformance State Overlay
 
 These conformance states apply to execution-eligible scope. They do not replace
 the canonical Spine lifecycle states in ADR-040.
@@ -102,7 +108,7 @@ These conformance states are distinct from `Drafted`, `Accepted`,
 states. They are also distinct from the canonical cognitive divergence taxonomy
 in `invariants/STE-Divergence-Taxonomy.md`.
 
-## Lifecycle Feedback Transition Table
+### Lifecycle Feedback Transition Table
 
 | Current conformance state | Evidence or event | Resulting conformance state | Underlying Spine feedback stage | Execution allowed in resulting state? |
 | --- | --- | --- | --- | --- |
@@ -117,7 +123,9 @@ in `invariants/STE-Divergence-Taxonomy.md`.
 | Suspended | Remediation is accepted and proof/evidence reconfirms conformance. | Verified | Remediated, then next-cycle verification completes | Yes |
 | Accepted, Implemented, Verified, Divergent, Non-conformant, Suspended | Retirement or supersession event occurs. | Retired | Governance Decision / Intent Update / Remediation | No |
 
-## Escalation Definitions
+## Interpretation Notes
+
+### Escalation Definitions
 
 - `Drift` is a detectable mismatch, staleness signal, or evidence conflict
   against expected state. It is an event or signal, not a conformance state.
@@ -135,7 +143,7 @@ This escalation model applies to runtime/kernel evidence and lifecycle
 feedback. It does not replace or rename the cognitive/documentation-state
 divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
 
-## Invalid or Undefined Transitions
+### Invalid or Undefined Transitions
 
 - Any transition not listed as allowed is undefined at the Spine system
   lifecycle level.
@@ -152,7 +160,7 @@ divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
 - A `Retired` scope does not return to execution eligibility without a new
   accepted scope entering the lifecycle.
 
-## Notes
+### Notes
 
 - Detailed artifact placement and direct kernel input mapping are explained in
   [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md).

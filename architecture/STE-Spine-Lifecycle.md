@@ -1,16 +1,21 @@
 # STE Spine Lifecycle
 
-## Purpose
+## Purpose and Scope
 
 This document is normative supporting doctrine for the STE Spine lifecycle.
 
-It explains and maps the lifecycle defined canonically in
+## Authority Boundary
+
+This document explains and maps the lifecycle defined canonically in
 [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md).
-It uses ADR-040 for Spine-local terminology, does not override ADR-040, and
-does not redefine artifact taxonomy, which remains canonical in
+ADR-040 remains canonical for the Spine lifecycle and authority-transition
+model. This document uses ADR-040 for Spine-local terminology and does not
+redefine artifact taxonomy, which remains canonical in
 [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
 
-## Canonical Spine Diagram
+## Core Model
+
+### Canonical Spine Diagram
 
 ### How to read this diagram
 
@@ -71,7 +76,7 @@ This diagram is a projection of the canonical lifecycle defined in ADR-040. If
 this figure and ADR-040 ever differ, ADR-040 is authoritative and this diagram
 must be updated.
 
-## Lifecycle Stages
+### Lifecycle Stages
 
 ### Stage Overview
 
@@ -199,7 +204,7 @@ must be updated.
 - Description: Governance review, override, and remediation decide how
   unresolved issues are accepted, deferred, or corrected. Accepted doctrine is
   strongest in the Architecture IR governance model and does not promote draft
-  governance-decision contracts in this tranche.
+  governance-decision contracts here.
 - Inputs: Reviews, unresolved gaps, override and remediation inputs.
 - Outputs: Overrides, remediation records, accepted governance outcomes.
 - Entry criteria: Assessment or review has produced governance-relevant
@@ -221,7 +226,9 @@ must be updated.
 - Exit criteria: Next-cycle intent is re-entered in Drafted or Accepted form
   in the authoritative layer.
 
-## Stage Notes
+## Interpretation Notes
+
+### Stage Notes
 
 - `Publication` is a lifecycle role applied to canonical classes. It marks
   declared boundary material as available for integration input and downstream
@@ -236,7 +243,7 @@ must be updated.
   and governance-loop doctrine. Draft governance-decision contracts are not
   promoted here.
 
-## Stage and State Interpretation
+### Stage and State Interpretation
 
 - Lifecycle stages describe ordered system segments.
 - Spine lifecycle states describe readiness or result posture within that
