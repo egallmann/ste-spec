@@ -1,0 +1,557 @@
+schema_version: '1.1'
+type: unresolved_registry
+unresolved:
+- id: UGAP-ADR-L-0001-GAP-0101
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0001
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0001#GAP-0101
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0001
+  - Further align extraction query surfaces with Architecture IR assertion payloads
+    when schemas land
+- id: UGAP-ADR-L-0001-GAP-0102
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0001
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0001#GAP-0102
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0001
+  - Formal performance SLOs for per-file extraction (legacy target cited sub-100ms
+    for small files)
+- id: UGAP-ADR-L-0006-GAP-0601
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0006
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0006#GAP-0601
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0006
+  - Normative machine schema for unknown records in Architecture IR
+- id: UGAP-ADR-L-0006-GAP-0602
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0006
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0006#GAP-0602
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0006
+  - Cross-link to ADR-L-0009 when assertion precedence is machine-encoded
+- id: UGAP-ADR-L-0007-GAP-0701
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0007
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0007#GAP-0701
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0007
+  - Formal IR mapping when slice identity rules and IR ontology diverge
+- id: UGAP-ADR-L-0008-GAP-0801
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0008
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0008#GAP-0801
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0008
+  - Further align query conflict taxonomy with kernel denial categories when needed
+- id: UGAP-ADR-L-0008-GAP-0802
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0008
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0008#GAP-0802
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0008
+  - Quantitative lag SLOs and storage technology references belong in ADR-PS/PC
+- id: UGAP-ADR-L-0009-GAP-0901
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0009
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0009#GAP-0901
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0009
+  - Machine schema for assertion payloads and conflict records in Architecture IR
+- id: UGAP-ADR-L-0019-GAP-1901
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0019
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0019#GAP-1901
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0019
+  - Map STE-System section references to machine cross-links in handbook/runtime
+- id: UGAP-ADR-L-0020-GAP-2001
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0020
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0020#GAP-2001
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0020
+  - Enumerate artifact kinds in Architecture IR that require ORG signatures
+- id: UGAP-ADR-L-0021-GAP-2101
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0021
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0021#GAP-2101
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0021
+  - Physical deployment patterns for registry HA belong in ADR-PS when authored
+- id: UGAP-ADR-L-0022-GAP-2201
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0022
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0022#GAP-2201
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0022
+  - Operational SLAs and retry semantics remain out of band for this ADR-L
+- id: UGAP-ADR-L-0023-GAP-2301
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0023
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0023#GAP-2301
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0023
+  - Machine schemas for validation result envelopes in Architecture IR
+- id: UGAP-ADR-L-0024-GAP-2401
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0024
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0024#GAP-2401
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0024
+  - Transport and serialization formats remain implementation-specific if contract
+    semantics are preserved
+- id: UGAP-ADR-L-0025-GAP-2501
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0025
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0025#GAP-2501
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0025
+  - Future ADR-L for hierarchical environments, wildcards, or aliases if needed
+- id: UGAP-ADR-L-0026-GAP-2601
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0026
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0026#GAP-2601
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0026
+  - Future ADR-L for semantic conflict classes or cross-attestation rules if required
+- id: UGAP-ADR-L-0027-GAP-2701
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0027
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0027#GAP-2701
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0027
+  - Future versions beyond v2 require new ADR-L and explicit version values
+- id: UGAP-ADR-L-0028-GAP-2801
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0028
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0028#GAP-2801
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0028
+  - Physical deployment patterns for Fabric availability belong in ADR-PS when authored
+- id: UGAP-ADR-L-0029-GAP-2901
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0029
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0029#GAP-2901
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0029
+  - Align specification section references (e.g. §6.1.5) with handbook and ISO-42010
+    views
+- id: UGAP-ADR-L-0030-GAP-3001
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0030
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0030#GAP-3001
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0030
+  - Enumerate every handoff contract family in Architecture IR when catalogs mature
+- id: UGAP-ADR-L-0031-GAP-3101
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0031
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0031#GAP-3101
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0031
+  - Wire-format examples live in contracts; keep ADR-L scoped to authority
+- id: UGAP-ADR-L-0032-GAP-3201
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0032
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0032#GAP-3201
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0032
+  - Diagnostic richness for denial paths is contract-defined; keep schemas aligned
+- id: UGAP-ADR-L-0033-GAP-3301
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0033
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0033#GAP-3301
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0033
+  - Per-contract closedness flags belong in schema metadata and invariants indexes
+- id: UGAP-ADR-L-0034-GAP-3401
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0034
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0034#GAP-3401
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0034
+  - Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index updates)
+- id: UGAP-ADR-L-0035-GAP-3501
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0035
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0035#GAP-3501
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0035
+  - Registry surfaces and adapter projections should cite both prose ontology and
+    mechanical pin
+- id: UGAP-ADR-L-0036-GAP-3601
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0036
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0036#GAP-3601
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0036
+  - Optional checklist templates per repository role belong in handbook or scripts
+- id: UGAP-ADR-L-0037-GAP-3701
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0037
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0037#GAP-3701
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0037
+  - Automated linting for README sections is optional tooling outside this ADR-L
+- id: UGAP-ADR-L-0038-GAP-3801
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0038
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0038#GAP-3801
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0038
+  - Publication artifact exceptions remain labeled in doctrine; track in handbook
+    index
+- id: UGAP-ADR-L-0039-GAP-3901
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0039
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0039#GAP-3901
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0039
+  - Authoring conventions and CI checks may be added under separate governance
+- id: UGAP-ADR-L-0040-GAP-4001
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0040
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0040#GAP-4001
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0040
+  - Visual projections (e.g. STE-Spine-Lifecycle.md) remain subordinate; regenerate
+    when stages change
+- id: UGAP-ADR-L-0041-GAP-4101
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0041
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0041#GAP-4101
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0041
+  - Keep ste-runtime CLI install docs aligned when global `ste` npm shim diverges
+    from workspace builds
+- id: UGAP-ADR-L-0042-GAP-4201
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0042
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0042#GAP-4201
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0042
+  - Link detailed threat and tradeoff narratives from architecture supporting docs
+- id: UGAP-ADR-L-1001-GAP-5001
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1001
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1001#GAP-5001
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1001
+  - Formal machine encoding of action payloads and extension registration
+- id: UGAP-ADR-L-1003-GAP-5021
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1003
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1003#GAP-5021
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1003
+  - Exact matrix of posture x action class defaults
+- id: UGAP-ADR-L-1004-GAP-5031
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1004
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1004#GAP-5031
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1004
+  - Required evidence classes per action and environment
+- id: UGAP-ADR-L-1005-GAP-5041
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1005
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1005#GAP-5041
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1005
+  - Machine labels for drift kinds at IR/evidence boundary
+- id: UGAP-ADR-L-1006-GAP-5051
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1006
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1006#GAP-5051
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1006
+  - Cross-contract evidence bundle completeness rules
+- id: UGAP-ADR-L-1007-GAP-5061
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1007
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1007#GAP-5061
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1007
+  - Automated versus human-only promotion gates per environment
+- id: UGAP-ADR-L-1009-GAP-5081
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-1009
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-1009#GAP-5081
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-1009
+  - Formal schema for machine-readable explanation graph

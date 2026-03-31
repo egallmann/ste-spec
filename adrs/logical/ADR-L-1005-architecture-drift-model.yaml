@@ -1,0 +1,88 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1005
+title: Architecture Drift Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+tags:
+- drift
+- categorization
+context: |
+  Drift means observable divergence between declared architecture (IR and normative
+  doctrine), implementation or runtime behavior, and evidence. The kernel MUST categorize
+  drift into named kinds and map each kind to default admission-aligned outcomes; it
+  MUST NOT silently reinterpret drift ad hoc.
+
+  Default outcomes below are baseline semantics; posture, rules, and Golden requirements
+  MAY tighten but MUST NOT weaken fail-closed guarantees without explicit governance
+  exception artifacts per ADR-040.
+decisions:
+- id: DEC-6541
+  summary: Define drift categories with default outcomes
+  rationale: |
+    Deterministic categorization enables explainable automation and audit.
+  consequences:
+    positive:
+    - Uniform handling across STE systems
+    negative:
+    - Exception paths must be explicit, not informal
+- id: DEC-6542
+  summary: Implementation drift defaults to CONDITIONAL or DENY for deploy/change actions
+  rationale: |
+    Code or config that diverges from declared architecture cannot be promoted blindly.
+- id: DEC-6543
+  summary: Runtime drift defaults to WARNING or CONDITIONAL
+  rationale: |
+    Live behavior variance may warn first when safety allows, else gate action.
+- id: DEC-6544
+  summary: Evidence drift defaults to WARNING or CONDITIONAL
+  rationale: |
+    Observation divergence should surface without pretending architecture changed.
+- id: DEC-6545
+  summary: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL otherwise
+  rationale: |
+    Unknown structure must not gain implicit authority.
+- id: DEC-6546
+  summary: Invariant violation defaults to DENY
+  rationale: |
+    Broken invariants are fail-closed for actions that depend on them.
+- id: DEC-6547
+  summary: Freshness drift defaults to CONDITIONAL or WARNING
+  rationale: |
+    Timeliness mismatches gate or warn per ADR-L-1004 interplay.
+related_adrs:
+- ADR-L-1004
+- ADR-L-1006
+- ADR-L-1008
+- ADR-L-1009
+invariants:
+- id: INV-5041
+  statement: |
+    Drift categorization MUST be exhaustive for known inputs; unknown drift MUST be
+    surfaced as a primary-tier finding, not ignored.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Unknown drift must be visible to preserve explainability and fail-closed posture.
+- id: INV-5042
+  statement: |
+    Default drift outcomes MUST be documented per drift kind; tightening by posture or Golden
+    status MUST remain deterministic.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Prevents informal waiver of drift handling across environments with different postures.
+gaps:
+- id: GAP-5041
+  question: Machine labels for drift kinds at IR/evidence boundary
+  impact: medium
+  blocking: false

@@ -12,7 +12,7 @@ contract bundle in `ste-kernel`.
 relationships, provenance, lifecycle, completeness, governance, Architecture
 Index) are **normative** in
 [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md);
-see `adr/ADR-035-architecture-ir-ontology-authority.md`.
+see `adrs/published/ADR-035-architecture-ir-ontology-authority.md`.
 
 **Story (informative):** for one narrative that moves from workspace discipline through
 publication surfaces to `ste-kernel`, read
@@ -207,7 +207,7 @@ flowchart LR
 ## Related Documents
 
 - `architecture/STE-Architecture-Intermediate-Representation.md`
-- `adr/ADR-035-architecture-ir-ontology-authority.md`
+- `adrs/published/ADR-035-architecture-ir-ontology-authority.md`
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
@@ -215,7 +215,7 @@ flowchart LR
 - `contracts/README.md`
 - `contracts/rule-projection/README.md` (draft envelope scope)
 - `contracts/governance-decision-record/README.md` (draft decision rows referencing projections)
-- `adr/ADR-034-rule-projection-envelope-authority.md` (proposed)
+- `adrs/published/ADR-034-rule-projection-envelope-authority.md` (proposed)
 
 **RulesAdapter governance sub-surface (informative):** Prototype **projection + verify** CLIs may ship **inside** `ste-rules-library`; kernel consumption of those artifacts remains **out of scope** until **`adapter-contracts.yaml`** merge policy and **publication paths** are extended deliberately (see `ste-kernel/contracts/adapter-contracts.yaml` **RulesAdapter** responsibility string).
 

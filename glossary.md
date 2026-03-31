@@ -392,7 +392,7 @@ Complete realization of a viewpoint with exhaustive detail. This specification i
 
 ### Architecture IR
 
-The versioned, schema-governed **graph interchange** that `ste-kernel` merges and validates after adapter publication. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **normative in `ste-spec`** under [`contracts/architecture-ir/`](contracts/architecture-ir/). See also [`ADR-041-compiler-and-merge-authority.md`](adr/ADR-041-compiler-and-merge-authority.md).
+The versioned, schema-governed **graph interchange** that `ste-kernel` merges and validates after adapter publication. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **normative in `ste-spec`** under [`contracts/architecture-ir/`](contracts/architecture-ir/). See also [`ADR-041-compiler-and-merge-authority.md`](adrs/published/ADR-041-compiler-and-merge-authority.md).
 
 ### ArchModel
 

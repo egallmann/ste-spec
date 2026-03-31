@@ -1,0 +1,63 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0031
+title: Runtime and Kernel Responsibility Boundary
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- kernel
+- runtime
+tags:
+- admission
+- evidence
+context: |
+  **ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
+  admission authority at the evaluated System Instance boundary (explicit environment and
+  evaluation scope).
+
+  Legacy: `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`.
+
+  **Reconciliation vs ADR-L-100x:** **merge** — **ADR-L-1001** action model and
+  **ADR-L-1002** admission model formalize the same separation for kernel documentation;
+  this ADR names the **repository roles** (runtime vs kernel) that realize it.
+related_adrs:
+- ADR-L-0030
+- ADR-L-0032
+- ADR-L-0040
+- ADR-L-0041
+- ADR-L-1001
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-3101
+  summary: Confine ste-runtime to evidence production; assign caller-facing admission to ste-kernel
+  rationale: |
+    Keeps runtime factual and kernel authoritative without collapsing shared contracts into
+    one role.
+  consequences:
+    positive:
+    - Clear handoff semantics
+    negative:
+    - Runtime cannot emit admission outcomes
+invariants:
+- id: INV-3101
+  statement: |
+    ste-runtime MUST NOT emit caller-facing admission or execution-eligibility decision
+    semantics; ste-kernel alone emits `KernelAdmissionAssessment` per published contracts.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Enforces the evidence versus decision split at the boundary.
+  upheld_by_decisions:
+  - DEC-3101
+gaps:
+- id: GAP-3101
+  question: Wire-format examples live in contracts; keep ADR-L scoped to authority
+  impact: low
+  blocking: false

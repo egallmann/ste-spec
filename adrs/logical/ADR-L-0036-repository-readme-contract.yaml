@@ -1,0 +1,57 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0036
+title: Repository README Contract
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- documentation
+tags:
+- readme
+- boundaries
+context: |
+  Every STE repository `README.md` MUST serve as a human-readable architectural boundary
+  and responsibility description. README is an orientation entry point, subordinate to ADRs,
+  contracts, invariants, and Architecture IR doctrine.
+
+  Legacy: `adrs/published/ADR-036-repository-readme-contract.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance ADRs do
+  not define README structure; this ADR governs **repository human entrypoints** only.
+related_adrs:
+- ADR-L-0037
+- ADR-L-0038
+- ADR-L-0040
+decisions:
+- id: DEC-3601
+  summary: Require README.md to communicate authority, responsibilities, non-responsibilities, inputs, outputs, boundaries, and lifecycle position without becoming normative authority
+  rationale: |
+    Prevents repository responsibility drift while keeping normative truth in ADRs and contracts.
+  consequences:
+    positive:
+    - Faster onboarding and boundary clarity
+    negative:
+    - README maintenance burden
+invariants:
+- id: INV-3601
+  statement: |
+    When README content conflicts with a normative ADR, invariant, schema, contract, or
+    Architecture IR doctrine, the normative artifact MUST govern and README MUST be corrected.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves README as explanatory orientation only.
+  upheld_by_decisions:
+  - DEC-3601
+gaps:
+- id: GAP-3601
+  question: Optional checklist templates per repository role belong in handbook or scripts
+  impact: low
+  blocking: false

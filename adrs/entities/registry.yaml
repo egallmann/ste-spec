@@ -1,0 +1,2257 @@
+# integrity_schema_version: 1
+# generated: deterministic_projection_v1
+# artifact_kind: legacy_entity_registry
+# generator_id: adr-compiler
+# generator_version: 1
+# hash_algorithm: sha256
+# source_hash: e97bb1aadacb219c95b305814c2af98dcdfeec7abcc6628a2da1660e6969ccfb
+# rendered_hash: 42fb7737795fec1a445262bf3a76e38f987b3a42d4edc3e5ab0ead345f243802
+
+schema_version: '1.1'
+type: entity_registry
+entities:
+- entity_id: DEC-0101
+  entity_type: decision
+  name: Use deterministic extraction exclusively for generating architecture slices
+    from source code
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0102
+  entity_type: decision
+  name: Optional natural-language query translation may use an LLM as a one-way query
+    translator
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0601
+  entity_type: decision
+  name: Track extraction unknowns with the same rigor as known elements
+  introduced_by: ADR-L-0006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0602
+  entity_type: decision
+  name: Use categorized unknown records attached to slices
+  introduced_by: ADR-L-0006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0701
+  entity_type: decision
+  name: Derive slice identity per domain using observable semantic anchors
+  introduced_by: ADR-L-0007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0702
+  entity_type: decision
+  name: Define normalization and collision handling for derived identities
+  introduced_by: ADR-L-0007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0801
+  entity_type: decision
+  name: Define slice correctness as faithful reflection of source artifacts at a version
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0802
+  entity_type: decision
+  name: Adopt eventual consistency with version- and environment-scoped reads
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0803
+  entity_type: decision
+  name: Isolate partial extraction failures per artifact with explicit partial status
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0804
+  entity_type: decision
+  name: Use last-completed job wins for overlapping reconciliations with immutable
+    versions
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0805
+  entity_type: decision
+  name: Store extracted and asserted facts with provenance; surface conflicts without
+    automatic override
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0806
+  entity_type: decision
+  name: Multi-region active-active with bounded replication lag
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0901
+  entity_type: decision
+  name: Coexist extracted and asserted facts with explicit conflict surfacing
+  introduced_by: ADR-L-0009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-0902
+  entity_type: decision
+  name: Require evidence, actor, scope, and optional expiry for manual assertions
+  introduced_by: ADR-L-0009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-1901
+  entity_type: decision
+  name: Gateway holds ORG-scoped enforcement authority, not ORG attestation authority
+  introduced_by: ADR-L-0019
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-1902
+  entity_type: decision
+  name: Treat execution eligibility outcomes as ephemeral, unsigned enforcement results
+  introduced_by: ADR-L-0019
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2001
+  entity_type: decision
+  name: Require ORG signing only for canonical invariants, canonical artifacts, trust
+    registry operations, and canonicalization events
+  introduced_by: ADR-L-0020
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2002
+  entity_type: decision
+  name: Exclude ephemeral enforcement outcomes and derived state from mandatory ORG
+    signing
+  introduced_by: ADR-L-0020
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2101
+  entity_type: decision
+  name: Gateway is not a Trust Registry principal and performs per-request trust verification
+  introduced_by: ADR-L-0021
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2102
+  entity_type: decision
+  name: Fail closed when the Trust Registry is unavailable; bootstrap keys only verify
+    the registry; cache cannot authorize execution
+  introduced_by: ADR-L-0021
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2201
+  entity_type: decision
+  name: Apply fail-closed to execution eligibility and canonical promotion when validation
+    is incomplete, failed, or indeterminate
+  introduced_by: ADR-L-0022
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2202
+  entity_type: decision
+  name: Prohibit bypass of fail-closed via operator override, emergency modes, environment-specific
+    relaxation, or best-effort execution
+  introduced_by: ADR-L-0022
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2203
+  entity_type: decision
+  name: Allow read-only inspection under fail-closed only when outputs are explicitly
+    non-authoritative and audit-logged
+  introduced_by: ADR-L-0022
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2301
+  entity_type: decision
+  name: Assign ADF merge-time validation to canonical promotion blocking only; Gateway
+    sole execution approval; Runtime local checks advisory only
+  introduced_by: ADR-L-0023
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2302
+  entity_type: decision
+  name: Normalize validation outcomes; treat INDETERMINATE as FAIL for execution eligibility
+    and canonical promotion
+  introduced_by: ADR-L-0023
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2303
+  entity_type: decision
+  name: Require normative invariant conflict verification at Gateway during eligibility;
+    allow optional preventative detection at ADF merge-time
+  introduced_by: ADR-L-0023
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2401
+  entity_type: decision
+  name: Gateway MUST NOT modify, enrich, infer, or complete eligibility requests;
+    incomplete input fails closed
+  introduced_by: ADR-L-0024
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2402
+  entity_type: decision
+  name: Runtime or Runtime-plus-ADF constructs the complete Context Bundle; Gateway
+    resolves references from authoritative stores and verifies independently
+  introduced_by: ADR-L-0024
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2403
+  entity_type: decision
+  name: Require structured eligibility responses with ALLOW, DENY, or INDETERMINATE;
+    map INDETERMINATE to denial for execution; use stable reason codes
+  introduced_by: ADR-L-0024
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2501
+  entity_type: decision
+  name: Treat environment as a primary canonical dimension with mandatory explicit
+    identifiers in Fabric Attestations and Context Bundles
+  introduced_by: ADR-L-0025
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2502
+  entity_type: decision
+  name: Enforce environment equality with exact case-sensitive string match at Gateway;
+    deny on mismatch
+  introduced_by: ADR-L-0025
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2503
+  entity_type: decision
+  name: Bind environment into signed Fabric Attestation content; prohibit inference
+    from infrastructure or git metadata
+  introduced_by: ADR-L-0025
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2601
+  entity_type: decision
+  name: Define v1 conflict as duplicate canonical invariant identifiers with differing
+    content digests within one Fabric Attestation scope
+  introduced_by: ADR-L-0026
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2602
+  entity_type: decision
+  name: Require signed `conflict_status` on Fabric Attestations; Gateway denies with
+    INVARIANT_CONFLICT when status is detected; missing or invalid status fails closed
+  introduced_by: ADR-L-0026
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2603
+  entity_type: decision
+  name: Forbid Gateway-side conflict algorithms that parse or compare invariant content
+    beyond attestation verification
+  introduced_by: ADR-L-0026
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2701
+  entity_type: decision
+  name: Validate scope grammar (segments of alphanumerics, underscore, hyphen; length
+    and depth limits) and require explicit semantics version per Trust Registry entry
+    and Context Bundle
+  introduced_by: ADR-L-0027
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2702
+  entity_type: decision
+  name: For version 1, require exact case-sensitive equality between authority scope
+    and claimed scope
+  introduced_by: ADR-L-0027
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2703
+  entity_type: decision
+  name: For version 2, require prefix match on segment boundaries; select deepest
+    matching authority; deny with SCOPE_CONFLICT on equal-depth ties
+  introduced_by: ADR-L-0027
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2801
+  entity_type: decision
+  name: Require one-way knowledge flow Human or Agent to Runtime to Fabric to Runtime
+    to Gateway to model provider; Gateway must not query Fabric synchronously on the
+    eligibility hot path
+  introduced_by: ADR-L-0028
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2802
+  entity_type: decision
+  name: Prohibit Gateway from recomputing Fabric conflict determinations or enriching
+    attestations from external knowledge sources during evaluation
+  introduced_by: ADR-L-0028
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2803
+  entity_type: decision
+  name: Prohibit Runtime from signing Fabric Attestations or overriding Fabric canonical
+    claims
+  introduced_by: ADR-L-0028
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2901
+  entity_type: decision
+  name: Define Enforcement Authority as Gateway-specific verification and eligibility
+    enforcement without canonical publishing or trust-registry mutation
+  introduced_by: ADR-L-0029
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-2902
+  entity_type: decision
+  name: Keep eligibility outcomes ephemeral and unsigned while retaining audit logs
+    tied to signed inputs
+  introduced_by: ADR-L-0029
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3001
+  entity_type: decision
+  name: Govern cross-repository handoff contract shape in ste-spec `contracts/` and
+    rules in `invariants/`
+  introduced_by: ADR-L-0030
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0030-contract-authority-in-ste-spec.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3101
+  entity_type: decision
+  name: Confine ste-runtime to evidence production; assign caller-facing admission
+    to ste-kernel
+  introduced_by: ADR-L-0031
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3201
+  entity_type: decision
+  name: Treat invalid boundary evidence and invalid publication inputs as blocking
+    for compilation and admission
+  introduced_by: ADR-L-0032
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0032-fail-closed-enforcement-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3301
+  entity_type: decision
+  name: Require closed-object discipline for encoded handoff payloads at the runtime/kernel
+    boundary
+  introduced_by: ADR-L-0033
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0033-closed-object-discipline.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3401
+  entity_type: decision
+  name: Centralize rule-projection envelope contract authority in ste-spec once promoted
+    from draft
+  introduced_by: ADR-L-0034
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3402
+  entity_type: decision
+  name: Allow kernel to verify, route, or cache rules-engine outputs per contracts
+    without owning rule closure
+  introduced_by: ADR-L-0034
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3501
+  entity_type: decision
+  name: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical
+    schemas and pins in ste-spec contracts
+  introduced_by: ADR-L-0035
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0035-architecture-ir-ontology-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3601
+  entity_type: decision
+  name: Require README.md to communicate authority, responsibilities, non-responsibilities,
+    inputs, outputs, boundaries, and lifecycle position without becoming normative
+    authority
+  introduced_by: ADR-L-0036
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0036-repository-readme-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3701
+  entity_type: decision
+  name: Treat ste-spec README as the reference implementation pattern for ADR-L-0036
+    conformance
+  introduced_by: ADR-L-0037
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0037-repository-readme-conformance.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3801
+  entity_type: decision
+  name: Adopt STE artifact taxonomy kinds (Normative, Implementation, Proof Logic,
+    Derived, Evidence, Reports, Orientation, Internal) with documented VCS posture
+    per architecture doctrine
+  introduced_by: ADR-L-0038
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3802
+  entity_type: decision
+  name: Separate version-control posture from normative authority; committing generated
+    artifacts does not make them authoritative
+  introduced_by: ADR-L-0038
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-3901
+  entity_type: decision
+  name: Standardize canonical ste-spec architecture diagrams on Mermaid text sources
+  introduced_by: ADR-L-0039
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0039-structured-diagram-format-mermaid.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4001
+  entity_type: decision
+  name: Define eleven canonical Spine lifecycle stages from Intent Definition through
+    Intent Update and Remediation
+  introduced_by: ADR-L-0040
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4002
+  entity_type: decision
+  name: Document authority categories (normative, implementation truth, proof, derived,
+    evidence, reports, admission, governance) without transferring ownership via state
+    alone
+  introduced_by: ADR-L-0040
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4003
+  entity_type: decision
+  name: Establish precedence on apparent conflicts — ADR-L-0040 controls Spine lifecycle
+    and authority transitions; ADR-L-0038 controls taxonomy and VCS posture; supporting
+    `architecture/` doctrine is subordinate; analysis-only material is non-normative
+  introduced_by: ADR-L-0040
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4101
+  entity_type: decision
+  name: Assign authoring-time ADR compilation to adr-architecture-kit without claiming
+    runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record
+    roles
+  introduced_by: ADR-L-0041
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4102
+  entity_type: decision
+  name: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge, validation,
+    and admission assessment emission to ste-kernel
+  introduced_by: ADR-L-0041
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4201
+  entity_type: decision
+  name: Require public, independently verifiable interfaces for handoff artifacts
+    while allowing proprietary intelligence behind those surfaces
+  introduced_by: ADR-L-0042
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6101
+  entity_type: decision
+  name: Define canonical requested-action verbs for kernel evaluation
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6102
+  entity_type: decision
+  name: Require every admission decision to name a requested action in context
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6103
+  entity_type: decision
+  name: Classify assess as informational for admission authority
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6104
+  entity_type: decision
+  name: Enumerate canonical requested actions for kernel evaluation
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6211
+  entity_type: decision
+  name: Treat admission as evaluation of requested_action in context
+  introduced_by: ADR-L-1002
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6212
+  entity_type: decision
+  name: Separate IR validation failure semantics from policy denial semantics
+  introduced_by: ADR-L-1002
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6321
+  entity_type: decision
+  name: Define posture states experimental, governed, restricted, locked, golden
+  introduced_by: ADR-L-1003
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6322
+  entity_type: decision
+  name: Bind posture transitions to auditable authority and evidence
+  introduced_by: ADR-L-1003
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6431
+  entity_type: decision
+  name: Define IR invalid as boot failure preventing operational kernel use
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6432
+  entity_type: decision
+  name: Map IR stale to CONDITIONAL or DENY per posture and rules
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6433
+  entity_type: decision
+  name: Map evidence stale to WARNING or CONDITIONAL default bands
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6434
+  entity_type: decision
+  name: Map evidence missing to CONDITIONAL or DENY per required evidence classes
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6435
+  entity_type: decision
+  name: Treat IR and evidence mismatch as drift classification input
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6541
+  entity_type: decision
+  name: Define drift categories with default outcomes
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6542
+  entity_type: decision
+  name: Implementation drift defaults to CONDITIONAL or DENY for deploy/change actions
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6543
+  entity_type: decision
+  name: Runtime drift defaults to WARNING or CONDITIONAL
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6544
+  entity_type: decision
+  name: Evidence drift defaults to WARNING or CONDITIONAL
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6545
+  entity_type: decision
+  name: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL
+    otherwise
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6546
+  entity_type: decision
+  name: Invariant violation defaults to DENY
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6547
+  entity_type: decision
+  name: Freshness drift defaults to CONDITIONAL or WARNING
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6651
+  entity_type: decision
+  name: Enumerate authoritative evidence sources by contract family
+  introduced_by: ADR-L-1006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6652
+  entity_type: decision
+  name: Contradiction yields drift or assessment output, not silent IR mutation
+  introduced_by: ADR-L-1006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6761
+  entity_type: decision
+  name: Define Golden eligibility prerequisites
+  introduced_by: ADR-L-1007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6762
+  entity_type: decision
+  name: Define who or what may promote to Golden
+  introduced_by: ADR-L-1007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6763
+  entity_type: decision
+  name: State implications for downstream systems and templates
+  introduced_by: ADR-L-1007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6871
+  entity_type: decision
+  name: Define ALLOW, DENY, CONDITIONAL, WARNING semantics for requested_action
+  introduced_by: ADR-L-1008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6872
+  entity_type: decision
+  name: Bind execution permission to outcome and action class jointly
+  introduced_by: ADR-L-1008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6981
+  entity_type: decision
+  name: Require requested_action in the admission decision input closure
+  introduced_by: ADR-L-1009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-6982
+  entity_type: decision
+  name: Enumerate decision outputs including violations, drift, remediation, explanations
+  introduced_by: ADR-L-1009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0101
+  entity_type: invariant
+  name: INV-0101
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0102
+  entity_type: invariant
+  name: INV-0102
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0103
+  entity_type: invariant
+  name: INV-0103
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0104
+  entity_type: invariant
+  name: INV-0104
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0105
+  entity_type: invariant
+  name: INV-0105
+  introduced_by: ADR-L-0001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0601
+  entity_type: invariant
+  name: INV-0601
+  introduced_by: ADR-L-0006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0602
+  entity_type: invariant
+  name: INV-0602
+  introduced_by: ADR-L-0006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0701
+  entity_type: invariant
+  name: INV-0701
+  introduced_by: ADR-L-0007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0702
+  entity_type: invariant
+  name: INV-0702
+  introduced_by: ADR-L-0007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0801
+  entity_type: invariant
+  name: INV-0801
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0802
+  entity_type: invariant
+  name: INV-0802
+  introduced_by: ADR-L-0008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0901
+  entity_type: invariant
+  name: INV-0901
+  introduced_by: ADR-L-0009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-0902
+  entity_type: invariant
+  name: INV-0902
+  introduced_by: ADR-L-0009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-1901
+  entity_type: invariant
+  name: INV-1901
+  introduced_by: ADR-L-0019
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2001
+  entity_type: invariant
+  name: INV-2001
+  introduced_by: ADR-L-0020
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2101
+  entity_type: invariant
+  name: INV-2101
+  introduced_by: ADR-L-0021
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2201
+  entity_type: invariant
+  name: INV-2201
+  introduced_by: ADR-L-0022
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2202
+  entity_type: invariant
+  name: INV-2202
+  introduced_by: ADR-L-0022
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2301
+  entity_type: invariant
+  name: INV-2301
+  introduced_by: ADR-L-0023
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2401
+  entity_type: invariant
+  name: INV-2401
+  introduced_by: ADR-L-0024
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2501
+  entity_type: invariant
+  name: INV-2501
+  introduced_by: ADR-L-0025
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2601
+  entity_type: invariant
+  name: INV-2601
+  introduced_by: ADR-L-0026
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2701
+  entity_type: invariant
+  name: INV-2701
+  introduced_by: ADR-L-0027
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2801
+  entity_type: invariant
+  name: INV-2801
+  introduced_by: ADR-L-0028
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-2901
+  entity_type: invariant
+  name: INV-2901
+  introduced_by: ADR-L-0029
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3001
+  entity_type: invariant
+  name: INV-3001
+  introduced_by: ADR-L-0030
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0030-contract-authority-in-ste-spec.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3101
+  entity_type: invariant
+  name: INV-3101
+  introduced_by: ADR-L-0031
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3201
+  entity_type: invariant
+  name: INV-3201
+  introduced_by: ADR-L-0032
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0032-fail-closed-enforcement-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3301
+  entity_type: invariant
+  name: INV-3301
+  introduced_by: ADR-L-0033
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0033-closed-object-discipline.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3401
+  entity_type: invariant
+  name: INV-3401
+  introduced_by: ADR-L-0034
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3501
+  entity_type: invariant
+  name: INV-3501
+  introduced_by: ADR-L-0035
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0035-architecture-ir-ontology-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3601
+  entity_type: invariant
+  name: INV-3601
+  introduced_by: ADR-L-0036
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0036-repository-readme-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3701
+  entity_type: invariant
+  name: INV-3701
+  introduced_by: ADR-L-0037
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0037-repository-readme-conformance.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3801
+  entity_type: invariant
+  name: INV-3801
+  introduced_by: ADR-L-0038
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3802
+  entity_type: invariant
+  name: INV-3802
+  introduced_by: ADR-L-0038
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-3901
+  entity_type: invariant
+  name: INV-3901
+  introduced_by: ADR-L-0039
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0039-structured-diagram-format-mermaid.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4001
+  entity_type: invariant
+  name: INV-4001
+  introduced_by: ADR-L-0040
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4101
+  entity_type: invariant
+  name: INV-4101
+  introduced_by: ADR-L-0041
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4201
+  entity_type: invariant
+  name: INV-4201
+  introduced_by: ADR-L-0042
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5001
+  entity_type: invariant
+  name: INV-5001
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5002
+  entity_type: invariant
+  name: INV-5002
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5003
+  entity_type: invariant
+  name: INV-5003
+  introduced_by: ADR-L-1001
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5011
+  entity_type: invariant
+  name: INV-5011
+  introduced_by: ADR-L-1002
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5012
+  entity_type: invariant
+  name: INV-5012
+  introduced_by: ADR-L-1002
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5021
+  entity_type: invariant
+  name: INV-5021
+  introduced_by: ADR-L-1003
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5022
+  entity_type: invariant
+  name: INV-5022
+  introduced_by: ADR-L-1003
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5031
+  entity_type: invariant
+  name: INV-5031
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5032
+  entity_type: invariant
+  name: INV-5032
+  introduced_by: ADR-L-1004
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5041
+  entity_type: invariant
+  name: INV-5041
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5042
+  entity_type: invariant
+  name: INV-5042
+  introduced_by: ADR-L-1005
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5051
+  entity_type: invariant
+  name: INV-5051
+  introduced_by: ADR-L-1006
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5061
+  entity_type: invariant
+  name: INV-5061
+  introduced_by: ADR-L-1007
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5071
+  entity_type: invariant
+  name: INV-5071
+  introduced_by: ADR-L-1008
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5081
+  entity_type: invariant
+  name: INV-5081
+  introduced_by: ADR-L-1009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5082
+  entity_type: invariant
+  name: INV-5082
+  introduced_by: ADR-L-1009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-5083
+  entity_type: invariant
+  name: INV-5083
+  introduced_by: ADR-L-1009
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []

@@ -1,0 +1,103 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0006
+title: Explicit Unknowns Over Inference
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- extraction
+- documentation-state
+- recon
+tags:
+- unknowns
+- transparency
+- extraction
+context: |
+  When extractors cannot fully determine relationships or properties, the system must not
+  silently guess. This ADR-L encodes explicit **unknowns** alongside known facts.
+
+  Legacy human projection: `adrs/published/ADR-006-explicit-unknowns.md`. Aligns with
+  **ADR-L-0001** (deterministic extraction; unknowns when patterns are not observable).
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance ADRs
+  (1001–1009) govern admission and documentation-state authority at the STE kernel
+  boundary; this ADR governs **Fabric extraction and slice truth** semantics. If a
+  conflict appears, kernel governance precedes for **admission**, this ADR for **slice
+  unknown recording** unless explicitly merged in a future ADR-L.
+related_adrs:
+- ADR-L-0001
+decisions:
+- id: DEC-0601
+  summary: Track extraction unknowns with the same rigor as known elements
+  rationale: |
+    Fabric MUST represent gaps explicitly so consumers can trust query results and
+    prioritize extractor work. Rejected alternatives: heuristic inference (hides
+    uncertainty), omitting elements (loses partial knowledge), vague low-confidence flags
+    (not actionable).
+  alternatives_considered:
+  - name: Heuristic inference for gaps
+    rejected_because: |
+      Produces false positives and indistinguishable provenance versus deterministic extraction.
+  - name: Omit elements when extraction is incomplete
+    rejected_because: |
+      Loses partial information and visibility into gaps.
+  - name: Whole-slice low-confidence flag only
+    rejected_because: |
+      Too coarse to query, assert against, or prioritize fixes.
+  consequences:
+    positive:
+    - Honest, queryable representation of limits
+    negative:
+    - Incomplete graphs and user education burden
+- id: DEC-0602
+  summary: Use categorized unknown records attached to slices
+  rationale: |
+    Unknowns SHOULD carry a stable category (e.g. opaque boundary, unsupported language,
+    incomplete extraction, manual assertion needed) and descriptive context so reporting
+    and APIs can filter and aggregate. Operational surfaces (HTTP APIs, event feeds) are
+    implementation details outside this ADR-L.
+  consequences:
+    positive:
+    - Gap visibility drives extractor prioritization
+    negative:
+    - Requires consistent category vocabulary maintenance
+invariants:
+- id: INV-0601
+  statement: |
+    When extraction cannot determine a relationship or property that belongs in the slice
+    model, the system MUST record an explicit unknown rather than inventing a definitive
+    edge or attribute from heuristics alone.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves honesty and aligns with ADR-L-0001 prohibition on probabilistic graph assertions.
+  upheld_by_decisions:
+  - DEC-0601
+- id: INV-0602
+  statement: |
+    Unknowns MUST be first-order records in the slice documentation contract (queryable and
+    attributable), not only log lines or informal notes.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Ensures unknowns are visible to APIs, audits, and humans—not buried in logs.
+  upheld_by_decisions:
+  - DEC-0601
+  - DEC-0602
+gaps:
+- id: GAP-0601
+  question: Normative machine schema for unknown records in Architecture IR
+  impact: medium
+  blocking: false
+- id: GAP-0602
+  question: Cross-link to ADR-L-0009 when assertion precedence is machine-encoded
+  impact: low
+  blocking: false

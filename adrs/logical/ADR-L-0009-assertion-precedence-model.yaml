@@ -1,0 +1,85 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0009
+title: Assertion Precedence Model
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- documentation-state
+- extraction
+- queries
+tags:
+- assertions
+- provenance
+- conflicts
+context: |
+  Manual assertions and deterministic extraction can describe the same elements. The model
+  preserves both with provenance, surfaces contradictions, requires evidence for human
+  claims, and supports time-bounded validity.
+
+  Legacy: `adrs/published/ADR-009-assertion-precedence-model.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — refines provenance and
+  conflict surfacing for Fabric queries (**ADR-L-0008**); kernel admission contracts
+  (**ADR-L-1002**, **ADR-L-1009**) govern the kernel boundary when both apply.
+related_adrs:
+- ADR-L-0006
+- ADR-L-0008
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-0901
+  summary: Coexist extracted and asserted facts with explicit conflict surfacing
+  rationale: |
+    Store both sources with provenance; default queries return both; contradictions
+    appear in a dedicated conflicts section; users resolve disputes—no silent automatic
+    winner between extractor and human in the general case.
+  consequences:
+    positive:
+    - Auditable dual sources of truth
+    negative:
+    - Requires client handling of conflicts
+- id: DEC-0902
+  summary: Require evidence, actor, scope, and optional expiry for manual assertions
+  rationale: |
+    Assertions without evidence are rejected; optional `valid_until` excludes stale
+    claims from default query results while preserving history when explicitly requested.
+  consequences:
+    positive:
+    - Governance and auditability for human overrides
+    negative:
+    - Higher submission friction for assertions
+invariants:
+- id: INV-0901
+  statement: |
+    Manual assertions MUST carry provenance sufficient to identify the asserting party,
+    scope, and evidentiary reference before admission into authoritative query surfaces.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents unattested human overrides from masquerading as canonical facts.
+  upheld_by_decisions:
+  - DEC-0902
+- id: INV-0902
+  statement: |
+    When extracted and asserted facts contradict, query responses MUST surface the
+    conflict with both provenances unless a superseding ADR-L defines automatic precedence.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Aligns with transparency commitments in ADR-L-0008.
+  upheld_by_decisions:
+  - DEC-0901
+gaps:
+- id: GAP-0901
+  question: Machine schema for assertion payloads and conflict records in Architecture IR
+  impact: medium
+  blocking: false

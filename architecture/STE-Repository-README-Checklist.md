@@ -1,7 +1,7 @@
 # STE Repository README Checklist
 
 This checklist operationalizes
-[`ADR-036`](../adr/ADR-036-repository-readme-contract.md) and is intended to
+[`ADR-036`](../adrs/published/ADR-036-repository-readme-contract.md) and is intended to
 help STE repositories converge their `README.md` files to the STE Repository
 README Contract.
 

@@ -1,0 +1,80 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0025
+title: Environment Semantics
+status: accepted
+created_date: '2025-12-29'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- gateway
+- fabric
+tags:
+- environment
+- canonical-state
+context: |
+  Environment is a mandatory, opaque identifier partitioning canonical state and
+  attestations. Fabric governance defines allowed values; Gateway enforces exact
+  case-sensitive equality between Context Bundle and Fabric Attestation; no inference,
+  defaults, aliases, or hierarchy in v1.
+
+  Legacy: `adrs/published/ADR-025-environment-semantics.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — environment is a
+  **STE-system canonical dimension** for eligibility; kernel documentation-state
+  environments (if any) are orthogonal unless explicitly bridged in a future ADR-L.
+related_adrs:
+- ADR-L-0007
+- ADR-L-0008
+- ADR-L-0022
+- ADR-L-0024
+- ADR-L-0028
+decisions:
+- id: DEC-2501
+  summary: Treat environment as a primary canonical dimension with mandatory explicit identifiers in Fabric Attestations and Context Bundles
+  rationale: |
+    Prevents ambiguous canonical boundaries and cross-environment authorization mistakes.
+  consequences:
+    positive:
+    - Deterministic partition of canonical state
+    negative:
+    - No silent defaults for environment
+- id: DEC-2502
+  summary: Enforce environment equality with exact case-sensitive string match at Gateway; deny on mismatch
+  rationale: |
+    Exact matching is falsifiable and implementation-neutral for v1.
+  consequences:
+    positive:
+    - Predictable interoperability
+    negative:
+    - Naming discipline required across teams
+- id: DEC-2503
+  summary: Bind environment into signed Fabric Attestation content; prohibit inference from infrastructure or git metadata
+  rationale: |
+    Stops substitution and hidden derivation of scope.
+  consequences:
+    positive:
+    - Cryptographic binding of scope claims
+    negative:
+    - Explicit configuration burden on callers
+invariants:
+- id: INV-2501
+  statement: |
+    Gateway MUST NOT infer, default, case-fold, pattern-match, or hierarchically interpret
+    environment identifiers for v1 eligibility; only exact equality on declared identifiers
+    is permitted.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves determinism claims for eligibility evaluation.
+  upheld_by_decisions:
+  - DEC-2502
+gaps:
+- id: GAP-2501
+  question: Future ADR-L for hierarchical environments, wildcards, or aliases if needed
+  impact: low
+  blocking: false

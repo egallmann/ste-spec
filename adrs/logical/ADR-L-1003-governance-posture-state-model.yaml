@@ -1,0 +1,61 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1003
+title: Governance Posture State Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+tags:
+- posture
+- golden
+- experimental
+context: |
+  Governance posture constrains what is allowed, what requires explicit approval, what is
+  restricted, and what is denied independent of any single rule. This model composes with
+  active rules and promotion flows defined elsewhere (ADR-040 Spine, ste-rules-library).
+
+  Posture states are not a substitute for architecture truth; they modulate enforcement
+  strictness and approval requirements on top of IR and evidence.
+decisions:
+- id: DEC-6321
+  summary: Define posture states experimental, governed, restricted, locked, golden
+  rationale: |
+    Provides a shared vocabulary for progressive assurance and promotion.
+- id: DEC-6322
+  summary: Bind posture transitions to auditable authority and evidence
+  rationale: |
+    Prevents silent escalation or relaxation of enforcement posture.
+related_adrs:
+- ADR-L-1002
+- ADR-L-1007
+- ADR-L-1008
+invariants:
+- id: INV-5021
+  statement: |
+    Posture MUST modulate admission outcomes only through declared, deterministic rules;
+    posture MUST NOT override normative architecture authority in ste-spec.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: manual
+  rationale: |
+    Normative architecture remains authoritative; posture only modulates enforcement strictness.
+- id: INV-5022
+  statement: |
+    Golden and locked postures MUST impose stricter or equal constraints compared to
+    governed baseline for the same action class unless explicitly documented exceptions exist.
+  scope: global
+  enforcement_level: should
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Golden and locked names imply elevated assurance; weakening defaults would mislead consumers.
+gaps:
+- id: GAP-5021
+  question: Exact matrix of posture x action class defaults
+  impact: high
+  blocking: false

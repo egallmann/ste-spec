@@ -1,0 +1,61 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0035
+title: Architecture IR Ontology Authority in ste-spec
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- architecture-ir
+- contracts
+tags:
+- ontology
+- semantics
+context: |
+  `architecture/STE-Architecture-Intermediate-Representation.md` is the canonical **semantic**
+  specification of Architecture IR. Mechanical JSON Schema and compiled enumerations publish
+  under `contracts/architecture-ir/` per the contract pin. ste-kernel consumes the bundle;
+  it does not own normative mechanical definitions. Compiler roles are further constrained
+  by ADR-L-0041.
+
+  Legacy: `adrs/published/ADR-035-architecture-ir-ontology-authority.md`.
+
+  **Reconciliation vs ADR-L-1006:** **coexist-with-precedence** — evidence authority governs
+  evidentiary artifacts; this ADR governs **Architecture IR meaning** versus mechanical enums.
+related_adrs:
+- ADR-L-0032
+- ADR-L-0033
+- ADR-L-0041
+- ADR-L-1006
+decisions:
+- id: DEC-3501
+  summary: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical schemas and pins in ste-spec contracts
+  rationale: |
+    Prevents conflating JSON `kind` enums with the full ontology and avoids duplicate schema authority in kernel repos.
+  consequences:
+    positive:
+    - Single cross-repo vocabulary reference
+    negative:
+    - Requires disciplined ir_version and schema_id updates
+invariants:
+- id: INV-3501
+  statement: |
+    Extensions to mechanical Architecture IR enumerations MUST be ste-spec contract changes
+    with pin discipline; semantic additions MAY land in ste-spec prose first with explicit
+    realization notes.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves ADR-L-0035 as ontology and mechanical authority anchor.
+  upheld_by_decisions:
+  - DEC-3501
+gaps:
+- id: GAP-3501
+  question: Registry surfaces and adapter projections should cite both prose ontology and mechanical pin
+  impact: low
+  blocking: false

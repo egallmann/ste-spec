@@ -1,0 +1,92 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0022
+title: Fail-Closed Semantics and Enforcement Scope
+status: accepted
+created_date: '2025-12-23'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- gateway
+- enforcement
+tags:
+- fail-closed
+- enforcement
+context: |
+  Authoritative execution eligibility and canonical promotion require complete, successful
+  validation. Fail-closed halts authoritative actions when prerequisites cannot be verified;
+  it does not require total system unavailability. Non-authoritative inspection may continue
+  under explicit degraded labeling.
+
+  Legacy: `adrs/published/ADR-022-fail-closed-enforcement-scope.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1009** defines the
+  kernel decision contract; this ADR defines STE-system-wide fail-closed triggers and
+  non-bypass rules at the Gateway / promotion boundary.
+related_adrs:
+- ADR-L-0019
+- ADR-L-0020
+- ADR-L-0021
+- ADR-L-0023
+- ADR-L-1009
+decisions:
+- id: DEC-2201
+  summary: Apply fail-closed to execution eligibility and canonical promotion when validation is incomplete, failed, or indeterminate
+  rationale: |
+    Partial or best-effort validation would undermine determinism and authority scarcity;
+    authoritative actions require full verification.
+  consequences:
+    positive:
+    - Unambiguous correctness boundary
+    negative:
+    - Stricter availability coupling for authoritative paths
+- id: DEC-2202
+  summary: Prohibit bypass of fail-closed via operator override, emergency modes, environment-specific relaxation, or best-effort execution
+  rationale: |
+    Any bypass introduces implicit trust and non-deterministic enforcement.
+  consequences:
+    positive:
+    - No hidden weakening of guarantees
+    negative:
+    - No discretionary override at the enforcement boundary
+- id: DEC-2203
+  summary: Allow read-only inspection under fail-closed only when outputs are explicitly non-authoritative and audit-logged
+  rationale: |
+    Operators need diagnostics without granting execution or promotion.
+  consequences:
+    positive:
+    - Debuggability without correctness compromise
+    negative:
+    - Requires clear degraded signaling in implementations
+invariants:
+- id: INV-2201
+  statement: |
+    If any prerequisite for execution eligibility or canonical promotion cannot be fully
+    validated, the implementation MUST deny the authoritative action (fail closed).
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Matches eligibility and promotion algorithms that treat indeterminacy as denial.
+  upheld_by_decisions:
+  - DEC-2201
+- id: INV-2202
+  statement: |
+    Read-only evaluation paths used while fail-closed is active MUST NOT approve execution
+    eligibility or canonical promotion and MUST surface degraded, non-authoritative status.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents inspection modes from becoming shadow approval channels.
+  upheld_by_decisions:
+  - DEC-2203
+gaps:
+- id: GAP-2201
+  question: Operational SLAs and retry semantics remain out of band for this ADR-L
+  impact: low
+  blocking: false

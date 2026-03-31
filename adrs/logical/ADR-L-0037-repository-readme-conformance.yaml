@@ -1,0 +1,57 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0037
+title: Repository README Conformance and Reference Implementation
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- documentation
+tags:
+- readme
+- conformance
+context: |
+  Every STE repository MUST provide a README conforming to ADR-L-0036. README is an
+  Orientation artifact per ADR-L-0038: non-authoritative, should be versioned, cannot
+  introduce doctrine, and must cite normative sources for authority claims.
+
+  Legacy: `adrs/published/ADR-037-repository-readme-conformance-and-reference-implementation.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — orthogonal to kernel
+  admission contracts; governs **multi-repo human surfaces** only.
+related_adrs:
+- ADR-L-0036
+- ADR-L-0038
+- ADR-L-0040
+decisions:
+- id: DEC-3701
+  summary: Treat ste-spec README as the reference implementation pattern for ADR-L-0036 conformance
+  rationale: |
+    Provides a concrete converged example after ste-spec refactor.
+  consequences:
+    positive:
+    - System-wide README convergence anchor
+    negative:
+    - Reference may lag if ste-spec README changes without updating cross-links
+invariants:
+- id: INV-3701
+  statement: |
+    Repository README files MUST remain subordinate to normative artifacts; they MUST NOT
+    introduce new normative rules, invariants, or contract shapes without an ADR-L or contract change.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Aligns Orientation posture with ADR-L-0038.
+  upheld_by_decisions:
+  - DEC-3701
+gaps:
+- id: GAP-3701
+  question: Automated linting for README sections is optional tooling outside this ADR-L
+  impact: low
+  blocking: false

@@ -1,0 +1,3724 @@
+schema_version: '1.1'
+type: normalized_entity_registry
+entities:
+- id: DEC-0101
+  entity_type: decision
+  name: Use deterministic extraction exclusively for generating architecture slices
+    from source code
+  summary: Fabric will use deterministic extraction only for slice generation from
+    source. Extractors parse code with language-native AST tooling and detect framework
+    usage through explicit rules (illustrative examples in the legac
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#DEC-0101
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#DEC-0101
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0102
+  entity_type: decision
+  name: Optional natural-language query translation may use an LLM as a one-way query
+    translator
+  summary: An intelligence service MAY translate natural language into structured
+    queries using an LLM. The LLM sees the query (and metadata needed for translation),
+    not extraction results, and translation is one-way into a structu
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#DEC-0102
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#DEC-0102
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0601
+  entity_type: decision
+  name: Track extraction unknowns with the same rigor as known elements
+  summary: 'Fabric MUST represent gaps explicitly so consumers can trust query results
+    and prioritize extractor work. Rejected alternatives: heuristic inference (hides
+    uncertainty), omitting elements (loses partial knowledge), vague'
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#DEC-0601
+    artifact_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0006
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#DEC-0601
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0602
+  entity_type: decision
+  name: Use categorized unknown records attached to slices
+  summary: Unknowns SHOULD carry a stable category (e.g. opaque boundary, unsupported
+    language, incomplete extraction, manual assertion needed) and descriptive context
+    so reporting and APIs can filter and aggregate. Operational sur
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#DEC-0602
+    artifact_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0006
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#DEC-0602
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0701
+  entity_type: decision
+  name: Derive slice identity per domain using observable semantic anchors
+  summary: API endpoints use method plus normalized path; data entities prefer declared
+    table or schema-qualified names; graph elements use stable source paths; integration
+    clients use service or base identity; configuration uses s
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#DEC-0701
+    artifact_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0007
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#DEC-0701
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0702
+  entity_type: decision
+  name: Define normalization and collision handling for derived identities
+  summary: Normalize case and punctuation; avoid duplicate hyphens; disambiguate rare
+    collisions with explicit suffixes and warnings for manual review.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#DEC-0702
+    artifact_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0007
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#DEC-0702
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0801
+  entity_type: decision
+  name: Define slice correctness as faithful reflection of source artifacts at a version
+  summary: Correctness ties to deterministic extraction, provenance, and validation
+    practices; runtime behavior parity and guaranteed completeness are out of scope
+    for extraction truth claims.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0801
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0801
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0802
+  entity_type: decision
+  name: Adopt eventual consistency with version- and environment-scoped reads
+  summary: Queries are consistent within a declared version snapshot after extraction
+    completes for that version; environment queries follow last completed extraction;
+    cross-region reads may lag within bounded windows; no read-your
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0802
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0802
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0803
+  entity_type: decision
+  name: Isolate partial extraction failures per artifact with explicit partial status
+  summary: Successful files produce slices; failures are recorded with unknowns and
+    diagnostics; completion signals report partial status rather than failing the
+    whole repository silently.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0803
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0803
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0804
+  entity_type: decision
+  name: Use last-completed job wins for overlapping reconciliations with immutable
+    versions
+  summary: Concurrent jobs are allowed; slice versions are immutable; current pointers
+    advance to the latest completed job per environment with auditable job metadata.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0804
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0804
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0805
+  entity_type: decision
+  name: Store extracted and asserted facts with provenance; surface conflicts without
+    automatic override
+  summary: Neither source automatically wins; queries can filter by provenance; conflicts
+    are visible for human resolution (detailed precedence may be extended by ADR-L-0009).
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0805
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0805
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0806
+  entity_type: decision
+  name: Multi-region active-active with bounded replication lag
+  summary: Regional reads may be briefly stale; last-writer-wins applies to rare conflicts;
+    acceptable for documentation-state availability trade-offs.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0806
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#DEC-0806
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0901
+  entity_type: decision
+  name: Coexist extracted and asserted facts with explicit conflict surfacing
+  summary: Store both sources with provenance; default queries return both; contradictions
+    appear in a dedicated conflicts section; users resolve disputes—no silent automatic
+    winner between extractor and human in the general case.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#DEC-0901
+    artifact_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0009
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#DEC-0901
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-0902
+  entity_type: decision
+  name: Require evidence, actor, scope, and optional expiry for manual assertions
+  summary: Assertions without evidence are rejected; optional `valid_until` excludes
+    stale claims from default query results while preserving history when explicitly
+    requested.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#DEC-0902
+    artifact_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0009
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#DEC-0902
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-1901
+  entity_type: decision
+  name: Gateway holds ORG-scoped enforcement authority, not ORG attestation authority
+  summary: Gateway verifies signatures and enforces constraints using ORG-signed canonical
+    material; it does not mint canonical artifacts, populate trust registries, or
+    sign eligibility decisions as durable truth.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#DEC-1901
+    artifact_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0019
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0019
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#DEC-1901
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-1902
+  entity_type: decision
+  name: Treat execution eligibility outcomes as ephemeral, unsigned enforcement results
+  summary: Eligibility answers are short-lived, derived deterministically from signed
+    inputs, and logged for audit without becoming canonical attestations.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#DEC-1902
+    artifact_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0019
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0019
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#DEC-1902
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2001
+  entity_type: decision
+  name: Require ORG signing only for canonical invariants, canonical artifacts, trust
+    registry operations, and canonicalization events
+  summary: Limits ORG keys to durable attestation surfaces; excludes eligibility decisions,
+    derived graph indexes, caches, and typical Context Bundle payloads except where
+    other ADRs require Human/PROJECT signing.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#DEC-2001
+    artifact_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0020
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0020
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#DEC-2001
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2002
+  entity_type: decision
+  name: Exclude ephemeral enforcement outcomes and derived state from mandatory ORG
+    signing
+  summary: Derived and short-lived results must remain verifiable from signed inputs
+    without expanding ORG signing to every computation.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#DEC-2002
+    artifact_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0020
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0020
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#DEC-2002
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2101
+  entity_type: decision
+  name: Gateway is not a Trust Registry principal and performs per-request trust verification
+  summary: Avoids self-referential trust entries and ensures revocations and expirations
+    are respected at evaluation time.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#DEC-2101
+    artifact_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0021
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0021
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#DEC-2101
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2102
+  entity_type: decision
+  name: Fail closed when the Trust Registry is unavailable; bootstrap keys only verify
+    the registry; cache cannot authorize execution
+  summary: Prevents stale or offline trust from authorizing execution; read-only degraded
+    modes must be explicitly non-authoritative.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#DEC-2102
+    artifact_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0021
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0021
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#DEC-2102
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2201
+  entity_type: decision
+  name: Apply fail-closed to execution eligibility and canonical promotion when validation
+    is incomplete, failed, or indeterminate
+  summary: Partial or best-effort validation would undermine determinism and authority
+    scarcity; authoritative actions require full verification.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2201
+    artifact_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0022
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0022
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2201
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2202
+  entity_type: decision
+  name: Prohibit bypass of fail-closed via operator override, emergency modes, environment-specific
+    relaxation, or best-effort execution
+  summary: Any bypass introduces implicit trust and non-deterministic enforcement.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2202
+    artifact_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0022
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0022
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2202
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2203
+  entity_type: decision
+  name: Allow read-only inspection under fail-closed only when outputs are explicitly
+    non-authoritative and audit-logged
+  summary: Operators need diagnostics without granting execution or promotion.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2203
+    artifact_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0022
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0022
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#DEC-2203
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2301
+  entity_type: decision
+  name: Assign ADF merge-time validation to canonical promotion blocking only; Gateway
+    sole execution approval; Runtime local checks advisory only
+  summary: Prevents Runtime self-approval and clarifies layered enforcement.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2301
+    artifact_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0023
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0023
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2301
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2302
+  entity_type: decision
+  name: Normalize validation outcomes; treat INDETERMINATE as FAIL for execution eligibility
+    and canonical promotion
+  summary: Eliminates ambiguous partial success for authoritative transitions.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2302
+    artifact_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0023
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0023
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2302
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2303
+  entity_type: decision
+  name: Require normative invariant conflict verification at Gateway during eligibility;
+    allow optional preventative detection at ADF merge-time
+  summary: Gateway remains the definitive enforcement boundary; ADF may fail fast
+    before publication.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2303
+    artifact_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0023
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0023
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#DEC-2303
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2401
+  entity_type: decision
+  name: Gateway MUST NOT modify, enrich, infer, or complete eligibility requests;
+    incomplete input fails closed
+  summary: Preserves deterministic evaluation and audit reconstruction from submitted
+    bundles alone.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2401
+    artifact_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0024
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0024
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2401
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2402
+  entity_type: decision
+  name: Runtime or Runtime-plus-ADF constructs the complete Context Bundle; Gateway
+    resolves references from authoritative stores and verifies independently
+  summary: Separates construction from verification and prevents blind trust in upstream
+    validation summaries.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2402
+    artifact_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0024
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0024
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2402
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2403
+  entity_type: decision
+  name: Require structured eligibility responses with ALLOW, DENY, or INDETERMINATE;
+    map INDETERMINATE to denial for execution; use stable reason codes
+  summary: Enables machine-actionable handling and aligns with normalized outcomes
+    (ADR-L-0023).
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2403
+    artifact_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0024
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0024
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#DEC-2403
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2501
+  entity_type: decision
+  name: Treat environment as a primary canonical dimension with mandatory explicit
+    identifiers in Fabric Attestations and Context Bundles
+  summary: Prevents ambiguous canonical boundaries and cross-environment authorization
+    mistakes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2501
+    artifact_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0025
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0025
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2501
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2502
+  entity_type: decision
+  name: Enforce environment equality with exact case-sensitive string match at Gateway;
+    deny on mismatch
+  summary: Exact matching is falsifiable and implementation-neutral for v1.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2502
+    artifact_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0025
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0025
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2502
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2503
+  entity_type: decision
+  name: Bind environment into signed Fabric Attestation content; prohibit inference
+    from infrastructure or git metadata
+  summary: Stops substitution and hidden derivation of scope.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2503
+    artifact_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0025
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0025
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#DEC-2503
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2601
+  entity_type: decision
+  name: Define v1 conflict as duplicate canonical invariant identifiers with differing
+    content digests within one Fabric Attestation scope
+  summary: Provides a mechanical, falsifiable conflict predicate without semantic
+    theorem proving.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2601
+    artifact_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0026
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0026
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2601
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2602
+  entity_type: decision
+  name: Require signed `conflict_status` on Fabric Attestations; Gateway denies with
+    INVARIANT_CONFLICT when status is detected; missing or invalid status fails closed
+  summary: Keeps Gateway in verifier-only posture while enforcing PREREQ-4 outcomes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2602
+    artifact_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0026
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0026
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2602
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2603
+  entity_type: decision
+  name: Forbid Gateway-side conflict algorithms that parse or compare invariant content
+    beyond attestation verification
+  summary: Prevents implementation divergence and hidden state discovery at the boundary.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2603
+    artifact_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0026
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0026
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#DEC-2603
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2701
+  entity_type: decision
+  name: Validate scope grammar (segments of alphanumerics, underscore, hyphen; length
+    and depth limits) and require explicit semantics version per Trust Registry entry
+    and Context Bundle
+  summary: Prevents ambiguous or unbounded scope strings and enables safe evolution.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2701
+    artifact_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0027
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0027
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2701
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2702
+  entity_type: decision
+  name: For version 1, require exact case-sensitive equality between authority scope
+    and claimed scope
+  summary: Minimal deterministic baseline compatible with pre-v2 artifacts when version
+    omitted.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2702
+    artifact_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0027
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0027
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2702
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2703
+  entity_type: decision
+  name: For version 2, require prefix match on segment boundaries; select deepest
+    matching authority; deny with SCOPE_CONFLICT on equal-depth ties
+  summary: Supports delegated authority without regex or fuzzy matching.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2703
+    artifact_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0027
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0027
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#DEC-2703
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2801
+  entity_type: decision
+  name: Require one-way knowledge flow Human or Agent to Runtime to Fabric to Runtime
+    to Gateway to model provider; Gateway must not query Fabric synchronously on the
+    eligibility hot path
+  summary: Prevents cache, network, and availability variance from changing eligibility
+    outcomes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2801
+    artifact_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0028
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0028
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2801
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2802
+  entity_type: decision
+  name: Prohibit Gateway from recomputing Fabric conflict determinations or enriching
+    attestations from external knowledge sources during evaluation
+  summary: Preserves verifier-only posture and minimal attack surface for probing
+    canonical state.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2802
+    artifact_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0028
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0028
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2802
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2803
+  entity_type: decision
+  name: Prohibit Runtime from signing Fabric Attestations or overriding Fabric canonical
+    claims
+  summary: Keeps canonical publisher boundary singular.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2803
+    artifact_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0028
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0028
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#DEC-2803
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2901
+  entity_type: decision
+  name: Define Enforcement Authority as Gateway-specific verification and eligibility
+    enforcement without canonical publishing or trust-registry mutation
+  summary: Removes contradiction between ORG signing requirements and Gateway verifier
+    role.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#DEC-2901
+    artifact_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0029
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0029
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#DEC-2901
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-2902
+  entity_type: decision
+  name: Keep eligibility outcomes ephemeral and unsigned while retaining audit logs
+    tied to signed inputs
+  summary: Avoids false equivalence between point-in-time enforcement and durable
+    canonical truth.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#DEC-2902
+    artifact_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0029
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0029
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#DEC-2902
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3001
+  entity_type: decision
+  name: Govern cross-repository handoff contract shape in ste-spec `contracts/` and
+    rules in `invariants/`
+  summary: Single normative source for payload structure, semantic rules, and architectural
+    intent at the runtime/kernel boundary.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0030#DEC-3001
+    artifact_path: adrs/logical/ADR-L-0030-contract-authority-in-ste-spec.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0030
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0030
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0030#DEC-3001
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3101
+  entity_type: decision
+  name: Confine ste-runtime to evidence production; assign caller-facing admission
+    to ste-kernel
+  summary: Keeps runtime factual and kernel authoritative without collapsing shared
+    contracts into one role.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0031#DEC-3101
+    artifact_path: adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0031
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0031
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0031#DEC-3101
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3201
+  entity_type: decision
+  name: Treat invalid boundary evidence and invalid publication inputs as blocking
+    for compilation and admission
+  summary: Unsupported or semantically invalid evidence must not yield action-eligible
+    admission.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0032#DEC-3201
+    artifact_path: adrs/logical/ADR-L-0032-fail-closed-enforcement-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0032
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0032
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0032#DEC-3201
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3301
+  entity_type: decision
+  name: Require closed-object discipline for encoded handoff payloads at the runtime/kernel
+    boundary
+  summary: Bounded objects force explicit contract evolution and deterministic rejection
+    of drift.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0033#DEC-3301
+    artifact_path: adrs/logical/ADR-L-0033-closed-object-discipline.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0033
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0033
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0033#DEC-3301
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3401
+  entity_type: decision
+  name: Centralize rule-projection envelope contract authority in ste-spec once promoted
+    from draft
+  summary: Avoids collapsing integration IR admission and workspace compliance gates
+    into one payload.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#DEC-3401
+    artifact_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0034
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0034
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#DEC-3401
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3402
+  entity_type: decision
+  name: Allow kernel to verify, route, or cache rules-engine outputs per contracts
+    without owning rule closure
+  summary: Preserves signing and compilation authority on the rules-engine side for
+    this family.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#DEC-3402
+    artifact_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0034
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0034
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#DEC-3402
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3501
+  entity_type: decision
+  name: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical
+    schemas and pins in ste-spec contracts
+  summary: Prevents conflating JSON `kind` enums with the full ontology and avoids
+    duplicate schema authority in kernel repos.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0035#DEC-3501
+    artifact_path: adrs/logical/ADR-L-0035-architecture-ir-ontology-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0035
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0035
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0035#DEC-3501
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3601
+  entity_type: decision
+  name: Require README.md to communicate authority, responsibilities, non-responsibilities,
+    inputs, outputs, boundaries, and lifecycle position without becoming normative
+    authority
+  summary: Prevents repository responsibility drift while keeping normative truth
+    in ADRs and contracts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0036#DEC-3601
+    artifact_path: adrs/logical/ADR-L-0036-repository-readme-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0036
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0036
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0036#DEC-3601
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3701
+  entity_type: decision
+  name: Treat ste-spec README as the reference implementation pattern for ADR-L-0036
+    conformance
+  summary: Provides a concrete converged example after ste-spec refactor.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0037#DEC-3701
+    artifact_path: adrs/logical/ADR-L-0037-repository-readme-conformance.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0037
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0037
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0037#DEC-3701
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3801
+  entity_type: decision
+  name: Adopt STE artifact taxonomy kinds (Normative, Implementation, Proof Logic,
+    Derived, Evidence, Reports, Orientation, Internal) with documented VCS posture
+    per architecture doctrine
+  summary: Prevents repositories from drifting on what is source truth versus regenerable
+    output.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#DEC-3801
+    artifact_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0038
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0038
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#DEC-3801
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3802
+  entity_type: decision
+  name: Separate version-control posture from normative authority; committing generated
+    artifacts does not make them authoritative
+  summary: Avoids equating git presence with governance authority.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#DEC-3802
+    artifact_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0038
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0038
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#DEC-3802
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-3901
+  entity_type: decision
+  name: Standardize canonical ste-spec architecture diagrams on Mermaid text sources
+  summary: Reduces format drift and keeps diagrams diffable and reviewable.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0039#DEC-3901
+    artifact_path: adrs/logical/ADR-L-0039-structured-diagram-format-mermaid.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0039
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0039
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0039#DEC-3901
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4001
+  entity_type: decision
+  name: Define eleven canonical Spine lifecycle stages from Intent Definition through
+    Intent Update and Remediation
+  summary: Provides one explicit end-to-end vocabulary referenced across ste-spec
+    and consumers.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4001
+    artifact_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0040
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0040
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4001
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4002
+  entity_type: decision
+  name: Document authority categories (normative, implementation truth, proof, derived,
+    evidence, reports, admission, governance) without transferring ownership via state
+    alone
+  summary: Separates who governs truth from readiness states.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4002
+    artifact_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0040
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0040
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4002
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4003
+  entity_type: decision
+  name: Establish precedence on apparent conflicts — ADR-L-0040 controls Spine lifecycle
+    and authority transitions; ADR-L-0038 controls taxonomy and VCS posture; supporting
+    `architecture/` doctrine is subordinate; analysis-only material is non-normative
+  summary: Prevents accidental override via explanatory documents.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4003
+    artifact_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0040
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0040
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#DEC-4003
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4101
+  entity_type: decision
+  name: Assign authoring-time ADR compilation to adr-architecture-kit without claiming
+    runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record
+    roles
+  summary: Prevents parallel truth compilers for the same interchange contracts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#DEC-4101
+    artifact_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0041
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0041
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#DEC-4101
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4102
+  entity_type: decision
+  name: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge, validation,
+    and admission assessment emission to ste-kernel
+  summary: Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#DEC-4102
+    artifact_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0041
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0041
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#DEC-4102
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4201
+  entity_type: decision
+  name: Require public, independently verifiable interfaces for handoff artifacts
+    while allowing proprietary intelligence behind those surfaces
+  summary: Enables third-party compatibility without leaking proprietary leverage
+    into public contracts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0042#DEC-4201
+    artifact_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0042
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0042
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0042#DEC-4201
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6101
+  entity_type: decision
+  name: Define canonical requested-action verbs for kernel evaluation
+  summary: Without a closed vocabulary, tools and policies cannot classify what is
+    being evaluated or map outcomes deterministically.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6101
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6101
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6102
+  entity_type: decision
+  name: Require every admission decision to name a requested action in context
+  summary: Admission without an action is undefined; context (system instance, environment,
+    scope) is part of the decision input closure.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6102
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6102
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6103
+  entity_type: decision
+  name: Classify assess as informational for admission authority
+  summary: Assessment and reporting must not be conflated with allow/deny for operational
+    actions; see ste-kernel ADR-PS for the assessment pipeline boundary.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6103
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6103
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6104
+  entity_type: decision
+  name: Enumerate canonical requested actions for kernel evaluation
+  summary: Provides a minimal closed verb set; extensions require explicit documentation.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6104
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#DEC-6104
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6211
+  entity_type: decision
+  name: Treat admission as evaluation of requested_action in context
+  summary: Aligns all admission semantics with ADR-L-1001; forbids abstract system-only
+    checks.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#DEC-6211
+    artifact_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1002
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1002
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#DEC-6211
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6212
+  entity_type: decision
+  name: Separate IR validation failure semantics from policy denial semantics
+  summary: Preserves fail-closed boot while keeping admission outcomes honest for
+    policy layers.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#DEC-6212
+    artifact_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1002
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1002
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#DEC-6212
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6321
+  entity_type: decision
+  name: Define posture states experimental, governed, restricted, locked, golden
+  summary: Provides a shared vocabulary for progressive assurance and promotion.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#DEC-6321
+    artifact_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1003
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1003
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#DEC-6321
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6322
+  entity_type: decision
+  name: Bind posture transitions to auditable authority and evidence
+  summary: Prevents silent escalation or relaxation of enforcement posture.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#DEC-6322
+    artifact_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1003
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1003
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#DEC-6322
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6431
+  entity_type: decision
+  name: Define IR invalid as boot failure preventing operational kernel use
+  summary: Unvalidated IR cannot be a trustworthy substrate for admission or orchestration.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6431
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6431
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6432
+  entity_type: decision
+  name: Map IR stale to CONDITIONAL or DENY per posture and rules
+  summary: Stale declared architecture may still be structurally valid but untrustworthy
+    for action.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6432
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6432
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6433
+  entity_type: decision
+  name: Map evidence stale to WARNING or CONDITIONAL default bands
+  summary: Evidence lag may warn or gate without necessarily invalidating IR structure.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6433
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6433
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6434
+  entity_type: decision
+  name: Map evidence missing to CONDITIONAL or DENY per required evidence classes
+  summary: Missing required observations cannot be treated as silent assent.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6434
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6434
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6435
+  entity_type: decision
+  name: Treat IR and evidence mismatch as drift classification input
+  summary: Mismatch is not resolved by picking a winner; it is classified per ADR-L-1005.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6435
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#DEC-6435
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6541
+  entity_type: decision
+  name: Define drift categories with default outcomes
+  summary: Deterministic categorization enables explainable automation and audit.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6541
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6541
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6542
+  entity_type: decision
+  name: Implementation drift defaults to CONDITIONAL or DENY for deploy/change actions
+  summary: Code or config that diverges from declared architecture cannot be promoted
+    blindly.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6542
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6542
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6543
+  entity_type: decision
+  name: Runtime drift defaults to WARNING or CONDITIONAL
+  summary: Live behavior variance may warn first when safety allows, else gate action.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6543
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6543
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6544
+  entity_type: decision
+  name: Evidence drift defaults to WARNING or CONDITIONAL
+  summary: Observation divergence should surface without pretending architecture changed.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6544
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6544
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6545
+  entity_type: decision
+  name: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL
+    otherwise
+  summary: Unknown structure must not gain implicit authority.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6545
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6545
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6546
+  entity_type: decision
+  name: Invariant violation defaults to DENY
+  summary: Broken invariants are fail-closed for actions that depend on them.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6546
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6546
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6547
+  entity_type: decision
+  name: Freshness drift defaults to CONDITIONAL or WARNING
+  summary: Timeliness mismatches gate or warn per ADR-L-1004 interplay.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6547
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#DEC-6547
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6651
+  entity_type: decision
+  name: Enumerate authoritative evidence sources by contract family
+  summary: Admission must know which observations count and under what provenance
+    kinds.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#DEC-6651
+    artifact_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1006
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#DEC-6651
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6652
+  entity_type: decision
+  name: Contradiction yields drift or assessment output, not silent IR mutation
+  summary: Preserves documentation-state authority and auditability.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#DEC-6652
+    artifact_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1006
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#DEC-6652
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6761
+  entity_type: decision
+  name: Define Golden eligibility prerequisites
+  summary: Golden without criteria becomes a hollow label.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6761
+    artifact_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1007
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6761
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6762
+  entity_type: decision
+  name: Define who or what may promote to Golden
+  summary: Separates governance authority from tooling automation boundaries.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6762
+    artifact_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1007
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6762
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6763
+  entity_type: decision
+  name: State implications for downstream systems and templates
+  summary: Golden systems act as reference baselines for stricter inheritance or copying
+    rules.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6763
+    artifact_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1007
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#DEC-6763
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6871
+  entity_type: decision
+  name: Define ALLOW, DENY, CONDITIONAL, WARNING semantics for requested_action
+  summary: Shared vocabulary prevents incompatible client interpretations.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#DEC-6871
+    artifact_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#DEC-6871
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6872
+  entity_type: decision
+  name: Bind execution permission to outcome and action class jointly
+  summary: Some informational actions never imply execution permission changes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#DEC-6872
+    artifact_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1008
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#DEC-6872
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6981
+  entity_type: decision
+  name: Require requested_action in the admission decision input closure
+  summary: Admission without an action is undefined and fail-closed per invariants
+    below.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#DEC-6981
+    artifact_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1009
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#DEC-6981
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-6982
+  entity_type: decision
+  name: Enumerate decision outputs including violations, drift, remediation, explanations
+  summary: Consumers need both human and structured machine narratives tied to cited
+    causes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#DEC-6982
+    artifact_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1009
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-1009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#DEC-6982
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index

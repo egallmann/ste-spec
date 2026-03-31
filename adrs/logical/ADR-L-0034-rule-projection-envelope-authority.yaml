@@ -1,0 +1,68 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0034
+title: Rule Projection Envelope Authority
+status: proposed
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- contracts
+- governance
+tags:
+- rule-projection
+- kernel
+context: |
+  ste-spec will own the interchange envelope for ADR-bound rule projections and related
+  attestations under `contracts/rule-projection/` when promoted from draft. Semantic rules
+  live in `invariants/` (e.g. INV-0010). ste-kernel must not be treated as authoritative
+  signer or compiler of rule text for these envelopes.
+
+  Legacy: `adrs/published/ADR-034-rule-projection-envelope-authority.md` (draft contract).
+
+  **Reconciliation vs ADR-L-1008:** **coexist-with-precedence** — decision outcome vocabulary
+  governs admitted decisions; rule-projection envelopes are a **separate durable family**
+  with rules-engine-side closure.
+related_adrs:
+- ADR-L-0030
+- ADR-L-1008
+decisions:
+- id: DEC-3401
+  summary: Centralize rule-projection envelope contract authority in ste-spec once promoted from draft
+  rationale: |
+    Avoids collapsing integration IR admission and workspace compliance gates into one payload.
+  consequences:
+    positive:
+    - Clear ownership before kernel adapters harden
+    negative:
+    - Promotion requires schema stability work
+- id: DEC-3402
+  summary: Allow kernel to verify, route, or cache rules-engine outputs per contracts without owning rule closure
+  rationale: |
+    Preserves signing and compilation authority on the rules-engine side for this family.
+  consequences:
+    positive:
+    - Separation of concerns
+    negative:
+    - Requires explicit adapter documentation
+invariants:
+- id: INV-3401
+  statement: |
+    Until the rule-projection envelope family is promoted to accepted contract status,
+    ste-kernel integrations MUST treat draft schemas as interface-only and MUST NOT imply
+    normative closure beyond published disclaimers.
+  scope: global
+  enforcement_level: should
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents draft artifacts from becoming shadow normative authority.
+  upheld_by_decisions:
+  - DEC-3401
+gaps:
+- id: GAP-3401
+  question: Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index updates)
+  impact: medium
+  blocking: false

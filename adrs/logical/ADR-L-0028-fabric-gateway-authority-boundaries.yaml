@@ -1,0 +1,82 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0028
+title: AI-DOC Fabric and Gateway Authority Boundaries
+status: accepted
+created_date: '2025-12-29'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- fabric
+- gateway
+- runtime
+tags:
+- authority
+- boundaries
+context: |
+  Fabric is the sole canonical state authority, invariant resolver, conflict detector for
+  attested bundles, and signer of Fabric Attestations. Gateway is a pure verifier that does
+  not query Fabric during eligibility evaluation. Runtime assembles and transports bundles
+  and attestations without substituting Fabric authority.
+
+  Legacy: `adrs/published/ADR-028-fabric-gateway-authority-boundaries.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance ADRs
+  describe documentation-state admission; this ADR pins **runtime STE component roles**
+  for canonical truth vs enforcement.
+related_adrs:
+- ADR-L-0019
+- ADR-L-0024
+- ADR-L-0026
+- ADR-L-0029
+- ADR-L-1001
+- ADR-L-1009
+decisions:
+- id: DEC-2801
+  summary: Require one-way knowledge flow Human or Agent to Runtime to Fabric to Runtime to Gateway to model provider; Gateway must not query Fabric synchronously on the eligibility hot path
+  rationale: |
+    Prevents cache, network, and availability variance from changing eligibility outcomes.
+  consequences:
+    positive:
+    - Deterministic eligibility given the same signed inputs
+    negative:
+    - Runtime must prefetch attestations
+- id: DEC-2802
+  summary: Prohibit Gateway from recomputing Fabric conflict determinations or enriching attestations from external knowledge sources during evaluation
+  rationale: |
+    Preserves verifier-only posture and minimal attack surface for probing canonical state.
+  consequences:
+    positive:
+    - Consistent cross-vendor Gateway behavior
+    negative:
+    - No best-effort gap filling at Gateway
+- id: DEC-2803
+  summary: Prohibit Runtime from signing Fabric Attestations or overriding Fabric canonical claims
+  rationale: |
+    Keeps canonical publisher boundary singular.
+  consequences:
+    positive:
+    - Clear accountability for attestations
+    negative:
+    - Runtime cannot self-attest canonical slices
+invariants:
+- id: INV-2801
+  statement: |
+    During execution eligibility evaluation, Gateway MUST rely on signed attestations and
+    authoritative reference resolution rules in ADR-L-0024, not live Fabric queries, to
+    obtain canonical claims.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Separates Fabric publication time from Gateway verification time.
+  upheld_by_decisions:
+  - DEC-2801
+gaps:
+- id: GAP-2801
+  question: Physical deployment patterns for Fabric availability belong in ADR-PS when authored
+  impact: low
+  blocking: false

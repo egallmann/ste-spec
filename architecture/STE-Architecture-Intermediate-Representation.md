@@ -1,4 +1,4 @@
-# STE Architecture Intermediate Representation (Architecture IR)
+﻿# STE Architecture Intermediate Representation (Architecture IR)
 
 ## Purpose
 
@@ -212,7 +212,7 @@ Other semantic types in §3.1–3.12 **MAY** serialize as registry metadata, ind
 - **Evidence** — whether observations are direct measurements, derived aggregates, or estimated signals.
 - **Normalized entities** — normalized rows **MUST** record derivation from source entities and retain **derived** (or **heuristic**) class as appropriate.
 
-**Mechanical note:** `Compiled_IR_Document` requires a `provenance` object on entities and relationships; its fields (for example `derivation_chain`) are **specified in `ste-kernel`**. This document **MUST NOT** redefine those fields; it **MUST** classify their **semantic** role using §4.1.
+**Mechanical note:** `Compiled_IR_Document` requires a `provenance` object on entities and relationships; its fields (for example `derivation_chain`) are specified by the normative mechanical contract in `ste-spec/contracts/architecture-ir/`. This document **MUST NOT** redefine those fields; it **MUST** classify their **semantic** role using §4.1.
 
 ---
 
@@ -380,4 +380,6 @@ At the **pinned** `ir_version` referenced from `ste-spec`:
 - [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md)
 - [`../contracts/README.md`](../contracts/README.md)
 - [`../glossary.md`](../glossary.md)
-- [`../adr/ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
+- [`../adrs/published/ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
+
+
