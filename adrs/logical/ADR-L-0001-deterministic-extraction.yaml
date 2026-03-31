@@ -1,0 +1,172 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0001
+title: Deterministic Extraction Over ML-Based Inference
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- extraction
+- documentation-state
+- recon
+tags:
+- deterministic-extraction
+- ast
+- reproducibility
+- ai-doc-fabric
+context: |
+  AI-DOC Fabric must extract architectural elements from source code. Candidate approaches
+  include deterministic extraction (language-native AST parsers and explicit framework
+  patterns) versus ML-based inference (embeddings, LLMs, probabilistic models).
+
+  The choice affects reproducibility of extraction results, auditability of outputs,
+  operational complexity and cost, confidence in query results, and the ability to explain
+  why something was extracted. Enterprise documentation requires high confidence that
+  reported dependencies reflect actual code rather than probabilistic inference.
+
+  Legacy human projection: `adrs/published/ADR-001-deterministic-extraction.md` (accepted
+  2025-12-19). Related machine ADRs: **ADR-L-0006** (explicit unknowns), **ADR-L-0007**
+  (slice identity), **ADR-L-0008** (correctness and consistency contract).
+
+  **ste-spec entity id convention (this ADR):** `DEC-01xx`, `INV-01xx`, and `GAP-01xx`
+  use the leading `01` digit group to tie decisions, invariants, and gaps to **legacy
+  ADR-001** / machine **ADR-L-0001**. The separate **ADR-L-1001–1009** kernel governance
+  series uses other numeric blocks (for example `DEC-61xx`, `INV-50xx`) and is unrelated
+  to this `01xx` allocation.
+related_adrs:
+- ADR-L-0006
+- ADR-L-0007
+- ADR-L-0008
+- ADR-L-0009
+decisions:
+- id: DEC-0101
+  summary: Use deterministic extraction exclusively for generating architecture slices from source code
+  rationale: |
+    Fabric will use deterministic extraction only for slice generation from source.
+    Extractors parse code with language-native AST tooling and detect framework usage
+    through explicit rules (illustrative examples in the legacy ADR: Python `ast.parse`,
+    TypeScript Compiler API, JavaParser/JDT, `go/parser`; explicit patterns such as
+    FastAPI/Express/Spring route decorators).
+
+    Probabilistic matching is out of scope for graph construction: no embeddings for code
+    similarity, no LLM inference for architectural relationships, no supervised ML for
+    element typing in the extraction graph.
+  alternatives_considered:
+  - name: LLM-based code understanding
+    rejected_because: |
+      Non-deterministic outputs, hallucination risk, cost and latency at codebase scale,
+      weak auditability for enterprise stakeholders who require explainable, repeatable
+      extractions for critical documentation.
+  - name: Embedding-based similarity
+    rejected_because: |
+      Similarity does not imply architectural dependency; threshold tuning is fragile;
+      proximity does not explain why a link exists.
+  - name: Hybrid AST plus ML for ambiguity
+    rejected_because: |
+      Dual systems increase maintenance and inconsistency (some slices deterministic,
+      others probabilistic); ambiguity boundaries become arbitrary; explicit unknowns are
+      preferable to incorrect inference.
+  - name: General-purpose static analysis tools as primary extractors
+    rejected_because: |
+      Not designed for architecture slice taxonomy; insufficient metadata for slice model;
+      heterogeneous per-language tooling; licensing constraints. Such tools may still feed
+      inputs to custom extractors without becoming the primary extraction mechanism.
+  consequences:
+    positive:
+    - Identical source and extractor version yield identical outputs (regression testing, auditable reprocessing).
+    - Every slice traces to file, line, and extractor logic (explainability).
+    - No model drift, retraining, or GPU inference path for extraction graph construction.
+    - Lower operational cost and faster extraction versus ML inference for graph edges.
+    negative:
+    - Cannot infer relationships absent observable patterns (dynamic loading, reflection, uncodified convention).
+    - Per-language and per-framework extractor development and maintenance burden.
+    - Ambiguity yields explicit unknowns rather than guessed edges; dynamic systems may look incomplete without manual assertions.
+    - Mainstream framework coverage is easiest; niche or legacy stacks need bespoke extractors.
+- id: DEC-0102
+  summary: Optional natural-language query translation may use an LLM as a one-way query translator
+  rationale: |
+    An intelligence service MAY translate natural language into structured queries using an
+    LLM. The LLM sees the query (and metadata needed for translation), not extraction
+    results, and translation is one-way into a structured query with fail-closed fallback
+    when translation fails. This boundary keeps slice construction deterministic while
+    allowing conversational interfaces upstream of structured retrieval.
+  consequences:
+    positive:
+    - Structured query path remains deterministic; LLM is not an extractor for graph edges.
+    negative:
+    - Translation quality and availability still depend on the NL translation component and must fail closed.
+invariants:
+- id: INV-0101
+  statement: |
+    Architecture slice generation from source code MUST be deterministic: identical inputs
+    (source artifacts, extractor configuration, extractor version) MUST produce
+    identical slice outputs.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: test
+  verification_method: automated
+  rationale: |
+    Enables regression tests, auditability, and confident reprocessing when extractor logic improves.
+  upheld_by_decisions:
+  - DEC-0101
+- id: INV-0102
+  statement: |
+    Extractors MUST use language-native parsing and explicit pattern rules for framework
+    and API detection; they MUST produce identical outputs for identical inputs per INV-0101.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Implements the concrete extractor discipline implied by deterministic extraction.
+  upheld_by_decisions:
+  - DEC-0101
+- id: INV-0103
+  statement: |
+    The extraction graph MUST NOT assert architectural relationships using embeddings,
+    probabilistic models, or LLM inference over source code or extraction artifacts.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves auditability and prevents silent probabilistic graph mutation.
+  upheld_by_decisions:
+  - DEC-0101
+- id: INV-0104
+  statement: |
+    When an LLM participates in natural-language query translation, it MUST NOT receive
+    extraction results as input for constructing or modifying architecture slices; failure
+    to translate MUST fall back to structured query paths without inventing graph content.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: audit
+  rationale: |
+    Keeps DEC-0102 compatible with deterministic slice authority.
+  upheld_by_decisions:
+  - DEC-0102
+- id: INV-0105
+  statement: |
+    When deterministic rules cannot observe a relationship or element, the system MUST
+    record explicit unknowns per **ADR-L-0006** rather than inferring or guessing.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Aligns extraction behavior with explicit-unknown semantics and downstream truth contracts.
+  upheld_by_decisions:
+  - DEC-0101
+gaps:
+- id: GAP-0101
+  question: Further align extraction query surfaces with Architecture IR assertion payloads when schemas land
+  impact: low
+  blocking: false
+- id: GAP-0102
+  question: Formal performance SLOs for per-file extraction (legacy target cited sub-100ms for small files)
+  impact: low
+  blocking: false

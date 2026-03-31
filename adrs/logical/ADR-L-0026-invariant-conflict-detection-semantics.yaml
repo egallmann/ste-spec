@@ -1,0 +1,82 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0026
+title: Invariant Conflict Detection Semantics
+status: accepted
+created_date: '2025-12-29'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- fabric
+- gateway
+tags:
+- invariants
+- conflicts
+context: |
+  For v1, Fabric performs conflict detection when creating attestations and signs a
+  `conflict_status` field (`none` or `detected`). Gateway verifies the attestation and
+  enforces denial when conflicts are attested; Gateway MUST NOT implement independent
+  invariant content parsing for conflict detection.
+
+  Legacy: `adrs/published/ADR-026-invariant-conflict-detection-semantics.md`.
+
+  **Reconciliation vs ADR-L-0023:** **merge** — the normative Gateway obligation in
+  ADR-L-0023 is satisfied by **verifying Fabric-attested conflict status**, not by
+  recomputing conflicts from raw invariant payloads at Gateway.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel IR may model
+  invariants separately; this ADR governs **STE eligibility attestation mechanics**.
+related_adrs:
+- ADR-L-0009
+- ADR-L-0023
+- ADR-L-0028
+- ADR-L-1006
+decisions:
+- id: DEC-2601
+  summary: Define v1 conflict as duplicate canonical invariant identifiers with differing content digests within one Fabric Attestation scope
+  rationale: |
+    Provides a mechanical, falsifiable conflict predicate without semantic theorem proving.
+  consequences:
+    positive:
+    - Deterministic detection in Fabric
+    negative:
+    - Semantic contradictions without ID collision remain out of scope for v1
+- id: DEC-2602
+  summary: Require signed `conflict_status` on Fabric Attestations; Gateway denies with INVARIANT_CONFLICT when status is detected; missing or invalid status fails closed
+  rationale: |
+    Keeps Gateway in verifier-only posture while enforcing PREREQ-4 outcomes.
+  consequences:
+    positive:
+    - Stable denial category mapping
+    negative:
+    - Fabric must publish consistent attestation fields
+- id: DEC-2603
+  summary: Forbid Gateway-side conflict algorithms that parse or compare invariant content beyond attestation verification
+  rationale: |
+    Prevents implementation divergence and hidden state discovery at the boundary.
+  consequences:
+    positive:
+    - Interoperable Gateway behavior
+    negative:
+    - Fabric bears detection responsibility
+invariants:
+- id: INV-2601
+  statement: |
+    Gateway MUST NOT treat raw invariant payload comparison as authoritative for conflict
+    detection; authoritative conflict signal is the signed Fabric `conflict_status` field.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Aligns verifier-only boundary with deterministic enforcement.
+  upheld_by_decisions:
+  - DEC-2602
+  - DEC-2603
+gaps:
+- id: GAP-2601
+  question: Future ADR-L for semantic conflict classes or cross-attestation rules if required
+  impact: medium
+  blocking: false

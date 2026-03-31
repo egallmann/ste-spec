@@ -1,0 +1,13 @@
+{
+  "description": "Pinned Architecture IR mechanical contract in ste-spec. Update when ir_version or schema_id changes.",
+  "ir_version": "0.1.0",
+  "schema_id": "https://github.com/egallmann/ste-spec/contracts/architecture-ir/architecture-ir.schema.json",
+  "spec_bundle": {
+    "architecture_ir_yaml": "contracts/architecture-ir/architecture-ir.yaml",
+    "architecture_ir_schema_json": "contracts/architecture-ir/architecture-ir.schema.json",
+    "architecture_ir_normative_markdown": "contracts/architecture-ir/ARCHITECTURE_IR.md"
+  },
+  "kernel_adapter_policy": {
+    "adapter_contracts_yaml": "ste-kernel/contracts/adapter-contracts.yaml"
+  }
+}

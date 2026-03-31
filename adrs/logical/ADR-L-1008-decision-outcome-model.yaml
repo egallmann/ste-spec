@@ -1,0 +1,49 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1008
+title: Decision Outcome Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+tags:
+- outcomes
+- allow
+- deny
+context: |
+  Caller-facing admission emits a small set of canonical outcomes. Each outcome carries
+  meaning for whether the **requested action** may execute, what remediation is required,
+  and how warnings differ from hard gates.
+
+  This model aligns with ADR-031: only ste-kernel emits caller-facing admission
+  semantics; ste-runtime remains evidence-only.
+decisions:
+- id: DEC-6871
+  summary: Define ALLOW, DENY, CONDITIONAL, WARNING semantics for requested_action
+  rationale: |
+    Shared vocabulary prevents incompatible client interpretations.
+- id: DEC-6872
+  summary: Bind execution permission to outcome and action class jointly
+  rationale: |
+    Some informational actions never imply execution permission changes.
+related_adrs:
+- ADR-L-1001
+- ADR-L-1002
+- ADR-L-1009
+invariants:
+- id: INV-5071
+  statement: |
+    DENY MUST prohibit execution of the requested_action; ALLOW MUST explicitly clear the
+    action subject to downstream enforcement surfaces; CONDITIONAL MUST require documented
+    preconditions before execution; WARNING MUST surface non-blocking findings without
+    implying allow unless paired with ALLOW or CONDITIONAL clearance.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Clients must interpret outcomes consistently for the same requested_action semantics.
+gaps: []

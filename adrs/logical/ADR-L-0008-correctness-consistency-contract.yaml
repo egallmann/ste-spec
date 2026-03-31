@@ -1,0 +1,138 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0008
+title: Correctness and Consistency Contract
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- documentation-state
+- recon
+- queries
+tags:
+- consistency
+- correctness
+- provenance
+context: |
+  Defines user-visible **correctness** and **consistency** guarantees for Fabric
+  documentation-state queried over extracted and asserted facts, including partial
+  failures, overlapping reconciliation jobs, provenance coexistence, and multi-region
+  eventual consistency.
+
+  Legacy human projection: `adrs/published/ADR-008-correctness-consistency-contract.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — ADR-L-1006 (evidence
+  authority) and ADR-L-1009 (kernel decision contract) govern **kernel** admission and
+  caller contracts; this ADR governs **Fabric query and documentation-state consistency**
+  semantics. Kernel fail-closed rules override Fabric query defaults when both apply at a
+  shared boundary; otherwise coexist with explicit documentation in consuming services.
+related_adrs:
+- ADR-L-0001
+- ADR-L-0006
+- ADR-L-0007
+- ADR-L-0009
+- ADR-L-1006
+- ADR-L-1009
+decisions:
+- id: DEC-0801
+  summary: Define slice correctness as faithful reflection of source artifacts at a version
+  rationale: |
+    Correctness ties to deterministic extraction, provenance, and validation practices;
+    runtime behavior parity and guaranteed completeness are out of scope for extraction
+    truth claims.
+  consequences:
+    positive:
+    - Clear expectations for trust in extracted slices
+    negative:
+    - Users must treat unknowns and limits explicitly
+- id: DEC-0802
+  summary: Adopt eventual consistency with version- and environment-scoped reads
+  rationale: |
+    Queries are consistent within a declared version snapshot after extraction completes
+    for that version; environment queries follow last completed extraction; cross-region
+    reads may lag within bounded windows; no read-your-writes guarantee immediately after
+    triggering extraction.
+  consequences:
+    positive:
+    - Matches common distributed storage patterns for documentation use cases
+    negative:
+    - Clients must wait on completion signals for freshness
+- id: DEC-0803
+  summary: Isolate partial extraction failures per artifact with explicit partial status
+  rationale: |
+    Successful files produce slices; failures are recorded with unknowns and diagnostics;
+    completion signals report partial status rather than failing the whole repository
+    silently.
+  consequences:
+    positive:
+    - Partial value delivery with transparent gaps
+    negative:
+    - Clients must handle partial graphs
+- id: DEC-0804
+  summary: Use last-completed job wins for overlapping reconciliations with immutable versions
+  rationale: |
+    Concurrent jobs are allowed; slice versions are immutable; current pointers advance to
+    the latest completed job per environment with auditable job metadata.
+  consequences:
+    positive:
+    - Simple operational model without distributed locks
+    negative:
+    - Rare counterintuitive ordering when long jobs overlap short jobs
+- id: DEC-0805
+  summary: Store extracted and asserted facts with provenance; surface conflicts without automatic override
+  rationale: |
+    Neither source automatically wins; queries can filter by provenance; conflicts are
+    visible for human resolution (detailed precedence may be extended by ADR-L-0009).
+  consequences:
+    positive:
+    - Preserves human domain knowledge alongside extraction
+    negative:
+    - Manual resolution burden when conflicts exist
+- id: DEC-0806
+  summary: Multi-region active-active with bounded replication lag
+  rationale: |
+    Regional reads may be briefly stale; last-writer-wins applies to rare conflicts;
+    acceptable for documentation-state availability trade-offs.
+  consequences:
+    positive:
+    - High availability
+    negative:
+    - Visible transient divergence across regions
+invariants:
+- id: INV-0801
+  statement: |
+    Partial extraction MUST NOT silently drop successful slices; failures MUST be
+    visible via partial status, unknowns, or equivalent documented signals.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents silent data loss and aligns partial failure semantics with ADR-L-0006.
+  upheld_by_decisions:
+  - DEC-0803
+- id: INV-0802
+  statement: |
+    Query responses that combine extracted and asserted facts MUST retain provenance
+    sufficient to filter or explain conflicts unless a superseding ADR-L defines
+    automatic precedence.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Preserves trust and debuggability when human and extractor knowledge diverge.
+  upheld_by_decisions:
+  - DEC-0805
+gaps:
+- id: GAP-0801
+  question: Further align query conflict taxonomy with kernel denial categories when needed
+  impact: low
+  blocking: false
+- id: GAP-0802
+  question: Quantitative lag SLOs and storage technology references belong in ADR-PS/PC
+  impact: low
+  blocking: false

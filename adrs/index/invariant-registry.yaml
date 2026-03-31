@@ -1,0 +1,2689 @@
+schema_version: '1.1'
+type: normalized_entity_registry
+entities:
+- id: INV-0101
+  entity_type: invariant
+  name: INV-0101
+  summary: 'Architecture slice generation from source code MUST be deterministic:
+    identical inputs (source artifacts, extractor configuration, extractor version)
+    MUST produce identical slice outputs.'
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0101
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    scope: global
+    statement: 'Architecture slice generation from source code MUST be deterministic:
+      identical inputs
+
+      (source artifacts, extractor configuration, extractor version) MUST produce
+
+      identical slice outputs.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0101
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0101
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0102
+  entity_type: invariant
+  name: INV-0102
+  summary: Extractors MUST use language-native parsing and explicit pattern rules
+    for framework and API detection; they MUST produce identical outputs for identical
+    inputs per INV-0101.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0102
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    scope: global
+    statement: 'Extractors MUST use language-native parsing and explicit pattern rules
+      for framework
+
+      and API detection; they MUST produce identical outputs for identical inputs
+      per INV-0101.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0101
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0102
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0103
+  entity_type: invariant
+  name: INV-0103
+  summary: The extraction graph MUST NOT assert architectural relationships using
+    embeddings, probabilistic models, or LLM inference over source code or extraction
+    artifacts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0103
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    scope: global
+    statement: 'The extraction graph MUST NOT assert architectural relationships using
+      embeddings,
+
+      probabilistic models, or LLM inference over source code or extraction artifacts.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0101
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0103
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0104
+  entity_type: invariant
+  name: INV-0104
+  summary: When an LLM participates in natural-language query translation, it MUST
+    NOT receive extraction results as input for constructing or modifying architecture
+    slices; failure to translate MUST fall back to structured query p
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0104
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    scope: global
+    statement: 'When an LLM participates in natural-language query translation, it
+      MUST NOT receive
+
+      extraction results as input for constructing or modifying architecture slices;
+      failure
+
+      to translate MUST fall back to structured query paths without inventing graph
+      content.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0102
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0104
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0105
+  entity_type: invariant
+  name: INV-0105
+  summary: When deterministic rules cannot observe a relationship or element, the
+    system MUST record explicit unknowns per **ADR-L-0006** rather than inferring
+    or guessing.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0105
+    artifact_path: adrs/logical/ADR-L-0001-deterministic-extraction.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0001
+    scope: global
+    statement: 'When deterministic rules cannot observe a relationship or element,
+      the system MUST
+
+      record explicit unknowns per **ADR-L-0006** rather than inferring or guessing.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0101
+  relationships:
+    declared_in:
+    - ADR-L-0001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0001#INV-0105
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0601
+  entity_type: invariant
+  name: INV-0601
+  summary: When extraction cannot determine a relationship or property that belongs
+    in the slice model, the system MUST record an explicit unknown rather than inventing
+    a definitive edge or attribute from heuristics alone.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#INV-0601
+    artifact_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0006
+    scope: global
+    statement: 'When extraction cannot determine a relationship or property that belongs
+      in the slice
+
+      model, the system MUST record an explicit unknown rather than inventing a definitive
+
+      edge or attribute from heuristics alone.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0601
+  relationships:
+    declared_in:
+    - ADR-L-0006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#INV-0601
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0602
+  entity_type: invariant
+  name: INV-0602
+  summary: Unknowns MUST be first-order records in the slice documentation contract
+    (queryable and attributable), not only log lines or informal notes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#INV-0602
+    artifact_path: adrs/logical/ADR-L-0006-explicit-unknowns.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0006
+    scope: global
+    statement: 'Unknowns MUST be first-order records in the slice documentation contract
+      (queryable and
+
+      attributable), not only log lines or informal notes.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0601
+    - DEC-0602
+  relationships:
+    declared_in:
+    - ADR-L-0006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0006#INV-0602
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0701
+  entity_type: invariant
+  name: INV-0701
+  summary: Given the same source artifact inputs and extractor version, identity derivation
+    for a slice MUST be deterministic and reproducible.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#INV-0701
+    artifact_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0007
+    scope: global
+    statement: 'Given the same source artifact inputs and extractor version, identity
+      derivation for
+
+      a slice MUST be deterministic and reproducible.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0701
+  relationships:
+    declared_in:
+    - ADR-L-0007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#INV-0701
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0702
+  entity_type: invariant
+  name: INV-0702
+  summary: Identity derivation MUST prefer observable contract anchors (routes, table
+    names, source paths, integration targets, config keys) over volatile implementation
+    labels when those anchors are available.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#INV-0702
+    artifact_path: adrs/logical/ADR-L-0007-slice-identity-strategy.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0007
+    scope: global
+    statement: 'Identity derivation MUST prefer observable contract anchors (routes,
+      table names,
+
+      source paths, integration targets, config keys) over volatile implementation
+      labels
+
+      when those anchors are available.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0701
+  relationships:
+    declared_in:
+    - ADR-L-0007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0007#INV-0702
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0801
+  entity_type: invariant
+  name: INV-0801
+  summary: Partial extraction MUST NOT silently drop successful slices; failures MUST
+    be visible via partial status, unknowns, or equivalent documented signals.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#INV-0801
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    scope: global
+    statement: 'Partial extraction MUST NOT silently drop successful slices; failures
+      MUST be
+
+      visible via partial status, unknowns, or equivalent documented signals.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0803
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#INV-0801
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0802
+  entity_type: invariant
+  name: INV-0802
+  summary: Query responses that combine extracted and asserted facts MUST retain provenance
+    sufficient to filter or explain conflicts unless a superseding ADR-L defines automatic
+    precedence.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#INV-0802
+    artifact_path: adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0008
+    scope: global
+    statement: 'Query responses that combine extracted and asserted facts MUST retain
+      provenance
+
+      sufficient to filter or explain conflicts unless a superseding ADR-L defines
+
+      automatic precedence.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0805
+  relationships:
+    declared_in:
+    - ADR-L-0008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0008#INV-0802
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0901
+  entity_type: invariant
+  name: INV-0901
+  summary: Manual assertions MUST carry provenance sufficient to identify the asserting
+    party, scope, and evidentiary reference before admission into authoritative query
+    surfaces.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#INV-0901
+    artifact_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0009
+    scope: global
+    statement: 'Manual assertions MUST carry provenance sufficient to identify the
+      asserting party,
+
+      scope, and evidentiary reference before admission into authoritative query surfaces.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0902
+  relationships:
+    declared_in:
+    - ADR-L-0009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#INV-0901
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-0902
+  entity_type: invariant
+  name: INV-0902
+  summary: When extracted and asserted facts contradict, query responses MUST surface
+    the conflict with both provenances unless a superseding ADR-L defines automatic
+    precedence.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#INV-0902
+    artifact_path: adrs/logical/ADR-L-0009-assertion-precedence-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0009
+    scope: global
+    statement: 'When extracted and asserted facts contradict, query responses MUST
+      surface the
+
+      conflict with both provenances unless a superseding ADR-L defines automatic
+      precedence.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-0901
+  relationships:
+    declared_in:
+    - ADR-L-0009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0009#INV-0902
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-1901
+  entity_type: invariant
+  name: INV-1901
+  summary: The Gateway MUST NOT sign canonical artifacts or eligibility outcomes as
+    substitutes for ORG attestation of canonical truth.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#INV-1901
+    artifact_path: adrs/logical/ADR-L-0019-gateway-authority-signing.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0019
+    scope: global
+    statement: 'The Gateway MUST NOT sign canonical artifacts or eligibility outcomes
+      as substitutes
+
+      for ORG attestation of canonical truth.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-1901
+    - DEC-1902
+  relationships:
+    declared_in:
+    - ADR-L-0019
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0019#INV-1901
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2001
+  entity_type: invariant
+  name: INV-2001
+  summary: ORG signing requirements MUST NOT be expanded to cover derived query results,
+    enforcement-only outcomes, or caches without a new ADR-L that documents the rationale.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#INV-2001
+    artifact_path: adrs/logical/ADR-L-0020-org-signing-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0020
+    scope: global
+    statement: 'ORG signing requirements MUST NOT be expanded to cover derived query
+      results,
+
+      enforcement-only outcomes, or caches without a new ADR-L that documents the
+      rationale.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2001
+    - DEC-2002
+  relationships:
+    declared_in:
+    - ADR-L-0020
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0020#INV-2001
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2101
+  entity_type: invariant
+  name: INV-2101
+  summary: Cached trust material MUST NOT be used to approve execution eligibility;
+    if used for read-only paths, outputs MUST be marked non-authoritative and canonical
+    promotion MUST be blocked.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#INV-2101
+    artifact_path: adrs/logical/ADR-L-0021-gateway-trust-verification.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0021
+    scope: global
+    statement: 'Cached trust material MUST NOT be used to approve execution eligibility;
+      if used for
+
+      read-only paths, outputs MUST be marked non-authoritative and canonical promotion
+      MUST
+
+      be blocked.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2102
+  relationships:
+    declared_in:
+    - ADR-L-0021
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0021#INV-2101
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2201
+  entity_type: invariant
+  name: INV-2201
+  summary: If any prerequisite for execution eligibility or canonical promotion cannot
+    be fully validated, the implementation MUST deny the authoritative action (fail
+    closed).
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#INV-2201
+    artifact_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0022
+    scope: global
+    statement: 'If any prerequisite for execution eligibility or canonical promotion
+      cannot be fully
+
+      validated, the implementation MUST deny the authoritative action (fail closed).
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2201
+  relationships:
+    declared_in:
+    - ADR-L-0022
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#INV-2201
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2202
+  entity_type: invariant
+  name: INV-2202
+  summary: Read-only evaluation paths used while fail-closed is active MUST NOT approve
+    execution eligibility or canonical promotion and MUST surface degraded, non-authoritative
+    status.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#INV-2202
+    artifact_path: adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0022
+    scope: global
+    statement: 'Read-only evaluation paths used while fail-closed is active MUST NOT
+      approve execution
+
+      eligibility or canonical promotion and MUST surface degraded, non-authoritative
+      status.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2203
+  relationships:
+    declared_in:
+    - ADR-L-0022
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0022#INV-2202
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2301
+  entity_type: invariant
+  name: INV-2301
+  summary: No component other than Gateway MAY treat local or merge-time validation
+    success as sufficient to authorize execution eligibility when Gateway has not
+    returned an explicit ALLOW outcome per contract.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#INV-2301
+    artifact_path: adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0023
+    scope: global
+    statement: 'No component other than Gateway MAY treat local or merge-time validation
+      success as
+
+      sufficient to authorize execution eligibility when Gateway has not returned
+      an explicit
+
+      ALLOW outcome per contract.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2301
+  relationships:
+    declared_in:
+    - ADR-L-0023
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0023#INV-2301
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2401
+  entity_type: invariant
+  name: INV-2401
+  summary: Execution MUST NOT begin until Gateway returns ALLOW; optimistic or asynchronous
+    eligibility patterns that proceed before ALLOW are forbidden for authoritative
+    execution.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#INV-2401
+    artifact_path: adrs/logical/ADR-L-0024-cross-component-contracts.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0024
+    scope: global
+    statement: 'Execution MUST NOT begin until Gateway returns ALLOW; optimistic or
+      asynchronous
+
+      eligibility patterns that proceed before ALLOW are forbidden for authoritative
+      execution.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2403
+  relationships:
+    declared_in:
+    - ADR-L-0024
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0024#INV-2401
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2501
+  entity_type: invariant
+  name: INV-2501
+  summary: Gateway MUST NOT infer, default, case-fold, pattern-match, or hierarchically
+    interpret environment identifiers for v1 eligibility; only exact equality on declared
+    identifiers is permitted.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#INV-2501
+    artifact_path: adrs/logical/ADR-L-0025-environment-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0025
+    scope: global
+    statement: 'Gateway MUST NOT infer, default, case-fold, pattern-match, or hierarchically
+      interpret
+
+      environment identifiers for v1 eligibility; only exact equality on declared
+      identifiers
+
+      is permitted.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2502
+  relationships:
+    declared_in:
+    - ADR-L-0025
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0025#INV-2501
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2601
+  entity_type: invariant
+  name: INV-2601
+  summary: Gateway MUST NOT treat raw invariant payload comparison as authoritative
+    for conflict detection; authoritative conflict signal is the signed Fabric `conflict_status`
+    field.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#INV-2601
+    artifact_path: adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0026
+    scope: global
+    statement: 'Gateway MUST NOT treat raw invariant payload comparison as authoritative
+      for conflict
+
+      detection; authoritative conflict signal is the signed Fabric `conflict_status`
+      field.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2602
+    - DEC-2603
+  relationships:
+    declared_in:
+    - ADR-L-0026
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0026#INV-2601
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2701
+  entity_type: invariant
+  name: INV-2701
+  summary: Gateway MUST NOT upgrade or infer `scope_semantics_version`; mismatched
+    declared versions between Trust Registry and Context Bundle MUST result in denial.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#INV-2701
+    artifact_path: adrs/logical/ADR-L-0027-scope-semantics.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0027
+    scope: global
+    statement: 'Gateway MUST NOT upgrade or infer `scope_semantics_version`; mismatched
+      declared
+
+      versions between Trust Registry and Context Bundle MUST result in denial.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2701
+  relationships:
+    declared_in:
+    - ADR-L-0027
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0027#INV-2701
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2801
+  entity_type: invariant
+  name: INV-2801
+  summary: During execution eligibility evaluation, Gateway MUST rely on signed attestations
+    and authoritative reference resolution rules in ADR-L-0024, not live Fabric queries,
+    to obtain canonical claims.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#INV-2801
+    artifact_path: adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0028
+    scope: global
+    statement: 'During execution eligibility evaluation, Gateway MUST rely on signed
+      attestations and
+
+      authoritative reference resolution rules in ADR-L-0024, not live Fabric queries,
+      to
+
+      obtain canonical claims.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2801
+  relationships:
+    declared_in:
+    - ADR-L-0028
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0028#INV-2801
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-2901
+  entity_type: invariant
+  name: INV-2901
+  summary: Gateway MUST NOT be modeled as holding ORG attestation authority to sign
+    canonical artifacts or Fabric Attestations; its authority is limited to verification
+    and enforcement per ADR-L-0019 and ADR-L-0028.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#INV-2901
+    artifact_path: adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0029
+    scope: global
+    statement: 'Gateway MUST NOT be modeled as holding ORG attestation authority to
+      sign canonical
+
+      artifacts or Fabric Attestations; its authority is limited to verification and
+
+      enforcement per ADR-L-0019 and ADR-L-0028.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-2901
+  relationships:
+    declared_in:
+    - ADR-L-0029
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0029#INV-2901
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3001
+  entity_type: invariant
+  name: INV-3001
+  summary: Runtime and kernel repositories MUST NOT treat repo-local types, tests,
+    or informal prose as authoritative over ste-spec `contracts/` and published invariants
+    for the same handoff surfaces.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0030#INV-3001
+    artifact_path: adrs/logical/ADR-L-0030-contract-authority-in-ste-spec.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0030
+    scope: global
+    statement: 'Runtime and kernel repositories MUST NOT treat repo-local types, tests,
+      or informal
+
+      prose as authoritative over ste-spec `contracts/` and published invariants for
+      the
+
+      same handoff surfaces.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3001
+  relationships:
+    declared_in:
+    - ADR-L-0030
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0030#INV-3001
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3101
+  entity_type: invariant
+  name: INV-3101
+  summary: ste-runtime MUST NOT emit caller-facing admission or execution-eligibility
+    decision semantics; ste-kernel alone emits `KernelAdmissionAssessment` per published
+    contracts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0031#INV-3101
+    artifact_path: adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0031
+    scope: global
+    statement: 'ste-runtime MUST NOT emit caller-facing admission or execution-eligibility
+      decision
+
+      semantics; ste-kernel alone emits `KernelAdmissionAssessment` per published
+      contracts.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3101
+  relationships:
+    declared_in:
+    - ADR-L-0031
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0031#INV-3101
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3201
+  entity_type: invariant
+  name: INV-3201
+  summary: Version failures, closed-object shape failures, and semantic invariant
+    failures at the documented handoff MUST be fail-closed conditions for downstream
+    compilation and admission per ADR-L-0033 and ADR-L-0035.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0032#INV-3201
+    artifact_path: adrs/logical/ADR-L-0032-fail-closed-enforcement-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0032
+    scope: global
+    statement: 'Version failures, closed-object shape failures, and semantic invariant
+      failures at the
+
+      documented handoff MUST be fail-closed conditions for downstream compilation
+      and
+
+      admission per ADR-L-0033 and ADR-L-0035.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3201
+  relationships:
+    declared_in:
+    - ADR-L-0032
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0032#INV-3201
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3301
+  entity_type: invariant
+  name: INV-3301
+  summary: Ad hoc extension fields on closed handoff objects MUST NOT be treated as
+    contract-valid without an explicit ste-spec contract and invariant update.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0033#INV-3301
+    artifact_path: adrs/logical/ADR-L-0033-closed-object-discipline.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0033
+    scope: global
+    statement: 'Ad hoc extension fields on closed handoff objects MUST NOT be treated
+      as contract-valid
+
+      without an explicit ste-spec contract and invariant update.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3301
+  relationships:
+    declared_in:
+    - ADR-L-0033
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0033#INV-3301
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3401
+  entity_type: invariant
+  name: INV-3401
+  summary: Until the rule-projection envelope family is promoted to accepted contract
+    status, ste-kernel integrations MUST treat draft schemas as interface-only and
+    MUST NOT imply normative closure beyond published disclaimers.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#INV-3401
+    artifact_path: adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0034
+    scope: global
+    statement: 'Until the rule-projection envelope family is promoted to accepted
+      contract status,
+
+      ste-kernel integrations MUST treat draft schemas as interface-only and MUST
+      NOT imply
+
+      normative closure beyond published disclaimers.
+
+      '
+    enforcement_level: should
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3401
+  relationships:
+    declared_in:
+    - ADR-L-0034
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0034#INV-3401
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3501
+  entity_type: invariant
+  name: INV-3501
+  summary: Extensions to mechanical Architecture IR enumerations MUST be ste-spec
+    contract changes with pin discipline; semantic additions MAY land in ste-spec
+    prose first with explicit realization notes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0035#INV-3501
+    artifact_path: adrs/logical/ADR-L-0035-architecture-ir-ontology-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0035
+    scope: global
+    statement: 'Extensions to mechanical Architecture IR enumerations MUST be ste-spec
+      contract changes
+
+      with pin discipline; semantic additions MAY land in ste-spec prose first with
+      explicit
+
+      realization notes.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3501
+  relationships:
+    declared_in:
+    - ADR-L-0035
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0035#INV-3501
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3601
+  entity_type: invariant
+  name: INV-3601
+  summary: When README content conflicts with a normative ADR, invariant, schema,
+    contract, or Architecture IR doctrine, the normative artifact MUST govern and
+    README MUST be corrected.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0036#INV-3601
+    artifact_path: adrs/logical/ADR-L-0036-repository-readme-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0036
+    scope: global
+    statement: 'When README content conflicts with a normative ADR, invariant, schema,
+      contract, or
+
+      Architecture IR doctrine, the normative artifact MUST govern and README MUST
+      be corrected.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3601
+  relationships:
+    declared_in:
+    - ADR-L-0036
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0036#INV-3601
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3701
+  entity_type: invariant
+  name: INV-3701
+  summary: Repository README files MUST remain subordinate to normative artifacts;
+    they MUST NOT introduce new normative rules, invariants, or contract shapes without
+    an ADR-L or contract change.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0037#INV-3701
+    artifact_path: adrs/logical/ADR-L-0037-repository-readme-conformance.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0037
+    scope: global
+    statement: 'Repository README files MUST remain subordinate to normative artifacts;
+      they MUST NOT
+
+      introduce new normative rules, invariants, or contract shapes without an ADR-L
+      or contract change.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3701
+  relationships:
+    declared_in:
+    - ADR-L-0037
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0037#INV-3701
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3801
+  entity_type: invariant
+  name: INV-3801
+  summary: Repositories MUST apply the ste-spec architecture doctrine that defines
+    artifact taxonomy kinds and versioning posture when determining version-control
+    treatment for STE artifacts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#INV-3801
+    artifact_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0038
+    scope: global
+    statement: 'Repositories MUST apply the ste-spec architecture doctrine that defines
+      artifact taxonomy
+
+      kinds and versioning posture when determining version-control treatment for
+      STE artifacts.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3801
+  relationships:
+    declared_in:
+    - ADR-L-0038
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#INV-3801
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3802
+  entity_type: invariant
+  name: INV-3802
+  summary: Spine doctrine and lifecycle projections MUST NOT introduce new top-level
+    taxonomy kinds or alter VCS posture established in ADR-L-0038 without amending
+    this ADR-L.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#INV-3802
+    artifact_path: adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0038
+    scope: global
+    statement: 'Spine doctrine and lifecycle projections MUST NOT introduce new top-level
+      taxonomy
+
+      kinds or alter VCS posture established in ADR-L-0038 without amending this ADR-L.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3801
+  relationships:
+    declared_in:
+    - ADR-L-0038
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0038#INV-3802
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-3901
+  entity_type: invariant
+  name: INV-3901
+  summary: Canonical architecture diagrams MUST NOT be the sole location where a rule,
+    requirement, or invariant is first defined; authoritative text remains in ADRs,
+    contracts, or doctrine.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0039#INV-3901
+    artifact_path: adrs/logical/ADR-L-0039-structured-diagram-format-mermaid.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0039
+    scope: repository
+    statement: 'Canonical architecture diagrams MUST NOT be the sole location where
+      a rule, requirement,
+
+      or invariant is first defined; authoritative text remains in ADRs, contracts,
+      or doctrine.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-3901
+  relationships:
+    declared_in:
+    - ADR-L-0039
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0039#INV-3901
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-4001
+  entity_type: invariant
+  name: INV-4001
+  summary: Supporting Spine documents in `architecture/` MUST explain or map ADR-L-0040
+    without redefining Spine stages, authority ownership, or ADR-L-0038 taxonomy kinds.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#INV-4001
+    artifact_path: adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0040
+    scope: global
+    statement: 'Supporting Spine documents in `architecture/` MUST explain or map
+      ADR-L-0040 without
+
+      redefining Spine stages, authority ownership, or ADR-L-0038 taxonomy kinds.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-4003
+  relationships:
+    declared_in:
+    - ADR-L-0040
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0040#INV-4001
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-4101
+  entity_type: invariant
+  name: INV-4101
+  summary: Repositories MUST NOT maintain a second authoritative compile path that
+    redefines ste-spec contract shapes for `ArchitectureEvidence` or normative Architecture
+    IR schema without an explicit superseding ADR-L.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#INV-4101
+    artifact_path: adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0041
+    scope: global
+    statement: 'Repositories MUST NOT maintain a second authoritative compile path
+      that redefines ste-spec
+
+      contract shapes for `ArchitectureEvidence` or normative Architecture IR schema
+      without an
+
+      explicit superseding ADR-L.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-4101
+    - DEC-4102
+  relationships:
+    declared_in:
+    - ADR-L-0041
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0041#INV-4101
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-4201
+  entity_type: invariant
+  name: INV-4201
+  summary: New capabilities MUST be classified explicitly as public specification,
+    interface-only publication, or closed implementation per this boundary before
+    expanding ste-spec contracts.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0042#INV-4201
+    artifact_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0042
+    scope: global
+    statement: 'New capabilities MUST be classified explicitly as public specification,
+      interface-only
+
+      publication, or closed implementation per this boundary before expanding ste-spec
+      contracts.
+
+      '
+    enforcement_level: should
+    declaration_mode: local
+    upheld_by_decisions:
+    - DEC-4201
+  relationships:
+    declared_in:
+    - ADR-L-0042
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0042#INV-4201
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5001
+  entity_type: invariant
+  name: INV-5001
+  summary: Admission evaluation MUST identify a requested_action from the canonical
+    vocabulary (design, change, build, deploy, operate, assess, promote) or an explicitly
+    documented extension; omission MUST be treated as invalid inp
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5001
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    scope: global
+    statement: 'Admission evaluation MUST identify a requested_action from the canonical
+      vocabulary
+
+      (design, change, build, deploy, operate, assess, promote) or an explicitly documented
+
+      extension; omission MUST be treated as invalid input per the Kernel Decision
+      Contract
+
+      fail-closed rules.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5001
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5002
+  entity_type: invariant
+  name: INV-5002
+  summary: Informational-only actions MUST NOT emit caller-facing allow/deny semantics
+    at the admission boundary; they MAY produce reports, findings, and explanations
+    only.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5002
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    scope: global
+    statement: 'Informational-only actions MUST NOT emit caller-facing allow/deny
+      semantics at the
+
+      admission boundary; they MAY produce reports, findings, and explanations only.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5002
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5003
+  entity_type: invariant
+  name: INV-5003
+  summary: Actions design, change, build, deploy, operate, and promote are subject
+    to admission decisions unless explicitly routed to assessment-only mode; assess
+    is informational for admission authority and MUST use the assessment
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5003
+    artifact_path: adrs/logical/ADR-L-1001-architecture-action-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1001
+    scope: global
+    statement: 'Actions design, change, build, deploy, operate, and promote are subject
+      to admission
+
+      decisions unless explicitly routed to assessment-only mode; assess is informational
+
+      for admission authority and MUST use the assessment pipeline outputs instead
+      of
+
+      admission allow/deny semantics.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1001
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1001#INV-5003
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5011
+  entity_type: invariant
+  name: INV-5011
+  summary: Admission input closure MUST include validated Architecture IR slice (or
+    compiled IR handle), evidence bundle reference, governance posture, active ruleset
+    identity, requested_action, environment, and evaluation scope su
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#INV-5011
+    artifact_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1002
+    scope: global
+    statement: 'Admission input closure MUST include validated Architecture IR slice
+      (or compiled IR
+
+      handle), evidence bundle reference, governance posture, active ruleset identity,
+
+      requested_action, environment, and evaluation scope sufficient to reproduce
+      the decision.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1002
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#INV-5011
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5012
+  entity_type: invariant
+  name: INV-5012
+  summary: DENY and CONDITIONAL outcomes MUST NOT be represented as successful boot
+    or successful unvalidated IR consumption.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#INV-5012
+    artifact_path: adrs/logical/ADR-L-1002-architecture-admission-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1002
+    scope: global
+    statement: 'DENY and CONDITIONAL outcomes MUST NOT be represented as successful
+      boot or successful
+
+      unvalidated IR consumption.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1002
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1002#INV-5012
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5021
+  entity_type: invariant
+  name: INV-5021
+  summary: Posture MUST modulate admission outcomes only through declared, deterministic
+    rules; posture MUST NOT override normative architecture authority in ste-spec.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#INV-5021
+    artifact_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1003
+    scope: global
+    statement: 'Posture MUST modulate admission outcomes only through declared, deterministic
+      rules;
+
+      posture MUST NOT override normative architecture authority in ste-spec.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1003
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#INV-5021
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5022
+  entity_type: invariant
+  name: INV-5022
+  summary: Golden and locked postures MUST impose stricter or equal constraints compared
+    to governed baseline for the same action class unless explicitly documented exceptions
+    exist.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#INV-5022
+    artifact_path: adrs/logical/ADR-L-1003-governance-posture-state-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1003
+    scope: global
+    statement: 'Golden and locked postures MUST impose stricter or equal constraints
+      compared to
+
+      governed baseline for the same action class unless explicitly documented exceptions
+      exist.
+
+      '
+    enforcement_level: should
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1003
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1003#INV-5022
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5031
+  entity_type: invariant
+  name: INV-5031
+  summary: IR validation failure MUST surface as boot/integration failure, not as
+    a successful admission ALLOW outcome.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#INV-5031
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    scope: global
+    statement: 'IR validation failure MUST surface as boot/integration failure, not
+      as a successful
+
+      admission ALLOW outcome.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#INV-5031
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5032
+  entity_type: invariant
+  name: INV-5032
+  summary: Freshness interpretations for identical inputs MUST be stable for deterministic
+    replay of admission outcomes.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#INV-5032
+    artifact_path: adrs/logical/ADR-L-1004-architecture-freshness-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1004
+    scope: global
+    statement: 'Freshness interpretations for identical inputs MUST be stable for
+      deterministic replay
+
+      of admission outcomes.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1004
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1004#INV-5032
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5041
+  entity_type: invariant
+  name: INV-5041
+  summary: Drift categorization MUST be exhaustive for known inputs; unknown drift
+    MUST be surfaced as a primary-tier finding, not ignored.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#INV-5041
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    scope: global
+    statement: 'Drift categorization MUST be exhaustive for known inputs; unknown
+      drift MUST be
+
+      surfaced as a primary-tier finding, not ignored.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#INV-5041
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5042
+  entity_type: invariant
+  name: INV-5042
+  summary: Default drift outcomes MUST be documented per drift kind; tightening by
+    posture or Golden status MUST remain deterministic.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#INV-5042
+    artifact_path: adrs/logical/ADR-L-1005-architecture-drift-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1005
+    scope: global
+    statement: 'Default drift outcomes MUST be documented per drift kind; tightening
+      by posture or Golden
+
+      status MUST remain deterministic.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1005
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1005#INV-5042
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5051
+  entity_type: invariant
+  name: INV-5051
+  summary: Evidence MUST NOT be interpreted as normative architecture authority; overrides
+    MUST flow from governance artifacts, not from raw observations alone.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#INV-5051
+    artifact_path: adrs/logical/ADR-L-1006-evidence-authority-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1006
+    scope: global
+    statement: 'Evidence MUST NOT be interpreted as normative architecture authority;
+      overrides MUST
+
+      flow from governance artifacts, not from raw observations alone.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1006
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1006#INV-5051
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5061
+  entity_type: invariant
+  name: INV-5061
+  summary: Promotion to Golden MUST be reproducibly justified from IR, evidence, posture,
+    and explicit promotion records; silent promotion MUST be forbidden.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#INV-5061
+    artifact_path: adrs/logical/ADR-L-1007-golden-system-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1007
+    scope: global
+    statement: 'Promotion to Golden MUST be reproducibly justified from IR, evidence,
+      posture, and
+
+      explicit promotion records; silent promotion MUST be forbidden.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1007
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1007#INV-5061
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5071
+  entity_type: invariant
+  name: INV-5071
+  summary: DENY MUST prohibit execution of the requested_action; ALLOW MUST explicitly
+    clear the action subject to downstream enforcement surfaces; CONDITIONAL MUST
+    require documented preconditions before execution; WARNING MUST su
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#INV-5071
+    artifact_path: adrs/logical/ADR-L-1008-decision-outcome-model.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1008
+    scope: global
+    statement: 'DENY MUST prohibit execution of the requested_action; ALLOW MUST explicitly
+      clear the
+
+      action subject to downstream enforcement surfaces; CONDITIONAL MUST require
+      documented
+
+      preconditions before execution; WARNING MUST surface non-blocking findings without
+
+      implying allow unless paired with ALLOW or CONDITIONAL clearance.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1008
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1008#INV-5071
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5081
+  entity_type: invariant
+  name: INV-5081
+  summary: Determinism — Given the same Architecture IR bundle, evidence bundle, governance
+    posture, active rules, and requested_action (plus fixed evaluation scope and environment),
+    the kernel MUST produce the same decision outcom
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5081
+    artifact_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1009
+    scope: global
+    statement: 'Determinism — Given the same Architecture IR bundle, evidence bundle,
+      governance
+
+      posture, active rules, and requested_action (plus fixed evaluation scope and
+
+      environment), the kernel MUST produce the same decision outcome and the same
+      structured
+
+      explanation skeleton.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5081
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5082
+  entity_type: invariant
+  name: INV-5082
+  summary: Explainability — Every admission decision MUST cite the specific ADRs,
+    IR elements, rules, invariants, posture, or evidence observations that caused
+    the outcome; vague summaries without pointers are non-conformant.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5082
+    artifact_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1009
+    scope: global
+    statement: 'Explainability — Every admission decision MUST cite the specific ADRs,
+      IR elements,
+
+      rules, invariants, posture, or evidence observations that caused the outcome;
+      vague
+
+      summaries without pointers are non-conformant.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5082
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index
+- id: INV-5083
+  entity_type: invariant
+  name: INV-5083
+  summary: Fail-closed — Missing, invalid, or unverifiable required inputs MUST yield
+    DENY or CONDITIONAL outcomes that do not allow the requested_action; silent ALLOW
+    is forbidden.
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5083
+    artifact_path: adrs/logical/ADR-L-1009-kernel-decision-contract.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-1009
+    scope: global
+    statement: 'Fail-closed — Missing, invalid, or unverifiable required inputs MUST
+      yield DENY or
+
+      CONDITIONAL outcomes that do not allow the requested_action; silent ALLOW is
+      forbidden.
+
+      '
+    enforcement_level: must
+    declaration_mode: local
+    upheld_by_decisions: []
+  relationships:
+    declared_in:
+    - ADR-L-1009
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-1009#INV-5083
+    extraction_phase: assign_canonical_invariant
+    classification: explicit
+    generator: adr-architecture-index

@@ -11,7 +11,7 @@ Canonical diagram policy and projection doctrine are defined in
 editorial Orientation guidance only. It does not define doctrine, integration,
 or enforcement rules; those remain in [`contracts/`](../contracts/README.md),
 [`invariants/`](../invariants/STE-Cross-Component-Contract-Invariants.md), and
-binding [`adr/`](../adr/README.md).
+binding [`adrs/published/`](../adrs/published/README.md).
 
 ## Normative vs informative figures
 

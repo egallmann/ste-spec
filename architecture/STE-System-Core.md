@@ -8,7 +8,7 @@ handoff boundaries. This is distinct from **optional** or **forkable** material 
 `ste-rules-library` (technology rules, cooperative signals, project overlays).
 
 This document **does not** add new MUSTs beyond what is already published in
-`contracts/`, `invariants/`, and `adr/`; it **indexes** the core boundary.
+`contracts/`, `invariants/`, and `adrs/published/`; it **indexes** the core boundary.
 
 ---
 
@@ -21,8 +21,8 @@ merge and admission interchange):
   `contracts/kernel-admission-assessment.schema.json`
 - Cross-component invariants: `invariants/STE-Cross-Component-Contract-Invariants.md`
   (INV-0001–INV-0009)
-- Role split: `adr/ADR-031-runtime-kernel-responsibility-boundary.md`
-- Architecture IR mechanical bundle: pinned in `contracts/architecture-ir-kernel-contract-pin.json`
+- Role split: `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
+- Architecture IR mechanical bundle: normative under `contracts/architecture-ir/`; pinned in `contracts/architecture-ir-contract-pin.json`
   and referenced from `contracts/README.md`
 - Adapter import policy: `ste-kernel/contracts/adapter-contracts.yaml` (kernel-owned)
 

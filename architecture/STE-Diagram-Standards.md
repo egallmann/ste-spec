@@ -20,10 +20,10 @@ Architecture semantics authority in STE is ordered as follows:
 3. Architecture doctrine documents
 4. Diagrams as representational views only
 
-[`../adr/ADR-039-structured-diagram-format-mermaid.md`](../adr/ADR-039-structured-diagram-format-mermaid.md)
+[`../adrs/published/ADR-039-structured-diagram-format-mermaid.md`](../adrs/published/ADR-039-structured-diagram-format-mermaid.md)
 defines the governance decision to use Mermaid for canonical diagrams.
 
-[`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
+[`../adrs/published/ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
 and
 [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md)
 define artifact and versioning posture for derived documentation artifacts.

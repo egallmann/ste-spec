@@ -17,4 +17,4 @@ by kernel only.
 ## Related Artifacts
 
 - `contracts/kernel-admission-assessment.schema.json`
-- `adr/ADR-031-runtime-kernel-responsibility-boundary.md`
+- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`

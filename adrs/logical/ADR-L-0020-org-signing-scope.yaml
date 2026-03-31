@@ -1,0 +1,71 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0020
+title: ORG-Level Signing Scope
+status: accepted
+created_date: '2025-12-23'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- signing
+tags:
+- org-authority
+- signing-scope
+context: |
+  ORG-level signing applies only to artifacts that establish or ratify **canonical truth**;
+  ephemeral enforcement outputs, workspace-local bundles, and derived indexes are out of
+  scope for ORG signing.
+
+  Legacy: `adrs/published/ADR-020-org-signing-scope.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — complements **ADR-L-1009**
+  on fail-closed caller contracts; this ADR defines **what must be ORG-signed** versus
+  derived or ephemeral artifacts.
+related_adrs:
+- ADR-L-0019
+- ADR-L-0021
+- ADR-L-1009
+decisions:
+- id: DEC-2001
+  summary: Require ORG signing only for canonical invariants, canonical artifacts, trust registry operations, and canonicalization events
+  rationale: |
+    Limits ORG keys to durable attestation surfaces; excludes eligibility decisions,
+    derived graph indexes, caches, and typical Context Bundle payloads except where other
+    ADRs require Human/PROJECT signing.
+  consequences:
+    positive:
+    - Prevents authority inflation across operational outputs
+    negative:
+    - Implementers must classify artifacts carefully
+- id: DEC-2002
+  summary: Exclude ephemeral enforcement outcomes and derived state from mandatory ORG signing
+  rationale: |
+    Derived and short-lived results must remain verifiable from signed inputs without
+    expanding ORG signing to every computation.
+  consequences:
+    positive:
+    - Operational simplicity at the enforcement boundary
+    negative:
+    - Requires clear labeling of non-canonical outputs
+invariants:
+- id: INV-2001
+  statement: |
+    ORG signing requirements MUST NOT be expanded to cover derived query results,
+    enforcement-only outcomes, or caches without a new ADR-L that documents the rationale.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Keeps ORG signatures meaningful as canonical-truth signals.
+  upheld_by_decisions:
+  - DEC-2001
+  - DEC-2002
+gaps:
+- id: GAP-2001
+  question: Enumerate artifact kinds in Architecture IR that require ORG signatures
+  impact: medium
+  blocking: false

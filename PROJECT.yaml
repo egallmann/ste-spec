@@ -1,0 +1,34 @@
+schema_version: "1.0"
+type: project_metadata
+
+project:
+  name: "ste-spec"
+  description: "Publishable architectural specification for STE"
+  type: specification
+
+ownership:
+  team: "ste-spec"
+  tech_lead: "@ste-spec"
+
+repository:
+  url: "local/ste-spec"
+  primary_branch: "main"
+
+implementation_identifiers:
+  package_name: "ste-spec"
+  module_path: "ste-spec"
+
+automation:
+  auto_merge_allowed: false
+  requires_human_review: true
+  comfort_level: conservative
+
+compliance:
+  security_level: medium
+  data_classification: internal
+  license: "Proprietary"
+
+architecture_documentation:
+  adr_directory: "adrs/"
+  manifest_path: "adrs/manifest.yaml"
+  architecture_namespace: "ste-spec"

@@ -2,9 +2,9 @@
 
 ## Specification Maturity
 
-**Current Status**: Stable Handoff Contracts and Core Doctrine Under Review
+**Current status**: The **stable** surface is the **v1.0.0 public handoff-contract subset**. The authoritative list of public cross-repo contracts is `architecture/authority-map.md`.
 
-This specification publishes a stable cross-repository handoff subset while broader doctrine and draft governance extensions remain under review. Core invariants, execution semantics, and authority boundaries are stable; draft contract families remain explicitly pre-normative.
+**Draft** contract families and deferred governance–kernel bridge work (below) are **pre-normative**; they do not revoke the stable subset except through an explicit **MAJOR** version change. “Doctrine under review” means **extensions and refinement**, not reopening the published boundary without semver.
 
 **Maturity Indicators**:
 - System-of-interest definition: Stable
@@ -42,7 +42,7 @@ The following remain explicitly **draft / pre-normative** within this repository
 
 - `contracts/rule-projection/`
 - `contracts/governance-decision-record/`
-- `adr/ADR-034-rule-projection-envelope-authority.md`
+- `adrs/published/ADR-034-rule-projection-envelope-authority.md`
 - `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ### Design Freedom Preserved
@@ -92,6 +92,7 @@ This specification intentionally publishes architectural viewpoints without comp
 - Execution semantics (stage definitions and responsibilities)
 - Authority boundaries (who signs, enforces, executes)
 - Multi-repository **integration boundaries** and **kernel execution sequencing** at contract level (`architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`)
+- **Authoritative index** of public contracts and producer/consumer roles (`architecture/authority-map.md`)
 
 **Intentionally Excluded**:
 - Implementation details (how to build)
@@ -171,7 +172,7 @@ The following are **explicitly deferred** until **rule-projection** and **govern
 
 ---
 
-**Last Updated**: 2026-03-21  
+**Last Updated**: 2026-03-30  
 **Version**: 1.0.0  
-**Status**: Stable Handoff Contracts and Core Doctrine Under Review
+**Status**: Stable handoff subset (v1.0.0); draft extensions as documented above
 

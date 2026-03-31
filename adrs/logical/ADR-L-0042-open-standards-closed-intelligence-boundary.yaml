@@ -1,0 +1,57 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0042
+title: Open Standards and Closed Intelligence Boundary
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- architecture
+tags:
+- boundary
+- standards
+context: |
+  STE adopts **open standards plus closed intelligence**: public specifications define
+  compatible artifact formats, schemas, interfaces, and deterministic validation surfaces;
+  proprietary reasoning may remain behind those interfaces.
+
+  Legacy: `adrs/published/ARCHITECTURE_BOUNDARY_DECISION.md` (non-numbered published note).
+
+  **Reconciliation vs supporting architecture notes:** **coexist-with-precedence** — see
+  `architecture/OPEN_CLOSED_BOUNDARY.md` and related architecture notes for expanded prose;
+  this ADR-L captures the **binding boundary decision** in machine form.
+related_adrs:
+- ADR-L-0030
+- ADR-L-0040
+decisions:
+- id: DEC-4201
+  summary: Require public, independently verifiable interfaces for handoff artifacts while allowing proprietary intelligence behind those surfaces
+  rationale: |
+    Enables third-party compatibility without leaking proprietary leverage into public contracts.
+  consequences:
+    positive:
+    - Clear public versus private architectural split
+    negative:
+    - Interfaces must be maintained with discipline
+invariants:
+- id: INV-4201
+  statement: |
+    New capabilities MUST be classified explicitly as public specification, interface-only
+    publication, or closed implementation per this boundary before expanding ste-spec contracts.
+  scope: global
+  enforcement_level: should
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Operationalizes downstream planning checks described in the legacy document.
+  upheld_by_decisions:
+  - DEC-4201
+gaps:
+- id: GAP-4201
+  question: Link detailed threat and tradeoff narratives from architecture supporting docs
+  impact: low
+  blocking: false

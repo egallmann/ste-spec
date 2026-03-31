@@ -12,7 +12,7 @@ contract bundle in `ste-kernel`.
 relationships, provenance, lifecycle, completeness, governance, Architecture
 Index) are **normative** in
 [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md);
-see `adr/ADR-035-architecture-ir-ontology-authority.md`.
+see `adrs/published/ADR-035-architecture-ir-ontology-authority.md`.
 
 **Story (informative):** for one narrative that moves from workspace discipline through
 publication surfaces to `ste-kernel`, read
@@ -143,6 +143,20 @@ decision semantics.
 **`ste-kernel`** is the **sole** integration orchestrator for merge, IR
 validation, and admission evaluation at this boundary. It **MUST** fail closed
 when boot or IR validation fails (see `execution/STE-Kernel-Execution-Model.md`).
+It is also the deterministic enforcement point for execution eligibility at the
+admission boundary: it verifies required authority, lifecycle state, evidence,
+and governance-side prerequisites before allowing execution. It approves
+boundary execution eligibility; it does not replace runtime systems, direct
+business execution, or CI/CD.
+Kernel admission and execution-eligibility evaluation also include applicable
+rule evaluation for the active System Instance. Rule projections remain
+draft/interface-only where separately marked; this clarification does not make
+projection envelopes a promoted rule-authority surface.
+
+At this boundary, `ste-kernel` evaluates a System Instance: the active System
+as resolved in one explicit Environment under the active evaluation scope.
+Environment remains orthogonal to scope and is part of instance-level
+eligibility rather than incidental metadata.
 
 ### Adjudicator boundary (rules-engine → governance; `ste-kernel` orchestrates)
 
@@ -193,7 +207,7 @@ flowchart LR
 ## Related Documents
 
 - `architecture/STE-Architecture-Intermediate-Representation.md`
-- `adr/ADR-035-architecture-ir-ontology-authority.md`
+- `adrs/published/ADR-035-architecture-ir-ontology-authority.md`
 - `architecture/STE-System-Components-and-Responsibilities.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
@@ -201,7 +215,7 @@ flowchart LR
 - `contracts/README.md`
 - `contracts/rule-projection/README.md` (draft envelope scope)
 - `contracts/governance-decision-record/README.md` (draft decision rows referencing projections)
-- `adr/ADR-034-rule-projection-envelope-authority.md` (proposed)
+- `adrs/published/ADR-034-rule-projection-envelope-authority.md` (proposed)
 
 **RulesAdapter governance sub-surface (informative):** Prototype **projection + verify** CLIs may ship **inside** `ste-rules-library`; kernel consumption of those artifacts remains **out of scope** until **`adapter-contracts.yaml`** merge policy and **publication paths** are extended deliberately (see `ste-kernel/contracts/adapter-contracts.yaml` **RulesAdapter** responsibility string).
 

@@ -1,0 +1,81 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0041
+title: Compiler, Evidence, and Merge Authority
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- compilation
+- governance
+tags:
+- compiler
+- evidence
+- kernel
+context: |
+  Non-overlapping compiler roles: **adr-architecture-kit** is the authoring compiler for
+  ADR registries/manifest/rendered views (not a second compiler-of-record for
+  `ArchitectureEvidence` or normative `Compiled_IR_Document`). **ste-runtime** is runtime
+  evidence compiler of record. **ste-kernel** merges publication fragments, validates IR,
+  and emits `KernelAdmissionAssessment` while consuming ste-spec contracts.
+
+  Legacy: `adrs/published/ADR-041-compiler-and-merge-authority.md`.
+
+  **Reconciliation vs ADR-L-1004:** **coexist-with-precedence** — freshness semantics govern
+  evidence timing; this ADR assigns **who may compile** named artifact families.
+
+  **Reconciliation vs ADR-L-1005:** **coexist-with-precedence** — drift detection consumes
+  compiled views; compiler-of-record boundaries prevent ambiguous duplicate compile stacks.
+
+  **Runtime compiler of record:** **ste-runtime** `COMPILER-AUTHORITY.md` — use
+  `ste architecture compile --project-root <repo-root>` (see **MIGRATION-INVENTORY.md** Phase 5
+  for a recorded example command and artifact paths).
+related_adrs:
+- ADR-L-0030
+- ADR-L-0031
+- ADR-L-0035
+- ADR-L-0040
+- ADR-L-1004
+- ADR-L-1005
+decisions:
+- id: DEC-4101
+  summary: Assign authoring-time ADR compilation to adr-architecture-kit without claiming runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record roles
+  rationale: |
+    Prevents parallel truth compilers for the same interchange contracts.
+  consequences:
+    positive:
+    - Clear golden parity versus production compile paths
+    negative:
+    - Contributors must use the right tool per task
+- id: DEC-4102
+  summary: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge, validation, and admission assessment emission to ste-kernel
+  rationale: |
+    Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
+  consequences:
+    positive:
+    - Aligns repos with Spine enforcement story
+    negative:
+    - Documentation must stay synchronized across three repos
+invariants:
+- id: INV-4101
+  statement: |
+    Repositories MUST NOT maintain a second authoritative compile path that redefines ste-spec
+    contract shapes for `ArchitectureEvidence` or normative Architecture IR schema without an
+    explicit superseding ADR-L.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves single normative shape targets for fail-closed enforcement.
+  upheld_by_decisions:
+  - DEC-4101
+  - DEC-4102
+gaps:
+- id: GAP-4101
+  question: Keep ste-runtime CLI install docs aligned when global `ste` npm shim diverges from workspace builds
+  impact: low
+  blocking: false

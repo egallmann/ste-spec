@@ -18,5 +18,5 @@ Consumers reject unsupported or absent versions and fail closed.
 ## Related Artifacts
 
 - `contracts/architecture-evidence.schema.json`
-- `adr/ADR-030-contract-authority-in-ste-spec.md`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`

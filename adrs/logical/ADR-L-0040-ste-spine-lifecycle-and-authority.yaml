@@ -1,0 +1,92 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0040
+title: STE Spine Lifecycle and Authority
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- spine
+tags:
+- lifecycle
+- authority
+context: |
+  Defines the canonical **Spine** lifecycle stages, system states, authority categories, and
+  precedence rules tying together ste-spec doctrine, implementation repos, publication,
+  Architecture IR compilation, kernel admission, runtime evidence, assessment, and
+  governance. Does not redefine ADR-L-0038 taxonomy, ADR-L-0035 ontology, ADR-L-0031
+  boundary, or ADR-L-0030 contract authority.
+
+  Legacy: `adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`.
+
+  **Reconciliation vs ADR-L-1001–1009:** **coexist-with-precedence** — the 100x series
+  formalizes kernel documentation contracts (actions, admission, posture, freshness, drift,
+  evidence, Golden, outcomes, decision contract). ADR-L-0040 is the **end-to-end Spine**
+  model that **uses** those contracts without merging their text.
+related_adrs:
+- ADR-L-0030
+- ADR-L-0031
+- ADR-L-0032
+- ADR-L-0033
+- ADR-L-0035
+- ADR-L-0038
+- ADR-L-0041
+- ADR-L-1001
+- ADR-L-1002
+- ADR-L-1003
+- ADR-L-1004
+- ADR-L-1005
+- ADR-L-1006
+- ADR-L-1007
+- ADR-L-1008
+- ADR-L-1009
+decisions:
+- id: DEC-4001
+  summary: Define eleven canonical Spine lifecycle stages from Intent Definition through Intent Update and Remediation
+  rationale: |
+    Provides one explicit end-to-end vocabulary referenced across ste-spec and consumers.
+  consequences:
+    positive:
+    - Shared stage language
+    negative:
+    - Narrower local lifecycles remain valid in their scopes
+- id: DEC-4002
+  summary: Document authority categories (normative, implementation truth, proof, derived, evidence, reports, admission, governance) without transferring ownership via state alone
+  rationale: |
+    Separates who governs truth from readiness states.
+  consequences:
+    positive:
+    - Clear enforcement and observation loci
+    negative:
+    - Requires careful mapping in supporting doctrine
+- id: DEC-4003
+  summary: Establish precedence on apparent conflicts — ADR-L-0040 controls Spine lifecycle and authority transitions; ADR-L-0038 controls taxonomy and VCS posture; supporting `architecture/` doctrine is subordinate; analysis-only material is non-normative
+  rationale: |
+    Prevents accidental override via explanatory documents.
+  consequences:
+    positive:
+    - Deterministic interpretation order
+    negative:
+    - Supporting docs must avoid contradictory claims
+invariants:
+- id: INV-4001
+  statement: |
+    Supporting Spine documents in `architecture/` MUST explain or map ADR-L-0040 without
+    redefining Spine stages, authority ownership, or ADR-L-0038 taxonomy kinds.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Keeps supporting doctrine subordinate.
+  upheld_by_decisions:
+  - DEC-4003
+gaps:
+- id: GAP-4001
+  question: Visual projections (e.g. STE-Spine-Lifecycle.md) remain subordinate; regenerate when stages change
+  impact: low
+  blocking: false

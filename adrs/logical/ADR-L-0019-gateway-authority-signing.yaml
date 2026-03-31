@@ -1,0 +1,82 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0019
+title: Gateway Authority and Signing Model
+status: accepted
+created_date: '2025-12-23'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+- gateway
+tags:
+- signing
+- enforcement
+- gateway
+context: |
+  STE Gateway verifies ORG-signed inputs and enforces eligibility; it does **not** attest
+  canonical truth or sign canonical artifacts. Eligibility outcomes are ephemeral and
+  unsigned.
+
+  Legacy: `adrs/published/ADR-019-gateway-authority-signing.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1009** kernel
+  decision contract and **ADR-L-1002** admission semantics govern STE-wide kernel
+  narratives; this ADR pins **gateway signing and attestation boundaries** for the STE
+  system model. On overlap, document precedence in consuming specs (e.g. execution model).
+related_adrs:
+- ADR-L-0020
+- ADR-L-0021
+- ADR-L-0022
+- ADR-L-0023
+- ADR-L-0024
+- ADR-L-0025
+- ADR-L-0026
+- ADR-L-0027
+- ADR-L-0028
+- ADR-L-0029
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-1901
+  summary: Gateway holds ORG-scoped enforcement authority, not ORG attestation authority
+  rationale: |
+    Gateway verifies signatures and enforces constraints using ORG-signed canonical
+    material; it does not mint canonical artifacts, populate trust registries, or sign
+    eligibility decisions as durable truth.
+  consequences:
+    positive:
+    - Clear separation of verification vs attestation
+    negative:
+    - Implementations cannot use Gateway keys as ORG signing keys
+- id: DEC-1902
+  summary: Treat execution eligibility outcomes as ephemeral, unsigned enforcement results
+  rationale: |
+    Eligibility answers are short-lived, derived deterministically from signed inputs, and
+    logged for audit without becoming canonical attestations.
+  consequences:
+    positive:
+    - Avoids false equivalence with immutable canonical state
+    negative:
+    - Consumers cannot treat eligibility receipts as long-lived proofs without context
+invariants:
+- id: INV-1901
+  statement: |
+    The Gateway MUST NOT sign canonical artifacts or eligibility outcomes as substitutes
+    for ORG attestation of canonical truth.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves authority scarcity and non-repudiation semantics for canonical publishers.
+  upheld_by_decisions:
+  - DEC-1901
+  - DEC-1902
+gaps:
+- id: GAP-1901
+  question: Map STE-System section references to machine cross-links in handbook/runtime
+  impact: low
+  blocking: false

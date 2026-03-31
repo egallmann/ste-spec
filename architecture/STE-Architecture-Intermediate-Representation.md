@@ -1,4 +1,4 @@
-# STE Architecture Intermediate Representation (Architecture IR)
+﻿# STE Architecture Intermediate Representation (Architecture IR)
 
 ## Purpose
 
@@ -9,7 +9,7 @@ This document is the **normative semantic specification** of the STE **Architect
 **Authority split:**
 
 - **Normative in this document:** meaning of Architecture IR terms; allowed semantic entity and relationship types; provenance, lifecycle, completeness, and governance classifications; architecture control loop; Architecture Index responsibilities.
-- **Mechanical authority (referenced, not duplicated):** JSON Schema shape, merge order, identity hashing, and compiled relationship `type` enums for `Compiled_IR_Document` are **versioned in `ste-kernel`** and **pinned** from `ste-spec` per [`contracts/README.md`](../contracts/README.md) and [`contracts/architecture-ir-kernel-contract-pin.json`](../contracts/architecture-ir-kernel-contract-pin.json).
+- **Mechanical authority (in `ste-spec`, not duplicated here):** JSON Schema shape, merge order, identity hashing, and compiled relationship `type` enums for `Compiled_IR_Document` are **normative** under [`contracts/architecture-ir/`](../contracts/architecture-ir/) and **pinned** per [`contracts/architecture-ir-contract-pin.json`](../contracts/architecture-ir-contract-pin.json) (see [`contracts/README.md`](../contracts/README.md)).
 
 **MUST NOT:** Treat this document as the mechanical JSON Schema for `Compiled_IR_Document`. **MUST NOT:** Treat `Compiled_IR_Document` as a substitute for declared documentation-state in repositories; it is **integration-state** (see [`glossary.md`](../glossary.md), [`STE-Foundations.md`](./STE-Foundations.md) §2.3a).
 
@@ -86,9 +86,21 @@ An **integration** is a declared dependency or coupling between this system and 
 
 A **system** is the bounded whole under architecture governance (the product, platform, or program). It is the implicit or explicit root scope for namespaces, indices, and coverage summaries.
 
+An evaluated **System Instance** is that System considered in one explicit
+Environment for a given evaluation scope. Environment remains orthogonal to
+scope; the same System may therefore present different lifecycle,
+completeness, governance, or conformance-relevant posture in different
+Environments.
+
 ### 2.10 `evidence`
 
 **Evidence** is observable material (measurements, attestations, build outputs, runtime bundle health) that supports truth claims. **MUST NOT** treat evidence as an admission decision at the runtime/kernel handoff; evidence is **factual input** to evaluation (see [`STE-Integration-Model.md`](./STE-Integration-Model.md), invariants INV-0001, INV-0002).
+
+Runtime-emitted `ArchitectureEvidence` **MUST** identify the subject or
+subjects it validates or invalidates. Those subjects may be requirements,
+invariants, rules, systems, components, or accepted ADR scope identifiers.
+Subject linkage identifies what the evidence is about. It does not make
+evidence a decision authority.
 
 ### 2.11 `gap`
 
@@ -200,7 +212,7 @@ Other semantic types in §3.1–3.12 **MAY** serialize as registry metadata, ind
 - **Evidence** — whether observations are direct measurements, derived aggregates, or estimated signals.
 - **Normalized entities** — normalized rows **MUST** record derivation from source entities and retain **derived** (or **heuristic**) class as appropriate.
 
-**Mechanical note:** `Compiled_IR_Document` requires a `provenance` object on entities and relationships; its fields (for example `derivation_chain`) are **specified in `ste-kernel`**. This document **MUST NOT** redefine those fields; it **MUST** classify their **semantic** role using §4.1.
+**Mechanical note:** `Compiled_IR_Document` requires a `provenance` object on entities and relationships; its fields (for example `derivation_chain`) are specified by the normative mechanical contract in `ste-spec/contracts/architecture-ir/`. This document **MUST NOT** redefine those fields; it **MUST** classify their **semantic** role using §4.1.
 
 ---
 
@@ -368,4 +380,6 @@ At the **pinned** `ir_version` referenced from `ste-spec`:
 - [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md)
 - [`../contracts/README.md`](../contracts/README.md)
 - [`../glossary.md`](../glossary.md)
-- [`../adr/ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
+- [`../adrs/published/ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
+
+
