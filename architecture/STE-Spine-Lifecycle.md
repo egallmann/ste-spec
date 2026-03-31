@@ -7,11 +7,11 @@ This document is normative supporting doctrine for the STE Spine lifecycle.
 ## Authority Boundary
 
 This document explains and maps the lifecycle defined canonically in
-[`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md).
+[`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md).
 ADR-040 remains canonical for the Spine lifecycle and authority-transition
 model. This document uses ADR-040 for Spine-local terminology and does not
 redefine artifact taxonomy, which remains canonical in
-[`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
+[`../adrs/published/ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md).
 
 ## Core Model
 
@@ -271,4 +271,4 @@ must be updated.
 - [`STE-Spine-Authority.md`](./STE-Spine-Authority.md)
 - [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md)
 - [`STE-Spine-State-Model.md`](./STE-Spine-State-Model.md)
-- [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+- [`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)

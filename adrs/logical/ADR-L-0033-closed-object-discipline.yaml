@@ -1,0 +1,58 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0033
+title: Closed-Object Discipline
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- contracts
+- kernel
+tags:
+- schema
+- handoff
+context: |
+  Runtime/kernel handoff objects are **closed by default**: undeclared fields are not
+  contract-valid and cannot become hidden semantic or policy channels across repositories.
+
+  Legacy: `adrs/published/ADR-033-closed-object-discipline.md`.
+
+  **Reconciliation vs ADR-L-1002:** **coexist-with-precedence** — admission consumes typed
+  inputs; closed objects prevent undeclared side channels that would undermine admission
+  predicates.
+related_adrs:
+- ADR-L-0032
+- ADR-L-0035
+- ADR-L-0040
+- ADR-L-1002
+decisions:
+- id: DEC-3301
+  summary: Require closed-object discipline for encoded handoff payloads at the runtime/kernel boundary
+  rationale: |
+    Bounded objects force explicit contract evolution and deterministic rejection of drift.
+  consequences:
+    positive:
+    - Deterministic producer/consumer conformance
+    negative:
+    - Extension requires spec revision
+invariants:
+- id: INV-3301
+  statement: |
+    Ad hoc extension fields on closed handoff objects MUST NOT be treated as contract-valid
+    without an explicit ste-spec contract and invariant update.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents silent semantic extension.
+  upheld_by_decisions:
+  - DEC-3301
+gaps:
+- id: GAP-3301
+  question: Per-contract closedness flags belong in schema metadata and invariants indexes
+  impact: low
+  blocking: false

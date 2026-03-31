@@ -18,4 +18,4 @@ Kernel rejects invalid evidence and returns blocked outcomes only.
 
 - `contracts/architecture-evidence.schema.json`
 - `contracts/kernel-admission-assessment.schema.json`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`

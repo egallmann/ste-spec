@@ -1,0 +1,61 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1002
+title: Architecture Admission Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+- admission
+tags:
+- admission
+- allow
+- deny
+context: |
+  Admission decides whether a **requested action** may proceed under declared
+  architecture truth (IR), factual evidence, governance posture, and active rules.
+  This ADR-L defines the semantic meaning of allowed, denied, conditional, and warned
+  admission postures and the **input closure** required to reach a decision.
+
+  IR validation versus admission evaluation follows ADR-031 and the STE kernel execution
+  model: invalid IR is a boot/integration failure surface, not a disguised policy waiver.
+decisions:
+- id: DEC-6211
+  summary: Treat admission as evaluation of requested_action in context
+  rationale: |
+    Aligns all admission semantics with ADR-L-1001; forbids abstract system-only checks.
+- id: DEC-6212
+  summary: Separate IR validation failure semantics from policy denial semantics
+  rationale: |
+    Preserves fail-closed boot while keeping admission outcomes honest for policy layers.
+related_adrs:
+- ADR-L-1001
+- ADR-L-1003
+- ADR-L-1008
+- ADR-L-1009
+invariants:
+- id: INV-5011
+  statement: |
+    Admission input closure MUST include validated Architecture IR slice (or compiled IR
+    handle), evidence bundle reference, governance posture, active ruleset identity,
+    requested_action, environment, and evaluation scope sufficient to reproduce the decision.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Reproducible admission requires explicit inputs aligned with ADR-L-1009 determinism invariant.
+- id: INV-5012
+  statement: |
+    DENY and CONDITIONAL outcomes MUST NOT be represented as successful boot or successful
+    unvalidated IR consumption.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Preserves separation between IR validation/boot integrity and policy-layer admission outcomes.
+gaps: []

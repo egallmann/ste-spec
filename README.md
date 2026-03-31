@@ -45,12 +45,12 @@ kernel decisions, runtime evidence generation, or rules-engine behavior.
 `ste-spec` primarily consumes architectural authoring and review work rather
 than runtime evidence or kernel internals. In practice, that means it takes in:
 
-- converged architectural decisions published under `adr/`
+- converged architectural decisions published under `adrs/published/`
 - contract definitions and schema work for cross-repository handoffs
 - invariant definitions and semantic rule definitions
 - orientation and viewpoint material that explains the published specification
 - referenced mechanical Architecture IR pointers where the mechanical contract
-  is owned by `ste-kernel`
+  is owned by `ste-spec`
 
 `ste-spec` does not consume `ArchitectureEvidence` as an operational input and
 does not depend on `ste-kernel` internals to function as the specification
@@ -67,7 +67,7 @@ authority.
     [`contracts/architecture-ir/spec-ir-fragments.json`](contracts/architecture-ir/spec-ir-fragments.json)
 - `invariants/`
   - normative semantic constraints and cross-component rules
-- `adr/`
+- `adrs/published/`
   - architectural decisions and rationale
 - `architecture/`, `execution/`, `governance/`
   - mostly orientation and viewpoint material, with named accepted exceptions
@@ -98,8 +98,7 @@ the published STE contract and doctrine.
 - runtime extraction or evidence generation
 - rules-engine execution or governance adjudication implementation
 - repository runtime behavior, deployment procedures, or operator runbooks
-- owning the mechanical `Compiled_IR_Document` schema bundle versioned in
-  `ste-kernel`
+- owning runtime evidence generation or kernel admission execution behavior
 - acting as a tutorial, SDK, or implementation framework
 
 ## Authority Boundary
@@ -197,7 +196,7 @@ its role relative to adjacent repositories without collapsing their authority.
 | `adr-architecture-kit` | Publishes ADR authoring and generation surfaces; consumes STE doctrine and may publish ADR IR fragments consumed downstream. |
 | `ste-runtime` | Produces `ArchitectureEvidence`; consumes published STE contracts where applicable; does not emit caller-facing admission decisions. |
 | `ste-rules-library` | Owns rules and governance-side artifacts; publishes rules-related surfaces and may participate in future projection contracts. |
-| `ste-kernel` | Consumes adapter publication surfaces and executes merge, validation, and admission decisions; owns the mechanical `Compiled_IR_Document` bundle referenced by `ste-spec`. |
+| `ste-kernel` | Consumes adapter publication surfaces and executes merge, validation, and admission decisions using public contracts owned by `ste-spec`. |
 
 This repository must not redefine those repositories' implementation behavior.
 It documents and constrains their shared boundaries.
@@ -209,11 +208,11 @@ Use the following authority split when reading this repository:
 - Normative
   - `contracts/` for contract shape
   - `invariants/` for semantic rules and constraints
-  - binding ADRs in `adr/`
+  - binding ADRs in `adrs/published/`
   - semantic Architecture IR doctrine in
     [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md)
     as assigned by
-    [`adr/ADR-035-architecture-ir-ontology-authority.md`](adr/ADR-035-architecture-ir-ontology-authority.md)
+    [`adrs/published/ADR-035-architecture-ir-ontology-authority.md`](adrs/published/ADR-035-architecture-ir-ontology-authority.md)
 - Orientation
   - most of `architecture/`, `execution/`, and `governance/`
   - `status.md`
@@ -225,9 +224,9 @@ Use the following authority split when reading this repository:
   - `architecture/STE-Spine-Artifact-Mapping.md`
   - `architecture/STE-Spine-State-Model.md`
   - these files are normative supporting doctrine subordinate to
-    [`adr/ADR-040-ste-spine-lifecycle-and-authority.md`](adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+    [`adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)
     and
-    [`adr/ADR-038-artifact-classification-and-versioning.md`](adr/ADR-038-artifact-classification-and-versioning.md)
+    [`adrs/published/ADR-038-artifact-classification-and-versioning.md`](adrs/published/ADR-038-artifact-classification-and-versioning.md)
     and do not override accepted ADR authority
   - `architecture/STE-Spine-Extracted-Doctrine.md` is analysis-only and
     non-normative
@@ -258,7 +257,7 @@ Start here based on your goal:
   - [`scope-and-non-goals.md`](scope-and-non-goals.md)
   - [`NON-GOALS.md`](NON-GOALS.md)
 - Understand architectural decisions
-  - [`adr/README.md`](adr/README.md)
+  - [`adrs/published/README.md`](adrs/published/README.md)
 
 ## Status and Maturity
 
@@ -273,7 +272,7 @@ Draft / pre-normative surfaces currently called out by the repo include:
 
 - `contracts/rule-projection/`
 - `contracts/governance-decision-record/`
-- `adr/ADR-034-rule-projection-envelope-authority.md`
+- `adrs/published/ADR-034-rule-projection-envelope-authority.md`
 - `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ## Contribution and Maintenance Guidance
@@ -283,7 +282,7 @@ When changing this repository:
 - update the correct authority surface
   - `contracts/` for shape
   - `invariants/` for rules
-  - `adr/` for rationale
+  - `adrs/published/` for rationale
   - orientation docs only when navigation or explanation must change
 - update named accepted supporting-doctrine exceptions in line with their
   governing ADRs rather than treating them as generic orientation prose

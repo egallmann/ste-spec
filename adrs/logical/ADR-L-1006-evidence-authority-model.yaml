@@ -1,0 +1,51 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1006
+title: Evidence Authority Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+- evidence
+tags:
+- evidence
+- authority
+context: |
+  Runtime evidence is authoritative as **factual observation** within its contract, not as
+  a replacement for normative architecture declared in ste-spec and documentation-state.
+  When evidence contradicts IR or ADR meaning, the kernel MUST categorize contradiction as
+  drift or assessment finding; it MUST NOT silently rewrite normative sources.
+
+  Governance authority may authorize exceptions through explicit artifacts per ADR-040;
+  raw runtime truth does not override architecture by default.
+decisions:
+- id: DEC-6651
+  summary: Enumerate authoritative evidence sources by contract family
+  rationale: |
+    Admission must know which observations count and under what provenance kinds.
+- id: DEC-6652
+  summary: Contradiction yields drift or assessment output, not silent IR mutation
+  rationale: |
+    Preserves documentation-state authority and auditability.
+related_adrs:
+- ADR-L-1005
+- ADR-L-1009
+invariants:
+- id: INV-5051
+  statement: |
+    Evidence MUST NOT be interpreted as normative architecture authority; overrides MUST
+    flow from governance artifacts, not from raw observations alone.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Preserves documentation-state authority while still using factual runtime observations.
+gaps:
+- id: GAP-5051
+  question: Cross-contract evidence bundle completeness rules
+  impact: medium
+  blocking: false

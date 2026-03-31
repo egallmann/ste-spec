@@ -409,7 +409,7 @@ Ownership and precedence rule:
 
 ```yaml
 ir_version: "0.1.0"
-schema_id: "https://ste-kernel.local/schema/architecture-ir/0.1.0/architecture-ir.schema.json"
+schema_id: "https://github.com/egallmann/ste-spec/contracts/architecture-ir/architecture-ir.schema.json"
 document_id: "sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
 assembled_at: "2026-03-20T12:00:00.000Z"
 namespace: "repo:ste-kernel:branch:main"

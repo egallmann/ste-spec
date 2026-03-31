@@ -2,7 +2,7 @@
 
 This directory is the canonical home for published **runtime/kernel handoff**
 contracts governed by `ste-spec` (see
-`adr/ADR-030-contract-authority-in-ste-spec.md`).
+`adrs/published/ADR-030-contract-authority-in-ste-spec.md`).
 
 **Story (informative):** for a single walkthrough that shows how handoff
 artifacts fit into a fictional team thread, read
@@ -40,7 +40,7 @@ becomes normative.
 
 **Behavioral rules** for these payloads live under `invariants/` (INV-000x
 index: `invariants/STE-Cross-Component-Contract-Invariants.md`). **Rationale**
-lives under `adr/`.
+lives under `adrs/published/`.
 
 **Freshness layering** across `ArchitectureEvidence` and
 `KernelAdmissionAssessment` is normative in
@@ -54,7 +54,7 @@ relationship definitions, and mechanical narrative (`ARCHITECTURE_IR.md`) are
 Architecture IR (ontology, lifecycle, completeness, governance, Architecture
 Index) remains **normative** in
 `architecture/STE-Architecture-Intermediate-Representation.md`
-(`adr/ADR-035-architecture-ir-ontology-authority.md`).
+(`adrs/published/ADR-035-architecture-ir-ontology-authority.md`).
 
 **`ste-kernel`** **consumes** this bundle (for example by resolving the sibling
 `ste-spec` checkout in the STE-workspace layout) and **does not** own the
@@ -94,7 +94,7 @@ Normative integration narrative: `architecture/STE-Integration-Model.md`.
 | **Spec IR fragments** | `architecture-ir/spec-ir-fragments.json` | `ste-spec` publishes; `ste-kernel` consumes |
 | **ADR / Rules IR fragments** | Adapter-published JSON arrays | Respective repositories publish; `ste-kernel` consumes |
 | **ArchitectureEvidence** | Runtime output linked to evaluated subjects | `ste-runtime` produces; `ste-kernel` consumes |
-| **Compiled_IR_Document** | Merged validated IR | **Derived** by `ste-kernel` from fragments + mapping rules |
+| **Compiled_IR_Document** | Canonical Architecture IR contract bundle | `ste-spec` owns the public contract; `ste-kernel` consumes it |
 | **KernelAdmissionAssessment** | Admission JSON | **Derived** by `ste-kernel` from projected slice + policy |
 
 Contract lock for this boundary:
@@ -102,10 +102,10 @@ Contract lock for this boundary:
 - adapter fragments are deterministic normalized record arrays
 - `spec-ir-fragments.json` is an adapter input artifact, not a grouped-envelope schema
 - `ste-runtime` publishes `ArchitectureEvidence` only
-- runtime IR is derived inside `ste-kernel`
-- `ste-kernel` alone compiles merged `Compiled_IR_Document`
+- kernel execution state is derived from consumed publications
+- public `Compiled_IR_Document` contracts are owned by `ste-spec`
 - `ste-kernel` alone emits `KernelAdmissionAssessment`
-- `Compiled_IR_Document` is derived integration-state, not documentation-state authority
+- `Compiled_IR_Document` public contract authority lives in `ste-spec`
 
 `ArchitectureEvidence` remains factual only. Its required `subjects` linkage
 identifies which ADRs, requirements, invariants, rules, systems, or components
@@ -119,4 +119,3 @@ caller-facing admission decision or a new authority source.
 - `architecture/STE-Determinism-and-Canonical-Identity.md`
 - `invariants/STE-Failure-Taxonomy-Boundaries.md`
 - `execution/STE-Kernel-Execution-Model.md`
-

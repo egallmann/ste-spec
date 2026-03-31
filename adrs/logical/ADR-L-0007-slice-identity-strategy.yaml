@@ -1,0 +1,103 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0007
+title: Slice Identity Strategy
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- extraction
+- documentation-state
+- recon
+tags:
+- identity
+- determinism
+- slices
+context: |
+  Slices require unique, stable, deterministic identifiers derived from **observable**
+  semantic anchors (contracts, paths, source paths, table names) rather than volatile
+  implementation labels alone.
+
+  Legacy human projection: `adrs/published/ADR-007-slice-identity-strategy.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — this ADR defines **Fabric
+  slice identity** for extraction and documentation-state; **Architecture IR** and
+  contract layers may define additional canonical identity rules. On conflict, IR
+  contract precedence for **IR element identity** is resolved in contract ADRs (e.g.
+  future migrated ADR-035); slice identity rules here remain authoritative for **extractor
+  output identity** unless explicitly superseded.
+related_adrs:
+- ADR-L-0001
+- ADR-L-0008
+decisions:
+- id: DEC-0701
+  summary: Derive slice identity per domain using observable semantic anchors
+  rationale: |
+    API endpoints use method plus normalized path; data entities prefer declared table or
+    schema-qualified names; graph elements use stable source paths; integration clients use service
+    or base identity; configuration uses stable keys. Identities are normalized
+    (lowercase, hyphenation) with explicit collision handling. This prioritizes **semantic
+    stability** over renames of functions or type names when observable anchors are
+    unchanged.
+  alternatives_considered:
+  - name: Content hash identity
+    rejected_because: |
+      Unstable across refactors; not human-readable; breaks meaningful diffs.
+  - name: User-annotated ids only
+    rejected_because: |
+      Adoption friction and inconsistency; still needs fallback derivation.
+  - name: Function or type name as sole identity
+    rejected_because: |
+      Spurious churn on refactor; weak for multi-endpoint handlers.
+  - name: UUID with persistent map
+    rejected_because: |
+      Non-deterministic across environments without shared state.
+  consequences:
+    positive:
+    - Deterministic, debuggable identities aligned to consumer contracts
+    negative:
+    - Extractor-specific domain logic and edge-case judgment
+- id: DEC-0702
+  summary: Define normalization and collision handling for derived identities
+  rationale: |
+    Normalize case and punctuation; avoid duplicate hyphens; disambiguate rare collisions
+    with explicit suffixes and warnings for manual review.
+  consequences:
+    positive:
+    - Predictable string forms across extractors
+    negative:
+    - Requires consistent implementation and tests
+invariants:
+- id: INV-0701
+  statement: |
+    Given the same source artifact inputs and extractor version, identity derivation for
+    a slice MUST be deterministic and reproducible.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: test
+  verification_method: automated
+  rationale: |
+    Required for regression testing, environment diffs, and ADR-L-0001 determinism.
+  upheld_by_decisions:
+  - DEC-0701
+- id: INV-0702
+  statement: |
+    Identity derivation MUST prefer observable contract anchors (routes, table names,
+    source paths, integration targets, config keys) over volatile implementation labels
+    when those anchors are available.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Reduces spurious identity churn on refactors that do not change consumer-visible contracts.
+  upheld_by_decisions:
+  - DEC-0701
+gaps:
+- id: GAP-0701
+  question: Formal IR mapping when slice identity rules and IR ontology diverge
+  impact: medium
+  blocking: false

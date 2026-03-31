@@ -1,0 +1,54 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1007
+title: Golden System Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+tags:
+- golden
+- promotion
+context: |
+  A Golden system is a designated reference or production-grade posture with stricter
+  eligibility, evidence, and promotion gates. Golden status is not merely descriptive;
+  it changes what future promotions and dependent systems may assume.
+
+  Promotion to Golden MUST be auditable and MUST bind to explicit authority (human
+  governance decision and/or deterministic automated gates declared in policy), not to
+  informal convention.
+decisions:
+- id: DEC-6761
+  summary: Define Golden eligibility prerequisites
+  rationale: |
+    Golden without criteria becomes a hollow label.
+- id: DEC-6762
+  summary: Define who or what may promote to Golden
+  rationale: |
+    Separates governance authority from tooling automation boundaries.
+- id: DEC-6763
+  summary: State implications for downstream systems and templates
+  rationale: |
+    Golden systems act as reference baselines for stricter inheritance or copying rules.
+related_adrs:
+- ADR-L-1003
+- ADR-L-1008
+invariants:
+- id: INV-5061
+  statement: |
+    Promotion to Golden MUST be reproducibly justified from IR, evidence, posture, and
+    explicit promotion records; silent promotion MUST be forbidden.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Golden status must be evidence-backed and reviewable, not a cosmetic label.
+gaps:
+- id: GAP-5061
+  question: Automated versus human-only promotion gates per environment
+  impact: medium
+  blocking: false

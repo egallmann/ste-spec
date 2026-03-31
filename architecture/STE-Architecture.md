@@ -41,7 +41,7 @@ and points to the canonical doctrine that defines it.
   Proof Logic, Derived, Evidence, Reports, Orientation, and Internal. Canonical
   posture is defined in
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md)
-  and [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md).
+  and [`../adrs/published/ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md).
 - **Authority types:** `ste-spec` holds Normative Authority, implementation
   repositories hold Implementation Truth, proof artifacts hold Proof Authority,
   `ste-runtime` produces evidence only, and `ste-kernel` holds caller-facing
@@ -62,7 +62,7 @@ and points to the canonical doctrine that defines it.
   `ste-spec`, while Compiled IR remains kernel-owned derived integration-state.
   Canonical doctrine is in
   [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
-  and [`../adr/ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md).
+  and [`../adrs/published/ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md).
 - **Governance loop:** Evidence, validation, review, override, remediation, and
   updated intent form a closed Governance loop rather than a one-way pipeline.
   Canonical lifecycle consolidation is in

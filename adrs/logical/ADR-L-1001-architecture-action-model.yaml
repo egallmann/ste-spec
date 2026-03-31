@@ -1,0 +1,101 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-1001
+title: Architecture Action Model
+status: proposed
+created_date: '2026-03-28'
+authors:
+- ste-spec
+domains:
+- governance
+- kernel
+- admission
+tags:
+- action-model
+- admission
+- kernel
+context: |
+  The kernel does not admit or deny systems in the abstract. Caller-facing admission
+  evaluates whether a **requested action** on a system (in an explicit environment and
+  evaluation scope) is allowed, denied, conditional, or warned under declared architecture,
+  evidence, posture, and rules.
+
+  This ADR-L defines the canonical **action vocabulary** and which actions participate in
+  admission versus informational-only evaluation. It aligns with **ADR-L-0031** (kernel as
+  admission authority), **ADR-L-0040** (Spine lifecycle), and `execution/STE-Kernel-Execution-Model.md`
+  (boot versus admission phases).
+related_adrs:
+- ADR-L-0031
+- ADR-L-0040
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-6101
+  summary: Define canonical requested-action verbs for kernel evaluation
+  rationale: |
+    Without a closed vocabulary, tools and policies cannot classify what is being
+    evaluated or map outcomes deterministically.
+  consequences:
+    positive:
+    - Shared semantics across repositories and assistants
+    negative:
+    - New verbs require ADR-L revision or explicit extension rules
+- id: DEC-6102
+  summary: Require every admission decision to name a requested action in context
+  rationale: |
+    Admission without an action is undefined; context (system instance, environment,
+    scope) is part of the decision input closure.
+- id: DEC-6103
+  summary: Classify assess as informational for admission authority
+  rationale: |
+    Assessment and reporting must not be conflated with allow/deny for operational actions;
+    see ste-kernel ADR-PS for the assessment pipeline boundary.
+- id: DEC-6104
+  summary: Enumerate canonical requested actions for kernel evaluation
+  rationale: |
+    Provides a minimal closed verb set; extensions require explicit documentation.
+  consequences:
+    positive:
+    - Deterministic policy mapping per action category
+    negative:
+    - New verbs need governance updates
+invariants:
+- id: INV-5001
+  statement: |
+    Admission evaluation MUST identify a requested_action from the canonical vocabulary
+    (design, change, build, deploy, operate, assess, promote) or an explicitly documented
+    extension; omission MUST be treated as invalid input per the Kernel Decision Contract
+    fail-closed rules.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: automated
+  rationale: |
+    Without a named action, admission cannot be deterministic or explainable per ADR-L-1009.
+- id: INV-5002
+  statement: |
+    Informational-only actions MUST NOT emit caller-facing allow/deny semantics at the
+    admission boundary; they MAY produce reports, findings, and explanations only.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: design
+  verification_method: manual
+  rationale: |
+    Prevents assessment outputs from being mistaken for admission authority at the kernel boundary.
+- id: INV-5003
+  statement: |
+    Actions design, change, build, deploy, operate, and promote are subject to admission
+    decisions unless explicitly routed to assessment-only mode; assess is informational
+    for admission authority and MUST use the assessment pipeline outputs instead of
+    admission allow/deny semantics.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: manual
+  rationale: |
+    Separates operational gating from informational evaluation per ADR-L-1002 and ste-kernel ADR-PS assessment pipeline.
+gaps:
+- id: GAP-5001
+  question: Formal machine encoding of action payloads and extension registration
+  impact: medium
+  blocking: false

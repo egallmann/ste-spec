@@ -1,0 +1,84 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0023
+title: Validation Timing and Responsibility
+status: accepted
+created_date: '2025-12-23'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- gateway
+- validation
+tags:
+- lifecycle
+- eligibility
+context: |
+  Validation occurs at merge-time (ADF), pre-execution (Gateway), and locally (Runtime).
+  Only Gateway may authorize execution; ADF blocks canonical promotion; Runtime checks are
+  advisory for eligibility. Normalized outcomes treat INDETERMINATE as blocking for
+  authoritative paths.
+
+  Legacy: `adrs/published/ADR-023-validation-timing-responsibility.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1002** admission
+  semantics and **ADR-L-1009** caller contracts apply at the kernel documentation boundary;
+  this ADR assigns **STE-system component responsibilities** for validation stages.
+
+  **Reconciliation vs ADR-L-0026:** Gateway normative conflict handling is **verification of
+  Fabric-attested conflict status**, not independent content parsing (see ADR-L-0026).
+related_adrs:
+- ADR-L-0019
+- ADR-L-0022
+- ADR-L-0024
+- ADR-L-0026
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-2301
+  summary: Assign ADF merge-time validation to canonical promotion blocking only; Gateway sole execution approval; Runtime local checks advisory only
+  rationale: |
+    Prevents Runtime self-approval and clarifies layered enforcement.
+  consequences:
+    positive:
+    - Single authoritative execution gate
+    negative:
+    - Runtime cannot substitute for Gateway
+- id: DEC-2302
+  summary: Normalize validation outcomes; treat INDETERMINATE as FAIL for execution eligibility and canonical promotion
+  rationale: |
+    Eliminates ambiguous partial success for authoritative transitions.
+  consequences:
+    positive:
+    - Aligns with fail-closed posture
+    negative:
+    - Transient validation issues block promotion or execution
+- id: DEC-2303
+  summary: Require normative invariant conflict verification at Gateway during eligibility; allow optional preventative detection at ADF merge-time
+  rationale: |
+    Gateway remains the definitive enforcement boundary; ADF may fail fast before publication.
+  consequences:
+    positive:
+    - Clear normative vs preventative split
+    negative:
+    - Algorithmic detail delegated to Fabric attestation model (ADR-L-0026)
+invariants:
+- id: INV-2301
+  statement: |
+    No component other than Gateway MAY treat local or merge-time validation success as
+    sufficient to authorize execution eligibility when Gateway has not returned an explicit
+    ALLOW outcome per contract.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves synchronous enforcement at the Gateway boundary.
+  upheld_by_decisions:
+  - DEC-2301
+gaps:
+- id: GAP-2301
+  question: Machine schemas for validation result envelopes in Architecture IR
+  impact: medium
+  blocking: false

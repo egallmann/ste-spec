@@ -21,7 +21,7 @@ Unverifiable is treated as non-eligible, not deferred permissiveness.
 ## Related Artifacts
 
 - `execution/STE-Kernel-Execution-Model.md`
-- `adr/ADR-031-runtime-kernel-responsibility-boundary.md`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`
 - `invariants/INV-0002-kernel-final-admission-authority.md`
 - `invariants/INV-0006-kernel-fails-closed-on-invalid-evidence.md`

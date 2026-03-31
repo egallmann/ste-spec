@@ -1,0 +1,62 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0030
+title: Contract Authority in ste-spec
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- contracts
+- governance
+tags:
+- contracts
+- ste-spec
+context: |
+  Cross-repository handoff contracts are governed in **ste-spec**: shape in `contracts/`,
+  rules in `invariants/`, rationale in ADRs. Runtime and kernel repos remain subordinate
+  implementation surfaces.
+
+  Legacy: `adrs/published/ADR-030-contract-authority-in-ste-spec.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1002** defines
+  admission semantics at the kernel documentation layer; this ADR asserts **ste-spec
+  ownership of interchange contracts** that admission consumes.
+related_adrs:
+- ADR-L-0031
+- ADR-L-0035
+- ADR-L-0040
+- ADR-L-0041
+- ADR-L-1002
+decisions:
+- id: DEC-3001
+  summary: Govern cross-repository handoff contract shape in ste-spec `contracts/` and rules in `invariants/`
+  rationale: |
+    Single normative source for payload structure, semantic rules, and architectural intent
+    at the runtime/kernel boundary.
+  consequences:
+    positive:
+    - No parallel shadow contract authority in consumer repos
+    negative:
+    - Contract evolution requires coordinated ste-spec changes
+invariants:
+- id: INV-3001
+  statement: |
+    Runtime and kernel repositories MUST NOT treat repo-local types, tests, or informal
+    prose as authoritative over ste-spec `contracts/` and published invariants for the
+    same handoff surfaces.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves ADR-L-0030 as the contract authority anchor.
+  upheld_by_decisions:
+  - DEC-3001
+gaps:
+- id: GAP-3001
+  question: Enumerate every handoff contract family in Architecture IR when catalogs mature
+  impact: low
+  blocking: false

@@ -8,7 +8,7 @@ lifecycle state model.
 ## Authority Boundary
 
 This document supports
-[`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+[`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)
 and uses ADR-040 for Spine-local terminology.
 
 ADR-040 remains canonical for the Spine lifecycle and authority-transition
@@ -194,4 +194,4 @@ divergence taxonomy in `invariants/STE-Divergence-Taxonomy.md`.
 - [`STE-Spine-Lifecycle.md`](./STE-Spine-Lifecycle.md)
 - [`STE-Spine-Authority.md`](./STE-Spine-Authority.md)
 - [`STE-Spine-Extracted-Doctrine.md`](./STE-Spine-Extracted-Doctrine.md)
-- [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+- [`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)

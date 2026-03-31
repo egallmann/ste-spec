@@ -1,0 +1,55 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0039
+title: Structured Diagram Format (Mermaid)
+status: accepted
+created_date: '2025-12-19'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- documentation
+- architecture
+tags:
+- mermaid
+- diagrams
+context: |
+  Canonical architecture diagrams in ste-spec MUST use structured, text-based
+  representation; Mermaid is the standard for canonical diagrams. Diagrams are projections
+  only and MUST NOT introduce semantics absent from ADRs, contracts, or architecture doctrine.
+
+  Legacy: `adrs/published/ADR-039-structured-diagram-format-mermaid.md`.
+
+  **Reconciliation vs ADR-L-0040:** **coexist-with-precedence** — Spine lifecycle is defined
+  in ADR-L-0040; this ADR governs **diagram representation format** for ste-spec projections.
+related_adrs:
+- ADR-L-0040
+decisions:
+- id: DEC-3901
+  summary: Standardize canonical ste-spec architecture diagrams on Mermaid text sources
+  rationale: |
+    Reduces format drift and keeps diagrams diffable and reviewable.
+  consequences:
+    positive:
+    - Consistent authoring across architecture docs
+    negative:
+    - Styling and CI enforcement remain out of scope here
+invariants:
+- id: INV-3901
+  statement: |
+    Canonical architecture diagrams MUST NOT be the sole location where a rule, requirement,
+    or invariant is first defined; authoritative text remains in ADRs, contracts, or doctrine.
+  scope: repository
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: manual
+  rationale: |
+    Prevents diagrams from becoming shadow normative sources.
+  upheld_by_decisions:
+  - DEC-3901
+gaps:
+- id: GAP-3901
+  question: Authoring conventions and CI checks may be added under separate governance
+  impact: low
+  blocking: false

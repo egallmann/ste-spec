@@ -1,5 +1,12 @@
 {
-  "version": "1",
+  "version": "2",
+  "subjects": [
+    {
+      "kind": "system",
+      "id": "repo:example-system",
+      "effect": "validates"
+    }
+  ],
   "bundle": {
     "status": "valid",
     "warnings": [],

@@ -31,6 +31,8 @@ contracts.
 6. **Kernel ready** — Expose immutable boot result (validated IR snapshot handle, adapter status, freshness summary) as defined by kernel documentation.
 7. **Admission evaluation** — Evaluate policy using **only** the projected admission slice and context overlay; emit **`KernelAdmissionAssessment`**.
 
+**Assessment reporting (normative boundary):** Workloads that evaluate architecture, evidence, drift, and compliance solely to produce **reports, findings, and explanations** are **not** a substitute for phase 7. They MUST NOT emit **`KernelAdmissionAssessment`** caller-facing allow/deny semantics; physical-system design for that separation lives under `ste-kernel/adrs/physical-system/` (**ADR-PS-0004**), with cross-repo action semantics in ste-spec **ADR-L-1001**.
+
 **MUST NOT:** Admission evaluation MUST NOT run on unvalidated IR.
 
 ---
@@ -517,9 +519,9 @@ signatures) unless policy explicitly accepts non-deterministic steps.
 
 **Authoring** (for example ADR composition in `adr-architecture-kit`) and **semantic
 extraction** (for example RECON/RSS-style tooling in `ste-runtime`) are separate from
-**IR compilation** in `ste-kernel`. The **compiler of record** for merged, validated
-**`Compiled_IR_Document`** semantics at the integration boundary is **`ste-kernel`**,
-consuming only declared publication surfaces.
+kernel execution. Public Architecture IR contracts are owned by `ste-spec`; the
+kernel consumes declared publication surfaces and executes merge, validation, and
+admission against those contracts.
 
 ---
 

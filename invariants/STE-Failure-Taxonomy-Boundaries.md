@@ -89,7 +89,7 @@ divergence taxonomy or as admission outcome schema values.
 ## Related
 
 - `execution/STE-Kernel-Execution-Model.md`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`
 
 ## Canon Status
 

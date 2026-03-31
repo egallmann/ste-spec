@@ -19,7 +19,7 @@ path depends on it.
 
 ## 1.1 Reading legend (normative vs orientation vs illustration)
 
-- **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adr/` where they govern handoffs; Architecture IR **semantics** in `architecture/STE-Architecture-Intermediate-Representation.md` (`adr/ADR-035-architecture-ir-ontology-authority.md`).
+- **Normative (law):** `contracts/` JSON Schemas, `invariants/`, binding `adrs/published/` where they govern handoffs; Architecture IR **semantics** in `architecture/STE-Architecture-Intermediate-Representation.md` (`adrs/published/ADR-035-architecture-ir-ontology-authority.md`).
 - **Accepted normative supporting doctrine:** `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md`. These files are accepted supporting doctrine subordinate to ADR-040 and ADR-038 and do not override accepted ADR authority.
 - **Orientation (viewpoint):** most of `architecture/`, `execution/`, and
   `governance/` is navigation and viewpoint material and does not override
@@ -36,7 +36,7 @@ path depends on it.
 2. **Core concepts:** `architecture/STE-Foundations.md`, `architecture/STE-Reference-Embodiment.md` (informative spine), `architecture/STE-Worked-Example-Walkthrough.md` (informative end-to-end thread), `invariants/STE-Invariant-Hierarchy.md` (and referenced invariant docs)
 3. **System components:** `architecture/STE-System-Components-and-Responsibilities.md`, `architecture/STE-System-Core.md`
 4. **Integration model:** `architecture/STE-Integration-Model.md`, `architecture/STE-Architecture-Intermediate-Representation.md` (semantic Architecture IR), `architecture/STE-Diagram-Standards.md` (diagram doctrine), `architecture/STE-Diagram-Conventions.md` (editorial figure guidance)
-5. **Spine doctrine:** `adr/ADR-040-ste-spine-lifecycle-and-authority.md` (canonical Spine definition), `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, `architecture/STE-Spine-State-Model.md` (accepted normative supporting doctrine subordinate to ADR-040 and ADR-038), `architecture/STE-Spine-Extracted-Doctrine.md` (analysis-only, non-normative reconstruction)
+5. **Spine doctrine:** `adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md` (canonical Spine definition), `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, `architecture/STE-Spine-State-Model.md` (accepted normative supporting doctrine subordinate to ADR-040 and ADR-038), `architecture/STE-Spine-Extracted-Doctrine.md` (analysis-only, non-normative reconstruction)
 6. **Boundary surfaces:** `architecture/OPEN_CLOSED_BOUNDARY.md`, `architecture/PUBLIC_SYSTEM_SURFACES.md`, `architecture/BOUNDARY_TERMINOLOGY_ALIGNMENT.md`
 7. **Execution models**
    - Workspace cognition: `execution/STE-Cognitive-Execution-Model.md`
@@ -46,8 +46,8 @@ path depends on it.
 10. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
 11. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
 12. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
-13. **ADR doctrine:** `adr/README.md`, `adr/ARCHITECTURE_BOUNDARY_DECISION.md`
-14. **Repository README contract:** `adr/ADR-036-repository-readme-contract.md`, `architecture/STE-Repository-README-Checklist.md`
+13. **ADR doctrine:** `adrs/published/README.md`, `adrs/published/ARCHITECTURE_BOUNDARY_DECISION.md`
+14. **Repository README contract:** `adrs/published/ADR-036-repository-readme-contract.md`, `architecture/STE-Repository-README-Checklist.md`
 15. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
 16. **Governance / security:** `governance/`, `SECURITY.md`
 17. **Internal non-public notes:** `internal/` (informative only; not part of the public canonical specification surface)
@@ -56,15 +56,15 @@ path depends on it.
 
 - `contracts/` - normative serialized contract shape
 - `invariants/` - normative rules and semantic constraints
-- `adr/` - architectural decisions and rationale
+- `adrs/published/` - architectural decisions and rationale
 - `architecture/`, `execution/`, `governance/` - generally orientation and
   viewpoint material, except explicitly named accepted supporting-doctrine files
 
 For the Spine tranche:
 
-- `adr/ADR-040-ste-spine-lifecycle-and-authority.md` is the canonical Spine
+- `adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md` is the canonical Spine
   lifecycle and authority-transition definition
-- `adr/ADR-038-artifact-classification-and-versioning.md` is the canonical
+- `adrs/published/ADR-038-artifact-classification-and-versioning.md` is the canonical
   artifact taxonomy and versioning posture authority
 - `architecture/STE-Spine-Lifecycle.md`,
   `architecture/STE-Spine-Authority.md`,
@@ -117,14 +117,14 @@ artifact class. Regenerate and validate it with
 
 # 6. Handoff ADR Surfaces
 
-- `adr/ADR-030-contract-authority-in-ste-spec.md`
-- `adr/ADR-031-runtime-kernel-responsibility-boundary.md`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
-- `adr/ADR-033-closed-object-discipline.md`
-- `adr/ADR-034-rule-projection-envelope-authority.md` (proposed; envelope authority)
-- `adr/ADR-035-architecture-ir-ontology-authority.md`
-- `adr/ADR-036-repository-readme-contract.md`
-- `adr/ADR-040-ste-spine-lifecycle-and-authority.md`
+- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
+- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-033-closed-object-discipline.md`
+- `adrs/published/ADR-034-rule-projection-envelope-authority.md` (proposed; envelope authority)
+- `adrs/published/ADR-035-architecture-ir-ontology-authority.md`
+- `adrs/published/ADR-036-repository-readme-contract.md`
+- `adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`
 
 # 7. Orientation Surfaces
 
@@ -171,6 +171,6 @@ When the runtime/kernel handoff changes, update:
 
 1. `contracts/` for shape
 2. `invariants/` for rules
-3. `adr/` for rationale
+3. `adrs/published/` for rationale
 4. `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, and `contracts/README.md` when boundaries shift
 5. orientation surfaces only as needed for navigation

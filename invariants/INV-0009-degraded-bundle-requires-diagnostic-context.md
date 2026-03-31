@@ -16,4 +16,4 @@ Empty diagnostics are reserved for cases where no degradative context applies.
 ## Related Artifacts
 
 - `contracts/architecture-evidence.schema.json`
-- `adr/ADR-032-fail-closed-enforcement-model.md`
+- `adrs/published/ADR-032-fail-closed-enforcement-model.md`

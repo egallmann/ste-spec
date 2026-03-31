@@ -21,13 +21,13 @@ Primary source set for this extraction:
 - [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
 - [`STE-Integration-Model.md`](./STE-Integration-Model.md)
 - [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md)
-- [`../adr/ADR-030-contract-authority-in-ste-spec.md`](../adr/ADR-030-contract-authority-in-ste-spec.md)
-- [`../adr/ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md)
-- [`../adr/ADR-032-fail-closed-enforcement-model.md`](../adr/ADR-032-fail-closed-enforcement-model.md)
-- [`../adr/ADR-033-closed-object-discipline.md`](../adr/ADR-033-closed-object-discipline.md)
-- [`../adr/ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
-- [`../adr/ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
-- [`../adr/ADR-039-structured-diagram-format-mermaid.md`](../adr/ADR-039-structured-diagram-format-mermaid.md)
+- [`../adrs/published/ADR-030-contract-authority-in-ste-spec.md`](../adrs/published/ADR-030-contract-authority-in-ste-spec.md)
+- [`../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md)
+- [`../adrs/published/ADR-032-fail-closed-enforcement-model.md`](../adrs/published/ADR-032-fail-closed-enforcement-model.md)
+- [`../adrs/published/ADR-033-closed-object-discipline.md`](../adrs/published/ADR-033-closed-object-discipline.md)
+- [`../adrs/published/ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
+- [`../adrs/published/ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
+- [`../adrs/published/ADR-039-structured-diagram-format-mermaid.md`](../adrs/published/ADR-039-structured-diagram-format-mermaid.md)
 - [`../invariants/INV-0001-runtime-evidence-factual-only.md`](../invariants/INV-0001-runtime-evidence-factual-only.md)
 - [`../invariants/INV-0002-kernel-final-admission-authority.md`](../invariants/INV-0002-kernel-final-admission-authority.md)
 
@@ -56,11 +56,11 @@ new authority above accepted doctrine.
 
 - Normative intent and authority surfaces are declared in
   [`STE-Manifest.md`](./STE-Manifest.md),
-  [`ADR-030-contract-authority-in-ste-spec.md`](../adr/ADR-030-contract-authority-in-ste-spec.md),
+  [`ADR-030-contract-authority-in-ste-spec.md`](../adrs/published/ADR-030-contract-authority-in-ste-spec.md),
   and
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md).
 - Implementation and proof logic are defined as artifact classes in
-  [`ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
+  [`ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
   and
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md).
 - Publication surfaces and integration inputs are defined in
@@ -68,7 +68,7 @@ new authority above accepted doctrine.
 - IR compilation, IR validation, and admission evaluation are defined in
   [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md).
 - Runtime evidence production is defined in
-  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md),
+  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md),
   [`../invariants/INV-0001-runtime-evidence-factual-only.md`](../invariants/INV-0001-runtime-evidence-factual-only.md),
   and
   [`STE-Integration-Model.md`](./STE-Integration-Model.md).
@@ -105,7 +105,7 @@ and
 ### Explicitly stated in doctrine
 
 Canonical artifact classes are defined by
-[`ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
+[`ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
 and
 [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md):
 
@@ -123,13 +123,13 @@ and
 - Publication is not a top-level artifact class in accepted doctrine. It is an
   exception posture or lifecycle role applied to some derived or contract-backed
   outputs in
-  [`ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md),
+  [`ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md),
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md),
   and
   [`STE-Integration-Model.md`](./STE-Integration-Model.md).
 - Projection is not a top-level artifact class in accepted doctrine. It is a
   derived representational posture defined in
-  [`ADR-039-structured-diagram-format-mermaid.md`](../adr/ADR-039-structured-diagram-format-mermaid.md)
+  [`ADR-039-structured-diagram-format-mermaid.md`](../adrs/published/ADR-039-structured-diagram-format-mermaid.md)
   and
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md).
 
@@ -138,16 +138,16 @@ and
 ### Explicitly stated in doctrine
 
 - Contract authority in `ste-spec`:
-  [`ADR-030-contract-authority-in-ste-spec.md`](../adr/ADR-030-contract-authority-in-ste-spec.md)
+  [`ADR-030-contract-authority-in-ste-spec.md`](../adrs/published/ADR-030-contract-authority-in-ste-spec.md)
 - Runtime evidence versus kernel admission authority:
-  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md)
+  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md)
 - Fail-closed enforcement at the kernel boundary:
-  [`ADR-032-fail-closed-enforcement-model.md`](../adr/ADR-032-fail-closed-enforcement-model.md)
+  [`ADR-032-fail-closed-enforcement-model.md`](../adrs/published/ADR-032-fail-closed-enforcement-model.md)
 - Architecture IR semantic authority in `ste-spec` with mechanical compiled IR
   authority referenced to `ste-kernel`:
-  [`ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
+  [`ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
 - Artifact authority versus versioning posture:
-  [`ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
+  [`ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
 - Runtime evidence is factual only:
   [`../invariants/INV-0001-runtime-evidence-factual-only.md`](../invariants/INV-0001-runtime-evidence-factual-only.md)
 - Kernel is final caller-facing admission authority:
@@ -177,9 +177,9 @@ and the accepted ADR and invariant set above.
 ### Explicitly stated in doctrine
 
 - `ste-runtime` is an evidence producer only:
-  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md)
+  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md)
 - `ste-kernel` is the caller-facing admission authority:
-  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md),
+  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md),
   [`../invariants/INV-0002-kernel-final-admission-authority.md`](../invariants/INV-0002-kernel-final-admission-authority.md)
 - `ste-kernel` is the sole integration orchestrator for merge, IR validation,
   and admission evaluation at the boundary:
@@ -196,7 +196,7 @@ The Spine boundary between runtime and kernel is:
 - kernel loads, compiles, validates, projects, and decides
 
 That reconstruction is directly consistent across
-[`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md),
+[`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md),
 [`STE-Integration-Model.md`](./STE-Integration-Model.md),
 and
 [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md).
@@ -208,7 +208,7 @@ and
 - Evidence is factual only and excludes caller-facing decision semantics:
   [`../invariants/INV-0001-runtime-evidence-factual-only.md`](../invariants/INV-0001-runtime-evidence-factual-only.md)
 - Kernel alone emits `KernelAdmissionAssessment`:
-  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adr/ADR-031-runtime-kernel-responsibility-boundary.md),
+  [`ADR-031-runtime-kernel-responsibility-boundary.md`](../adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md),
   [`../invariants/INV-0002-kernel-final-admission-authority.md`](../invariants/INV-0002-kernel-final-admission-authority.md)
 - Evidence informs freshness and bundle health projection but must not carry
   admission semantics:
@@ -279,7 +279,7 @@ rather than one Spine definition.
 ### Explicitly stated in doctrine
 
 - Architecture IR semantics are canonical in `ste-spec`:
-  [`ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
+  [`ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
 - Architecture IR is the single conceptual graph that authoritative ADR
   material, implementation attribution, and runtime observations compile into:
   [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
@@ -304,7 +304,7 @@ It is not identical to any single compiled document instance.
   [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md)
 - Mechanical schema, merge order, identity, and compiled enums remain referenced
   to `ste-kernel`:
-  [`ADR-035-architecture-ir-ontology-authority.md`](../adr/ADR-035-architecture-ir-ontology-authority.md)
+  [`ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
 - Compiled IR is derived integration-state:
   [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
 
@@ -323,7 +323,7 @@ Compiled IR occupies the integration and admission segment of the Spine. It is:
 - Reports are summaries, diffs, assessments, and other analysis outputs:
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md)
 - Reports are non-authoritative and not routinely versioned:
-  [`ADR-038-artifact-classification-and-versioning.md`](../adr/ADR-038-artifact-classification-and-versioning.md)
+  [`ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md)
 - Reviews and validation outputs are governance inputs inside the Architecture
   IR control loop:
   [`STE-Architecture-Intermediate-Representation.md`](./STE-Architecture-Intermediate-Representation.md)
@@ -340,9 +340,9 @@ normative authority.
 
 - Canonical diagrams are structured projection artifacts and representational
   views only:
-  [`ADR-039-structured-diagram-format-mermaid.md`](../adr/ADR-039-structured-diagram-format-mermaid.md)
+  [`ADR-039-structured-diagram-format-mermaid.md`](../adrs/published/ADR-039-structured-diagram-format-mermaid.md)
 - Projections are derived artifacts, not authoritative architecture intent:
-  [`ADR-039-structured-diagram-format-mermaid.md`](../adr/ADR-039-structured-diagram-format-mermaid.md),
+  [`ADR-039-structured-diagram-format-mermaid.md`](../adrs/published/ADR-039-structured-diagram-format-mermaid.md),
   [`STE-Artifact-Classification-and-Versioning.md`](./STE-Artifact-Classification-and-Versioning.md)
 
 ### Reconstructed from multiple accepted sources
@@ -395,4 +395,4 @@ authority-transition model explicit. ADR-040 now fills that role.
 - [`STE-Spine-Authority.md`](./STE-Spine-Authority.md)
 - [`STE-Spine-Artifact-Mapping.md`](./STE-Spine-Artifact-Mapping.md)
 - [`STE-Spine-State-Model.md`](./STE-Spine-State-Model.md)
-- [`../adr/ADR-040-ste-spine-lifecycle-and-authority.md`](../adr/ADR-040-ste-spine-lifecycle-and-authority.md)
+- [`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)

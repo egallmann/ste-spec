@@ -1,0 +1,79 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0024
+title: Cross-Component Contracts and Execution Eligibility Interface
+status: accepted
+created_date: '2025-12-23'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- gateway
+- runtime
+tags:
+- contracts
+- context-bundle
+context: |
+  Gateway is a pure validator over a complete Context Bundle; Runtime (with ADF-produced
+  artifacts) supplies completeness. Requests use references and integrity bindings; responses
+  are structured with stable reason codes. Execution blocks synchronously until ALLOW.
+
+  Legacy: `adrs/published/ADR-024-cross-component-contracts.md`.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1009** shapes
+  kernel-facing decision vocabulary; this ADR defines **Runtime–Gateway** eligibility
+  envelopes and reason-code stability for the STE system model.
+related_adrs:
+- ADR-L-0019
+- ADR-L-0022
+- ADR-L-0023
+- ADR-L-0025
+- ADR-L-0027
+- ADR-L-1009
+decisions:
+- id: DEC-2401
+  summary: Gateway MUST NOT modify, enrich, infer, or complete eligibility requests; incomplete input fails closed
+  rationale: |
+    Preserves deterministic evaluation and audit reconstruction from submitted bundles alone.
+  consequences:
+    positive:
+    - Reproducible eligibility decisions
+    negative:
+    - Callers must supply complete envelopes
+- id: DEC-2402
+  summary: Runtime or Runtime-plus-ADF constructs the complete Context Bundle; Gateway resolves references from authoritative stores and verifies independently
+  rationale: |
+    Separates construction from verification and prevents blind trust in upstream validation summaries.
+  consequences:
+    positive:
+    - Independent verification at the boundary
+    negative:
+    - Duplicate verification work at Gateway
+- id: DEC-2403
+  summary: Require structured eligibility responses with ALLOW, DENY, or INDETERMINATE; map INDETERMINATE to denial for execution; use stable reason codes
+  rationale: |
+    Enables machine-actionable handling and aligns with normalized outcomes (ADR-L-0023).
+  consequences:
+    positive:
+    - Deterministic client behavior
+    negative:
+    - Reason-code taxonomy must evolve carefully
+invariants:
+- id: INV-2401
+  statement: |
+    Execution MUST NOT begin until Gateway returns ALLOW; optimistic or asynchronous
+    eligibility patterns that proceed before ALLOW are forbidden for authoritative execution.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Prevents time-of-check to time-of-use gaps.
+  upheld_by_decisions:
+  - DEC-2403
+gaps:
+- id: GAP-2401
+  question: Transport and serialization formats remain implementation-specific if contract semantics are preserved
+  impact: low
+  blocking: false

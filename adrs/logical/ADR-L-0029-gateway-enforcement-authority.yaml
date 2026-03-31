@@ -1,0 +1,73 @@
+schema_version: '1.0'
+adr_type: logical
+id: ADR-L-0029
+title: Gateway Enforcement Authority
+status: accepted
+created_date: '2025-12-30'
+modified_date: '2026-03-29'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- gateway
+- governance
+tags:
+- enforcement
+- authority
+context: |
+  Gateway holds Enforcement Authority: verify ORG-signed material, consult trust registry,
+  evaluate eligibility prerequisites, emit ephemeral unsigned decisions. It is distinct
+  from ORG attestation authority which signs durable canonical artifacts.
+
+  Legacy: `adrs/published/ADR-029-gateway-enforcement-authority.md`.
+
+  **Reconciliation vs ADR-L-0019:** **merge** — ADR-L-0019 states ORG-scoped enforcement
+  without ORG attestation; this ADR names the **Enforcement Authority** kind explicitly for
+  trust-registry and specification alignment.
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel admission models
+  remain documentation-state focused; this ADR names the **production Gateway** authority
+  slice for STE eligibility.
+related_adrs:
+- ADR-L-0019
+- ADR-L-0028
+- ADR-L-1002
+- ADR-L-1009
+decisions:
+- id: DEC-2901
+  summary: Define Enforcement Authority as Gateway-specific verification and eligibility enforcement without canonical publishing or trust-registry mutation
+  rationale: |
+    Removes contradiction between ORG signing requirements and Gateway verifier role.
+  consequences:
+    positive:
+    - Clear trust-registry schema direction
+    negative:
+    - Implementations must not label Gateway keys as ORG signing keys
+- id: DEC-2902
+  summary: Keep eligibility outcomes ephemeral and unsigned while retaining audit logs tied to signed inputs
+  rationale: |
+    Avoids false equivalence between point-in-time enforcement and durable canonical truth.
+  consequences:
+    positive:
+    - Smaller long-lived signing surface
+    negative:
+    - Consumers cannot treat decisions as standalone attestations
+invariants:
+- id: INV-2901
+  statement: |
+    Gateway MUST NOT be modeled as holding ORG attestation authority to sign canonical
+    artifacts or Fabric Attestations; its authority is limited to verification and
+    enforcement per ADR-L-0019 and ADR-L-0028.
+  scope: global
+  enforcement_level: must
+  enforcement_mechanism: policy
+  verification_method: audit
+  rationale: |
+    Preserves authority scarcity for canonical publishers.
+  upheld_by_decisions:
+  - DEC-2901
+gaps:
+- id: GAP-2901
+  question: Align specification section references (e.g. §6.1.5) with handbook and ISO-42010 views
+  impact: low
+  blocking: false
