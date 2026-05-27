@@ -34,6 +34,14 @@ artifacts fit into a fictional team thread, read
 | `governance-decision-record/README.md` | Minimum **decision row** semantics (references **projection**; distinct artifact family) |
 | `governance-decision-record/decision-record.schema.json` | **Draft** JSON Schema for append-only / CI replay rows |
 
+### Draft / pre-normative (runtime derived surfaces)
+
+| Artifact | Purpose |
+|----------|---------|
+| `workspace-graph/README.md` | Draft docs-only classification for runtime-owned workspace graph slices, merged workspace graph output, and workspace graph index posture |
+| `projection-metadata/README.md` | Draft docs-only classification for deterministic multi-resolution projection metadata |
+| `implementation-attribution-evidence/README.md` | Draft handoff notes for implementation attribution evidence; current schema authority remains in `adr-architecture-kit` |
+
 Promotion path: ADR + update this table +
 `invariants/STE-Cross-Component-Contract-Invariants.md` when the envelope
 becomes normative.
