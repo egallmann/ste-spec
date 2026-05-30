@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/context-domain/context-domain-bundle.schema.json",
+  "title": "ContextDomainBundle (DRAFT)",
+  "description": "Draft materialized candidate bundle for a Context Domain Definition. Pre-normative; runtime bundles remain factual/candidate surfaces and must not carry caller-facing admission.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "definition_ref",
+    "task_ref",
+    "ir_snapshot_ref",
+    "graph_snapshot_refs",
+    "linkage_surface_refs",
+    "selected_entities",
+    "selected_relationships",
+    "selected_evidence",
+    "selected_constraints",
+    "provenance",
+    "integrity",
+    "validation_status",
+    "candidate_status",
+    "inclusion_rationale",
+    "exclusion_rationale",
+    "freshness",
+    "negative_space",
+    "bundle_boundary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "bundle_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "definition_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "task_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "ir_snapshot_ref": {
+      "$ref": "#/$defs/refWithHash"
+    },
+    "graph_snapshot_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/refWithHash"
+      }
+    },
+    "linkage_surface_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/refWithHash"
+      }
+    },
+    "selected_entities": {
+      "$ref": "#/$defs/refArray"
+    },
+    "selected_relationships": {
+      "$ref": "#/$defs/refArray"
+    },
+    "selected_evidence": {
+      "$ref": "#/$defs/refArray"
+    },
+    "selected_constraints": {
+      "$ref": "#/$defs/refArray"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "integrity": {
+      "$ref": "#/$defs/integrity"
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": ["valid", "degraded", "invalid", "not_evaluated"]
+    },
+    "candidate_status": {
+      "type": "string",
+      "enum": ["candidate", "candidate_degraded", "candidate_excluded", "candidate_blocked"]
+    },
+    "inclusion_rationale": {
+      "$ref": "#/$defs/rationaleArray"
+    },
+    "exclusion_rationale": {
+      "$ref": "#/$defs/rationaleArray"
+    },
+    "freshness": {
+      "$ref": "#/$defs/freshness"
+    },
+    "negative_space": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/negativeSpace"
+      }
+    },
+    "bundle_boundary": {
+      "type": "string",
+      "enum": ["materialized_derived_candidate_not_admission"]
+    }
+  },
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._:/-]*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "refWithHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "snapshot_hash": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "refArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_ref", "source_kind"],
+      "properties": {
+        "source_ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "source_kind": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_hash"],
+      "properties": {
+        "content_hash": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["current", "stale-unknown", "stale-confirmed"]
+        },
+        "observed_at": {
+          "type": "string"
+        }
+      }
+    },
+    "rationaleArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rationale"
+      }
+    },
+    "rationale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reason", "selector_path"],
+      "properties": {
+        "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "selector_path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "persona_ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "task_ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "policy_ref": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "negativeSpace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "reason"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  }
+}

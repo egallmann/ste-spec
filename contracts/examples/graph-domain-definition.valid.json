@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1.0",
+  "id": "architecture-intent-graph",
+  "version": "0.1.0",
+  "status": "experimental",
+  "title": "Architecture intent graph",
+  "description": "Derived graph surface for architecture intent relationships.",
+  "graph_posture": "architecture_ir",
+  "source_contract_refs": [
+    {
+      "id": "contracts/architecture-ir/architecture-ir.schema.json",
+      "version": "0.1.0"
+    }
+  ],
+  "source_snapshot_requirements": [
+    "compiled_ir_document"
+  ],
+  "selectors": [
+    {
+      "id": "decisions-and-invariants",
+      "selector_kind": "entity_kind",
+      "expression": "decision,invariant",
+      "rationale": "Intent review requires decision and invariant relationships."
+    }
+  ],
+  "topology_metric_requirements": [
+    "node_count",
+    "edge_count",
+    "branching_factor",
+    "convergence_score"
+  ],
+  "provenance_requirements": [
+    "source_ref",
+    "source_kind"
+  ],
+  "integrity_requirements": [
+    "content_hash"
+  ],
+  "freshness_requirements": [
+    "status"
+  ],
+  "partial_state_policy": "allow_degraded_with_diagnostics",
+  "materialization_status": "deferred",
+  "authority_rule": "derived_graph_not_authority",
+  "notes": "Draft example for MVC evolution."
+}
