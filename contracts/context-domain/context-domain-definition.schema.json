@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/context-domain/context-domain-definition.schema.json",
+  "title": "ContextDomainDefinition (DRAFT)",
+  "description": "Draft semantic view definition for a reusable context domain. Pre-normative; $id stability is not guaranteed until promoted by ste-spec ADR.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "status",
+    "architectural_reality_scope",
+    "domain_class",
+    "authority_requirements",
+    "graph_domain_refs",
+    "linkage_surface_requirements",
+    "ir_selectors",
+    "traversal_hints",
+    "projection_hints",
+    "admission_requirements",
+    "ablation_metadata",
+    "definition_boundary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "experimental", "deprecated"]
+    },
+    "title": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "description": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "architectural_reality_scope": {
+      "type": "string",
+      "enum": ["declared_architectural_scope_only"]
+    },
+    "domain_class": {
+      "type": "string",
+      "enum": [
+        "intent",
+        "decision",
+        "embodiment",
+        "infrastructure",
+        "governance",
+        "security",
+        "runtime",
+        "evidence",
+        "organization",
+        "task",
+        "custom"
+      ]
+    },
+    "authority_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "graph_domain_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      },
+      "minItems": 1
+    },
+    "linkage_surface_requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      }
+    },
+    "ir_selectors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/selector"
+      },
+      "minItems": 1
+    },
+    "traversal_hints": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "projection_hints": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "admission_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "ablation_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ablation_unit"],
+      "properties": {
+        "ablation_unit": {
+          "type": "boolean"
+        },
+        "expected_loss_signal": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "definition_boundary": {
+      "type": "string",
+      "enum": ["definition_not_materialized_bundle"]
+    }
+  },
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._/-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "selector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "selector_kind", "expression"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "selector_kind": {
+          "type": "string",
+          "enum": ["entity_kind", "relationship_type", "scope", "linkage_family", "custom"]
+        },
+        "expression": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "rationale": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    }
+  }
+}

@@ -34,6 +34,58 @@ The **compiled, merged Architecture IR** and its envelope (`Compiled_IR_Document
 
 The **canonical machine-oriented architecture model** STE uses to name entities, relationships, provenance, lifecycle, completeness, governance, evidence, gaps, reviews, overrides, remediation, and the **Architecture Index**. The **semantic** specification lives in [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md). **`Compiled_IR_Document`** is the **mechanical** realization at a pinned `ir_version` and **MAY** encode only a subset of semantic types directly; see that document’s **Realization** section.
 
+For MVC evolution work, Architecture IR is also described as an externalized,
+evolving model of architectural reality composed of explanatory relationships:
+why this, why not this, how this, what never this, what always this, and how
+this fits to other. This framing clarifies that Architecture IR is not merely a
+document index or artifact accumulator. It does not move authority into derived
+graph surfaces.
+
+### Architectural Reality
+
+The scoped architectural entities, relationships, constraints, decisions,
+invariants, contracts, embodiment records, operational evidence, and other
+modeled domains admitted into the architecture substrate for a declared scope.
+STE does not claim to reconstruct all reality; MVC and RSS operate on modeled
+architectural reality only.
+
+### Graph Domain Definition
+
+A declarative view/materialization contract over Architecture IR or derived
+runtime/workspace graph sources. It defines graph posture, source classes,
+selectors, topology metrics, provenance requirements, freshness requirements,
+integrity constraints, and materialization boundaries.
+
+### Graph Domain
+
+A materialized graph surface produced from a Graph Domain Definition and source
+snapshots. Graph Domains are derived state. They may support exploration,
+traversal, MVC assembly, topology analysis, and discovery, but they do not
+create architectural authority.
+
+### Linkage Surface
+
+A materialized set of cross-domain relationships available for traversal and
+MVC assembly. A Linkage Surface does not prescribe how relationships were
+discovered; relationship records may come from explicit schema references,
+embodiment declarations, contract mappings, validator outputs, compiler outputs,
+manual mappings, or future extraction mechanisms. Linkage improves
+discoverability but does not automatically establish truth.
+
+### Context Domain Definition
+
+A semantic view definition over Architecture IR and referenced Graph Domain
+Definitions. It defines what kind of architectural reality is needed, why it is
+needed, and under what authority, provenance, integrity, traversal, projection,
+and admission constraints. It is declarative and is not a materialized bundle.
+
+### Context Domain Bundle
+
+A materialized instance of a Context Domain Definition for a task, IR snapshot,
+graph snapshot, selector version, and policy version. A Context Domain Bundle is
+derived material and must carry provenance, integrity, freshness, inclusion
+rationale, exclusion rationale, and negative-space signals.
+
 ### Architecture Index
 
 A **time-bounded snapshot** of architecture **system state**: entity and relationship registries, unresolved gaps, validation summary, source coverage, and stable registry locations. Distinct from **`Compiled_IR_Document`**, which is integration-state for kernel merge and admission; the two **MAY** overlap but **MUST NOT** be conflated as identical authority.
@@ -216,6 +268,12 @@ The protocol for bootstrapping explicit domain truth from existing artifacts. Ex
 
 Graph traversal protocol for deterministic context assembly. Starts at entry points, traverses explicit references with depth bounds, assembles Minimally Viable Context. Includes convergence validation for multi-entry traversals. Deterministic: same entry points → same traversal → same context.
 
+In MVC evolution work, RSS is framed more specifically as the structure-guided
+process that assembles MVC-S by reconstructing task-relevant architectural
+reality from explicit relationships, Graph Domains, Context Domains, Linkage
+Surfaces, task context, and Persona policies. RSS is not generic RAG, document
+retrieval, or semantic search.
+
 ### Convergence Validation
 
 Protocol for validating semantic coherence of multiple RSS entry points. Measures subgraph overlap between independent traversals. Classification: 3 of 3 converge (ideal), 2 of 3 converge (strong), <2 of 3 converge (divergence detected). Enables detection of ambiguous identifiers, stale graph structure, and Task Analysis errors.
@@ -227,6 +285,39 @@ Measurement of semantic relationship between two RSS traversal results. Calculat
 ### MVC (Minimally Viable Context)
 
 The smallest set of state needed to reason about a task. Bounded (explicit depth limits), minimal (only necessary state), deterministic (reproducible), explicit (every item justified by graph path).
+
+In MVC evolution work, MVC is a task-scoped architectural reality bundle: the
+smallest faithful representation of the portion of modeled architectural
+reality required to answer a declared question. Viable means sufficient for the
+question, not merely small.
+
+### MVC-D
+
+The declarative admissible context definition for task, Personas, task overlays,
+Context Domain Definitions, Graph Domain Definitions, Linkage Surfaces,
+traversal policy, projection policy, admission policy, and budgets. MVC-D does
+not contain materialized context.
+
+### MVC-S
+
+The candidate task-relevant architectural reality surface prior to admission.
+MVC-S is generated from MVC-D, Architecture IR, Graph Domains, Context Domains,
+Linkage Surfaces, task context, and Persona policies. RSS topology analysis
+operates against MVC-S because MVC-S represents the candidate architectural
+reality available for reasoning.
+
+### MVC-M
+
+The admitted, bounded, materialized architectural reality surface delivered to
+the reasoner, tool, or human. MVC-M is produced only after admission and must
+preserve provenance, integrity, inclusion rationale, exclusion rationale,
+freshness, and negative space.
+
+### Persona as Context Selection Policy
+
+A named role policy, not biography. A Persona definition contains required
+Context Domain requirements, optional Context Domain requirements, traversal
+objectives/preferences, projection preferences, and rationale.
 
 ### Task Analysis
 

@@ -186,8 +186,8 @@ existing authority and integration surfaces in `ste-spec`, including:
 - [`ADR-030-contract-authority-in-ste-spec.md`](ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-031-runtime-kernel-responsibility-boundary.md`](ADR-031-runtime-kernel-responsibility-boundary.md)
 - [`ADR-035-architecture-ir-ontology-authority.md`](ADR-035-architecture-ir-ontology-authority.md)
-- [`../architecture/STE-System-Components-and-Responsibilities.md`](../architecture/STE-System-Components-and-Responsibilities.md)
-- [`../architecture/STE-Integration-Model.md`](../architecture/STE-Integration-Model.md)
+- [`../../architecture/STE-System-Components-and-Responsibilities.md`](../../architecture/STE-System-Components-and-Responsibilities.md)
+- [`../../architecture/STE-Integration-Model.md`](../../architecture/STE-Integration-Model.md)
 
 Those artifacts define system authority and repository boundaries. `ADR-036`
 defines how each repository README must describe those decisions in
@@ -269,6 +269,6 @@ system boundaries and responsibilities.
 - [`ADR-030-contract-authority-in-ste-spec.md`](ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-031-runtime-kernel-responsibility-boundary.md`](ADR-031-runtime-kernel-responsibility-boundary.md)
 - [`ADR-035-architecture-ir-ontology-authority.md`](ADR-035-architecture-ir-ontology-authority.md)
-- [`../architecture/STE-System-Components-and-Responsibilities.md`](../architecture/STE-System-Components-and-Responsibilities.md)
-- [`../architecture/STE-Integration-Model.md`](../architecture/STE-Integration-Model.md)
-- [`../architecture/STE-Repository-README-Checklist.md`](../architecture/STE-Repository-README-Checklist.md)
+- [`../../architecture/STE-System-Components-and-Responsibilities.md`](../../architecture/STE-System-Components-and-Responsibilities.md)
+- [`../../architecture/STE-Integration-Model.md`](../../architecture/STE-Integration-Model.md)
+- [`../../architecture/STE-Repository-README-Checklist.md`](../../architecture/STE-Repository-README-Checklist.md)

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/persona/persona-definition.schema.json",
+  "title": "PersonaDefinition (DRAFT)",
+  "description": "Draft Persona as Context Selection Policy contract. Pre-normative; $id stability is not guaranteed until promoted by ste-spec ADR.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "persona_id",
+    "version",
+    "status",
+    "required_context_domains",
+    "optional_context_domains",
+    "traversal_preferences",
+    "projection_preferences",
+    "rationale",
+    "persona_boundary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "persona_id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "experimental", "deprecated"]
+    },
+    "title": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "required_context_domains": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contextDomainRequirement"
+      }
+    },
+    "optional_context_domains": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contextDomainRequirement"
+      }
+    },
+    "traversal_preferences": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "projection_preferences": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "rationale": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "persona_boundary": {
+      "type": "string",
+      "enum": ["context_selection_policy_not_biography"]
+    }
+  },
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._/-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "contextDomainRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context_domain_ref", "reason"],
+      "properties": {
+        "context_domain_ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "weight": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    }
+  }
+}

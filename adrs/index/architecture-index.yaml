@@ -1,7 +1,7 @@
 schema_version: '1.1'
 type: architecture_index
 architecture_namespace: ste-spec
-generated_at: '2026-03-29T05:02:07Z'
+generated_at: '2026-05-30T18:44:57Z'
 generator: adr-architecture-index
 entity_registry_path: adrs/index/entity-registry.yaml
 relationship_registry_path: adrs/index/relationship-registry.yaml
@@ -14,9 +14,9 @@ system_registry_path: adrs/index/system-registry.yaml
 validation_summary:
   hard_failures: 0
   warnings: 0
-  unresolved_entries: 39
+  unresolved_entries: 41
 source_coverage:
-  logical_adrs: 38
+  logical_adrs: 39
   physical_adrs: 0
   physical_system_adrs: 0
   physical_component_adrs: 0

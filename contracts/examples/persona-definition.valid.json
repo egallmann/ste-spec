@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "persona_id": "architect",
+  "version": "0.1.0",
+  "status": "experimental",
+  "title": "Architect",
+  "required_context_domains": [
+    {
+      "context_domain_ref": {
+        "id": "decision-context",
+        "version": "0.1.0"
+      },
+      "reason": "Architecture review requires decision rationale.",
+      "weight": 100
+    }
+  ],
+  "optional_context_domains": [],
+  "traversal_preferences": [
+    "prefer_decision_relationships"
+  ],
+  "projection_preferences": [
+    "preserve_explanatory_relationships"
+  ],
+  "rationale": "Architect persona selects context needed to reason about architectural intent and fit.",
+  "persona_boundary": "context_selection_policy_not_biography"
+}

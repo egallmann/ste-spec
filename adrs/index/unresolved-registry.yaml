@@ -457,6 +457,36 @@ unresolved:
   evidence:
   - ADR-L-0042
   - Link detailed threat and tradeoff narratives from architecture supporting docs
+- id: UGAP-ADR-L-0043-GAP-4301
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0043
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0043#GAP-4301
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0043
+  - Promote or amend this ADR after draft schemas and fixtures demonstrate deterministic
+    MVC-S construction and rationale-preserving deduplication
+- id: UGAP-ADR-L-0043-GAP-4302
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: ADR-L-0043
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: ADR-L-0043#GAP-4302
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - ADR-L-0043
+  - Decide whether Context Domain and Graph Domain terms remain external contracts
+    or later become Architecture IR semantic ontology extensions
 - id: UGAP-ADR-L-1001-GAP-5001
   gap_class: author_declared
   gap_type: author_declared_real_gap
