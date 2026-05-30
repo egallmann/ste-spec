@@ -136,7 +136,7 @@ Where accepted source doctrine uses narrower or different terminology, those
 source terms remain valid within their original documents.
 
 For the canonical visual projection and reading guide for this lifecycle, see
-[`../architecture/STE-Spine-Lifecycle.md`](../architecture/STE-Spine-Lifecycle.md).
+[`../../architecture/STE-Spine-Lifecycle.md`](../../architecture/STE-Spine-Lifecycle.md).
 That page is a non-authoritative projection subordinate to this ADR.
 
 ## Authority Model
@@ -445,11 +445,11 @@ The Spine distinguishes these change categories:
 ## Related Documents
 
 Supporting doctrine:
-- [`../architecture/STE-Spine-Extracted-Doctrine.md`](../architecture/STE-Spine-Extracted-Doctrine.md)
-- [`../architecture/STE-Spine-Lifecycle.md`](../architecture/STE-Spine-Lifecycle.md)
-- [`../architecture/STE-Spine-Authority.md`](../architecture/STE-Spine-Authority.md)
-- [`../architecture/STE-Spine-Artifact-Mapping.md`](../architecture/STE-Spine-Artifact-Mapping.md)
-- [`../architecture/STE-Spine-State-Model.md`](../architecture/STE-Spine-State-Model.md)
+- [`../../architecture/STE-Spine-Extracted-Doctrine.md`](../../architecture/STE-Spine-Extracted-Doctrine.md)
+- [`../../architecture/STE-Spine-Lifecycle.md`](../../architecture/STE-Spine-Lifecycle.md)
+- [`../../architecture/STE-Spine-Authority.md`](../../architecture/STE-Spine-Authority.md)
+- [`../../architecture/STE-Spine-Artifact-Mapping.md`](../../architecture/STE-Spine-Artifact-Mapping.md)
+- [`../../architecture/STE-Spine-State-Model.md`](../../architecture/STE-Spine-State-Model.md)
 Canonical related ADRs:
 - [`ADR-030-contract-authority-in-ste-spec.md`](./ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-031-runtime-kernel-responsibility-boundary.md`](./ADR-031-runtime-kernel-responsibility-boundary.md)

@@ -96,4 +96,4 @@ lifecycle states themselves.
 
 - [`ADR-036-repository-readme-contract.md`](ADR-036-repository-readme-contract.md)
 - [`ADR-038-artifact-classification-and-versioning.md`](ADR-038-artifact-classification-and-versioning.md)
-- [`../architecture/STE-Artifact-Classification-and-Versioning.md`](../architecture/STE-Artifact-Classification-and-Versioning.md)
+- [`../../architecture/STE-Artifact-Classification-and-Versioning.md`](../../architecture/STE-Artifact-Classification-and-Versioning.md)
