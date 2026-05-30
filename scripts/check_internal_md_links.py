@@ -44,7 +44,7 @@ def main() -> int:
                     continue
                 resolved = os.path.normpath(os.path.join(os.path.dirname(path), path_part))
                 checked += 1
-                if not os.path.isfile(resolved):
+                if not os.path.isfile(resolved) and not os.path.isdir(resolved):
                     broken.append((rel, target, "ref-def"))
 
             for m in LINK_RE.finditer(text):
@@ -58,7 +58,7 @@ def main() -> int:
                     continue
                 resolved = os.path.normpath(os.path.join(os.path.dirname(path), path_part))
                 checked += 1
-                if not os.path.isfile(resolved):
+                if not os.path.isfile(resolved) and not os.path.isdir(resolved):
                     broken.append((rel, target, "inline"))
 
     for rel, tgt, kind in sorted(broken):

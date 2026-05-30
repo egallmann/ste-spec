@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1.0",
+  "bundle_id": "bundle:decision-context:fixture",
+  "definition_ref": {
+    "id": "decision-context",
+    "version": "0.1.0"
+  },
+  "task_ref": {
+    "id": "task:mvc-evolution-fixture",
+    "version": "1"
+  },
+  "ir_snapshot_ref": {
+    "id": "compiled-ir:test",
+    "version": "0.1.0",
+    "snapshot_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "graph_snapshot_refs": [
+    {
+      "id": "architecture-intent-graph:snapshot",
+      "version": "0.1.0",
+      "snapshot_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ],
+  "linkage_surface_refs": [
+    {
+      "id": "adr-code-linkage-surface",
+      "version": "0.1.0",
+      "snapshot_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "selected_entities": [
+    {
+      "id": "decision:ADR-L-0031",
+      "version": "1"
+    }
+  ],
+  "selected_relationships": [],
+  "selected_evidence": [],
+  "selected_constraints": [],
+  "provenance": {
+    "source_ref": "fixture://mvc-evolution/context-domain-bundle",
+    "source_kind": "fixture"
+  },
+  "integrity": {
+    "content_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "validation_status": "valid",
+  "candidate_status": "candidate",
+  "inclusion_rationale": [
+    {
+      "reason": "Architect persona requires decision context.",
+      "selector_path": "persona:architect/context-domain:decision-context",
+      "persona_ref": "architect",
+      "task_ref": "task:mvc-evolution-fixture"
+    }
+  ],
+  "exclusion_rationale": [],
+  "freshness": {
+    "status": "current",
+    "observed_at": "2026-05-30T00:00:00.000Z"
+  },
+  "negative_space": [],
+  "bundle_boundary": "materialized_derived_candidate_not_admission"
+}

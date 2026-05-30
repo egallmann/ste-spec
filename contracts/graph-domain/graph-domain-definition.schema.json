@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/egallmann/ste-spec/contracts/graph-domain/graph-domain-definition.schema.json",
+  "title": "GraphDomainDefinition (DRAFT)",
+  "description": "Draft declarative view/materialization contract for derived graph domains used by MVC evolution experiments. Pre-normative; $id stability is not guaranteed until promoted by ste-spec ADR.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "status",
+    "graph_posture",
+    "source_contract_refs",
+    "source_snapshot_requirements",
+    "selectors",
+    "topology_metric_requirements",
+    "provenance_requirements",
+    "integrity_requirements",
+    "freshness_requirements",
+    "partial_state_policy",
+    "materialization_status",
+    "authority_rule"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "$ref": "#/$defs/stableId"
+    },
+    "version": {
+      "$ref": "#/$defs/semver"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "experimental", "deprecated"]
+    },
+    "title": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "description": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "graph_posture": {
+      "type": "string",
+      "enum": [
+        "architecture_ir",
+        "runtime_graph",
+        "workspace_graph",
+        "projection_view"
+      ]
+    },
+    "source_contract_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "source_snapshot_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "selectors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/selector"
+      },
+      "minItems": 1
+    },
+    "topology_metric_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "provenance_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "integrity_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "freshness_requirements": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "partial_state_policy": {
+      "type": "string",
+      "enum": ["fail_closed", "allow_degraded_with_diagnostics", "experimental_warn"]
+    },
+    "materialization_status": {
+      "type": "string",
+      "enum": ["deferred", "draft", "active"]
+    },
+    "authority_rule": {
+      "type": "string",
+      "enum": ["derived_graph_not_authority"]
+    },
+    "notes": {
+      "$ref": "#/$defs/nonEmptyString"
+    }
+  },
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._/-]*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "selector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "selector_kind", "expression"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "selector_kind": {
+          "type": "string",
+          "enum": ["entity_kind", "relationship_type", "tag", "scope", "custom"]
+        },
+        "expression": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "rationale": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    }
+  }
+}

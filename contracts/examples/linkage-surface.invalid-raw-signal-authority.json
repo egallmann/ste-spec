@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1.0",
+  "id": "ticket-linkage-surface",
+  "version": "0.1.0",
+  "status": "experimental",
+  "source_snapshot_refs": [
+    {
+      "id": "ticket:123",
+      "version": "1"
+    }
+  ],
+  "relationship_records": [
+    {
+      "id": "ticket-as-authority",
+      "relationship_family": "adr_to_code",
+      "from_ref": {
+        "id": "ticket:123",
+        "version": "1"
+      },
+      "to_ref": {
+        "id": "code:component",
+        "version": "1"
+      },
+      "relationship_origin": "ticket",
+      "producer_ref": "ticket-system",
+      "producer_kind": "other",
+      "generation_method": "raw_ticket_index",
+      "provenance": {
+        "source_ref": "ticket://123",
+        "source_kind": "ticket"
+      },
+      "integrity": {
+        "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "provenance": {
+    "source_ref": "ticket://123",
+    "source_kind": "ticket"
+  },
+  "integrity": {
+    "content_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "freshness": {
+    "status": "current"
+  },
+  "negative_space": []
+}

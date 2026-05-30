@@ -42,6 +42,24 @@ artifacts fit into a fictional team thread, read
 | `projection-metadata/README.md` | Draft docs-only classification for deterministic multi-resolution projection metadata |
 | `implementation-attribution-evidence/README.md` | Draft handoff notes for implementation attribution evidence; current schema authority remains in `adr-architecture-kit` |
 
+### Draft / pre-normative (MVC evolution)
+
+| Artifact | Purpose |
+|----------|---------|
+| `graph-domain/README.md` | Draft classification for Graph Domain Definition boundaries; graph domains are derived surfaces and do not create authority |
+| `graph-domain/graph-domain-definition.schema.json` | **Draft** schema sketch for declarative graph-domain view/materialization contracts |
+| `linkage-surface/README.md` | Draft classification for materialized cross-domain linkage surfaces consumed by RSS/MVC assembly |
+| `linkage-surface/linkage-surface.schema.json` | **Draft** schema sketch for materialized cross-domain relationship surfaces, independent of generation strategy |
+| `context-domain/README.md` | Draft classification for Context Domain Definition vs Context Domain Bundle boundaries |
+| `context-domain/context-domain-definition.schema.json` | **Draft** schema sketch for semantic context-domain view definitions |
+| `context-domain/context-domain-bundle.schema.json` | **Draft** schema sketch for materialized candidate context-domain bundles |
+| `persona/README.md` | Draft classification for Persona as Context Selection Policy |
+| `persona/persona-definition.schema.json` | **Draft** schema sketch for persona context-selection policy |
+| `mvc/README.md` | Draft classification for MVC-D, MVC-S, and MVC-M boundaries |
+| `mvc/mvc-definition.schema.json` | **Draft** schema sketch for MVC-D declarative context definitions |
+| `mvc/mvc-snapshot.schema.json` | **Draft** schema sketch for MVC-S candidate architectural reality surfaces |
+| `mvc/mvc-materialization-result.schema.json` | **Draft** schema sketch for MVC-M admitted materialized surfaces |
+
 Promotion path: ADR + update this table +
 `invariants/STE-Cross-Component-Contract-Invariants.md` when the envelope
 becomes normative.

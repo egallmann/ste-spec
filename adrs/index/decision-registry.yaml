@@ -8,6 +8,7 @@ entities:
   summary: Fabric will use deterministic extraction only for slice generation from
     source. Extractors parse code with language-native AST tooling and detect framework
     usage through explicit rules (illustrative examples in the legac
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0001#DEC-0101
@@ -51,6 +52,7 @@ entities:
   summary: An intelligence service MAY translate natural language into structured
     queries using an LLM. The LLM sees the query (and metadata needed for translation),
     not extraction results, and translation is one-way into a structu
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0001#DEC-0102
@@ -93,6 +95,7 @@ entities:
   summary: 'Fabric MUST represent gaps explicitly so consumers can trust query results
     and prioritize extractor work. Rejected alternatives: heuristic inference (hides
     uncertainty), omitting elements (loses partial knowledge), vague'
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0006#DEC-0601
@@ -135,6 +138,7 @@ entities:
   summary: Unknowns SHOULD carry a stable category (e.g. opaque boundary, unsupported
     language, incomplete extraction, manual assertion needed) and descriptive context
     so reporting and APIs can filter and aggregate. Operational sur
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0006#DEC-0602
@@ -177,6 +181,7 @@ entities:
   summary: API endpoints use method plus normalized path; data entities prefer declared
     table or schema-qualified names; graph elements use stable source paths; integration
     clients use service or base identity; configuration uses s
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0007#DEC-0701
@@ -218,6 +223,7 @@ entities:
   name: Define normalization and collision handling for derived identities
   summary: Normalize case and punctuation; avoid duplicate hyphens; disambiguate rare
     collisions with explicit suffixes and warnings for manual review.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0007#DEC-0702
@@ -260,6 +266,7 @@ entities:
   summary: Correctness ties to deterministic extraction, provenance, and validation
     practices; runtime behavior parity and guaranteed completeness are out of scope
     for extraction truth claims.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0801
@@ -302,6 +309,7 @@ entities:
   summary: Queries are consistent within a declared version snapshot after extraction
     completes for that version; environment queries follow last completed extraction;
     cross-region reads may lag within bounded windows; no read-your
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0802
@@ -344,6 +352,7 @@ entities:
   summary: Successful files produce slices; failures are recorded with unknowns and
     diagnostics; completion signals report partial status rather than failing the
     whole repository silently.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0803
@@ -386,6 +395,7 @@ entities:
     versions
   summary: Concurrent jobs are allowed; slice versions are immutable; current pointers
     advance to the latest completed job per environment with auditable job metadata.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0804
@@ -428,6 +438,7 @@ entities:
     automatic override
   summary: Neither source automatically wins; queries can filter by provenance; conflicts
     are visible for human resolution (detailed precedence may be extended by ADR-L-0009).
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0805
@@ -469,6 +480,7 @@ entities:
   name: Multi-region active-active with bounded replication lag
   summary: Regional reads may be briefly stale; last-writer-wins applies to rare conflicts;
     acceptable for documentation-state availability trade-offs.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0008#DEC-0806
@@ -511,6 +523,7 @@ entities:
   summary: Store both sources with provenance; default queries return both; contradictions
     appear in a dedicated conflicts section; users resolve disputes—no silent automatic
     winner between extractor and human in the general case.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0009#DEC-0901
@@ -553,6 +566,7 @@ entities:
   summary: Assertions without evidence are rejected; optional `valid_until` excludes
     stale claims from default query results while preserving history when explicitly
     requested.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0009#DEC-0902
@@ -595,6 +609,7 @@ entities:
   summary: Gateway verifies signatures and enforces constraints using ORG-signed canonical
     material; it does not mint canonical artifacts, populate trust registries, or
     sign eligibility decisions as durable truth.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0019#DEC-1901
@@ -636,6 +651,7 @@ entities:
   name: Treat execution eligibility outcomes as ephemeral, unsigned enforcement results
   summary: Eligibility answers are short-lived, derived deterministically from signed
     inputs, and logged for audit without becoming canonical attestations.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0019#DEC-1902
@@ -679,6 +695,7 @@ entities:
   summary: Limits ORG keys to durable attestation surfaces; excludes eligibility decisions,
     derived graph indexes, caches, and typical Context Bundle payloads except where
     other ADRs require Human/PROJECT signing.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0020#DEC-2001
@@ -721,6 +738,7 @@ entities:
     signing
   summary: Derived and short-lived results must remain verifiable from signed inputs
     without expanding ORG signing to every computation.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0020#DEC-2002
@@ -762,6 +780,7 @@ entities:
   name: Gateway is not a Trust Registry principal and performs per-request trust verification
   summary: Avoids self-referential trust entries and ensures revocations and expirations
     are respected at evaluation time.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0021#DEC-2101
@@ -804,6 +823,7 @@ entities:
     the registry; cache cannot authorize execution
   summary: Prevents stale or offline trust from authorizing execution; read-only degraded
     modes must be explicitly non-authoritative.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0021#DEC-2102
@@ -846,6 +866,7 @@ entities:
     is incomplete, failed, or indeterminate
   summary: Partial or best-effort validation would undermine determinism and authority
     scarcity; authoritative actions require full verification.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0022#DEC-2201
@@ -887,6 +908,7 @@ entities:
   name: Prohibit bypass of fail-closed via operator override, emergency modes, environment-specific
     relaxation, or best-effort execution
   summary: Any bypass introduces implicit trust and non-deterministic enforcement.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0022#DEC-2202
@@ -928,6 +950,7 @@ entities:
   name: Allow read-only inspection under fail-closed only when outputs are explicitly
     non-authoritative and audit-logged
   summary: Operators need diagnostics without granting execution or promotion.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0022#DEC-2203
@@ -969,6 +992,7 @@ entities:
   name: Assign ADF merge-time validation to canonical promotion blocking only; Gateway
     sole execution approval; Runtime local checks advisory only
   summary: Prevents Runtime self-approval and clarifies layered enforcement.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0023#DEC-2301
@@ -1010,6 +1034,7 @@ entities:
   name: Normalize validation outcomes; treat INDETERMINATE as FAIL for execution eligibility
     and canonical promotion
   summary: Eliminates ambiguous partial success for authoritative transitions.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0023#DEC-2302
@@ -1052,6 +1077,7 @@ entities:
     allow optional preventative detection at ADF merge-time
   summary: Gateway remains the definitive enforcement boundary; ADF may fail fast
     before publication.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0023#DEC-2303
@@ -1094,6 +1120,7 @@ entities:
     incomplete input fails closed
   summary: Preserves deterministic evaluation and audit reconstruction from submitted
     bundles alone.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0024#DEC-2401
@@ -1136,6 +1163,7 @@ entities:
     resolves references from authoritative stores and verifies independently
   summary: Separates construction from verification and prevents blind trust in upstream
     validation summaries.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0024#DEC-2402
@@ -1178,6 +1206,7 @@ entities:
     map INDETERMINATE to denial for execution; use stable reason codes
   summary: Enables machine-actionable handling and aligns with normalized outcomes
     (ADR-L-0023).
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0024#DEC-2403
@@ -1220,6 +1249,7 @@ entities:
     identifiers in Fabric Attestations and Context Bundles
   summary: Prevents ambiguous canonical boundaries and cross-environment authorization
     mistakes.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0025#DEC-2501
@@ -1261,6 +1291,7 @@ entities:
   name: Enforce environment equality with exact case-sensitive string match at Gateway;
     deny on mismatch
   summary: Exact matching is falsifiable and implementation-neutral for v1.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0025#DEC-2502
@@ -1302,6 +1333,7 @@ entities:
   name: Bind environment into signed Fabric Attestation content; prohibit inference
     from infrastructure or git metadata
   summary: Stops substitution and hidden derivation of scope.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0025#DEC-2503
@@ -1344,6 +1376,7 @@ entities:
     content digests within one Fabric Attestation scope
   summary: Provides a mechanical, falsifiable conflict predicate without semantic
     theorem proving.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0026#DEC-2601
@@ -1385,6 +1418,7 @@ entities:
   name: Require signed `conflict_status` on Fabric Attestations; Gateway denies with
     INVARIANT_CONFLICT when status is detected; missing or invalid status fails closed
   summary: Keeps Gateway in verifier-only posture while enforcing PREREQ-4 outcomes.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0026#DEC-2602
@@ -1426,6 +1460,7 @@ entities:
   name: Forbid Gateway-side conflict algorithms that parse or compare invariant content
     beyond attestation verification
   summary: Prevents implementation divergence and hidden state discovery at the boundary.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0026#DEC-2603
@@ -1468,6 +1503,7 @@ entities:
     and depth limits) and require explicit semantics version per Trust Registry entry
     and Context Bundle
   summary: Prevents ambiguous or unbounded scope strings and enables safe evolution.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0027#DEC-2701
@@ -1510,6 +1546,7 @@ entities:
     and claimed scope
   summary: Minimal deterministic baseline compatible with pre-v2 artifacts when version
     omitted.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0027#DEC-2702
@@ -1551,6 +1588,7 @@ entities:
   name: For version 2, require prefix match on segment boundaries; select deepest
     matching authority; deny with SCOPE_CONFLICT on equal-depth ties
   summary: Supports delegated authority without regex or fuzzy matching.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0027#DEC-2703
@@ -1594,6 +1632,7 @@ entities:
     eligibility hot path
   summary: Prevents cache, network, and availability variance from changing eligibility
     outcomes.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0028#DEC-2801
@@ -1636,6 +1675,7 @@ entities:
     attestations from external knowledge sources during evaluation
   summary: Preserves verifier-only posture and minimal attack surface for probing
     canonical state.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0028#DEC-2802
@@ -1677,6 +1717,7 @@ entities:
   name: Prohibit Runtime from signing Fabric Attestations or overriding Fabric canonical
     claims
   summary: Keeps canonical publisher boundary singular.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0028#DEC-2803
@@ -1719,6 +1760,7 @@ entities:
     enforcement without canonical publishing or trust-registry mutation
   summary: Removes contradiction between ORG signing requirements and Gateway verifier
     role.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0029#DEC-2901
@@ -1761,6 +1803,7 @@ entities:
     tied to signed inputs
   summary: Avoids false equivalence between point-in-time enforcement and durable
     canonical truth.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0029#DEC-2902
@@ -1803,6 +1846,7 @@ entities:
     rules in `invariants/`
   summary: Single normative source for payload structure, semantic rules, and architectural
     intent at the runtime/kernel boundary.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0030#DEC-3001
@@ -1845,6 +1889,7 @@ entities:
     to ste-kernel
   summary: Keeps runtime factual and kernel authoritative without collapsing shared
     contracts into one role.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0031#DEC-3101
@@ -1887,6 +1932,7 @@ entities:
     for compilation and admission
   summary: Unsupported or semantically invalid evidence must not yield action-eligible
     admission.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0032#DEC-3201
@@ -1929,6 +1975,7 @@ entities:
     boundary
   summary: Bounded objects force explicit contract evolution and deterministic rejection
     of drift.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0033#DEC-3301
@@ -1971,6 +2018,7 @@ entities:
     from draft
   summary: Avoids collapsing integration IR admission and workspace compliance gates
     into one payload.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0034#DEC-3401
@@ -2013,6 +2061,7 @@ entities:
     without owning rule closure
   summary: Preserves signing and compilation authority on the rules-engine side for
     this family.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0034#DEC-3402
@@ -2055,6 +2104,7 @@ entities:
     schemas and pins in ste-spec contracts
   summary: Prevents conflating JSON `kind` enums with the full ontology and avoids
     duplicate schema authority in kernel repos.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0035#DEC-3501
@@ -2098,6 +2148,7 @@ entities:
     authority
   summary: Prevents repository responsibility drift while keeping normative truth
     in ADRs and contracts.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0036#DEC-3601
@@ -2139,6 +2190,7 @@ entities:
   name: Treat ste-spec README as the reference implementation pattern for ADR-L-0036
     conformance
   summary: Provides a concrete converged example after ste-spec refactor.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0037#DEC-3701
@@ -2182,6 +2234,7 @@ entities:
     per architecture doctrine
   summary: Prevents repositories from drifting on what is source truth versus regenerable
     output.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0038#DEC-3801
@@ -2223,6 +2276,7 @@ entities:
   name: Separate version-control posture from normative authority; committing generated
     artifacts does not make them authoritative
   summary: Avoids equating git presence with governance authority.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0038#DEC-3802
@@ -2263,6 +2317,7 @@ entities:
   entity_type: decision
   name: Standardize canonical ste-spec architecture diagrams on Mermaid text sources
   summary: Reduces format drift and keeps diagrams diffable and reviewable.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0039#DEC-3901
@@ -2305,6 +2360,7 @@ entities:
     Intent Update and Remediation
   summary: Provides one explicit end-to-end vocabulary referenced across ste-spec
     and consumers.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0040#DEC-4001
@@ -2347,6 +2403,7 @@ entities:
     evidence, reports, admission, governance) without transferring ownership via state
     alone
   summary: Separates who governs truth from readiness states.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0040#DEC-4002
@@ -2389,6 +2446,7 @@ entities:
     and authority transitions; ADR-L-0038 controls taxonomy and VCS posture; supporting
     `architecture/` doctrine is subordinate; analysis-only material is non-normative
   summary: Prevents accidental override via explanatory documents.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0040#DEC-4003
@@ -2431,6 +2489,7 @@ entities:
     runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record
     roles
   summary: Prevents parallel truth compilers for the same interchange contracts.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0041#DEC-4101
@@ -2472,6 +2531,7 @@ entities:
   name: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge, validation,
     and admission assessment emission to ste-kernel
   summary: Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0041#DEC-4102
@@ -2514,6 +2574,7 @@ entities:
     while allowing proprietary intelligence behind those surfaces
   summary: Enables third-party compatibility without leaking proprietary leverage
     into public contracts.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-0042#DEC-4201
@@ -2550,11 +2611,186 @@ entities:
     extraction_phase: extract_decision
     classification: explicit
     generator: adr-architecture-index
+- id: DEC-4301
+  entity_type: decision
+  name: Define Context Domain Definitions as semantic view definitions and Context
+    Domain Bundles as materialized instances
+  summary: Keeping definitions declarative prevents ontology drift and prevents materialized
+    derived surfaces from being mistaken for authority.
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4301
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0043
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0043
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4301
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4302
+  entity_type: decision
+  name: Define Graph Domain Definitions and Linkage Surfaces as derived traversal
+    inputs, not authority sources
+  summary: Graph Domains and Linkage Surfaces improve structural discovery, but the
+    authority of any relationship still comes from ADRs, invariants, contracts, requirements,
+    embodiment records, or other accepted authoritative artif
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4302
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0043
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0043
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4302
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4303
+  entity_type: decision
+  name: Split MVC into MVC-D, MVC-S, and MVC-M lifecycle contracts
+  summary: The split separates declarative admissible context definition, candidate
+    surface assembly, and kernel-admitted materialization. This preserves reproducibility
+    and prevents runtime candidate generation from becoming calle
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4303
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0043
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0043
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4303
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: DEC-4304
+  entity_type: decision
+  name: Treat Persona as Context Selection Policy rather than biography or projection-only
+    policy
+  summary: Personas select required and optional Context Domains, traversal objectives,
+    projection preferences, and rationale. Projection is only one dimension of persona
+    behavior.
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4304
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_refs: []
+  metadata:
+    adr_id: ADR-L-0043
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+  relationships:
+    declared_in:
+    - ADR-L-0043
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4304
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
 - id: DEC-6101
   entity_type: decision
   name: Define canonical requested-action verbs for kernel evaluation
   summary: Without a closed vocabulary, tools and policies cannot classify what is
     being evaluated or map outcomes deterministically.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1001#DEC-6101
@@ -2596,6 +2832,7 @@ entities:
   name: Require every admission decision to name a requested action in context
   summary: Admission without an action is undefined; context (system instance, environment,
     scope) is part of the decision input closure.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1001#DEC-6102
@@ -2637,6 +2874,7 @@ entities:
   name: Classify assess as informational for admission authority
   summary: Assessment and reporting must not be conflated with allow/deny for operational
     actions; see ste-kernel ADR-PS for the assessment pipeline boundary.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1001#DEC-6103
@@ -2677,6 +2915,7 @@ entities:
   entity_type: decision
   name: Enumerate canonical requested actions for kernel evaluation
   summary: Provides a minimal closed verb set; extensions require explicit documentation.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1001#DEC-6104
@@ -2718,6 +2957,7 @@ entities:
   name: Treat admission as evaluation of requested_action in context
   summary: Aligns all admission semantics with ADR-L-1001; forbids abstract system-only
     checks.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1002#DEC-6211
@@ -2759,6 +2999,7 @@ entities:
   name: Separate IR validation failure semantics from policy denial semantics
   summary: Preserves fail-closed boot while keeping admission outcomes honest for
     policy layers.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1002#DEC-6212
@@ -2799,6 +3040,7 @@ entities:
   entity_type: decision
   name: Define posture states experimental, governed, restricted, locked, golden
   summary: Provides a shared vocabulary for progressive assurance and promotion.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1003#DEC-6321
@@ -2839,6 +3081,7 @@ entities:
   entity_type: decision
   name: Bind posture transitions to auditable authority and evidence
   summary: Prevents silent escalation or relaxation of enforcement posture.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1003#DEC-6322
@@ -2879,6 +3122,7 @@ entities:
   entity_type: decision
   name: Define IR invalid as boot failure preventing operational kernel use
   summary: Unvalidated IR cannot be a trustworthy substrate for admission or orchestration.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1004#DEC-6431
@@ -2920,6 +3164,7 @@ entities:
   name: Map IR stale to CONDITIONAL or DENY per posture and rules
   summary: Stale declared architecture may still be structurally valid but untrustworthy
     for action.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1004#DEC-6432
@@ -2960,6 +3205,7 @@ entities:
   entity_type: decision
   name: Map evidence stale to WARNING or CONDITIONAL default bands
   summary: Evidence lag may warn or gate without necessarily invalidating IR structure.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1004#DEC-6433
@@ -3000,6 +3246,7 @@ entities:
   entity_type: decision
   name: Map evidence missing to CONDITIONAL or DENY per required evidence classes
   summary: Missing required observations cannot be treated as silent assent.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1004#DEC-6434
@@ -3040,6 +3287,7 @@ entities:
   entity_type: decision
   name: Treat IR and evidence mismatch as drift classification input
   summary: Mismatch is not resolved by picking a winner; it is classified per ADR-L-1005.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1004#DEC-6435
@@ -3080,6 +3328,7 @@ entities:
   entity_type: decision
   name: Define drift categories with default outcomes
   summary: Deterministic categorization enables explainable automation and audit.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6541
@@ -3121,6 +3370,7 @@ entities:
   name: Implementation drift defaults to CONDITIONAL or DENY for deploy/change actions
   summary: Code or config that diverges from declared architecture cannot be promoted
     blindly.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6542
@@ -3161,6 +3411,7 @@ entities:
   entity_type: decision
   name: Runtime drift defaults to WARNING or CONDITIONAL
   summary: Live behavior variance may warn first when safety allows, else gate action.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6543
@@ -3201,6 +3452,7 @@ entities:
   entity_type: decision
   name: Evidence drift defaults to WARNING or CONDITIONAL
   summary: Observation divergence should surface without pretending architecture changed.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6544
@@ -3242,6 +3494,7 @@ entities:
   name: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL
     otherwise
   summary: Unknown structure must not gain implicit authority.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6545
@@ -3282,6 +3535,7 @@ entities:
   entity_type: decision
   name: Invariant violation defaults to DENY
   summary: Broken invariants are fail-closed for actions that depend on them.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6546
@@ -3322,6 +3576,7 @@ entities:
   entity_type: decision
   name: Freshness drift defaults to CONDITIONAL or WARNING
   summary: Timeliness mismatches gate or warn per ADR-L-1004 interplay.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1005#DEC-6547
@@ -3363,6 +3618,7 @@ entities:
   name: Enumerate authoritative evidence sources by contract family
   summary: Admission must know which observations count and under what provenance
     kinds.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1006#DEC-6651
@@ -3403,6 +3659,7 @@ entities:
   entity_type: decision
   name: Contradiction yields drift or assessment output, not silent IR mutation
   summary: Preserves documentation-state authority and auditability.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1006#DEC-6652
@@ -3443,6 +3700,7 @@ entities:
   entity_type: decision
   name: Define Golden eligibility prerequisites
   summary: Golden without criteria becomes a hollow label.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1007#DEC-6761
@@ -3483,6 +3741,7 @@ entities:
   entity_type: decision
   name: Define who or what may promote to Golden
   summary: Separates governance authority from tooling automation boundaries.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1007#DEC-6762
@@ -3524,6 +3783,7 @@ entities:
   name: State implications for downstream systems and templates
   summary: Golden systems act as reference baselines for stricter inheritance or copying
     rules.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1007#DEC-6763
@@ -3564,6 +3824,7 @@ entities:
   entity_type: decision
   name: Define ALLOW, DENY, CONDITIONAL, WARNING semantics for requested_action
   summary: Shared vocabulary prevents incompatible client interpretations.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1008#DEC-6871
@@ -3604,6 +3865,7 @@ entities:
   entity_type: decision
   name: Bind execution permission to outcome and action class jointly
   summary: Some informational actions never imply execution permission changes.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1008#DEC-6872
@@ -3645,6 +3907,7 @@ entities:
   name: Require requested_action in the admission decision input closure
   summary: Admission without an action is undefined and fail-closed per invariants
     below.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1009#DEC-6981
@@ -3686,6 +3949,7 @@ entities:
   name: Enumerate decision outputs including violations, drift, remediation, explanations
   summary: Consumers need both human and structured machine narratives tied to cited
     causes.
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: ADR-L-1009#DEC-6982

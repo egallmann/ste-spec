@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1.0",
+  "id": "decision-context",
+  "version": "0.1.0",
+  "status": "experimental",
+  "architectural_reality_scope": "declared_architectural_scope_only",
+  "domain_class": "decision",
+  "authority_requirements": [
+    "accepted_adr_or_explicit_decision_record"
+  ],
+  "graph_domain_refs": [
+    {
+      "id": "architecture-intent-graph",
+      "version": "0.1.0"
+    }
+  ],
+  "linkage_surface_requirements": [],
+  "ir_selectors": [
+    {
+      "id": "decision-selector",
+      "selector_kind": "entity_kind",
+      "expression": "decision"
+    }
+  ],
+  "traversal_hints": [
+    "follow_decision_relationships"
+  ],
+  "projection_hints": [
+    "preserve_rationale"
+  ],
+  "admission_requirements": [
+    "kernel_admission_required"
+  ],
+  "ablation_metadata": {
+    "ablation_unit": true
+  },
+  "definition_boundary": "definition_not_materialized_bundle",
+  "selected_entities": [
+    {
+      "id": "decision:ADR-L-0031",
+      "version": "1"
+    }
+  ]
+}

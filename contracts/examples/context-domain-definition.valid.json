@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1.0",
+  "id": "decision-context",
+  "version": "0.1.0",
+  "status": "experimental",
+  "title": "Decision context",
+  "description": "Semantic view definition for decision and rationale context.",
+  "architectural_reality_scope": "declared_architectural_scope_only",
+  "domain_class": "decision",
+  "authority_requirements": [
+    "accepted_adr_or_explicit_decision_record"
+  ],
+  "graph_domain_refs": [
+    {
+      "id": "architecture-intent-graph",
+      "version": "0.1.0"
+    }
+  ],
+  "linkage_surface_requirements": [
+    {
+      "id": "adr-code-linkage-surface",
+      "version": "0.1.0"
+    }
+  ],
+  "ir_selectors": [
+    {
+      "id": "decision-selector",
+      "selector_kind": "entity_kind",
+      "expression": "decision",
+      "rationale": "Decision context starts from Architecture IR decision entities."
+    }
+  ],
+  "traversal_hints": [
+    "follow_decision_relationships"
+  ],
+  "projection_hints": [
+    "preserve_rationale"
+  ],
+  "admission_requirements": [
+    "kernel_admission_required"
+  ],
+  "ablation_metadata": {
+    "ablation_unit": true,
+    "expected_loss_signal": "decision rationale coverage decreases"
+  },
+  "definition_boundary": "definition_not_materialized_bundle"
+}

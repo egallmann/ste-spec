@@ -4,8 +4,8 @@
 # generator_id: adr-compiler
 # generator_version: 1
 # hash_algorithm: sha256
-# source_hash: e97bb1aadacb219c95b305814c2af98dcdfeec7abcc6628a2da1660e6969ccfb
-# rendered_hash: 42fb7737795fec1a445262bf3a76e38f987b3a42d4edc3e5ab0ead345f243802
+# source_hash: 97c3bee109320b01bc64eeb5626d3d15054a869f6392bcaa1574ea4ea0cf1ac6
+# rendered_hash: c1c1eae4cc59030febcc34631aa67723b07c61edd296705ea2bf3ff3a1dfcec3
 
 schema_version: '1.1'
 type: entity_registry
@@ -970,6 +970,69 @@ entities:
   introduced_by: ADR-L-0042
   lifecycle_stage: active
   source_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4301
+  entity_type: decision
+  name: Define Context Domain Definitions as semantic view definitions and Context
+    Domain Bundles as materialized instances
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4302
+  entity_type: decision
+  name: Define Graph Domain Definitions and Linkage Surfaces as derived traversal
+    inputs, not authority sources
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4303
+  entity_type: decision
+  name: Split MVC into MVC-D, MVC-S, and MVC-M lifecycle contracts
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4304
+  entity_type: decision
+  name: Treat Persona as Context Selection Policy rather than biography or projection-only
+    policy
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
   source_artifact_type: logical_adr
   domains: []
   related_adrs: []
@@ -1991,6 +2054,81 @@ entities:
   introduced_by: ADR-L-0042
   lifecycle_stage: active
   source_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4301
+  entity_type: invariant
+  name: INV-4301
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4302
+  entity_type: invariant
+  name: INV-4302
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4303
+  entity_type: invariant
+  name: INV-4303
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4304
+  entity_type: invariant
+  name: INV-4304
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs: []
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4305
+  entity_type: invariant
+  name: INV-4305
+  introduced_by: ADR-L-0043
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
   source_artifact_type: logical_adr
   domains: []
   related_adrs: []

@@ -174,8 +174,8 @@ authority boundaries instead of collapsing them into version-control status.
 
 - [`ADR-030-contract-authority-in-ste-spec.md`](ADR-030-contract-authority-in-ste-spec.md)
 - [`ADR-035-architecture-ir-ontology-authority.md`](ADR-035-architecture-ir-ontology-authority.md)
-- [`../architecture/STE-Artifact-Classification-and-Versioning.md`](../architecture/STE-Artifact-Classification-and-Versioning.md)
-- [`../architecture/STE-Canonical-Project-Artifacts.md`](../architecture/STE-Canonical-Project-Artifacts.md)
-- [`../architecture/STE-Determinism-and-Canonical-Identity.md`](../architecture/STE-Determinism-and-Canonical-Identity.md)
-- [`../architecture/STE-System-Components-and-Responsibilities.md`](../architecture/STE-System-Components-and-Responsibilities.md)
-- [`../contracts/README.md`](../contracts/README.md)
+- [`../../architecture/STE-Artifact-Classification-and-Versioning.md`](../../architecture/STE-Artifact-Classification-and-Versioning.md)
+- [`../../architecture/STE-Canonical-Project-Artifacts.md`](../../architecture/STE-Canonical-Project-Artifacts.md)
+- [`../../architecture/STE-Determinism-and-Canonical-Identity.md`](../../architecture/STE-Determinism-and-Canonical-Identity.md)
+- [`../../architecture/STE-System-Components-and-Responsibilities.md`](../../architecture/STE-System-Components-and-Responsibilities.md)
+- [`../../contracts/README.md`](../../contracts/README.md)

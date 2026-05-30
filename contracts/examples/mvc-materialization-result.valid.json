@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1.0",
+  "mvc_m_id": "mvc-m:mvc-evolution-fixture",
+  "mvc_d_ref": {
+    "id": "mvc-d:mvc-evolution-fixture",
+    "version": "0.1.0"
+  },
+  "mvc_s_ref": {
+    "id": "mvc-s:mvc-evolution-fixture",
+    "version": "0.1.0",
+    "snapshot_hash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+  },
+  "admitted_context_domain_bundles": [
+    {
+      "id": "bundle:decision-context:fixture",
+      "version": "0.1.0",
+      "snapshot_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    }
+  ],
+  "provenance": {
+    "source_ref": "fixture://mvc-evolution/mvc-m",
+    "source_kind": "fixture"
+  },
+  "integrity": {
+    "content_hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "kernel_admission_summary": {
+    "admission_ref": {
+      "id": "kernel-admission-assessment:fixture",
+      "version": "0.1.0"
+    },
+    "admitted": true
+  },
+  "inclusion_rationale": [
+    {
+      "reason": "Kernel admitted decision context bundle for the declared task.",
+      "selector_path": "kernel-admission-assessment:fixture/bundle:decision-context:fixture",
+      "persona_ref": "architect",
+      "task_ref": "task:mvc-evolution-fixture"
+    }
+  ],
+  "exclusion_rationale": [],
+  "freshness": {
+    "status": "current",
+    "observed_at": "2026-05-30T00:00:00.000Z"
+  },
+  "negative_space": [
+    {
+      "id": "missing:direct-code-to-invariant",
+      "reason": "Admitted surface preserves missing direct code to invariant linkage as negative space."
+    }
+  ],
+  "projection_result_refs": [],
+  "mvc_m_boundary": "admitted_materialized_surface_kernel_admission_required"
+}
