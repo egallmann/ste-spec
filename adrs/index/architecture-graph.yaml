@@ -4,13 +4,13 @@
 # generator_id: adr-architecture-graph
 # generator_version: 1
 # hash_algorithm: sha256
-# source_hash: 939ddf95d4d6b5cc6b226c3ace3d35dd0ad37f94fd8a2293118aaa4600f58709
-# rendered_hash: 4441e420c5fbdd2255dbbc659ee31d1da1e3dc8e7f49fc4f1b8e74510cc4474d
+# source_hash: effe29dfa2abbfb3c145411d00ac3a6090209753d793d6f2c15cbdc4107398b3
+# rendered_hash: d3b522d77113216deaf1c9f19fde2016a81e8ba284b4547e7f6db35eae4963f8
 
 schema_version: '1.0'
 type: architecture_graph
 architecture_namespace: ste-spec
-generated_at: '2026-03-29T05:02:07Z'
+generated_at: '2026-05-30T18:44:57Z'
 nodes:
 - id: ADR-L-0001
   entity_type: adr
@@ -215,6 +215,13 @@ nodes:
     source_type: logical_adr
     source_ref: ADR-L-0042
     artifact_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+- id: ADR-L-0043
+  entity_type: adr
+  name: Context Domain and MVC Lifecycle Boundary
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
 - id: ADR-L-1001
   entity_type: adr
   name: Architecture Action Model
@@ -759,6 +766,37 @@ nodes:
     source_type: logical_adr
     source_ref: ADR-L-0042#DEC-4201
     artifact_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+- id: DEC-4301
+  entity_type: decision
+  name: Define Context Domain Definitions as semantic view definitions and Context
+    Domain Bundles as materialized instances
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4301
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: DEC-4302
+  entity_type: decision
+  name: Define Graph Domain Definitions and Linkage Surfaces as derived traversal
+    inputs, not authority sources
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4302
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: DEC-4303
+  entity_type: decision
+  name: Split MVC into MVC-D, MVC-S, and MVC-M lifecycle contracts
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4303
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: DEC-4304
+  entity_type: decision
+  name: Treat Persona as Context Selection Policy rather than biography or projection-only
+    policy
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#DEC-4304
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
 - id: DEC-6101
   entity_type: decision
   name: Define canonical requested-action verbs for kernel evaluation
@@ -1236,6 +1274,41 @@ nodes:
     source_type: logical_adr
     source_ref: ADR-L-0042#INV-4201
     artifact_path: adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml
+- id: INV-4301
+  entity_type: invariant
+  name: INV-4301
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#INV-4301
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: INV-4302
+  entity_type: invariant
+  name: INV-4302
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#INV-4302
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: INV-4303
+  entity_type: invariant
+  name: INV-4303
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#INV-4303
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: INV-4304
+  entity_type: invariant
+  name: INV-4304
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#INV-4304
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
+- id: INV-4305
+  entity_type: invariant
+  name: INV-4305
+  canonical_source:
+    source_type: logical_adr
+    source_ref: ADR-L-0043#INV-4305
+    artifact_path: adrs/logical/ADR-L-0043-context-domain-and-mvc-lifecycle.yaml
 - id: INV-5001
   entity_type: invariant
   name: INV-5001
@@ -1966,6 +2039,46 @@ edges:
   canonical_source_ref: ADR-L-0042#DEC-4201
   confidence: 1.0
   metadata: {}
+- relationship_id: declared_in:DEC-4301:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: DEC-4301
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#DEC-4301
+  canonical_source_ref: ADR-L-0043#DEC-4301
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:DEC-4302:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: DEC-4302
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#DEC-4302
+  canonical_source_ref: ADR-L-0043#DEC-4302
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:DEC-4303:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: DEC-4303
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#DEC-4303
+  canonical_source_ref: ADR-L-0043#DEC-4303
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:DEC-4304:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: DEC-4304
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#DEC-4304
+  canonical_source_ref: ADR-L-0043#DEC-4304
+  confidence: 1.0
+  metadata: {}
 - relationship_id: declared_in:DEC-6101:ADR-L-1001
   relationship_type: declared_in
   source_entity_id: DEC-6101
@@ -2644,6 +2757,56 @@ edges:
   evidence:
   - ADR-L-0042#INV-4201
   canonical_source_ref: ADR-L-0042#INV-4201
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:INV-4301:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: INV-4301
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#INV-4301
+  canonical_source_ref: ADR-L-0043#INV-4301
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:INV-4302:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: INV-4302
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#INV-4302
+  canonical_source_ref: ADR-L-0043#INV-4302
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:INV-4303:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: INV-4303
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#INV-4303
+  canonical_source_ref: ADR-L-0043#INV-4303
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:INV-4304:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: INV-4304
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#INV-4304
+  canonical_source_ref: ADR-L-0043#INV-4304
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:INV-4305:ADR-L-0043
+  relationship_type: declared_in
+  source_entity_id: INV-4305
+  target_entity_id: ADR-L-0043
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043#INV-4305
+  canonical_source_ref: ADR-L-0043#INV-4305
   confidence: 1.0
   metadata: {}
 - relationship_id: declared_in:INV-5001:ADR-L-1001
@@ -4194,6 +4357,46 @@ edges:
   evidence:
   - ADR-L-0042
   canonical_source_ref: ADR-L-0042
+  confidence: 1.0
+  metadata: {}
+- relationship_id: references:ADR-L-0043:ADR-L-0030
+  relationship_type: references
+  source_entity_id: ADR-L-0043
+  target_entity_id: ADR-L-0030
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043
+  canonical_source_ref: ADR-L-0043
+  confidence: 1.0
+  metadata: {}
+- relationship_id: references:ADR-L-0043:ADR-L-0031
+  relationship_type: references
+  source_entity_id: ADR-L-0043
+  target_entity_id: ADR-L-0031
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043
+  canonical_source_ref: ADR-L-0043
+  confidence: 1.0
+  metadata: {}
+- relationship_id: references:ADR-L-0043:ADR-L-0035
+  relationship_type: references
+  source_entity_id: ADR-L-0043
+  target_entity_id: ADR-L-0035
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043
+  canonical_source_ref: ADR-L-0043
+  confidence: 1.0
+  metadata: {}
+- relationship_id: references:ADR-L-0043:ADR-L-0041
+  relationship_type: references
+  source_entity_id: ADR-L-0043
+  target_entity_id: ADR-L-0041
+  provenance_classification: explicit
+  evidence:
+  - ADR-L-0043
+  canonical_source_ref: ADR-L-0043
   confidence: 1.0
   metadata: {}
 - relationship_id: references:ADR-L-1001:ADR-L-0031
