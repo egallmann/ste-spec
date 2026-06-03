@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1.0",
+  "id": "ambiguous-identity-negative-space-linkage-surface",
+  "version": "0.1.0",
+  "status": "experimental",
+  "source_snapshot_refs": [
+    {
+      "id": "workspace-attribution-federation",
+      "version": "0.1.0",
+      "snapshot_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "relationship_records": [
+    {
+      "id": "known-qualified-adr-code-link",
+      "relationship_family": "adr_to_code",
+      "from_ref": {
+        "id": "ste-runtime:ADR-L-0021",
+        "version": "1",
+        "identity_scope": "workspace",
+        "corpus_scope": "ste-runtime",
+        "qualified_id": "ste-runtime:ADR-L-0021"
+      },
+      "to_ref": {
+        "id": "code:ste-runtime:src/workspace/mvc-evolution.ts",
+        "version": "1"
+      },
+      "relationship_origin": "manual_mapping",
+      "producer_ref": "fixture:mvc-evolution",
+      "producer_kind": "manual",
+      "generation_method": "curated_fixture",
+      "provenance": {
+        "source_ref": {
+          "id": "workspace-attribution-federation",
+          "version": "0.1.0"
+        },
+        "source_kind": "federation-index"
+      },
+      "integrity": {
+        "content_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      }
+    }
+  ],
+  "provenance": {
+    "source_ref": {
+      "id": "workspace-attribution-federation",
+      "version": "0.1.0"
+    },
+    "source_kind": "federation-index"
+  },
+  "integrity": {
+    "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "freshness": {
+    "status": "current",
+    "observed_at": "2026-05-30T00:00:00.000Z"
+  },
+  "confidence_or_validation_status": "candidate",
+  "negative_space": [
+    {
+      "id": "ambiguous-adr-l-0021",
+      "reason": "Bare ADR-L-0021 is ambiguous in workspace scope and was not inferred.",
+      "resolution_status": "ambiguous_identity",
+      "affected_ref": {
+        "id": "ADR-L-0021",
+        "version": "1",
+        "identity_scope": "repo-local",
+        "corpus_scope": "unknown"
+      },
+      "relationship_id": "known-qualified-adr-code-link",
+      "corpus_scope": "unknown",
+      "selector_context": "workspace-federation/adr-to-code"
+    }
+  ]
+}

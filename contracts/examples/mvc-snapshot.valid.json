@@ -33,8 +33,12 @@
   ],
   "candidate_entities": [
     {
-      "id": "decision:ADR-L-0031",
-      "version": "1"
+      "id": "entity://ste-runtime/ADR-L-0021",
+      "version": "1",
+      "identity_scope": "workspace",
+      "corpus_scope": "ste-runtime",
+      "qualified_id": "ste-runtime:ADR-L-0021",
+      "entity_uri": "entity://ste-runtime/ADR-L-0021"
     }
   ],
   "candidate_relationships": [
@@ -57,7 +61,11 @@
       "reason": "Decision and code linkage are candidates for runtime/kernel boundary review.",
       "selector_path": "mvc-d:mvc-evolution-fixture/context-domain:decision-context",
       "persona_ref": "architect",
-      "task_ref": "task:mvc-evolution-fixture"
+      "task_ref": "task:mvc-evolution-fixture",
+      "identity_scope": "workspace",
+      "corpus_scope": "ste-runtime",
+      "qualified_id": "ste-runtime:ADR-L-0021",
+      "entity_uri": "entity://ste-runtime/ADR-L-0021"
     }
   ],
   "exclusion_rationale": [],

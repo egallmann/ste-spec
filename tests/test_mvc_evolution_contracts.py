@@ -23,6 +23,22 @@ VALID_FIXTURES = [
         EXAMPLES_DIR / "linkage-surface.valid.json",
     ),
     (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.valid-repo-local-bare-adr.json",
+    ),
+    (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.valid-workspace-qualified-adr.json",
+    ),
+    (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.valid-workspace-entity-uri.json",
+    ),
+    (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.valid-negative-space-ambiguous-identity.json",
+    ),
+    (
         CONTRACTS_DIR / "context-domain" / "context-domain-definition.schema.json",
         EXAMPLES_DIR / "context-domain-definition.valid.json",
     ),
@@ -43,6 +59,18 @@ VALID_FIXTURES = [
         EXAMPLES_DIR / "mvc-snapshot.valid.json",
     ),
     (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-workspace-qualified-adr.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-workspace-entity-uri.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-repo-local-bare-adr.json",
+    ),
+    (
         CONTRACTS_DIR / "mvc" / "mvc-materialization-result.schema.json",
         EXAMPLES_DIR / "mvc-materialization-result.valid.json",
     ),
@@ -61,9 +89,29 @@ INVALID_FIXTURES = [
         "ticket",
     ),
     (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.invalid-workspace-bare-adr.json",
+        "not valid",
+    ),
+    (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.invalid-repo-local-bare-adr-missing-corpus.json",
+        "corpus_scope",
+    ),
+    (
+        CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json",
+        EXAMPLES_DIR / "linkage-surface.invalid-workspace-provenance-missing-qualified-id.json",
+        "not valid",
+    ),
+    (
         CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
         EXAMPLES_DIR / "mvc-snapshot.invalid-admission.json",
         "admitted",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.invalid-workspace-bare-adr.json",
+        "not valid",
     ),
 ]
 
@@ -210,3 +258,70 @@ def test_mvc_m_preserves_provenance_and_integrity_requirements() -> None:
         candidate = copy.deepcopy(base)
         candidate[field] = value
         _assert_invalid(schema_path, candidate, field)
+
+
+def test_linkage_surface_uses_single_federated_ref_shape() -> None:
+    schema = _load_json(CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json")
+    relationship = schema["$defs"]["linkageRelationship"]
+    provenance = schema["$defs"]["provenance"]
+
+    assert schema["properties"]["source_snapshot_refs"]["items"]["$ref"] == "#/$defs/federatedRef"
+    assert relationship["properties"]["from_ref"]["$ref"] == "#/$defs/federatedRef"
+    assert relationship["properties"]["to_ref"]["$ref"] == "#/$defs/federatedRef"
+    assert relationship["properties"]["rationale_refs"]["items"]["$ref"] == "#/$defs/federatedRef"
+    assert provenance["properties"]["source_ref"]["$ref"] == "#/$defs/federatedRef"
+
+
+def test_workspace_relationship_endpoint_requires_qualified_identity() -> None:
+    schema_path = CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json"
+    base = _load_json(EXAMPLES_DIR / "linkage-surface.valid-workspace-qualified-adr.json")
+
+    _assert_valid(schema_path, base)
+    candidate = copy.deepcopy(base)
+    candidate["relationship_records"][0]["from_ref"] = {
+        "id": "ADR-L-0021",
+        "version": "1",
+        "identity_scope": "workspace",
+        "corpus_scope": "ste-runtime",
+    }
+    _assert_invalid(schema_path, candidate, "not valid")
+
+
+def test_repo_local_bare_adr_requires_corpus_scope() -> None:
+    schema_path = CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json"
+    base = _load_json(EXAMPLES_DIR / "linkage-surface.valid-repo-local-bare-adr.json")
+
+    _assert_valid(schema_path, base)
+    candidate = copy.deepcopy(base)
+    candidate["relationship_records"][0]["from_ref"].pop("corpus_scope")
+    _assert_invalid(schema_path, candidate, "corpus_scope")
+
+
+def test_relationship_endpoint_identity_survives_validation_unchanged() -> None:
+    schema_path = CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json"
+    candidate = _load_json(EXAMPLES_DIR / "linkage-surface.valid-workspace-qualified-adr.json")
+    original_relationship = copy.deepcopy(candidate["relationship_records"][0])
+
+    _assert_valid(schema_path, candidate)
+
+    assert candidate["relationship_records"][0]["from_ref"] == original_relationship["from_ref"]
+    assert candidate["relationship_records"][0]["to_ref"] == original_relationship["to_ref"]
+    assert (
+        candidate["relationship_records"][0]["provenance"]["source_ref"]
+        == original_relationship["provenance"]["source_ref"]
+    )
+    assert candidate["relationship_records"][0]["rationale_refs"] == original_relationship["rationale_refs"]
+
+
+def test_ambiguous_workspace_linkage_is_negative_space_not_inference() -> None:
+    schema_path = CONTRACTS_DIR / "linkage-surface" / "linkage-surface.schema.json"
+    candidate = _load_json(EXAMPLES_DIR / "linkage-surface.valid-negative-space-ambiguous-identity.json")
+
+    _assert_valid(schema_path, candidate)
+    negative_space = candidate["negative_space"][0]
+
+    assert negative_space["resolution_status"] == "ambiguous_identity"
+    assert negative_space["affected_ref"]["id"] == "ADR-L-0021"
+    assert negative_space["affected_ref"]["identity_scope"] == "repo-local"
+    assert negative_space["corpus_scope"] == "unknown"
+    assert "not inferred" in negative_space["reason"]

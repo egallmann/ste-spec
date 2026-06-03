@@ -26,7 +26,10 @@
       "producer_kind": "other",
       "generation_method": "raw_ticket_index",
       "provenance": {
-        "source_ref": "ticket://123",
+        "source_ref": {
+          "id": "ticket://123",
+          "version": "1"
+        },
         "source_kind": "ticket"
       },
       "integrity": {
@@ -35,7 +38,10 @@
     }
   ],
   "provenance": {
-    "source_ref": "ticket://123",
+    "source_ref": {
+      "id": "ticket://123",
+      "version": "1"
+    },
     "source_kind": "ticket"
   },
   "integrity": {

@@ -1,25 +1,28 @@
 {
   "schema_version": "0.1.0",
-  "id": "adr-code-linkage-surface",
+  "id": "workspace-entity-uri-linkage-surface",
   "version": "0.1.0",
   "status": "experimental",
   "source_snapshot_refs": [
     {
-      "id": "compiled-ir:test",
+      "id": "workspace-attribution-federation",
       "version": "0.1.0",
       "snapshot_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
   ],
   "relationship_records": [
     {
-      "id": "adr-code-link-001",
+      "id": "workspace-entity-uri-adr-code-link",
       "relationship_family": "adr_to_code",
       "from_ref": {
-        "id": "decision:ADR-L-0031",
-        "version": "1"
+        "id": "entity://ste-runtime/ADR-L-0021",
+        "version": "1",
+        "identity_scope": "workspace",
+        "corpus_scope": "ste-runtime",
+        "entity_uri": "entity://ste-runtime/ADR-L-0021"
       },
       "to_ref": {
-        "id": "code:ste-runtime:src/mcp/tools-context.ts",
+        "id": "code:ste-runtime:src/workspace/mvc-evolution.ts",
         "version": "1"
       },
       "relationship_origin": "manual_mapping",
@@ -28,10 +31,13 @@
       "generation_method": "curated_fixture",
       "provenance": {
         "source_ref": {
-          "id": "fixture://mvc-evolution/linkage",
-          "version": "1"
+          "id": "entity://ste-runtime/ADR-L-0021",
+          "version": "1",
+          "identity_scope": "workspace",
+          "corpus_scope": "ste-runtime",
+          "entity_uri": "entity://ste-runtime/ADR-L-0021"
         },
-        "source_kind": "fixture"
+        "source_kind": "adr"
       },
       "integrity": {
         "content_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
@@ -40,10 +46,10 @@
   ],
   "provenance": {
     "source_ref": {
-      "id": "fixture://mvc-evolution/linkage-surface",
-      "version": "1"
+      "id": "workspace-attribution-federation",
+      "version": "0.1.0"
     },
-    "source_kind": "fixture"
+    "source_kind": "federation-index"
   },
   "integrity": {
     "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"

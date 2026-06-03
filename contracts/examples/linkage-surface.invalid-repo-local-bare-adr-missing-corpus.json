@@ -1,25 +1,26 @@
 {
   "schema_version": "0.1.0",
-  "id": "adr-code-linkage-surface",
+  "id": "invalid-repo-local-bare-adr-linkage-surface",
   "version": "0.1.0",
   "status": "experimental",
   "source_snapshot_refs": [
     {
-      "id": "compiled-ir:test",
+      "id": "compiled-ir:ste-runtime",
       "version": "0.1.0",
       "snapshot_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
   ],
   "relationship_records": [
     {
-      "id": "adr-code-link-001",
+      "id": "invalid-repo-local-bare-adr-link",
       "relationship_family": "adr_to_code",
       "from_ref": {
-        "id": "decision:ADR-L-0031",
-        "version": "1"
+        "id": "ADR-L-0021",
+        "version": "1",
+        "identity_scope": "repo-local"
       },
       "to_ref": {
-        "id": "code:ste-runtime:src/mcp/tools-context.ts",
+        "id": "code:ste-runtime:src/workspace/mvc-evolution.ts",
         "version": "1"
       },
       "relationship_origin": "manual_mapping",
@@ -28,7 +29,7 @@
       "generation_method": "curated_fixture",
       "provenance": {
         "source_ref": {
-          "id": "fixture://mvc-evolution/linkage",
+          "id": "fixture://mvc-evolution/invalid-linkage",
           "version": "1"
         },
         "source_kind": "fixture"
@@ -40,7 +41,7 @@
   ],
   "provenance": {
     "source_ref": {
-      "id": "fixture://mvc-evolution/linkage-surface",
+      "id": "fixture://mvc-evolution/invalid-linkage-surface",
       "version": "1"
     },
     "source_kind": "fixture"
@@ -49,9 +50,7 @@
     "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
   },
   "freshness": {
-    "status": "current",
-    "observed_at": "2026-05-30T00:00:00.000Z"
+    "status": "current"
   },
-  "confidence_or_validation_status": "candidate",
   "negative_space": []
 }

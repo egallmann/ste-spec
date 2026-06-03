@@ -34,7 +34,7 @@
     "source_snapshot_refs": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/ref"
+        "$ref": "#/$defs/federatedRef"
       },
       "minItems": 1
     },
@@ -78,7 +78,7 @@
       "type": "string",
       "minLength": 1
     },
-    "ref": {
+    "federatedRef": {
       "type": "object",
       "additionalProperties": false,
       "required": ["id", "version"],
@@ -91,8 +91,68 @@
         },
         "snapshot_hash": {
           "$ref": "#/$defs/sha256"
+        },
+        "identity_scope": {
+          "$ref": "#/$defs/identityScope"
+        },
+        "corpus_scope": {
+          "$ref": "#/$defs/corpusScope"
+        },
+        "qualified_id": {
+          "$ref": "#/$defs/qualifiedAdrId"
+        },
+        "entity_uri": {
+          "$ref": "#/$defs/entityUri"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": ["id"],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/bareAdrId"
+              }
+            }
+          },
+          "then": {
+            "required": ["identity_scope", "corpus_scope"],
+            "properties": {
+              "identity_scope": {
+                "const": "repo-local"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": ["identity_scope"],
+            "properties": {
+              "identity_scope": {
+                "const": "workspace"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": ["qualified_id"]
+              },
+              {
+                "required": ["entity_uri"]
+              }
+            ],
+            "not": {
+              "required": ["id"],
+              "properties": {
+                "id": {
+                  "$ref": "#/$defs/bareAdrId"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "linkageRelationship": {
       "type": "object",
@@ -125,10 +185,10 @@
           ]
         },
         "from_ref": {
-          "$ref": "#/$defs/ref"
+          "$ref": "#/$defs/federatedRef"
         },
         "to_ref": {
-          "$ref": "#/$defs/ref"
+          "$ref": "#/$defs/federatedRef"
         },
         "relationship_origin": {
           "type": "string",
@@ -158,6 +218,12 @@
         },
         "integrity": {
           "$ref": "#/$defs/integrity"
+        },
+        "rationale_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/federatedRef"
+          }
         }
       }
     },
@@ -167,7 +233,7 @@
       "required": ["source_ref", "source_kind"],
       "properties": {
         "source_ref": {
-          "$ref": "#/$defs/nonEmptyString"
+          "$ref": "#/$defs/federatedRef"
         },
         "source_kind": {
           "$ref": "#/$defs/nonEmptyString"
@@ -204,12 +270,41 @@
     "negativeSpace": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "reason"],
+      "required": [
+        "id",
+        "reason",
+        "resolution_status",
+        "affected_ref",
+        "relationship_id",
+        "corpus_scope",
+        "selector_context"
+      ],
       "properties": {
         "id": {
           "$ref": "#/$defs/stableId"
         },
         "reason": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "resolution_status": {
+          "type": "string",
+          "enum": [
+            "missing_identity",
+            "ambiguous_identity",
+            "unresolved_linkage",
+            "not_applicable"
+          ]
+        },
+        "affected_ref": {
+          "$ref": "#/$defs/federatedRef"
+        },
+        "relationship_id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "corpus_scope": {
+          "$ref": "#/$defs/corpusScope"
+        },
+        "selector_context": {
           "$ref": "#/$defs/nonEmptyString"
         }
       }
@@ -217,6 +312,26 @@
     "sha256": {
       "type": "string",
       "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "identityScope": {
+      "type": "string",
+      "enum": ["repo-local", "workspace"]
+    },
+    "bareAdrId": {
+      "type": "string",
+      "pattern": "^ADR-L-\\d{4}$"
+    },
+    "corpusScope": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*$"
+    },
+    "qualifiedAdrId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]*:ADR-L-\\d{4}$"
+    },
+    "entityUri": {
+      "type": "string",
+      "pattern": "^entity://[a-z][a-z0-9._-]*/[A-Z]+-[A-Z0-9-]+$"
     }
   }
 }
