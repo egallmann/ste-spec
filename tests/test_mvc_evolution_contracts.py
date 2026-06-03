@@ -71,6 +71,10 @@ VALID_FIXTURES = [
         EXAMPLES_DIR / "mvc-snapshot.valid-repo-local-bare-adr.json",
     ),
     (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-rationale-dedup.json",
+    ),
+    (
         CONTRACTS_DIR / "mvc" / "mvc-materialization-result.schema.json",
         EXAMPLES_DIR / "mvc-materialization-result.valid.json",
     ),
@@ -325,3 +329,18 @@ def test_ambiguous_workspace_linkage_is_negative_space_not_inference() -> None:
     assert negative_space["affected_ref"]["identity_scope"] == "repo-local"
     assert negative_space["corpus_scope"] == "unknown"
     assert "not inferred" in negative_space["reason"]
+
+
+def test_mvc_s_candidate_ref_is_optional_rationale_traceability() -> None:
+    schema_path = CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json"
+    existing_fixture = _load_json(EXAMPLES_DIR / "mvc-snapshot.valid.json")
+    dedup_fixture = _load_json(EXAMPLES_DIR / "mvc-snapshot.valid-rationale-dedup.json")
+
+    _assert_valid(schema_path, existing_fixture)
+    _assert_valid(schema_path, dedup_fixture)
+
+    rationale = dedup_fixture["inclusion_rationale"]
+    assert len(rationale) == 2
+    assert rationale[0]["candidate_ref"] == rationale[1]["candidate_ref"]
+    assert rationale[0]["selector_path"] != rationale[1]["selector_path"]
+    assert rationale[0]["persona_ref"] != rationale[1]["persona_ref"]
