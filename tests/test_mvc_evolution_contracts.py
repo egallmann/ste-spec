@@ -75,6 +75,26 @@ VALID_FIXTURES = [
         EXAMPLES_DIR / "mvc-snapshot.valid-rationale-dedup.json",
     ),
     (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-topology-dense.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-topology-sparse.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-topology-convergent.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-topology-exploding.json",
+    ),
+    (
+        CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json",
+        EXAMPLES_DIR / "mvc-snapshot.valid-topology-empty.json",
+    ),
+    (
         CONTRACTS_DIR / "mvc" / "mvc-materialization-result.schema.json",
         EXAMPLES_DIR / "mvc-materialization-result.valid.json",
     ),
@@ -344,3 +364,24 @@ def test_mvc_s_candidate_ref_is_optional_rationale_traceability() -> None:
     assert rationale[0]["candidate_ref"] == rationale[1]["candidate_ref"]
     assert rationale[0]["selector_path"] != rationale[1]["selector_path"]
     assert rationale[0]["persona_ref"] != rationale[1]["persona_ref"]
+
+
+def test_mvc_s_topology_profile_fixtures_are_supplied_observations() -> None:
+    schema_path = CONTRACTS_DIR / "mvc" / "mvc-snapshot.schema.json"
+    profile_names = ["dense", "sparse", "convergent", "exploding", "empty"]
+
+    for profile_name in profile_names:
+        fixture = _load_json(EXAMPLES_DIR / f"mvc-snapshot.valid-topology-{profile_name}.json")
+        _assert_valid(schema_path, fixture)
+
+        metrics = fixture["topology_metrics"]
+        assert set(metrics) == {
+            "node_count",
+            "edge_count",
+            "branching_factor",
+            "convergence_score",
+            "recommended_depth",
+        }
+        assert "admission_decision" not in fixture
+        assert "topology_discovery" not in fixture
+        assert "rss_traversal" not in fixture
