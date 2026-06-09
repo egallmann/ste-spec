@@ -29,3 +29,13 @@ caller-facing admission.
 - `contracts/graph-domain/`
 - `contracts/linkage-surface/`
 - `contracts/kernel-admission-assessment.schema.json`
+
+## Conceptual background (handbook, not normative)
+
+These draft schemas do not include research illustrations or experimental methodology.
+For the MVC assembly pipeline diagram, representation-ceiling thesis, and research
+program methodology, see the handbook research library in sibling repo `ste-handbook`:
+
+- `ste-handbook/14-research/research/mvc/README.md` — canonical home for the assembly-pipeline illustration
+- `ste-handbook/14-research/research/mvc/thesis/README.md` — thesis publication lineage
+- `ste-handbook/14-research/research/mvc/thesis/mvc-representation-ceiling-thesis.md` — published thesis
