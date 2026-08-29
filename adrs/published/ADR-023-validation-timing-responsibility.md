@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0023** — [`adrs/logical/ADR-L-0023-validation-timing-responsibility.yaml`](../logical/ADR-L-0023-validation-timing-responsibility.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0023.md`](../rendered/ADR-L-0023.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0023-validation-timing-and-responsibility.md`](../adr-projection/logical/ADR-L-0023-validation-timing-and-responsibility.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -192,4 +192,3 @@ While this ADR does not define implementation mechanisms, implementers should no
 - ADR-020: ORG-Level Signing Scope
 - ADR-021: Gateway Trust Verification Model
 - ADR-022: Fail-Closed Semantics and Enforcement Scope
-

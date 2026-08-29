@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0001** — [`adrs/logical/ADR-L-0001-deterministic-extraction.yaml`](../logical/ADR-L-0001-deterministic-extraction.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0001.md`](../rendered/ADR-L-0001.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0001-deterministic-extraction-over-ml-based-inference.md`](../adr-projection/logical/ADR-L-0001-deterministic-extraction-over-ml-based-inference.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** for normative content after migration |
 | **Disposition** | Single ADR migrated one-to-one (not split/merged) |
 
@@ -223,7 +223,6 @@ This decision should be revisited if:
 This architectural decision is fully specified within the STE specification. Applied examples and historical artifacts are intentionally excluded from this publication.
 
 **Stakeholders**: Architects, Quality Assurance, Compliance, Development Teams
-
 
 
 

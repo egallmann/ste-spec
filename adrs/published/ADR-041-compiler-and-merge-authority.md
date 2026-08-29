@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0041** — [`adrs/logical/ADR-L-0041-compiler-and-merge-authority.yaml`](../logical/ADR-L-0041-compiler-and-merge-authority.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0041.md`](../rendered/ADR-L-0041.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0041-compiler-evidence-and-merge-authority.md`](../adr-projection/logical/ADR-L-0041-compiler-evidence-and-merge-authority.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

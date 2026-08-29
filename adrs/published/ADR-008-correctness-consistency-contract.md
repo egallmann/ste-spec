@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0008** — [`adrs/logical/ADR-L-0008-correctness-consistency-contract.yaml`](../logical/ADR-L-0008-correctness-consistency-contract.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0008.md`](../rendered/ADR-L-0008.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0008-correctness-and-consistency-contract.md`](../adr-projection/logical/ADR-L-0008-correctness-and-consistency-contract.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -360,7 +360,6 @@ This architectural decision is fully specified within the STE specification. App
 **Decision Date**: 2025-12-19  
 **Last Updated**: 2025-12-19  
 **Status**: Accepted
-
 
 
 

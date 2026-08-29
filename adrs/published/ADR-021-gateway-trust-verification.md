@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0021** — [`adrs/logical/ADR-L-0021-gateway-trust-verification.yaml`](../logical/ADR-L-0021-gateway-trust-verification.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0021.md`](../rendered/ADR-L-0021.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0021-gateway-trust-verification-model.md`](../adr-projection/logical/ADR-L-0021-gateway-trust-verification-model.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -143,4 +143,3 @@ While this ADR does not define implementation mechanisms, implementers should no
 - `specifications/ste-system.iso42010.md` §11.1.4 (Authority Invariants)
 - ADR-019: Gateway Authority and Signing Model
 - ADR-020: ORG-Level Signing Scope
-

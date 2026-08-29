@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0009** — [`adrs/logical/ADR-L-0009-assertion-precedence-model.yaml`](../logical/ADR-L-0009-assertion-precedence-model.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0009.md`](../rendered/ADR-L-0009.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0009-assertion-precedence-model.md`](../adr-projection/logical/ADR-L-0009-assertion-precedence-model.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -426,7 +426,6 @@ Assertions stored as slices with:
 **Decision Date**: 2025-12-19  
 **Last Updated**: 2025-12-19  
 **Status**: Accepted
-
 
 
 

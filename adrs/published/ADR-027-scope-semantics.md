@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0027** — [`adrs/logical/ADR-L-0027-scope-semantics.yaml`](../logical/ADR-L-0027-scope-semantics.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0027.md`](../rendered/ADR-L-0027.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0027-scope-semantics-and-versioning.md`](../adr-projection/logical/ADR-L-0027-scope-semantics-and-versioning.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -785,5 +785,3 @@ These behaviors are **testable, observable, and falsifiable** by inspection or r
 **Last Updated:** 2025-12-29  
 **Status:** Accepted  
 **Next Review:** After v1 Implementation Feedback
-
-

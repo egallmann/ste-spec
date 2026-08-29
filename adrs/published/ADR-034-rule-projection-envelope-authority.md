@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0034** — [`adrs/logical/ADR-L-0034-rule-projection-envelope-authority.yaml`](../logical/ADR-L-0034-rule-projection-envelope-authority.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0034.md`](../rendered/ADR-L-0034.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md`](../adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one (draft envelope remains proposed in machine ADR) |
 

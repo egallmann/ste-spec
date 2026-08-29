@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0039** — [`adrs/logical/ADR-L-0039-structured-diagram-format-mermaid.yaml`](../logical/ADR-L-0039-structured-diagram-format-mermaid.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0039.md`](../rendered/ADR-L-0039.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0039-structured-diagram-format-mermaid.md`](../adr-projection/logical/ADR-L-0039-structured-diagram-format-mermaid.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

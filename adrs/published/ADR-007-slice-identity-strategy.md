@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0007** — [`adrs/logical/ADR-L-0007-slice-identity-strategy.yaml`](../logical/ADR-L-0007-slice-identity-strategy.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0007.md`](../rendered/ADR-L-0007.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0007-slice-identity-strategy.md`](../adr-projection/logical/ADR-L-0007-slice-identity-strategy.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -342,7 +342,6 @@ When identity derivation rules change (future ADR updates):
 **Decision Date**: 2025-12-19  
 **Last Updated**: 2025-12-19  
 **Status**: Accepted
-
 
 
 

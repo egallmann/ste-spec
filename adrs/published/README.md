@@ -8,7 +8,7 @@ This directory contains the binding architectural decisions published as part of
 ADRs explain why authority is placed where it is. They do not replace
 contracts, invariants, or implementation tests.
 
-**Migration note:** Numbered `adrs/published/*.md` files in this directory now carry a **Migration status** header and are **historical projections** once a machine ADR-L exists. Canonical decisions and invariants live under `../logical/*.yaml`; human-friendly renderings are generated under `../rendered/` and `../manifest.yaml` via **adr-architecture-kit** (`adr validate`, `adr compile` with graph emit).
+**Migration note:** Numbered `adrs/published/*.md` files in this directory now carry a **Migration status** header and are **historical projections** once a machine ADR-L exists. Canonical decisions and invariants live under `../logical/*.yaml`; human-friendly renderings are generated under `../adr-projection/logical/` and `../manifest.yaml` via **adr-architecture-kit** (`adr validate`, `adr compile` with graph emit).
 
 ## Published Decision Areas
 
@@ -81,7 +81,7 @@ Where both legacy markdown and machine YAML exist, resolve conflicts using expli
 precedence statements inside each ADR-L and the migrated Spine anchors (**ADR-L-0031**,
 **ADR-L-0040**, **ADR-L-0038**), plus `execution/STE-Kernel-Execution-Model.md`.
 
-Published machine ADR-L files (ste-spec `adrs/logical/`) include **ADR-L-0001**, **ADR-L-0006–0009**, **ADR-L-0019–0029**, **ADR-L-0030–0042**, and the **ADR-L-1001–1009** kernel governance series. See `../rendered/` for generated markdown projections.
+Published machine ADR-L files (ste-spec `adrs/logical/`) include **ADR-L-0001**, **ADR-L-0006–0009**, **ADR-L-0019–0029**, **ADR-L-0030–0042**, and the **ADR-L-1001–1009** kernel governance series. See `../adr-projection/logical/` for generated markdown projections.
 
 ## Relationship to Other Surfaces
 

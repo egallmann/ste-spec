@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0037** — [`adrs/logical/ADR-L-0037-repository-readme-conformance.yaml`](../logical/ADR-L-0037-repository-readme-conformance.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0037.md`](../rendered/ADR-L-0037.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0037-repository-readme-conformance-and-reference-implementation.md`](../adr-projection/logical/ADR-L-0037-repository-readme-conformance-and-reference-implementation.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

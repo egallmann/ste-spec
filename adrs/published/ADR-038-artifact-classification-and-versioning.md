@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0038** — [`adrs/logical/ADR-L-0038-artifact-classification-and-versioning.yaml`](../logical/ADR-L-0038-artifact-classification-and-versioning.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0038.md`](../rendered/ADR-L-0038.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0038-artifact-taxonomy-and-versioning-posture.md`](../adr-projection/logical/ADR-L-0038-artifact-taxonomy-and-versioning-posture.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one (machine title uses “taxonomy” wording) |
 

@@ -1,6 +1,6 @@
 # ste-spec ADR migration inventory
 
-Authoritative legacy markdown for numbered ADRs: `adrs/published/`. Machine-canonical Logical ADRs: `adrs/logical/*.yaml`. Generated human projections: `adrs/rendered/*.md` and `adrs/manifest.yaml` (regenerate via **adr-architecture-kit**; do not hand-edit the manifest).
+Authoritative legacy markdown for numbered ADRs: `adrs/published/`. Machine-canonical Logical ADRs: `adrs/logical/*.yaml`. Generated human projections: `adrs/adr-projection/logical/*.md` and `adrs/manifest.yaml` (regenerate via **adr-architecture-kit**; do not hand-edit the manifest).
 
 This inventory records the **ste-spec `adrs/published/` → machine ADR-L** migration. All numbered published ADRs listed below are migrated unless explicitly marked otherwise; regenerate projections with **adr-architecture-kit** (`adr compile`, graph emit) after YAML edits.
 
@@ -89,7 +89,7 @@ This inventory records the **ste-spec `adrs/published/` → machine ADR-L** migr
 
 Complete before batch-migrating further legacy ADRs.
 
-1. **Semantic parity:** Compare [`published/ADR-001-deterministic-extraction.md`](published/ADR-001-deterministic-extraction.md) with [`logical/ADR-L-0001-deterministic-extraction.yaml`](logical/ADR-L-0001-deterministic-extraction.yaml) and [`rendered/ADR-L-0001.md`](rendered/ADR-L-0001.md). Confirm no weakening or unintended narrowing of prohibitions (ML/graph, NL translation boundary, unknowns).
+1. **Semantic parity:** Compare [`published/ADR-001-deterministic-extraction.md`](published/ADR-001-deterministic-extraction.md) with [`logical/ADR-L-0001-deterministic-extraction.yaml`](logical/ADR-L-0001-deterministic-extraction.yaml) and [`adr-projection/logical/ADR-L-0001-deterministic-extraction-over-ml-based-inference.md`](adr-projection/logical/ADR-L-0001-deterministic-extraction-over-ml-based-inference.md). Confirm no weakening or unintended narrowing of prohibitions (ML/graph, NL translation boundary, unknowns).
 2. **Layering:** Confirm **ADR-L** is the right type (logical extraction doctrine, not ste-runtime component implementation). If physical deployment belongs elsewhere, note for ADR-PS/PC follow-up.
 3. **Cross-references:** **ADR-L-0001** lists **ADR-L-0006**, **ADR-L-0007**, **ADR-L-0008**, **ADR-L-0009** in `related_adrs`. **GAP-0101** now tracks Architecture IR assertion payload alignment (low impact).
 4. **Tooling:** From **adr-architecture-kit** repo: `adr validate --scope <ste-spec> --cross-references`, then `adr compile --scope <ste-spec> --emit registries,manifest,markdown,graph`, then `adr validate-generated-docs --scope <ste-spec>`.

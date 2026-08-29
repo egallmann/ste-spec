@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0029** — [`adrs/logical/ADR-L-0029-gateway-enforcement-authority.yaml`](../logical/ADR-L-0029-gateway-enforcement-authority.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0029.md`](../rendered/ADR-L-0029.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0029-gateway-enforcement-authority.md`](../adr-projection/logical/ADR-L-0029-gateway-enforcement-authority.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -385,4 +385,3 @@ Gateway's enforcement responsibilities (§5.3.2, §5.3.3) remain identical. Only
 **Last Updated:** 2025-12-30  
 **Status:** Accepted  
 **Next Review:** After v1 Implementation Feedback
-

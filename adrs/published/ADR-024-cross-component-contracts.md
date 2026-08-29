@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0024** — [`adrs/logical/ADR-L-0024-cross-component-contracts.yaml`](../logical/ADR-L-0024-cross-component-contracts.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0024.md`](../rendered/ADR-L-0024.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0024-cross-component-contracts-and-execution-eligibility-interface.md`](../adr-projection/logical/ADR-L-0024-cross-component-contracts-and-execution-eligibility-interface.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -233,6 +233,5 @@ While this ADR does not define implementation mechanisms, implementers should no
 - ADR-021: Gateway Trust Verification Model
 - ADR-022: Fail-Closed Semantics and Enforcement Scope
 - ADR-023: Validation Timing and Responsibility
-
 
 
