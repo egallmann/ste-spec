@@ -1,7 +1,7 @@
 """Fail-closed ADR governance entrypoint for the ste-spec repository.
 
-Generated-document freshness is deliberately outside this Slice 1 gate: the
-legacy ``adrs/rendered/`` projection layout will be addressed separately.
+The v1.3 ``adrs/adr-projection/`` layout is included in the generated-document
+freshness check.
 """
 from __future__ import annotations
 
@@ -38,6 +38,10 @@ def main() -> int:
         (
             "ADR complete-scope and cross-reference validation",
             [adr, "validate", "--scope", ".", "--cross-references", "--mode", "complete"],
+        ),
+        (
+            "ADR generated-document freshness validation",
+            [adr, "validate-generated-docs", "--scope", "."],
         ),
         (
             "repository contract, Markdown-link, and pytest checks",

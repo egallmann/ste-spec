@@ -183,14 +183,10 @@ python -m pip install -r requirements-dev.txt
 python scripts/adr_governance.py
 ```
 
-The governance entrypoint runs ADR project-metadata, complete-scope, and
-cross-reference checks, followed by the repository's Markdown-link and pytest
-checks. The ADR corpus remains on authoring schema 1.0; the UUIDv7 identity
-migration is intentionally deferred to a separately reviewed slice.
-
-Generated-document freshness validation is intentionally not included yet
-because the legacy `adrs/rendered/` projection layout requires its own
-migration.
+The governance entrypoint runs ADR project-metadata, complete-scope,
+cross-reference, and generated-document freshness checks, followed by the
+repository's Markdown-link and pytest checks. The ADR corpus uses authoring
+schema 1.3 with UUIDv7 canonical identities while preserving its ADR aliases.
 
 ## Repository Boundary and Adjacent Repositories
 
