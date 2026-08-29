@@ -179,12 +179,18 @@ validation commands for maintainers and reviewers.
 Repeatable checks:
 
 ```bash
-python scripts/check_internal_md_links.py
-python scripts/run_local_contract_checks.py
+python -m pip install -r requirements-dev.txt
+python scripts/adr_governance.py
 ```
 
-Use these commands when changing normative or orientation surfaces so internal
-links and published contract artifacts do not drift.
+The governance entrypoint runs ADR project-metadata, complete-scope, and
+cross-reference checks, followed by the repository's Markdown-link and pytest
+checks. The ADR corpus remains on authoring schema 1.0; the UUIDv7 identity
+migration is intentionally deferred to a separately reviewed slice.
+
+Generated-document freshness validation is intentionally not included yet
+because the legacy `adrs/rendered/` projection layout requires its own
+migration.
 
 ## Repository Boundary and Adjacent Repositories
 
