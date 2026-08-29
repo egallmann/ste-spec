@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0027
+id: 01a04e96-1f5b-7d37-8038-1c811fc5261b
 title: Scope Semantics and Versioning
 status: accepted
 created_date: '2025-12-29'
@@ -14,66 +14,97 @@ domains:
 tags:
 - scope
 - authority
-context: |
-  Scope is a colon-delimited hierarchical identifier participating in authority checks.
+context: 'Scope is a colon-delimited hierarchical identifier participating in authority
+  checks.
+
   Version 1 uses exact string equality; version 2 uses segment-prefix matching with
+
   most-specific authority resolution and denial on equal-depth ambiguity. Trust Registry
+
   and Context Bundle must declare `scope_semantics_version` consistently.
+
 
   Legacy: `adrs/published/ADR-027-scope-semantics.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — trust and admission
+
   stories in **ADR-L-1002** / **ADR-L-1009** apply at kernel documentation boundaries;
+
   this ADR defines **STE scope string mechanics** for Gateway checks.
+
+  '
 related_adrs:
-- ADR-L-0024
-- ADR-L-0025
-- ADR-L-0028
-- ADR-L-1002
-- ADR-L-1009
+- 01a04e96-1f5b-7e90-9f2d-79f60b81c807
+- 01a04e96-1f5b-78b8-972b-af0c783ef246
+- 01a04e96-1f5b-7551-992f-4be395920f16
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-2701
-  summary: Validate scope grammar (segments of alphanumerics, underscore, hyphen; length and depth limits) and require explicit semantics version per Trust Registry entry and Context Bundle
-  rationale: |
-    Prevents ambiguous or unbounded scope strings and enables safe evolution.
+- id: 01a04e96-1f5b-78e2-be19-ea0db37cadd1
+  summary: Validate scope grammar (segments of alphanumerics, underscore, hyphen;
+    length and depth limits) and require explicit semantics version per Trust Registry
+    entry and Context Bundle
+  rationale: 'Prevents ambiguous or unbounded scope strings and enables safe evolution.
+
+    '
   consequences:
     positive:
     - Portable scope identifiers
     negative:
     - Version mismatch becomes a hard denial
-- id: DEC-2702
-  summary: For version 1, require exact case-sensitive equality between authority scope and claimed scope
-  rationale: |
-    Minimal deterministic baseline compatible with pre-v2 artifacts when version omitted.
+  alias_id: DEC-2701
+  alias_name: scope-grammar-semantics-version
+- id: 01a04e96-1f5b-76ca-a532-9dd9a6045936
+  summary: For version 1, require exact case-sensitive equality between authority
+    scope and claimed scope
+  rationale: 'Minimal deterministic baseline compatible with pre-v2 artifacts when
+    version omitted.
+
+    '
   consequences:
     positive:
     - Simple matching semantics
     negative:
     - No hierarchical delegation in v1
-- id: DEC-2703
-  summary: For version 2, require prefix match on segment boundaries; select deepest matching authority; deny with SCOPE_CONFLICT on equal-depth ties
-  rationale: |
-    Supports delegated authority without regex or fuzzy matching.
+  alias_id: DEC-2702
+  alias_name: for-version-1-require-exact-case-sensitive-equality-between-authority-scope-and-claimed-scope
+- id: 01a04e96-1f5b-7305-821f-9313cd79a6be
+  summary: For version 2, require prefix match on segment boundaries; select deepest
+    matching authority; deny with SCOPE_CONFLICT on equal-depth ties
+  rationale: 'Supports delegated authority without regex or fuzzy matching.
+
+    '
   consequences:
     positive:
     - Predictable delegation resolution
     negative:
     - Registry hygiene required to avoid conflicts
+  alias_id: DEC-2703
+  alias_name: scope-prefix-authority-selection
 invariants:
-- id: INV-2701
-  statement: |
-    Gateway MUST NOT upgrade or infer `scope_semantics_version`; mismatched declared
+- id: 01a04e96-1f5b-7bf5-bd37-214f7b31179c
+  statement: 'Gateway MUST NOT upgrade or infer `scope_semantics_version`; mismatched
+    declared
+
     versions between Trust Registry and Context Bundle MUST result in denial.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents silent semantic upgrades.
+  rationale: 'Prevents silent semantic upgrades.
+
+    '
   upheld_by_decisions:
-  - DEC-2701
+  - 01a04e96-1f5b-78e2-be19-ea0db37cadd1
+  alias_id: INV-2701
+  alias_name: inv-2701
 gaps:
 - id: GAP-2701
   question: Future versions beyond v2 require new ADR-L and explicit version values
   impact: low
   blocking: false
+alias_id: ADR-L-0027
+alias_name: scope-semantics-and-versioning

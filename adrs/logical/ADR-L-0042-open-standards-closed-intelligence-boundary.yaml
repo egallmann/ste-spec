@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0042
+id: 01a04e96-1f5c-7116-883f-0badde97c759
 title: Open Standards and Closed Intelligence Boundary
 status: accepted
 created_date: '2025-12-19'
@@ -14,44 +14,70 @@ domains:
 tags:
 - boundary
 - standards
-context: |
-  STE adopts **open standards plus closed intelligence**: public specifications define
+context: 'STE adopts **open standards plus closed intelligence**: public specifications
+  define
+
   compatible artifact formats, schemas, interfaces, and deterministic validation surfaces;
+
   proprietary reasoning may remain behind those interfaces.
 
-  Legacy: `adrs/published/ARCHITECTURE_BOUNDARY_DECISION.md` (non-numbered published note).
 
-  **Reconciliation vs supporting architecture notes:** **coexist-with-precedence** — see
-  `architecture/OPEN_CLOSED_BOUNDARY.md` and related architecture notes for expanded prose;
+  Legacy: `adrs/published/ARCHITECTURE_BOUNDARY_DECISION.md` (non-numbered published
+  note).
+
+
+  **Reconciliation vs supporting architecture notes:** **coexist-with-precedence**
+  — see
+
+  `architecture/OPEN_CLOSED_BOUNDARY.md` and related architecture notes for expanded
+  prose;
+
   this ADR-L captures the **binding boundary decision** in machine form.
+
+  '
 related_adrs:
-- ADR-L-0030
-- ADR-L-0040
+- 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
 decisions:
-- id: DEC-4201
-  summary: Require public, independently verifiable interfaces for handoff artifacts while allowing proprietary intelligence behind those surfaces
-  rationale: |
-    Enables third-party compatibility without leaking proprietary leverage into public contracts.
+- id: 01a04e96-1f5c-7024-b519-f8e876b25577
+  summary: Require public, independently verifiable interfaces for handoff artifacts
+    while allowing proprietary intelligence behind those surfaces
+  rationale: 'Enables third-party compatibility without leaking proprietary leverage
+    into public contracts.
+
+    '
   consequences:
     positive:
     - Clear public versus private architectural split
     negative:
     - Interfaces must be maintained with discipline
+  alias_id: DEC-4201
+  alias_name: public-interface-closed-intelligence
 invariants:
-- id: INV-4201
-  statement: |
-    New capabilities MUST be classified explicitly as public specification, interface-only
-    publication, or closed implementation per this boundary before expanding ste-spec contracts.
+- id: 01a04e96-1f5c-7e13-8837-12e15900749f
+  statement: 'New capabilities MUST be classified explicitly as public specification,
+    interface-only
+
+    publication, or closed implementation per this boundary before expanding ste-spec
+    contracts.
+
+    '
   scope: global
   enforcement_level: should
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Operationalizes downstream planning checks described in the legacy document.
+  rationale: 'Operationalizes downstream planning checks described in the legacy document.
+
+    '
   upheld_by_decisions:
-  - DEC-4201
+  - 01a04e96-1f5c-7024-b519-f8e876b25577
+  alias_id: INV-4201
+  alias_name: inv-4201
 gaps:
 - id: GAP-4201
-  question: Link detailed threat and tradeoff narratives from architecture supporting docs
+  question: Link detailed threat and tradeoff narratives from architecture supporting
+    docs
   impact: low
   blocking: false
+alias_id: ADR-L-0042
+alias_name: open-standards-and-closed-intelligence-boundary

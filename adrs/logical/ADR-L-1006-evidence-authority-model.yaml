@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-1006
+id: 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
 title: Evidence Authority Model
 status: proposed
 created_date: '2026-03-28'
@@ -13,39 +13,63 @@ domains:
 tags:
 - evidence
 - authority
-context: |
-  Runtime evidence is authoritative as **factual observation** within its contract, not as
+context: 'Runtime evidence is authoritative as **factual observation** within its
+  contract, not as
+
   a replacement for normative architecture declared in ste-spec and documentation-state.
-  When evidence contradicts IR or ADR meaning, the kernel MUST categorize contradiction as
+
+  When evidence contradicts IR or ADR meaning, the kernel MUST categorize contradiction
+  as
+
   drift or assessment finding; it MUST NOT silently rewrite normative sources.
 
+
   Governance authority may authorize exceptions through explicit artifacts per ADR-040;
+
   raw runtime truth does not override architecture by default.
+
+  '
 decisions:
-- id: DEC-6651
+- id: 01a04e96-1f5c-7a27-a11f-75a40eb74970
   summary: Enumerate authoritative evidence sources by contract family
-  rationale: |
-    Admission must know which observations count and under what provenance kinds.
-- id: DEC-6652
+  rationale: 'Admission must know which observations count and under what provenance
+    kinds.
+
+    '
+  alias_id: DEC-6651
+  alias_name: enumerate-authoritative-evidence-sources-by-contract-family
+- id: 01a04e96-1f5d-72db-8531-d6d6316b8dd1
   summary: Contradiction yields drift or assessment output, not silent IR mutation
-  rationale: |
-    Preserves documentation-state authority and auditability.
+  rationale: 'Preserves documentation-state authority and auditability.
+
+    '
+  alias_id: DEC-6652
+  alias_name: contradiction-yields-drift-or-assessment-output-not-silent-ir-mutation
 related_adrs:
-- ADR-L-1005
-- ADR-L-1009
+- 01a04e96-1f5c-7b1e-943d-6db525f77bf0
+- 01a04e96-1f5d-7793-873c-136f29f470be
 invariants:
-- id: INV-5051
-  statement: |
-    Evidence MUST NOT be interpreted as normative architecture authority; overrides MUST
+- id: 01a04e96-1f5d-7ec8-b43f-930c76aed494
+  statement: 'Evidence MUST NOT be interpreted as normative architecture authority;
+    overrides MUST
+
     flow from governance artifacts, not from raw observations alone.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Preserves documentation-state authority while still using factual runtime observations.
+  rationale: 'Preserves documentation-state authority while still using factual runtime
+    observations.
+
+    '
+  alias_id: INV-5051
+  alias_name: inv-5051
 gaps:
 - id: GAP-5051
   question: Cross-contract evidence bundle completeness rules
   impact: medium
   blocking: false
+alias_id: ADR-L-1006
+alias_name: evidence-authority-model

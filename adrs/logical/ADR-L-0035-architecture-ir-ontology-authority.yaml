@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0035
+id: 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
 title: Architecture IR Ontology Authority in ste-spec
 status: accepted
 created_date: '2025-12-19'
@@ -14,48 +14,77 @@ domains:
 tags:
 - ontology
 - semantics
-context: |
-  `architecture/STE-Architecture-Intermediate-Representation.md` is the canonical **semantic**
-  specification of Architecture IR. Mechanical JSON Schema and compiled enumerations publish
-  under `contracts/architecture-ir/` per the contract pin. ste-kernel consumes the bundle;
+context: '`architecture/STE-Architecture-Intermediate-Representation.md` is the canonical
+  **semantic**
+
+  specification of Architecture IR. Mechanical JSON Schema and compiled enumerations
+  publish
+
+  under `contracts/architecture-ir/` per the contract pin. ste-kernel consumes the
+  bundle;
+
   it does not own normative mechanical definitions. Compiler roles are further constrained
+
   by ADR-L-0041.
+
 
   Legacy: `adrs/published/ADR-035-architecture-ir-ontology-authority.md`.
 
-  **Reconciliation vs ADR-L-1006:** **coexist-with-precedence** — evidence authority governs
-  evidentiary artifacts; this ADR governs **Architecture IR meaning** versus mechanical enums.
+
+  **Reconciliation vs ADR-L-1006:** **coexist-with-precedence** — evidence authority
+  governs
+
+  evidentiary artifacts; this ADR governs **Architecture IR meaning** versus mechanical
+  enums.
+
+  '
 related_adrs:
-- ADR-L-0032
-- ADR-L-0033
-- ADR-L-0041
-- ADR-L-1006
+- 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
+- 01a04e96-1f5b-7efb-a818-9534da2c4cd4
+- 01a04e96-1f5c-7e5b-9837-1dea58886565
+- 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
 decisions:
-- id: DEC-3501
-  summary: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical schemas and pins in ste-spec contracts
-  rationale: |
-    Prevents conflating JSON `kind` enums with the full ontology and avoids duplicate schema authority in kernel repos.
+- id: 01a04e96-1f5c-7315-962f-572c86c75279
+  summary: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical
+    schemas and pins in ste-spec contracts
+  rationale: 'Prevents conflating JSON `kind` enums with the full ontology and avoids
+    duplicate schema authority in kernel repos.
+
+    '
   consequences:
     positive:
     - Single cross-repo vocabulary reference
     negative:
     - Requires disciplined ir_version and schema_id updates
+  alias_id: DEC-3501
+  alias_name: semantic-ir-authority
 invariants:
-- id: INV-3501
-  statement: |
-    Extensions to mechanical Architecture IR enumerations MUST be ste-spec contract changes
-    with pin discipline; semantic additions MAY land in ste-spec prose first with explicit
+- id: 01a04e96-1f5c-771f-8f37-e9c2426a3ab9
+  statement: 'Extensions to mechanical Architecture IR enumerations MUST be ste-spec
+    contract changes
+
+    with pin discipline; semantic additions MAY land in ste-spec prose first with
+    explicit
+
     realization notes.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves ADR-L-0035 as ontology and mechanical authority anchor.
+  rationale: 'Preserves ADR-L-0035 as ontology and mechanical authority anchor.
+
+    '
   upheld_by_decisions:
-  - DEC-3501
+  - 01a04e96-1f5c-7315-962f-572c86c75279
+  alias_id: INV-3501
+  alias_name: inv-3501
 gaps:
 - id: GAP-3501
-  question: Registry surfaces and adapter projections should cite both prose ontology and mechanical pin
+  question: Registry surfaces and adapter projections should cite both prose ontology
+    and mechanical pin
   impact: low
   blocking: false
+alias_id: ADR-L-0035
+alias_name: architecture-ir-ontology-authority-in-ste-spec

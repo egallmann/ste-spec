@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-1009
+id: 01a04e96-1f5d-7793-873c-136f29f470be
 title: Kernel Decision Contract
 status: proposed
 created_date: '2026-03-28'
@@ -13,68 +13,113 @@ domains:
 tags:
 - decision-contract
 - determinism
-context: |
-  This ADR-L defines the normative **inputs** and **outputs** of a kernel admission
-  decision and the invariants that make decisions auditable and reproducible. It is the
-  architectural predecessor to future schemas and integration contracts; it does not specify wire formats.
+context: 'This ADR-L defines the normative **inputs** and **outputs** of a kernel
+  admission
+
+  decision and the invariants that make decisions auditable and reproducible. It is
+  the
+
+  architectural predecessor to future schemas and integration contracts; it does not
+  specify wire formats.
+
 
   **requested_action** is a required input and MUST conform to ADR-L-1001. Assessment-only
+
   flows follow ste-kernel ADR-PS for the assessment path and MUST NOT use this contract
+
   for allow/deny semantics.
 
-  Repository roles and kernel fail-closed evidence gating are anchored by **ADR-L-0031** and
+
+  Repository roles and kernel fail-closed evidence gating are anchored by **ADR-L-0031**
+  and
+
   **ADR-L-0032** (migrated from published ADR-031 / ADR-032).
+
+  '
 decisions:
-- id: DEC-6981
+- id: 01a04e96-1f5d-7672-a51f-eff6163e36a0
   summary: Require requested_action in the admission decision input closure
-  rationale: |
-    Admission without an action is undefined and fail-closed per invariants below.
-- id: DEC-6982
+  rationale: 'Admission without an action is undefined and fail-closed per invariants
+    below.
+
+    '
+  alias_id: DEC-6981
+  alias_name: require-requested-action-in-the-admission-decision-input-closure
+- id: 01a04e96-1f5d-7720-8e2f-bc5a00b54ae5
   summary: Enumerate decision outputs including violations, drift, remediation, explanations
-  rationale: |
-    Consumers need both human and structured machine narratives tied to cited causes.
+  rationale: 'Consumers need both human and structured machine narratives tied to
+    cited causes.
+
+    '
+  alias_id: DEC-6982
+  alias_name: enumerate-decision-outputs-including-violations-drift-remediation-explanations
 related_adrs:
-- ADR-L-0031
-- ADR-L-0032
-- ADR-L-1001
-- ADR-L-1002
-- ADR-L-1008
+- 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
+- 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
+- 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
+- 01a04e96-1f5d-7300-b13f-588156097d46
 invariants:
-- id: INV-5081
-  statement: |
-    Determinism — Given the same Architecture IR bundle, evidence bundle, governance
+- id: 01a04e96-1f5d-70ae-b717-dd800d661b13
+  statement: 'Determinism — Given the same Architecture IR bundle, evidence bundle,
+    governance
+
     posture, active rules, and requested_action (plus fixed evaluation scope and
+
     environment), the kernel MUST produce the same decision outcome and the same structured
+
     explanation skeleton.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Enables audit, replay, and cross-environment parity for admission automation.
-- id: INV-5082
-  statement: |
-    Explainability — Every admission decision MUST cite the specific ADRs, IR elements,
-    rules, invariants, posture, or evidence observations that caused the outcome; vague
+  rationale: 'Enables audit, replay, and cross-environment parity for admission automation.
+
+    '
+  alias_id: INV-5081
+  alias_name: inv-5081
+- id: 01a04e96-1f5d-7ec2-a43f-156b4b2fcb9b
+  statement: 'Explainability — Every admission decision MUST cite the specific ADRs,
+    IR elements,
+
+    rules, invariants, posture, or evidence observations that caused the outcome;
+    vague
+
     summaries without pointers are non-conformant.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: manual
-  rationale: |
-    Explanations without citations are indistinguishable from opaque denial of service.
-- id: INV-5083
-  statement: |
-    Fail-closed — Missing, invalid, or unverifiable required inputs MUST yield DENY or
+  rationale: 'Explanations without citations are indistinguishable from opaque denial
+    of service.
+
+    '
+  alias_id: INV-5082
+  alias_name: inv-5082
+- id: 01a04e96-1f5d-790f-8c39-084c55a0208c
+  statement: 'Fail-closed — Missing, invalid, or unverifiable required inputs MUST
+    yield DENY or
+
     CONDITIONAL outcomes that do not allow the requested_action; silent ALLOW is forbidden.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Prevents silent success when prerequisites are unknown or untrusted.
+  rationale: 'Prevents silent success when prerequisites are unknown or untrusted.
+
+    '
+  alias_id: INV-5083
+  alias_name: inv-5083
 gaps:
 - id: GAP-5081
   question: Formal schema for machine-readable explanation graph
   impact: medium
   blocking: false
+alias_id: ADR-L-1009
+alias_name: kernel-decision-contract

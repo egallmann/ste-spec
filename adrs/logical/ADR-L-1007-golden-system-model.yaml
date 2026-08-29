@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-1007
+id: 01a04e96-1f5d-7507-ba3f-41979e12af8f
 title: Golden System Model
 status: proposed
 created_date: '2026-03-28'
@@ -12,43 +12,70 @@ domains:
 tags:
 - golden
 - promotion
-context: |
-  A Golden system is a designated reference or production-grade posture with stricter
+context: 'A Golden system is a designated reference or production-grade posture with
+  stricter
+
   eligibility, evidence, and promotion gates. Golden status is not merely descriptive;
+
   it changes what future promotions and dependent systems may assume.
 
+
   Promotion to Golden MUST be auditable and MUST bind to explicit authority (human
-  governance decision and/or deterministic automated gates declared in policy), not to
+
+  governance decision and/or deterministic automated gates declared in policy), not
+  to
+
   informal convention.
+
+  '
 decisions:
-- id: DEC-6761
+- id: 01a04e96-1f5d-7159-991f-8adaf86a4158
   summary: Define Golden eligibility prerequisites
-  rationale: |
-    Golden without criteria becomes a hollow label.
-- id: DEC-6762
+  rationale: 'Golden without criteria becomes a hollow label.
+
+    '
+  alias_id: DEC-6761
+  alias_name: define-golden-eligibility-prerequisites
+- id: 01a04e96-1f5d-7277-be37-f79241a3d199
   summary: Define who or what may promote to Golden
-  rationale: |
-    Separates governance authority from tooling automation boundaries.
-- id: DEC-6763
+  rationale: 'Separates governance authority from tooling automation boundaries.
+
+    '
+  alias_id: DEC-6762
+  alias_name: define-who-or-what-may-promote-to-golden
+- id: 01a04e96-1f5d-79a4-9539-309865a57e9b
   summary: State implications for downstream systems and templates
-  rationale: |
-    Golden systems act as reference baselines for stricter inheritance or copying rules.
+  rationale: 'Golden systems act as reference baselines for stricter inheritance or
+    copying rules.
+
+    '
+  alias_id: DEC-6763
+  alias_name: state-implications-for-downstream-systems-and-templates
 related_adrs:
-- ADR-L-1003
-- ADR-L-1008
+- 01a04e96-1f5c-7ff0-b23d-2ed1f789092f
+- 01a04e96-1f5d-7300-b13f-588156097d46
 invariants:
-- id: INV-5061
-  statement: |
-    Promotion to Golden MUST be reproducibly justified from IR, evidence, posture, and
+- id: 01a04e96-1f5d-7679-933f-daa8ddec3521
+  statement: 'Promotion to Golden MUST be reproducibly justified from IR, evidence,
+    posture, and
+
     explicit promotion records; silent promotion MUST be forbidden.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Golden status must be evidence-backed and reviewable, not a cosmetic label.
+  rationale: 'Golden status must be evidence-backed and reviewable, not a cosmetic
+    label.
+
+    '
+  alias_id: INV-5061
+  alias_name: inv-5061
 gaps:
 - id: GAP-5061
   question: Automated versus human-only promotion gates per environment
   impact: medium
   blocking: false
+alias_id: ADR-L-1007
+alias_name: golden-system-model

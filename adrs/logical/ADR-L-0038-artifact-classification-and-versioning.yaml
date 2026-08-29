@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0038
+id: 01a04e96-1f5c-7bf8-893f-f5279ec1ec75
 title: Artifact Taxonomy and Versioning Posture
 status: accepted
 created_date: '2025-12-19'
@@ -14,68 +14,105 @@ domains:
 tags:
 - artifacts
 - versioning
-context: |
-  STE assigns each artifact a taxonomy **kind** per the ste-spec architecture document that
+context: 'STE assigns each artifact a taxonomy **kind** per the ste-spec architecture
+  document that
+
   defines artifact taxonomy and versioning posture (under `architecture/`).
+
   Version-control posture follows that kind, not repository or team preference.
-  This ADR is canonical for taxonomy and versioning posture; ADR-L-0040 maps kinds into
+
+  This ADR is canonical for taxonomy and versioning posture; ADR-L-0040 maps kinds
+  into
+
   Spine stages without redefining the taxonomy.
+
 
   Legacy: ste-spec published **ADR-038** (markdown under `adrs/published/`).
 
+
   **Reconciliation vs ADR-L-1003 / ADR-L-1007:** **coexist-with-precedence** — governance
+
   posture and Golden models reference artifact participation; ADR-L-0038 remains the
+
   **taxonomy and VCS posture** authority.
+
+  '
 related_adrs:
-- ADR-L-0040
-- ADR-L-1003
-- ADR-L-1007
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
+- 01a04e96-1f5c-7ff0-b23d-2ed1f789092f
+- 01a04e96-1f5d-7507-ba3f-41979e12af8f
 decisions:
-- id: DEC-3801
-  summary: Adopt STE artifact taxonomy kinds (Normative, Implementation, Proof Logic, Derived, Evidence, Reports, Orientation, Internal) with documented VCS posture per architecture doctrine
-  rationale: |
-    Prevents repositories from drifting on what is source truth versus regenerable output.
+- id: 01a04e96-1f5c-7798-a50f-ec2ac7fe626f
+  summary: Adopt STE artifact taxonomy kinds (Normative, Implementation, Proof Logic,
+    Derived, Evidence, Reports, Orientation, Internal) with documented VCS posture
+    per architecture doctrine
+  rationale: 'Prevents repositories from drifting on what is source truth versus regenerable
+    output.
+
+    '
   consequences:
     positive:
     - Shared reproducibility expectations
     negative:
     - Requires discipline when assigning kinds to new outputs
-- id: DEC-3802
-  summary: Separate version-control posture from normative authority; committing generated artifacts does not make them authoritative
-  rationale: |
-    Avoids equating git presence with governance authority.
+  alias_id: DEC-3801
+  alias_name: artifact-taxonomy-vcs-posture
+- id: 01a04e96-1f5c-7934-803e-ea5f0e6581a6
+  summary: Separate version-control posture from normative authority; committing generated
+    artifacts does not make them authoritative
+  rationale: 'Avoids equating git presence with governance authority.
+
+    '
   consequences:
     positive:
     - Clear authority versus storage distinction
     negative:
     - Requires contributor education
+  alias_id: DEC-3802
+  alias_name: version-control-authority-separation
 invariants:
-- id: INV-3801
-  statement: |
-    Repositories MUST apply the ste-spec architecture doctrine that defines artifact taxonomy
-    kinds and versioning posture when determining version-control treatment for STE artifacts.
+- id: 01a04e96-1f5c-7fd8-b63f-3ac4ee97f34c
+  statement: 'Repositories MUST apply the ste-spec architecture doctrine that defines
+    artifact taxonomy
+
+    kinds and versioning posture when determining version-control treatment for STE
+    artifacts.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Makes the taxonomy document enforceable via ADR-L.
+  rationale: 'Makes the taxonomy document enforceable via ADR-L.
+
+    '
   upheld_by_decisions:
-  - DEC-3801
-- id: INV-3802
-  statement: |
-    Spine doctrine and lifecycle projections MUST NOT introduce new top-level taxonomy
+  - 01a04e96-1f5c-7798-a50f-ec2ac7fe626f
+  alias_id: INV-3801
+  alias_name: inv-3801
+- id: 01a04e96-1f5c-7581-9233-99cb13ff0806
+  statement: 'Spine doctrine and lifecycle projections MUST NOT introduce new top-level
+    taxonomy
+
     kinds or alter VCS posture established in ADR-L-0038 without amending this ADR-L.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves precedence versus ADR-L-0040.
+  rationale: 'Preserves precedence versus ADR-L-0040.
+
+    '
   upheld_by_decisions:
-  - DEC-3801
+  - 01a04e96-1f5c-7798-a50f-ec2ac7fe626f
+  alias_id: INV-3802
+  alias_name: inv-3802
 gaps:
 - id: GAP-3801
-  question: Publication artifact exceptions remain labeled in doctrine; track in handbook index
+  question: Publication artifact exceptions remain labeled in doctrine; track in handbook
+    index
   impact: low
   blocking: false
+alias_id: ADR-L-0038
+alias_name: artifact-taxonomy-and-versioning-posture

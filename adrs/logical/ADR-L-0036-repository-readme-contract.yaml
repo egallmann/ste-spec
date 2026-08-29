@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0036
+id: 01a04e96-1f5c-7fa8-a63c-a55b509dbca2
 title: Repository README Contract
 status: accepted
 created_date: '2025-12-19'
@@ -14,44 +14,69 @@ domains:
 tags:
 - readme
 - boundaries
-context: |
-  Every STE repository `README.md` MUST serve as a human-readable architectural boundary
-  and responsibility description. README is an orientation entry point, subordinate to ADRs,
+context: 'Every STE repository `README.md` MUST serve as a human-readable architectural
+  boundary
+
+  and responsibility description. README is an orientation entry point, subordinate
+  to ADRs,
+
   contracts, invariants, and Architecture IR doctrine.
+
 
   Legacy: `adrs/published/ADR-036-repository-readme-contract.md`.
 
-  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance ADRs do
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance
+  ADRs do
+
   not define README structure; this ADR governs **repository human entrypoints** only.
+
+  '
 related_adrs:
-- ADR-L-0037
-- ADR-L-0038
-- ADR-L-0040
+- 01a04e96-1f5c-798e-953b-59dbf5d8cfec
+- 01a04e96-1f5c-7bf8-893f-f5279ec1ec75
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
 decisions:
-- id: DEC-3601
-  summary: Require README.md to communicate authority, responsibilities, non-responsibilities, inputs, outputs, boundaries, and lifecycle position without becoming normative authority
-  rationale: |
-    Prevents repository responsibility drift while keeping normative truth in ADRs and contracts.
+- id: 01a04e96-1f5c-7383-a21d-670b4848a89c
+  summary: Require README.md to communicate authority, responsibilities, non-responsibilities,
+    inputs, outputs, boundaries, and lifecycle position without becoming normative
+    authority
+  rationale: 'Prevents repository responsibility drift while keeping normative truth
+    in ADRs and contracts.
+
+    '
   consequences:
     positive:
     - Faster onboarding and boundary clarity
     negative:
     - README maintenance burden
+  alias_id: DEC-3601
+  alias_name: readme-responsibility-boundary
 invariants:
-- id: INV-3601
-  statement: |
-    When README content conflicts with a normative ADR, invariant, schema, contract, or
-    Architecture IR doctrine, the normative artifact MUST govern and README MUST be corrected.
+- id: 01a04e96-1f5c-714a-aa37-80e9b4523045
+  statement: 'When README content conflicts with a normative ADR, invariant, schema,
+    contract, or
+
+    Architecture IR doctrine, the normative artifact MUST govern and README MUST be
+    corrected.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves README as explanatory orientation only.
+  rationale: 'Preserves README as explanatory orientation only.
+
+    '
   upheld_by_decisions:
-  - DEC-3601
+  - 01a04e96-1f5c-7383-a21d-670b4848a89c
+  alias_id: INV-3601
+  alias_name: inv-3601
 gaps:
 - id: GAP-3601
-  question: Optional checklist templates per repository role belong in handbook or scripts
+  question: Optional checklist templates per repository role belong in handbook or
+    scripts
   impact: low
   blocking: false
+alias_id: ADR-L-0036
+alias_name: repository-readme-contract

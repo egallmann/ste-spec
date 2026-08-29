@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0041
+id: 01a04e96-1f5c-7e5b-9837-1dea58886565
 title: Compiler, Evidence, and Merge Authority
 status: accepted
 created_date: '2025-12-19'
@@ -15,67 +15,107 @@ tags:
 - compiler
 - evidence
 - kernel
-context: |
-  Non-overlapping compiler roles: **adr-architecture-kit** is the authoring compiler for
+context: 'Non-overlapping compiler roles: **adr-architecture-kit** is the authoring
+  compiler for
+
   ADR registries/manifest/rendered views (not a second compiler-of-record for
-  `ArchitectureEvidence` or normative `Compiled_IR_Document`). **ste-runtime** is runtime
-  evidence compiler of record. **ste-kernel** merges publication fragments, validates IR,
+
+  `ArchitectureEvidence` or normative `Compiled_IR_Document`). **ste-runtime** is
+  runtime
+
+  evidence compiler of record. **ste-kernel** merges publication fragments, validates
+  IR,
+
   and emits `KernelAdmissionAssessment` while consuming ste-spec contracts.
+
 
   Legacy: `adrs/published/ADR-041-compiler-and-merge-authority.md`.
 
-  **Reconciliation vs ADR-L-1004:** **coexist-with-precedence** — freshness semantics govern
+
+  **Reconciliation vs ADR-L-1004:** **coexist-with-precedence** — freshness semantics
+  govern
+
   evidence timing; this ADR assigns **who may compile** named artifact families.
 
-  **Reconciliation vs ADR-L-1005:** **coexist-with-precedence** — drift detection consumes
-  compiled views; compiler-of-record boundaries prevent ambiguous duplicate compile stacks.
+
+  **Reconciliation vs ADR-L-1005:** **coexist-with-precedence** — drift detection
+  consumes
+
+  compiled views; compiler-of-record boundaries prevent ambiguous duplicate compile
+  stacks.
+
 
   **Runtime compiler of record:** **ste-runtime** `COMPILER-AUTHORITY.md` — use
-  `ste architecture compile --project-root <repo-root>` (see **MIGRATION-INVENTORY.md** Phase 5
+
+  `ste architecture compile --project-root <repo-root>` (see **MIGRATION-INVENTORY.md**
+  Phase 5
+
   for a recorded example command and artifact paths).
+
+  '
 related_adrs:
-- ADR-L-0030
-- ADR-L-0031
-- ADR-L-0035
-- ADR-L-0040
-- ADR-L-1004
-- ADR-L-1005
+- 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
+- 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
+- 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
+- 01a04e96-1f5c-70ba-9337-084a88667cc5
+- 01a04e96-1f5c-7b1e-943d-6db525f77bf0
 decisions:
-- id: DEC-4101
-  summary: Assign authoring-time ADR compilation to adr-architecture-kit without claiming runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record roles
-  rationale: |
-    Prevents parallel truth compilers for the same interchange contracts.
+- id: 01a04e96-1f5c-7b65-803f-d2016b02ce66
+  summary: Assign authoring-time ADR compilation to adr-architecture-kit without claiming
+    runtime ArchitectureEvidence or normative Compiled_IR_Document compiler-of-record
+    roles
+  rationale: 'Prevents parallel truth compilers for the same interchange contracts.
+
+    '
   consequences:
     positive:
     - Clear golden parity versus production compile paths
     negative:
     - Contributors must use the right tool per task
-- id: DEC-4102
-  summary: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge, validation, and admission assessment emission to ste-kernel
-  rationale: |
-    Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
+  alias_id: DEC-4101
+  alias_name: authoring-time-adr-compilation
+- id: 01a04e96-1f5c-7a31-aa3f-53438d0c8225
+  summary: Assign ArchitectureEvidence compilation to ste-runtime; assign IR merge,
+    validation, and admission assessment emission to ste-kernel
+  rationale: 'Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
+
+    '
   consequences:
     positive:
     - Aligns repos with Spine enforcement story
     negative:
     - Documentation must stay synchronized across three repos
+  alias_id: DEC-4102
+  alias_name: evidence-kernel-admission-authority
 invariants:
-- id: INV-4101
-  statement: |
-    Repositories MUST NOT maintain a second authoritative compile path that redefines ste-spec
-    contract shapes for `ArchitectureEvidence` or normative Architecture IR schema without an
+- id: 01a04e96-1f5c-7083-a03e-3069ae14e755
+  statement: 'Repositories MUST NOT maintain a second authoritative compile path that
+    redefines ste-spec
+
+    contract shapes for `ArchitectureEvidence` or normative Architecture IR schema
+    without an
+
     explicit superseding ADR-L.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves single normative shape targets for fail-closed enforcement.
+  rationale: 'Preserves single normative shape targets for fail-closed enforcement.
+
+    '
   upheld_by_decisions:
-  - DEC-4101
-  - DEC-4102
+  - 01a04e96-1f5c-7b65-803f-d2016b02ce66
+  - 01a04e96-1f5c-7a31-aa3f-53438d0c8225
+  alias_id: INV-4101
+  alias_name: inv-4101
 gaps:
 - id: GAP-4101
-  question: Keep ste-runtime CLI install docs aligned when global `ste` npm shim diverges from workspace builds
+  question: Keep ste-runtime CLI install docs aligned when global `ste` npm shim diverges
+    from workspace builds
   impact: low
   blocking: false
+alias_id: ADR-L-0041
+alias_name: compiler-evidence-and-merge-authority

@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0037
+id: 01a04e96-1f5c-798e-953b-59dbf5d8cfec
 title: Repository README Conformance and Reference Implementation
 status: accepted
 created_date: '2025-12-19'
@@ -14,44 +14,65 @@ domains:
 tags:
 - readme
 - conformance
-context: |
-  Every STE repository MUST provide a README conforming to ADR-L-0036. README is an
+context: 'Every STE repository MUST provide a README conforming to ADR-L-0036. README
+  is an
+
   Orientation artifact per ADR-L-0038: non-authoritative, should be versioned, cannot
+
   introduce doctrine, and must cite normative sources for authority claims.
+
 
   Legacy: `adrs/published/ADR-037-repository-readme-conformance-and-reference-implementation.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — orthogonal to kernel
+
   admission contracts; governs **multi-repo human surfaces** only.
+
+  '
 related_adrs:
-- ADR-L-0036
-- ADR-L-0038
-- ADR-L-0040
+- 01a04e96-1f5c-7fa8-a63c-a55b509dbca2
+- 01a04e96-1f5c-7bf8-893f-f5279ec1ec75
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
 decisions:
-- id: DEC-3701
-  summary: Treat ste-spec README as the reference implementation pattern for ADR-L-0036 conformance
-  rationale: |
-    Provides a concrete converged example after ste-spec refactor.
+- id: 01a04e96-1f5c-7365-b616-cbe7c3497542
+  summary: Treat ste-spec README as the reference implementation pattern for ADR-L-0036
+    conformance
+  rationale: 'Provides a concrete converged example after ste-spec refactor.
+
+    '
   consequences:
     positive:
     - System-wide README convergence anchor
     negative:
     - Reference may lag if ste-spec README changes without updating cross-links
+  alias_id: DEC-3701
+  alias_name: treat-ste-spec-readme-as-the-reference-implementation-pattern-for-adr-l-0036-conformance
 invariants:
-- id: INV-3701
-  statement: |
-    Repository README files MUST remain subordinate to normative artifacts; they MUST NOT
-    introduce new normative rules, invariants, or contract shapes without an ADR-L or contract change.
+- id: 01a04e96-1f5c-72d0-9e3f-60746dfccab0
+  statement: 'Repository README files MUST remain subordinate to normative artifacts;
+    they MUST NOT
+
+    introduce new normative rules, invariants, or contract shapes without an ADR-L
+    or contract change.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Aligns Orientation posture with ADR-L-0038.
+  rationale: 'Aligns Orientation posture with ADR-L-0038.
+
+    '
   upheld_by_decisions:
-  - DEC-3701
+  - 01a04e96-1f5c-7365-b616-cbe7c3497542
+  alias_id: INV-3701
+  alias_name: inv-3701
 gaps:
 - id: GAP-3701
-  question: Automated linting for README sections is optional tooling outside this ADR-L
+  question: Automated linting for README sections is optional tooling outside this
+    ADR-L
   impact: low
   blocking: false
+alias_id: ADR-L-0037
+alias_name: repository-readme-conformance-and-reference-implementation

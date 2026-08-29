@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0031
+id: 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
 title: Runtime and Kernel Responsibility Boundary
 status: accepted
 created_date: '2025-12-19'
@@ -14,50 +14,72 @@ domains:
 tags:
 - admission
 - evidence
-context: |
-  **ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
-  admission authority at the evaluated System Instance boundary (explicit environment and
+context: '**ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
+
+  admission authority at the evaluated System Instance boundary (explicit environment
+  and
+
   evaluation scope).
+
 
   Legacy: `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **merge** — **ADR-L-1001** action model and
+
   **ADR-L-1002** admission model formalize the same separation for kernel documentation;
+
   this ADR names the **repository roles** (runtime vs kernel) that realize it.
+
+  '
 related_adrs:
-- ADR-L-0030
-- ADR-L-0032
-- ADR-L-0040
-- ADR-L-0041
-- ADR-L-1001
-- ADR-L-1002
-- ADR-L-1009
+- 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
+- 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
+- 01a04e96-1f5c-7e5b-9837-1dea58886565
+- 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-3101
-  summary: Confine ste-runtime to evidence production; assign caller-facing admission to ste-kernel
-  rationale: |
-    Keeps runtime factual and kernel authoritative without collapsing shared contracts into
+- id: 01a04e96-1f5b-7c4e-aa1f-a1734a987329
+  summary: Confine ste-runtime to evidence production; assign caller-facing admission
+    to ste-kernel
+  rationale: 'Keeps runtime factual and kernel authoritative without collapsing shared
+    contracts into
+
     one role.
+
+    '
   consequences:
     positive:
     - Clear handoff semantics
     negative:
     - Runtime cannot emit admission outcomes
+  alias_id: DEC-3101
+  alias_name: confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
 invariants:
-- id: INV-3101
-  statement: |
-    ste-runtime MUST NOT emit caller-facing admission or execution-eligibility decision
+- id: 01a04e96-1f5b-7bf6-b33e-aa6024c35c48
+  statement: 'ste-runtime MUST NOT emit caller-facing admission or execution-eligibility
+    decision
+
     semantics; ste-kernel alone emits `KernelAdmissionAssessment` per published contracts.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Enforces the evidence versus decision split at the boundary.
+  rationale: 'Enforces the evidence versus decision split at the boundary.
+
+    '
   upheld_by_decisions:
-  - DEC-3101
+  - 01a04e96-1f5b-7c4e-aa1f-a1734a987329
+  alias_id: INV-3101
+  alias_name: inv-3101
 gaps:
 - id: GAP-3101
   question: Wire-format examples live in contracts; keep ADR-L scoped to authority
   impact: low
   blocking: false
+alias_id: ADR-L-0031
+alias_name: runtime-and-kernel-responsibility-boundary

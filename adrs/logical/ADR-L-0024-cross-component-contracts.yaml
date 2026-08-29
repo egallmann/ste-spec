@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0024
+id: 01a04e96-1f5b-7e90-9f2d-79f60b81c807
 title: Cross-Component Contracts and Execution Eligibility Interface
 status: accepted
 created_date: '2025-12-23'
@@ -14,66 +14,100 @@ domains:
 tags:
 - contracts
 - context-bundle
-context: |
-  Gateway is a pure validator over a complete Context Bundle; Runtime (with ADF-produced
-  artifacts) supplies completeness. Requests use references and integrity bindings; responses
+context: 'Gateway is a pure validator over a complete Context Bundle; Runtime (with
+  ADF-produced
+
+  artifacts) supplies completeness. Requests use references and integrity bindings;
+  responses
+
   are structured with stable reason codes. Execution blocks synchronously until ALLOW.
+
 
   Legacy: `adrs/published/ADR-024-cross-component-contracts.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — **ADR-L-1009** shapes
+
   kernel-facing decision vocabulary; this ADR defines **Runtime–Gateway** eligibility
+
   envelopes and reason-code stability for the STE system model.
+
+  '
 related_adrs:
-- ADR-L-0019
-- ADR-L-0022
-- ADR-L-0023
-- ADR-L-0025
-- ADR-L-0027
-- ADR-L-1009
+- 01a04e96-1f5a-7af0-a138-a306f7b93157
+- 01a04e96-1f5b-74cc-9a3d-921d80842047
+- 01a04e96-1f5b-788c-8306-d10c9fe24eaa
+- 01a04e96-1f5b-78b8-972b-af0c783ef246
+- 01a04e96-1f5b-7d37-8038-1c811fc5261b
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-2401
-  summary: Gateway MUST NOT modify, enrich, infer, or complete eligibility requests; incomplete input fails closed
-  rationale: |
-    Preserves deterministic evaluation and audit reconstruction from submitted bundles alone.
+- id: 01a04e96-1f5b-70fc-b63f-b45a9ecb3b49
+  summary: Gateway MUST NOT modify, enrich, infer, or complete eligibility requests;
+    incomplete input fails closed
+  rationale: 'Preserves deterministic evaluation and audit reconstruction from submitted
+    bundles alone.
+
+    '
   consequences:
     positive:
     - Reproducible eligibility decisions
     negative:
     - Callers must supply complete envelopes
-- id: DEC-2402
-  summary: Runtime or Runtime-plus-ADF constructs the complete Context Bundle; Gateway resolves references from authoritative stores and verifies independently
-  rationale: |
-    Separates construction from verification and prevents blind trust in upstream validation summaries.
+  alias_id: DEC-2401
+  alias_name: gateway-eligibility-input-immutability
+- id: 01a04e96-1f5b-7d05-a53e-1b709d1d85f4
+  summary: Runtime or Runtime-plus-ADF constructs the complete Context Bundle; Gateway
+    resolves references from authoritative stores and verifies independently
+  rationale: 'Separates construction from verification and prevents blind trust in
+    upstream validation summaries.
+
+    '
   consequences:
     positive:
     - Independent verification at the boundary
     negative:
     - Duplicate verification work at Gateway
-- id: DEC-2403
-  summary: Require structured eligibility responses with ALLOW, DENY, or INDETERMINATE; map INDETERMINATE to denial for execution; use stable reason codes
-  rationale: |
-    Enables machine-actionable handling and aligns with normalized outcomes (ADR-L-0023).
+  alias_id: DEC-2402
+  alias_name: context-bundle-construction-verification
+- id: 01a04e96-1f5b-74ca-b31f-6884711701b7
+  summary: Require structured eligibility responses with ALLOW, DENY, or INDETERMINATE;
+    map INDETERMINATE to denial for execution; use stable reason codes
+  rationale: 'Enables machine-actionable handling and aligns with normalized outcomes
+    (ADR-L-0023).
+
+    '
   consequences:
     positive:
     - Deterministic client behavior
     negative:
     - Reason-code taxonomy must evolve carefully
+  alias_id: DEC-2403
+  alias_name: structured-eligibility-responses
 invariants:
-- id: INV-2401
-  statement: |
-    Execution MUST NOT begin until Gateway returns ALLOW; optimistic or asynchronous
-    eligibility patterns that proceed before ALLOW are forbidden for authoritative execution.
+- id: 01a04e96-1f5b-7bd0-b031-b2f4718c8161
+  statement: 'Execution MUST NOT begin until Gateway returns ALLOW; optimistic or
+    asynchronous
+
+    eligibility patterns that proceed before ALLOW are forbidden for authoritative
+    execution.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents time-of-check to time-of-use gaps.
+  rationale: 'Prevents time-of-check to time-of-use gaps.
+
+    '
   upheld_by_decisions:
-  - DEC-2403
+  - 01a04e96-1f5b-74ca-b31f-6884711701b7
+  alias_id: INV-2401
+  alias_name: inv-2401
 gaps:
 - id: GAP-2401
-  question: Transport and serialization formats remain implementation-specific if contract semantics are preserved
+  question: Transport and serialization formats remain implementation-specific if
+    contract semantics are preserved
   impact: low
   blocking: false
+alias_id: ADR-L-0024
+alias_name: cross-component-contracts-and-execution-eligibility-interface

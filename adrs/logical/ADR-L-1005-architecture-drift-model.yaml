@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-1005
+id: 01a04e96-1f5c-7b1e-943d-6db525f77bf0
 title: Architecture Drift Model
 status: proposed
 created_date: '2026-03-28'
@@ -12,77 +12,128 @@ domains:
 tags:
 - drift
 - categorization
-context: |
-  Drift means observable divergence between declared architecture (IR and normative
+context: 'Drift means observable divergence between declared architecture (IR and
+  normative
+
   doctrine), implementation or runtime behavior, and evidence. The kernel MUST categorize
-  drift into named kinds and map each kind to default admission-aligned outcomes; it
+
+  drift into named kinds and map each kind to default admission-aligned outcomes;
+  it
+
   MUST NOT silently reinterpret drift ad hoc.
 
+
   Default outcomes below are baseline semantics; posture, rules, and Golden requirements
+
   MAY tighten but MUST NOT weaken fail-closed guarantees without explicit governance
+
   exception artifacts per ADR-040.
+
+  '
 decisions:
-- id: DEC-6541
+- id: 01a04e96-1f5c-7dcc-8737-05fb5c8a02a3
   summary: Define drift categories with default outcomes
-  rationale: |
-    Deterministic categorization enables explainable automation and audit.
+  rationale: 'Deterministic categorization enables explainable automation and audit.
+
+    '
   consequences:
     positive:
     - Uniform handling across STE systems
     negative:
     - Exception paths must be explicit, not informal
-- id: DEC-6542
-  summary: Implementation drift defaults to CONDITIONAL or DENY for deploy/change actions
-  rationale: |
-    Code or config that diverges from declared architecture cannot be promoted blindly.
-- id: DEC-6543
+  alias_id: DEC-6541
+  alias_name: define-drift-categories-with-default-outcomes
+- id: 01a04e96-1f5c-7dce-bd1e-f6cbbb87ea98
+  summary: Implementation drift defaults to CONDITIONAL or DENY for deploy/change
+    actions
+  rationale: 'Code or config that diverges from declared architecture cannot be promoted
+    blindly.
+
+    '
+  alias_id: DEC-6542
+  alias_name: implementation-drift-defaults-to-conditional-or-deny-for-deploy-change-actions
+- id: 01a04e96-1f5c-7928-a73e-8841a476f1d5
   summary: Runtime drift defaults to WARNING or CONDITIONAL
-  rationale: |
-    Live behavior variance may warn first when safety allows, else gate action.
-- id: DEC-6544
+  rationale: 'Live behavior variance may warn first when safety allows, else gate
+    action.
+
+    '
+  alias_id: DEC-6543
+  alias_name: runtime-drift-defaults-to-warning-or-conditional
+- id: 01a04e96-1f5c-72c3-b33f-d47dcb98478b
   summary: Evidence drift defaults to WARNING or CONDITIONAL
-  rationale: |
-    Observation divergence should surface without pretending architecture changed.
-- id: DEC-6545
-  summary: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL otherwise
-  rationale: |
-    Unknown structure must not gain implicit authority.
-- id: DEC-6546
+  rationale: 'Observation divergence should surface without pretending architecture
+    changed.
+
+    '
+  alias_id: DEC-6544
+  alias_name: evidence-drift-defaults-to-warning-or-conditional
+- id: 01a04e96-1f5c-7259-842f-bcf1a844b040
+  summary: Undocumented component defaults to DENY for high-risk actions, CONDITIONAL
+    otherwise
+  rationale: 'Unknown structure must not gain implicit authority.
+
+    '
+  alias_id: DEC-6545
+  alias_name: undocumented-component-defaults-to-deny-for-high-risk-actions-conditional-otherwise
+- id: 01a04e96-1f5c-77c4-b236-084eab1c0e1f
   summary: Invariant violation defaults to DENY
-  rationale: |
-    Broken invariants are fail-closed for actions that depend on them.
-- id: DEC-6547
+  rationale: 'Broken invariants are fail-closed for actions that depend on them.
+
+    '
+  alias_id: DEC-6546
+  alias_name: invariant-violation-defaults-to-deny
+- id: 01a04e96-1f5c-797b-8b0b-b10f1f7b64a4
   summary: Freshness drift defaults to CONDITIONAL or WARNING
-  rationale: |
-    Timeliness mismatches gate or warn per ADR-L-1004 interplay.
+  rationale: 'Timeliness mismatches gate or warn per ADR-L-1004 interplay.
+
+    '
+  alias_id: DEC-6547
+  alias_name: freshness-drift-defaults-to-conditional-or-warning
 related_adrs:
-- ADR-L-1004
-- ADR-L-1006
-- ADR-L-1008
-- ADR-L-1009
+- 01a04e96-1f5c-70ba-9337-084a88667cc5
+- 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
+- 01a04e96-1f5d-7300-b13f-588156097d46
+- 01a04e96-1f5d-7793-873c-136f29f470be
 invariants:
-- id: INV-5041
-  statement: |
-    Drift categorization MUST be exhaustive for known inputs; unknown drift MUST be
+- id: 01a04e96-1f5c-7a0f-bb35-919bc15e2952
+  statement: 'Drift categorization MUST be exhaustive for known inputs; unknown drift
+    MUST be
+
     surfaced as a primary-tier finding, not ignored.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Unknown drift must be visible to preserve explainability and fail-closed posture.
-- id: INV-5042
-  statement: |
-    Default drift outcomes MUST be documented per drift kind; tightening by posture or Golden
+  rationale: 'Unknown drift must be visible to preserve explainability and fail-closed
+    posture.
+
+    '
+  alias_id: INV-5041
+  alias_name: inv-5041
+- id: 01a04e96-1f5c-7406-803e-d5c97956b681
+  statement: 'Default drift outcomes MUST be documented per drift kind; tightening
+    by posture or Golden
+
     status MUST remain deterministic.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: design
   verification_method: manual
-  rationale: |
-    Prevents informal waiver of drift handling across environments with different postures.
+  rationale: 'Prevents informal waiver of drift handling across environments with
+    different postures.
+
+    '
+  alias_id: INV-5042
+  alias_name: inv-5042
 gaps:
 - id: GAP-5041
   question: Machine labels for drift kinds at IR/evidence boundary
   impact: medium
   blocking: false
+alias_id: ADR-L-1005
+alias_name: architecture-drift-model

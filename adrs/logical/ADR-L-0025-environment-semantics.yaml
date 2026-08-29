@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0025
+id: 01a04e96-1f5b-78b8-972b-af0c783ef246
 title: Environment Semantics
 status: accepted
 created_date: '2025-12-29'
@@ -14,67 +14,98 @@ domains:
 tags:
 - environment
 - canonical-state
-context: |
-  Environment is a mandatory, opaque identifier partitioning canonical state and
+context: 'Environment is a mandatory, opaque identifier partitioning canonical state
+  and
+
   attestations. Fabric governance defines allowed values; Gateway enforces exact
+
   case-sensitive equality between Context Bundle and Fabric Attestation; no inference,
+
   defaults, aliases, or hierarchy in v1.
+
 
   Legacy: `adrs/published/ADR-025-environment-semantics.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — environment is a
+
   **STE-system canonical dimension** for eligibility; kernel documentation-state
+
   environments (if any) are orthogonal unless explicitly bridged in a future ADR-L.
+
+  '
 related_adrs:
-- ADR-L-0007
-- ADR-L-0008
-- ADR-L-0022
-- ADR-L-0024
-- ADR-L-0028
+- 01a04e96-1f5a-7ea8-b832-ea3972a2f81e
+- 01a04e96-1f5a-7a29-b11e-4fe242be290c
+- 01a04e96-1f5b-74cc-9a3d-921d80842047
+- 01a04e96-1f5b-7e90-9f2d-79f60b81c807
+- 01a04e96-1f5b-7551-992f-4be395920f16
 decisions:
-- id: DEC-2501
-  summary: Treat environment as a primary canonical dimension with mandatory explicit identifiers in Fabric Attestations and Context Bundles
-  rationale: |
-    Prevents ambiguous canonical boundaries and cross-environment authorization mistakes.
+- id: 01a04e96-1f5b-73b0-951a-7fcecab8bc3d
+  summary: Treat environment as a primary canonical dimension with mandatory explicit
+    identifiers in Fabric Attestations and Context Bundles
+  rationale: 'Prevents ambiguous canonical boundaries and cross-environment authorization
+    mistakes.
+
+    '
   consequences:
     positive:
     - Deterministic partition of canonical state
     negative:
     - No silent defaults for environment
-- id: DEC-2502
-  summary: Enforce environment equality with exact case-sensitive string match at Gateway; deny on mismatch
-  rationale: |
-    Exact matching is falsifiable and implementation-neutral for v1.
+  alias_id: DEC-2501
+  alias_name: environment-canonical-dimension
+- id: 01a04e96-1f5b-7a54-812f-1a1a8b5cc7e4
+  summary: Enforce environment equality with exact case-sensitive string match at
+    Gateway; deny on mismatch
+  rationale: 'Exact matching is falsifiable and implementation-neutral for v1.
+
+    '
   consequences:
     positive:
     - Predictable interoperability
     negative:
     - Naming discipline required across teams
-- id: DEC-2503
-  summary: Bind environment into signed Fabric Attestation content; prohibit inference from infrastructure or git metadata
-  rationale: |
-    Stops substitution and hidden derivation of scope.
+  alias_id: DEC-2502
+  alias_name: enforce-environment-equality-with-exact-case-sensitive-string-match-at-gateway-deny-on-mismatch
+- id: 01a04e96-1f5b-7c5d-903b-955fcc777b2b
+  summary: Bind environment into signed Fabric Attestation content; prohibit inference
+    from infrastructure or git metadata
+  rationale: 'Stops substitution and hidden derivation of scope.
+
+    '
   consequences:
     positive:
     - Cryptographic binding of scope claims
     negative:
     - Explicit configuration burden on callers
+  alias_id: DEC-2503
+  alias_name: environment-signed-attestation
 invariants:
-- id: INV-2501
-  statement: |
-    Gateway MUST NOT infer, default, case-fold, pattern-match, or hierarchically interpret
+- id: 01a04e96-1f5b-726c-b02f-53152aaef0e3
+  statement: 'Gateway MUST NOT infer, default, case-fold, pattern-match, or hierarchically
+    interpret
+
     environment identifiers for v1 eligibility; only exact equality on declared identifiers
+
     is permitted.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves determinism claims for eligibility evaluation.
+  rationale: 'Preserves determinism claims for eligibility evaluation.
+
+    '
   upheld_by_decisions:
-  - DEC-2502
+  - 01a04e96-1f5b-7a54-812f-1a1a8b5cc7e4
+  alias_id: INV-2501
+  alias_name: inv-2501
 gaps:
 - id: GAP-2501
   question: Future ADR-L for hierarchical environments, wildcards, or aliases if needed
   impact: low
   blocking: false
+alias_id: ADR-L-0025
+alias_name: environment-semantics

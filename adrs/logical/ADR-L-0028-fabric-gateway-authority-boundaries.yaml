@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0028
+id: 01a04e96-1f5b-7551-992f-4be395920f16
 title: AI-DOC Fabric and Gateway Authority Boundaries
 status: accepted
 created_date: '2025-12-29'
@@ -15,68 +15,106 @@ domains:
 tags:
 - authority
 - boundaries
-context: |
-  Fabric is the sole canonical state authority, invariant resolver, conflict detector for
-  attested bundles, and signer of Fabric Attestations. Gateway is a pure verifier that does
-  not query Fabric during eligibility evaluation. Runtime assembles and transports bundles
+context: 'Fabric is the sole canonical state authority, invariant resolver, conflict
+  detector for
+
+  attested bundles, and signer of Fabric Attestations. Gateway is a pure verifier
+  that does
+
+  not query Fabric during eligibility evaluation. Runtime assembles and transports
+  bundles
+
   and attestations without substituting Fabric authority.
+
 
   Legacy: `adrs/published/ADR-028-fabric-gateway-authority-boundaries.md`.
 
-  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance ADRs
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — kernel governance
+  ADRs
+
   describe documentation-state admission; this ADR pins **runtime STE component roles**
+
   for canonical truth vs enforcement.
+
+  '
 related_adrs:
-- ADR-L-0019
-- ADR-L-0024
-- ADR-L-0026
-- ADR-L-0029
-- ADR-L-1001
-- ADR-L-1009
+- 01a04e96-1f5a-7af0-a138-a306f7b93157
+- 01a04e96-1f5b-7e90-9f2d-79f60b81c807
+- 01a04e96-1f5b-7f70-b03f-807ea0fe6694
+- 01a04e96-1f5b-797b-b73b-27a64590210d
+- 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-2801
-  summary: Require one-way knowledge flow Human or Agent to Runtime to Fabric to Runtime to Gateway to model provider; Gateway must not query Fabric synchronously on the eligibility hot path
-  rationale: |
-    Prevents cache, network, and availability variance from changing eligibility outcomes.
+- id: 01a04e96-1f5b-7089-a90f-5435c2821323
+  summary: Require one-way knowledge flow Human or Agent to Runtime to Fabric to Runtime
+    to Gateway to model provider; Gateway must not query Fabric synchronously on the
+    eligibility hot path
+  rationale: 'Prevents cache, network, and availability variance from changing eligibility
+    outcomes.
+
+    '
   consequences:
     positive:
     - Deterministic eligibility given the same signed inputs
     negative:
     - Runtime must prefetch attestations
-- id: DEC-2802
-  summary: Prohibit Gateway from recomputing Fabric conflict determinations or enriching attestations from external knowledge sources during evaluation
-  rationale: |
-    Preserves verifier-only posture and minimal attack surface for probing canonical state.
+  alias_id: DEC-2801
+  alias_name: runtime-fabric-gateway-knowledge-flow
+- id: 01a04e96-1f5b-71e2-8337-e3e6c3aa2c96
+  summary: Prohibit Gateway from recomputing Fabric conflict determinations or enriching
+    attestations from external knowledge sources during evaluation
+  rationale: 'Preserves verifier-only posture and minimal attack surface for probing
+    canonical state.
+
+    '
   consequences:
     positive:
     - Consistent cross-vendor Gateway behavior
     negative:
     - No best-effort gap filling at Gateway
-- id: DEC-2803
-  summary: Prohibit Runtime from signing Fabric Attestations or overriding Fabric canonical claims
-  rationale: |
-    Keeps canonical publisher boundary singular.
+  alias_id: DEC-2802
+  alias_name: gateway-attestation-enrichment-prohibition
+- id: 01a04e96-1f5b-76d1-9313-cc26a58a7d94
+  summary: Prohibit Runtime from signing Fabric Attestations or overriding Fabric
+    canonical claims
+  rationale: 'Keeps canonical publisher boundary singular.
+
+    '
   consequences:
     positive:
     - Clear accountability for attestations
     negative:
     - Runtime cannot self-attest canonical slices
+  alias_id: DEC-2803
+  alias_name: prohibit-runtime-from-signing-fabric-attestations-or-overriding-fabric-canonical-claims
 invariants:
-- id: INV-2801
-  statement: |
-    During execution eligibility evaluation, Gateway MUST rely on signed attestations and
-    authoritative reference resolution rules in ADR-L-0024, not live Fabric queries, to
+- id: 01a04e96-1f5b-71cb-bf3d-e00053d15db3
+  statement: 'During execution eligibility evaluation, Gateway MUST rely on signed
+    attestations and
+
+    authoritative reference resolution rules in ADR-L-0024, not live Fabric queries,
+    to
+
     obtain canonical claims.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Separates Fabric publication time from Gateway verification time.
+  rationale: 'Separates Fabric publication time from Gateway verification time.
+
+    '
   upheld_by_decisions:
-  - DEC-2801
+  - 01a04e96-1f5b-7089-a90f-5435c2821323
+  alias_id: INV-2801
+  alias_name: inv-2801
 gaps:
 - id: GAP-2801
-  question: Physical deployment patterns for Fabric availability belong in ADR-PS when authored
+  question: Physical deployment patterns for Fabric availability belong in ADR-PS
+    when authored
   impact: low
   blocking: false
+alias_id: ADR-L-0028
+alias_name: ai-doc-fabric-and-gateway-authority-boundaries

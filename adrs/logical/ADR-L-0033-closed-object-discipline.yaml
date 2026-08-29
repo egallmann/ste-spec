@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0033
+id: 01a04e96-1f5b-7efb-a818-9534da2c4cd4
 title: Closed-Object Discipline
 status: accepted
 created_date: '2025-12-19'
@@ -14,45 +14,67 @@ domains:
 tags:
 - schema
 - handoff
-context: |
-  Runtime/kernel handoff objects are **closed by default**: undeclared fields are not
+context: 'Runtime/kernel handoff objects are **closed by default**: undeclared fields
+  are not
+
   contract-valid and cannot become hidden semantic or policy channels across repositories.
+
 
   Legacy: `adrs/published/ADR-033-closed-object-discipline.md`.
 
-  **Reconciliation vs ADR-L-1002:** **coexist-with-precedence** — admission consumes typed
+
+  **Reconciliation vs ADR-L-1002:** **coexist-with-precedence** — admission consumes
+  typed
+
   inputs; closed objects prevent undeclared side channels that would undermine admission
+
   predicates.
+
+  '
 related_adrs:
-- ADR-L-0032
-- ADR-L-0035
-- ADR-L-0040
-- ADR-L-1002
+- 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
+- 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
 decisions:
-- id: DEC-3301
-  summary: Require closed-object discipline for encoded handoff payloads at the runtime/kernel boundary
-  rationale: |
-    Bounded objects force explicit contract evolution and deterministic rejection of drift.
+- id: 01a04e96-1f5b-7eef-8d2f-07a39f5cfc6a
+  summary: Require closed-object discipline for encoded handoff payloads at the runtime/kernel
+    boundary
+  rationale: 'Bounded objects force explicit contract evolution and deterministic
+    rejection of drift.
+
+    '
   consequences:
     positive:
     - Deterministic producer/consumer conformance
     negative:
     - Extension requires spec revision
+  alias_id: DEC-3301
+  alias_name: require-closed-object-discipline-for-encoded-handoff-payloads-at-the-runtime-kernel-boundary
 invariants:
-- id: INV-3301
-  statement: |
-    Ad hoc extension fields on closed handoff objects MUST NOT be treated as contract-valid
+- id: 01a04e96-1f5b-746b-ac2f-1bb3fc19ee2c
+  statement: 'Ad hoc extension fields on closed handoff objects MUST NOT be treated
+    as contract-valid
+
     without an explicit ste-spec contract and invariant update.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents silent semantic extension.
+  rationale: 'Prevents silent semantic extension.
+
+    '
   upheld_by_decisions:
-  - DEC-3301
+  - 01a04e96-1f5b-7eef-8d2f-07a39f5cfc6a
+  alias_id: INV-3301
+  alias_name: inv-3301
 gaps:
 - id: GAP-3301
-  question: Per-contract closedness flags belong in schema metadata and invariants indexes
+  question: Per-contract closedness flags belong in schema metadata and invariants
+    indexes
   impact: low
   blocking: false
+alias_id: ADR-L-0033
+alias_name: closed-object-discipline

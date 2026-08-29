@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0039
+id: 01a04e96-1f5c-7b22-a63f-3aa84ba7f0c9
 title: Structured Diagram Format (Mermaid)
 status: accepted
 created_date: '2025-12-19'
@@ -14,42 +14,62 @@ domains:
 tags:
 - mermaid
 - diagrams
-context: |
-  Canonical architecture diagrams in ste-spec MUST use structured, text-based
+context: 'Canonical architecture diagrams in ste-spec MUST use structured, text-based
+
   representation; Mermaid is the standard for canonical diagrams. Diagrams are projections
-  only and MUST NOT introduce semantics absent from ADRs, contracts, or architecture doctrine.
+
+  only and MUST NOT introduce semantics absent from ADRs, contracts, or architecture
+  doctrine.
+
 
   Legacy: `adrs/published/ADR-039-structured-diagram-format-mermaid.md`.
 
-  **Reconciliation vs ADR-L-0040:** **coexist-with-precedence** — Spine lifecycle is defined
+
+  **Reconciliation vs ADR-L-0040:** **coexist-with-precedence** — Spine lifecycle
+  is defined
+
   in ADR-L-0040; this ADR governs **diagram representation format** for ste-spec projections.
+
+  '
 related_adrs:
-- ADR-L-0040
+- 01a04e96-1f5c-78e0-823f-3c915d07acd6
 decisions:
-- id: DEC-3901
+- id: 01a04e96-1f5c-7aed-9d3f-f40f4062f251
   summary: Standardize canonical ste-spec architecture diagrams on Mermaid text sources
-  rationale: |
-    Reduces format drift and keeps diagrams diffable and reviewable.
+  rationale: 'Reduces format drift and keeps diagrams diffable and reviewable.
+
+    '
   consequences:
     positive:
     - Consistent authoring across architecture docs
     negative:
     - Styling and CI enforcement remain out of scope here
+  alias_id: DEC-3901
+  alias_name: standardize-canonical-ste-spec-architecture-diagrams-on-mermaid-text-sources
 invariants:
-- id: INV-3901
-  statement: |
-    Canonical architecture diagrams MUST NOT be the sole location where a rule, requirement,
-    or invariant is first defined; authoritative text remains in ADRs, contracts, or doctrine.
+- id: 01a04e96-1f5c-709c-b913-901d9db36b5a
+  statement: 'Canonical architecture diagrams MUST NOT be the sole location where
+    a rule, requirement,
+
+    or invariant is first defined; authoritative text remains in ADRs, contracts,
+    or doctrine.
+
+    '
   scope: repository
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: manual
-  rationale: |
-    Prevents diagrams from becoming shadow normative sources.
+  rationale: 'Prevents diagrams from becoming shadow normative sources.
+
+    '
   upheld_by_decisions:
-  - DEC-3901
+  - 01a04e96-1f5c-7aed-9d3f-f40f4062f251
+  alias_id: INV-3901
+  alias_name: inv-3901
 gaps:
 - id: GAP-3901
   question: Authoring conventions and CI checks may be added under separate governance
   impact: low
   blocking: false
+alias_id: ADR-L-0039
+alias_name: structured-diagram-format-mermaid

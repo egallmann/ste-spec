@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0008
+id: 01a04e96-1f5a-7a29-b11e-4fe242be290c
 title: Correctness and Consistency Contract
 status: accepted
 created_date: '2025-12-19'
@@ -16,123 +16,193 @@ tags:
 - consistency
 - correctness
 - provenance
-context: |
-  Defines user-visible **correctness** and **consistency** guarantees for Fabric
+context: 'Defines user-visible **correctness** and **consistency** guarantees for
+  Fabric
+
   documentation-state queried over extracted and asserted facts, including partial
+
   failures, overlapping reconciliation jobs, provenance coexistence, and multi-region
+
   eventual consistency.
+
 
   Legacy human projection: `adrs/published/ADR-008-correctness-consistency-contract.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — ADR-L-1006 (evidence
-  authority) and ADR-L-1009 (kernel decision contract) govern **kernel** admission and
+
+  authority) and ADR-L-1009 (kernel decision contract) govern **kernel** admission
+  and
+
   caller contracts; this ADR governs **Fabric query and documentation-state consistency**
-  semantics. Kernel fail-closed rules override Fabric query defaults when both apply at a
+
+  semantics. Kernel fail-closed rules override Fabric query defaults when both apply
+  at a
+
   shared boundary; otherwise coexist with explicit documentation in consuming services.
+
+  '
 related_adrs:
-- ADR-L-0001
-- ADR-L-0006
-- ADR-L-0007
-- ADR-L-0009
-- ADR-L-1006
-- ADR-L-1009
+- 01a04e96-1f5a-765c-b22f-a35555c5da2c
+- 01a04e96-1f5a-73a4-8e3f-bef43b56c052
+- 01a04e96-1f5a-7ea8-b832-ea3972a2f81e
+- 01a04e96-1f5a-70b0-a91f-0d25282f542c
+- 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-0801
-  summary: Define slice correctness as faithful reflection of source artifacts at a version
-  rationale: |
-    Correctness ties to deterministic extraction, provenance, and validation practices;
+- id: 01a04e96-1f5a-7b2e-b837-48ca2a0680b1
+  summary: Define slice correctness as faithful reflection of source artifacts at
+    a version
+  rationale: 'Correctness ties to deterministic extraction, provenance, and validation
+    practices;
+
     runtime behavior parity and guaranteed completeness are out of scope for extraction
+
     truth claims.
+
+    '
   consequences:
     positive:
     - Clear expectations for trust in extracted slices
     negative:
     - Users must treat unknowns and limits explicitly
-- id: DEC-0802
+  alias_id: DEC-0801
+  alias_name: define-slice-correctness-as-faithful-reflection-of-source-artifacts-at-a-version
+- id: 01a04e96-1f5a-7390-9c2d-32da0589f89c
   summary: Adopt eventual consistency with version- and environment-scoped reads
-  rationale: |
-    Queries are consistent within a declared version snapshot after extraction completes
+  rationale: 'Queries are consistent within a declared version snapshot after extraction
+    completes
+
     for that version; environment queries follow last completed extraction; cross-region
-    reads may lag within bounded windows; no read-your-writes guarantee immediately after
+
+    reads may lag within bounded windows; no read-your-writes guarantee immediately
+    after
+
     triggering extraction.
+
+    '
   consequences:
     positive:
     - Matches common distributed storage patterns for documentation use cases
     negative:
     - Clients must wait on completion signals for freshness
-- id: DEC-0803
-  summary: Isolate partial extraction failures per artifact with explicit partial status
-  rationale: |
-    Successful files produce slices; failures are recorded with unknowns and diagnostics;
+  alias_id: DEC-0802
+  alias_name: adopt-eventual-consistency-with-version-and-environment-scoped-reads
+- id: 01a04e96-1f5a-7481-9423-6bf626cacb83
+  summary: Isolate partial extraction failures per artifact with explicit partial
+    status
+  rationale: 'Successful files produce slices; failures are recorded with unknowns
+    and diagnostics;
+
     completion signals report partial status rather than failing the whole repository
+
     silently.
+
+    '
   consequences:
     positive:
     - Partial value delivery with transparent gaps
     negative:
     - Clients must handle partial graphs
-- id: DEC-0804
-  summary: Use last-completed job wins for overlapping reconciliations with immutable versions
-  rationale: |
-    Concurrent jobs are allowed; slice versions are immutable; current pointers advance to
+  alias_id: DEC-0803
+  alias_name: isolate-partial-extraction-failures-per-artifact-with-explicit-partial-status
+- id: 01a04e96-1f5a-7526-a93f-48bdd3063ece
+  summary: Use last-completed job wins for overlapping reconciliations with immutable
+    versions
+  rationale: 'Concurrent jobs are allowed; slice versions are immutable; current pointers
+    advance to
+
     the latest completed job per environment with auditable job metadata.
+
+    '
   consequences:
     positive:
     - Simple operational model without distributed locks
     negative:
     - Rare counterintuitive ordering when long jobs overlap short jobs
-- id: DEC-0805
-  summary: Store extracted and asserted facts with provenance; surface conflicts without automatic override
-  rationale: |
-    Neither source automatically wins; queries can filter by provenance; conflicts are
+  alias_id: DEC-0804
+  alias_name: use-last-completed-job-wins-for-overlapping-reconciliations-with-immutable-versions
+- id: 01a04e96-1f5a-7102-be3b-c726b49d5244
+  summary: Store extracted and asserted facts with provenance; surface conflicts without
+    automatic override
+  rationale: 'Neither source automatically wins; queries can filter by provenance;
+    conflicts are
+
     visible for human resolution (detailed precedence may be extended by ADR-L-0009).
+
+    '
   consequences:
     positive:
     - Preserves human domain knowledge alongside extraction
     negative:
     - Manual resolution burden when conflicts exist
-- id: DEC-0806
+  alias_id: DEC-0805
+  alias_name: store-extracted-and-asserted-facts-with-provenance-surface-conflicts-without-automatic-override
+- id: 01a04e96-1f5a-7f90-b30d-39b5dcb7ec7f
   summary: Multi-region active-active with bounded replication lag
-  rationale: |
-    Regional reads may be briefly stale; last-writer-wins applies to rare conflicts;
+  rationale: 'Regional reads may be briefly stale; last-writer-wins applies to rare
+    conflicts;
+
     acceptable for documentation-state availability trade-offs.
+
+    '
   consequences:
     positive:
     - High availability
     negative:
     - Visible transient divergence across regions
+  alias_id: DEC-0806
+  alias_name: multi-region-active-active-with-bounded-replication-lag
 invariants:
-- id: INV-0801
-  statement: |
-    Partial extraction MUST NOT silently drop successful slices; failures MUST be
+- id: 01a04e96-1f5a-70f1-920d-fb6ab6c21dda
+  statement: 'Partial extraction MUST NOT silently drop successful slices; failures
+    MUST be
+
     visible via partial status, unknowns, or equivalent documented signals.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents silent data loss and aligns partial failure semantics with ADR-L-0006.
+  rationale: 'Prevents silent data loss and aligns partial failure semantics with
+    ADR-L-0006.
+
+    '
   upheld_by_decisions:
-  - DEC-0803
-- id: INV-0802
-  statement: |
-    Query responses that combine extracted and asserted facts MUST retain provenance
+  - 01a04e96-1f5a-7481-9423-6bf626cacb83
+  alias_id: INV-0801
+  alias_name: inv-0801
+- id: 01a04e96-1f5a-7770-833e-0d1f60bbf600
+  statement: 'Query responses that combine extracted and asserted facts MUST retain
+    provenance
+
     sufficient to filter or explain conflicts unless a superseding ADR-L defines
+
     automatic precedence.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: design
   verification_method: manual
-  rationale: |
-    Preserves trust and debuggability when human and extractor knowledge diverge.
+  rationale: 'Preserves trust and debuggability when human and extractor knowledge
+    diverge.
+
+    '
   upheld_by_decisions:
-  - DEC-0805
+  - 01a04e96-1f5a-7102-be3b-c726b49d5244
+  alias_id: INV-0802
+  alias_name: inv-0802
 gaps:
 - id: GAP-0801
-  question: Further align query conflict taxonomy with kernel denial categories when needed
+  question: Further align query conflict taxonomy with kernel denial categories when
+    needed
   impact: low
   blocking: false
 - id: GAP-0802
   question: Quantitative lag SLOs and storage technology references belong in ADR-PS/PC
   impact: low
   blocking: false
+alias_id: ADR-L-0008
+alias_name: correctness-and-consistency-contract

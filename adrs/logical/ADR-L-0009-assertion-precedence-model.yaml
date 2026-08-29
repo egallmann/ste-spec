@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0009
+id: 01a04e96-1f5a-70b0-a91f-0d25282f542c
 title: Assertion Precedence Model
 status: accepted
 created_date: '2025-12-19'
@@ -16,70 +16,104 @@ tags:
 - assertions
 - provenance
 - conflicts
-context: |
-  Manual assertions and deterministic extraction can describe the same elements. The model
+context: 'Manual assertions and deterministic extraction can describe the same elements.
+  The model
+
   preserves both with provenance, surfaces contradictions, requires evidence for human
+
   claims, and supports time-bounded validity.
+
 
   Legacy: `adrs/published/ADR-009-assertion-precedence-model.md`.
 
-  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — refines provenance and
+
+  **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — refines provenance
+  and
+
   conflict surfacing for Fabric queries (**ADR-L-0008**); kernel admission contracts
+
   (**ADR-L-1002**, **ADR-L-1009**) govern the kernel boundary when both apply.
+
+  '
 related_adrs:
-- ADR-L-0006
-- ADR-L-0008
-- ADR-L-1002
-- ADR-L-1009
+- 01a04e96-1f5a-73a4-8e3f-bef43b56c052
+- 01a04e96-1f5a-7a29-b11e-4fe242be290c
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-0901
+- id: 01a04e96-1f5a-7ce4-b61e-a77cd562dd07
   summary: Coexist extracted and asserted facts with explicit conflict surfacing
-  rationale: |
-    Store both sources with provenance; default queries return both; contradictions
+  rationale: 'Store both sources with provenance; default queries return both; contradictions
+
     appear in a dedicated conflicts section; users resolve disputes—no silent automatic
+
     winner between extractor and human in the general case.
+
+    '
   consequences:
     positive:
     - Auditable dual sources of truth
     negative:
     - Requires client handling of conflicts
-- id: DEC-0902
+  alias_id: DEC-0901
+  alias_name: coexist-extracted-and-asserted-facts-with-explicit-conflict-surfacing
+- id: 01a04e96-1f5a-712e-ba35-61caa8945206
   summary: Require evidence, actor, scope, and optional expiry for manual assertions
-  rationale: |
-    Assertions without evidence are rejected; optional `valid_until` excludes stale
+  rationale: 'Assertions without evidence are rejected; optional `valid_until` excludes
+    stale
+
     claims from default query results while preserving history when explicitly requested.
+
+    '
   consequences:
     positive:
     - Governance and auditability for human overrides
     negative:
     - Higher submission friction for assertions
+  alias_id: DEC-0902
+  alias_name: require-evidence-actor-scope-and-optional-expiry-for-manual-assertions
 invariants:
-- id: INV-0901
-  statement: |
-    Manual assertions MUST carry provenance sufficient to identify the asserting party,
+- id: 01a04e96-1f5a-7ac7-8d37-1a5ae157a7ee
+  statement: 'Manual assertions MUST carry provenance sufficient to identify the asserting
+    party,
+
     scope, and evidentiary reference before admission into authoritative query surfaces.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents unattested human overrides from masquerading as canonical facts.
+  rationale: 'Prevents unattested human overrides from masquerading as canonical facts.
+
+    '
   upheld_by_decisions:
-  - DEC-0902
-- id: INV-0902
-  statement: |
-    When extracted and asserted facts contradict, query responses MUST surface the
+  - 01a04e96-1f5a-712e-ba35-61caa8945206
+  alias_id: INV-0901
+  alias_name: inv-0901
+- id: 01a04e96-1f5a-7281-a32f-7054f4753ed6
+  statement: 'When extracted and asserted facts contradict, query responses MUST surface
+    the
+
     conflict with both provenances unless a superseding ADR-L defines automatic precedence.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: design
   verification_method: manual
-  rationale: |
-    Aligns with transparency commitments in ADR-L-0008.
+  rationale: 'Aligns with transparency commitments in ADR-L-0008.
+
+    '
   upheld_by_decisions:
-  - DEC-0901
+  - 01a04e96-1f5a-7ce4-b61e-a77cd562dd07
+  alias_id: INV-0902
+  alias_name: inv-0902
 gaps:
 - id: GAP-0901
-  question: Machine schema for assertion payloads and conflict records in Architecture IR
+  question: Machine schema for assertion payloads and conflict records in Architecture
+    IR
   impact: medium
   blocking: false
+alias_id: ADR-L-0009
+alias_name: assertion-precedence-model

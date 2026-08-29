@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0034
+id: 01a04e96-1f5b-76a7-9f3e-74a771a33e46
 title: Rule Projection Envelope Authority
 status: proposed
 created_date: '2025-12-19'
@@ -14,55 +14,87 @@ domains:
 tags:
 - rule-projection
 - kernel
-context: |
-  ste-spec will own the interchange envelope for ADR-bound rule projections and related
-  attestations under `contracts/rule-projection/` when promoted from draft. Semantic rules
+context: 'ste-spec will own the interchange envelope for ADR-bound rule projections
+  and related
+
+  attestations under `contracts/rule-projection/` when promoted from draft. Semantic
+  rules
+
   live in `invariants/` (e.g. INV-0010). ste-kernel must not be treated as authoritative
+
   signer or compiler of rule text for these envelopes.
+
 
   Legacy: `adrs/published/ADR-034-rule-projection-envelope-authority.md` (draft contract).
 
-  **Reconciliation vs ADR-L-1008:** **coexist-with-precedence** — decision outcome vocabulary
+
+  **Reconciliation vs ADR-L-1008:** **coexist-with-precedence** — decision outcome
+  vocabulary
+
   governs admitted decisions; rule-projection envelopes are a **separate durable family**
+
   with rules-engine-side closure.
+
+  '
 related_adrs:
-- ADR-L-0030
-- ADR-L-1008
+- 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
+- 01a04e96-1f5d-7300-b13f-588156097d46
 decisions:
-- id: DEC-3401
-  summary: Centralize rule-projection envelope contract authority in ste-spec once promoted from draft
-  rationale: |
-    Avoids collapsing integration IR admission and workspace compliance gates into one payload.
+- id: 01a04e96-1f5b-7f03-af0f-3ee27828aeb1
+  summary: Centralize rule-projection envelope contract authority in ste-spec once
+    promoted from draft
+  rationale: 'Avoids collapsing integration IR admission and workspace compliance
+    gates into one payload.
+
+    '
   consequences:
     positive:
     - Clear ownership before kernel adapters harden
     negative:
     - Promotion requires schema stability work
-- id: DEC-3402
-  summary: Allow kernel to verify, route, or cache rules-engine outputs per contracts without owning rule closure
-  rationale: |
-    Preserves signing and compilation authority on the rules-engine side for this family.
+  alias_id: DEC-3401
+  alias_name: centralize-rule-projection-envelope-contract-authority-in-ste-spec-once-promoted-from-draft
+- id: 01a04e96-1f5b-716a-bb2b-77d8e25442e1
+  summary: Allow kernel to verify, route, or cache rules-engine outputs per contracts
+    without owning rule closure
+  rationale: 'Preserves signing and compilation authority on the rules-engine side
+    for this family.
+
+    '
   consequences:
     positive:
     - Separation of concerns
     negative:
     - Requires explicit adapter documentation
+  alias_id: DEC-3402
+  alias_name: kernel-rules-output-non-ownership
 invariants:
-- id: INV-3401
-  statement: |
-    Until the rule-projection envelope family is promoted to accepted contract status,
-    ste-kernel integrations MUST treat draft schemas as interface-only and MUST NOT imply
+- id: 01a04e96-1f5b-7cad-ab3f-0d375339ff50
+  statement: 'Until the rule-projection envelope family is promoted to accepted contract
+    status,
+
+    ste-kernel integrations MUST treat draft schemas as interface-only and MUST NOT
+    imply
+
     normative closure beyond published disclaimers.
+
+    '
   scope: global
   enforcement_level: should
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents draft artifacts from becoming shadow normative authority.
+  rationale: 'Prevents draft artifacts from becoming shadow normative authority.
+
+    '
   upheld_by_decisions:
-  - DEC-3401
+  - 01a04e96-1f5b-7f03-af0f-3ee27828aeb1
+  alias_id: INV-3401
+  alias_name: inv-3401
 gaps:
 - id: GAP-3401
-  question: Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index updates)
+  question: Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index
+    updates)
   impact: medium
   blocking: false
+alias_id: ADR-L-0034
+alias_name: rule-projection-envelope-authority

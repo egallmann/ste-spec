@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0020
+id: 01a04e96-1f5a-720a-bc3f-d1ce4bde0816
 title: ORG-Level Signing Scope
 status: accepted
 created_date: '2025-12-23'
@@ -14,58 +14,89 @@ domains:
 tags:
 - org-authority
 - signing-scope
-context: |
-  ORG-level signing applies only to artifacts that establish or ratify **canonical truth**;
-  ephemeral enforcement outputs, workspace-local bundles, and derived indexes are out of
+context: 'ORG-level signing applies only to artifacts that establish or ratify **canonical
+  truth**;
+
+  ephemeral enforcement outputs, workspace-local bundles, and derived indexes are
+  out of
+
   scope for ORG signing.
+
 
   Legacy: `adrs/published/ADR-020-org-signing-scope.md`.
 
+
   **Reconciliation vs ADR-L-100x:** **coexist-with-precedence** — complements **ADR-L-1009**
+
   on fail-closed caller contracts; this ADR defines **what must be ORG-signed** versus
+
   derived or ephemeral artifacts.
+
+  '
 related_adrs:
-- ADR-L-0019
-- ADR-L-0021
-- ADR-L-1009
+- 01a04e96-1f5a-7af0-a138-a306f7b93157
+- 01a04e96-1f5b-7a30-ad3e-e3e11989eed7
+- 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
-- id: DEC-2001
-  summary: Require ORG signing only for canonical invariants, canonical artifacts, trust registry operations, and canonicalization events
-  rationale: |
-    Limits ORG keys to durable attestation surfaces; excludes eligibility decisions,
-    derived graph indexes, caches, and typical Context Bundle payloads except where other
+- id: 01a04e96-1f5a-7294-9e1f-d31989df3203
+  summary: Require ORG signing only for canonical invariants, canonical artifacts,
+    trust registry operations, and canonicalization events
+  rationale: 'Limits ORG keys to durable attestation surfaces; excludes eligibility
+    decisions,
+
+    derived graph indexes, caches, and typical Context Bundle payloads except where
+    other
+
     ADRs require Human/PROJECT signing.
+
+    '
   consequences:
     positive:
     - Prevents authority inflation across operational outputs
     negative:
     - Implementers must classify artifacts carefully
-- id: DEC-2002
-  summary: Exclude ephemeral enforcement outcomes and derived state from mandatory ORG signing
-  rationale: |
-    Derived and short-lived results must remain verifiable from signed inputs without
+  alias_id: DEC-2001
+  alias_name: decision-migrated
+- id: 01a04e96-1f5a-70af-951f-48326a60c5b3
+  summary: Exclude ephemeral enforcement outcomes and derived state from mandatory
+    ORG signing
+  rationale: 'Derived and short-lived results must remain verifiable from signed inputs
+    without
+
     expanding ORG signing to every computation.
+
+    '
   consequences:
     positive:
     - Operational simplicity at the enforcement boundary
     negative:
     - Requires clear labeling of non-canonical outputs
+  alias_id: DEC-2002
+  alias_name: exclude-ephemeral-enforcement-outcomes-and-derived-state-from-mandatory-org-signing
 invariants:
-- id: INV-2001
-  statement: |
-    ORG signing requirements MUST NOT be expanded to cover derived query results,
+- id: 01a04e96-1f5a-73d6-bf3c-1e8252cbf0d3
+  statement: 'ORG signing requirements MUST NOT be expanded to cover derived query
+    results,
+
     enforcement-only outcomes, or caches without a new ADR-L that documents the rationale.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Keeps ORG signatures meaningful as canonical-truth signals.
+  rationale: 'Keeps ORG signatures meaningful as canonical-truth signals.
+
+    '
   upheld_by_decisions:
-  - DEC-2001
-  - DEC-2002
+  - 01a04e96-1f5a-7294-9e1f-d31989df3203
+  - 01a04e96-1f5a-70af-951f-48326a60c5b3
+  alias_id: INV-2001
+  alias_name: inv-2001
 gaps:
 - id: GAP-2001
   question: Enumerate artifact kinds in Architecture IR that require ORG signatures
   impact: medium
   blocking: false
+alias_id: ADR-L-0020
+alias_name: org-level-signing-scope

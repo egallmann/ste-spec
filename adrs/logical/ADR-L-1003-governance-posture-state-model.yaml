@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-1003
+id: 01a04e96-1f5c-7ff0-b23d-2ed1f789092f
 title: Governance Posture State Model
 status: proposed
 created_date: '2026-03-28'
@@ -13,49 +13,79 @@ tags:
 - posture
 - golden
 - experimental
-context: |
-  Governance posture constrains what is allowed, what requires explicit approval, what is
-  restricted, and what is denied independent of any single rule. This model composes with
+context: 'Governance posture constrains what is allowed, what requires explicit approval,
+  what is
+
+  restricted, and what is denied independent of any single rule. This model composes
+  with
+
   active rules and promotion flows defined elsewhere (ADR-040 Spine, ste-rules-library).
 
+
   Posture states are not a substitute for architecture truth; they modulate enforcement
+
   strictness and approval requirements on top of IR and evidence.
+
+  '
 decisions:
-- id: DEC-6321
+- id: 01a04e96-1f5c-72b1-b937-cc74d565d8fd
   summary: Define posture states experimental, governed, restricted, locked, golden
-  rationale: |
-    Provides a shared vocabulary for progressive assurance and promotion.
-- id: DEC-6322
+  rationale: 'Provides a shared vocabulary for progressive assurance and promotion.
+
+    '
+  alias_id: DEC-6321
+  alias_name: define-posture-states-experimental-governed-restricted-locked-golden
+- id: 01a04e96-1f5c-77d0-a52f-ea70f6aebe9b
   summary: Bind posture transitions to auditable authority and evidence
-  rationale: |
-    Prevents silent escalation or relaxation of enforcement posture.
+  rationale: 'Prevents silent escalation or relaxation of enforcement posture.
+
+    '
+  alias_id: DEC-6322
+  alias_name: bind-posture-transitions-to-auditable-authority-and-evidence
 related_adrs:
-- ADR-L-1002
-- ADR-L-1007
-- ADR-L-1008
+- 01a04e96-1f5c-73c9-ad1f-df05ef43cae1
+- 01a04e96-1f5d-7507-ba3f-41979e12af8f
+- 01a04e96-1f5d-7300-b13f-588156097d46
 invariants:
-- id: INV-5021
-  statement: |
-    Posture MUST modulate admission outcomes only through declared, deterministic rules;
+- id: 01a04e96-1f5c-7e1d-8b0f-fc21eeed2a3f
+  statement: 'Posture MUST modulate admission outcomes only through declared, deterministic
+    rules;
+
     posture MUST NOT override normative architecture authority in ste-spec.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: manual
-  rationale: |
-    Normative architecture remains authoritative; posture only modulates enforcement strictness.
-- id: INV-5022
-  statement: |
-    Golden and locked postures MUST impose stricter or equal constraints compared to
-    governed baseline for the same action class unless explicitly documented exceptions exist.
+  rationale: 'Normative architecture remains authoritative; posture only modulates
+    enforcement strictness.
+
+    '
+  alias_id: INV-5021
+  alias_name: inv-5021
+- id: 01a04e96-1f5c-7ecb-953f-8db47e2c0ee1
+  statement: 'Golden and locked postures MUST impose stricter or equal constraints
+    compared to
+
+    governed baseline for the same action class unless explicitly documented exceptions
+    exist.
+
+    '
   scope: global
   enforcement_level: should
   enforcement_mechanism: design
   verification_method: manual
-  rationale: |
-    Golden and locked names imply elevated assurance; weakening defaults would mislead consumers.
+  rationale: 'Golden and locked names imply elevated assurance; weakening defaults
+    would mislead consumers.
+
+    '
+  alias_id: INV-5022
+  alias_name: inv-5022
 gaps:
 - id: GAP-5021
   question: Exact matrix of posture x action class defaults
   impact: high
   blocking: false
+alias_id: ADR-L-1003
+alias_name: governance-posture-state-model

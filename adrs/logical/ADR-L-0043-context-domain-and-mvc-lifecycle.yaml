@@ -1,6 +1,6 @@
-schema_version: '1.0'
+schema_version: '1.3'
 adr_type: logical
-id: ADR-L-0043
+id: 01a04e96-1f5c-72a7-8a1b-81cf44933af3
 title: Context Domain and MVC Lifecycle Boundary
 status: proposed
 created_date: '2026-05-30'
@@ -19,147 +19,231 @@ tags:
 - linkage-surface
 - mvc
 - rss
-context: |
-  STE is introducing an experimental model for task-scoped architectural context.
+context: 'STE is introducing an experimental model for task-scoped architectural context.
+
   The model treats MVC as a task-scoped architectural reality bundle rather than
+
   generic context reduction. RSS assembles the candidate architectural reality
+
   surface from declared intent, Context Domains, Graph Domains, Linkage Surfaces,
+
   Architecture IR snapshots, task context, and persona context-selection policy.
 
+
   This ADR does not promote Context Domains into Architecture IR entity kinds and
+
   does not authorize production MVC assembly. It records the boundary needed for
+
   draft contract work under `contracts/graph-domain/`, `contracts/linkage-surface/`,
+
   `contracts/context-domain/`, `contracts/persona/`, and `contracts/mvc/`.
 
+
   Architecture IR remains the ste-spec-owned semantic authority per ADR-L-0035.
+
   Contract authority remains in ste-spec per ADR-L-0030. Runtime/kernel split and
+
   admission authority remain governed by ADR-L-0031, ADR-L-0041, INV-0001, and
+
   INV-0002.
+
+  '
 related_adrs:
-- ADR-L-0030
-- ADR-L-0031
-- ADR-L-0035
-- ADR-L-0041
+- 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
+- 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
+- 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
+- 01a04e96-1f5c-7e5b-9837-1dea58886565
 decisions:
-- id: DEC-4301
-  summary: Define Context Domain Definitions as semantic view definitions and Context Domain Bundles as materialized instances
-  rationale: |
-    Keeping definitions declarative prevents ontology drift and prevents materialized
+- id: 01a04e96-1f5c-7802-843a-0888e1c91a21
+  summary: Define Context Domain Definitions as semantic view definitions and Context
+    Domain Bundles as materialized instances
+  rationale: 'Keeping definitions declarative prevents ontology drift and prevents
+    materialized
+
     derived surfaces from being mistaken for authority.
+
+    '
   consequences:
     positive:
-    - Context Domain schemas can distinguish reusable selection intent from task-scoped materialization.
+    - Context Domain schemas can distinguish reusable selection intent from task-scoped
+      materialization.
     - CEM ablation can operate over materialized bundles without mutating domain definitions.
     negative:
     - Consumers must handle an additional definition-versus-instance boundary.
-- id: DEC-4302
-  summary: Define Graph Domain Definitions and Linkage Surfaces as derived traversal inputs, not authority sources
-  rationale: |
-    Graph Domains and Linkage Surfaces improve structural discovery, but the authority
+  alias_id: DEC-4301
+  alias_name: context-domain-definition-materialization
+- id: 01a04e96-1f5c-7fa7-801f-bea4daf41e2f
+  summary: Define Graph Domain Definitions and Linkage Surfaces as derived traversal
+    inputs, not authority sources
+  rationale: 'Graph Domains and Linkage Surfaces improve structural discovery, but
+    the authority
+
     of any relationship still comes from ADRs, invariants, contracts, requirements,
+
     embodiment records, or other accepted authoritative artifacts.
+
+    '
   consequences:
     positive:
-    - MVC assembly can become more structure-guided without moving authority into runtime graphs.
+    - MVC assembly can become more structure-guided without moving authority into
+      runtime graphs.
     - Multiple linkage generation mechanisms can feed the same consumer contracts.
     negative:
-    - Linkage records require explicit provenance, integrity, freshness, and validation fields.
-- id: DEC-4303
+    - Linkage records require explicit provenance, integrity, freshness, and validation
+      fields.
+  alias_id: DEC-4302
+  alias_name: graph-domain-derived-traversal
+- id: 01a04e96-1f5c-77e6-af0c-94c534115d6b
   summary: Split MVC into MVC-D, MVC-S, and MVC-M lifecycle contracts
-  rationale: |
-    The split separates declarative admissible context definition, candidate surface
-    assembly, and kernel-admitted materialization. This preserves reproducibility and
+  rationale: 'The split separates declarative admissible context definition, candidate
+    surface
+
+    assembly, and kernel-admitted materialization. This preserves reproducibility
+    and
+
     prevents runtime candidate generation from becoming caller-facing admission.
+
+    '
   consequences:
     positive:
-    - MVC-S can carry stable identity, topology metrics, source refs, selector refs, and rationale.
+    - MVC-S can carry stable identity, topology metrics, source refs, selector refs,
+      and rationale.
     - Kernel admission can produce MVC-M without granting runtime admission authority.
     negative:
     - Implementations must preserve rationale and identity across lifecycle transitions.
-- id: DEC-4304
-  summary: Treat Persona as Context Selection Policy rather than biography or projection-only policy
-  rationale: |
-    Personas select required and optional Context Domains, traversal objectives, projection
+  alias_id: DEC-4303
+  alias_name: split-mvc-into-mvc-d-mvc-s-and-mvc-m-lifecycle-contracts
+- id: 01a04e96-1f5c-7fcf-bf3f-0a9a3d6993ea
+  summary: Treat Persona as Context Selection Policy rather than biography or projection-only
+    policy
+  rationale: 'Personas select required and optional Context Domains, traversal objectives,
+    projection
+
     preferences, and rationale. Projection is only one dimension of persona behavior.
+
+    '
   consequences:
     positive:
-    - Composite persona MVCs can union and deduplicate requirements while preserving selector rationale.
+    - Composite persona MVCs can union and deduplicate requirements while preserving
+      selector rationale.
     negative:
-    - Persona schemas must reject unconstrained narrative role descriptions as operational policy.
+    - Persona schemas must reject unconstrained narrative role descriptions as operational
+      policy.
+  alias_id: DEC-4304
+  alias_name: treat-persona-as-context-selection-policy-rather-than-biography-or-projection-only-policy
 invariants:
-- id: INV-4301
-  statement: |
-    Context Domain Definitions MUST NOT contain materialized selected entities,
+- id: 01a04e96-1f5c-72a2-be3b-67b3013b25eb
+  statement: 'Context Domain Definitions MUST NOT contain materialized selected entities,
+
     relationships, evidence, constraints, or admission outcomes.
+
+    '
   scope: ste-spec
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Preserves the definition-versus-bundle boundary.
+  rationale: 'Preserves the definition-versus-bundle boundary.
+
+    '
   upheld_by_decisions:
-  - DEC-4301
-- id: INV-4302
-  statement: |
-    Graph Domains and Linkage Surfaces MUST remain derived traversal and discovery
+  - 01a04e96-1f5c-7802-843a-0888e1c91a21
+  alias_id: INV-4301
+  alias_name: inv-4301
+- id: 01a04e96-1f5c-7f8b-a011-b21ca3e72f33
+  statement: 'Graph Domains and Linkage Surfaces MUST remain derived traversal and
+    discovery
+
     surfaces unless a relationship is independently established by an authoritative
+
     artifact.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Prevents graph-authority drift.
+  rationale: 'Prevents graph-authority drift.
+
+    '
   upheld_by_decisions:
-  - DEC-4302
-- id: INV-4303
-  statement: |
-    MVC-S MUST preserve stable source refs, selector version refs, topology metrics,
+  - 01a04e96-1f5c-7fa7-801f-bea4daf41e2f
+  alias_id: INV-4302
+  alias_name: inv-4302
+- id: 01a04e96-1f5c-70f0-a33c-92add9f15fdc
+  statement: 'MVC-S MUST preserve stable source refs, selector version refs, topology
+    metrics,
+
     inclusion rationale, exclusion rationale, and negative space sufficient to
+
     reproduce its fingerprint from the same declared inputs.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    RSS adaptive depth depends on MVC-S topology, so MVC-S identity must be reproducible.
+  rationale: 'RSS adaptive depth depends on MVC-S topology, so MVC-S identity must
+    be reproducible.
+
+    '
   upheld_by_decisions:
-  - DEC-4303
-- id: INV-4304
-  statement: |
-    Deduplication MUST NOT collapse inclusion or exclusion rationale. All selector
+  - 01a04e96-1f5c-77e6-af0c-94c534115d6b
+  alias_id: INV-4303
+  alias_name: inv-4303
+- id: 01a04e96-1f5c-76e4-b53f-4144dd3eb255
+  statement: 'Deduplication MUST NOT collapse inclusion or exclusion rationale. All
+    selector
+
     paths and reasons that selected or excluded an item MUST remain available in
+
     the materialized result.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: automated
-  rationale: |
-    Rationale preservation is required for composite persona sets, task overlays, and
+  rationale: 'Rationale preservation is required for composite persona sets, task
+    overlays, and
+
     CEM ablation.
+
+    '
   upheld_by_decisions:
-  - DEC-4301
-  - DEC-4303
-  - DEC-4304
-- id: INV-4305
-  statement: |
-    Runtime MAY emit factual candidate bundles, Graph Domains, Linkage Surfaces,
+  - 01a04e96-1f5c-7802-843a-0888e1c91a21
+  - 01a04e96-1f5c-77e6-af0c-94c534115d6b
+  - 01a04e96-1f5c-7fcf-bf3f-0a9a3d6993ea
+  alias_id: INV-4304
+  alias_name: inv-4304
+- id: 01a04e96-1f5c-7a41-8f31-ece0400e5f91
+  statement: 'Runtime MAY emit factual candidate bundles, Graph Domains, Linkage Surfaces,
+
     diagnostics, provenance, freshness, integrity, and MVC-S candidates, but MUST
+
     NOT emit caller-facing admission decisions.
+
+    '
   scope: global
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: |
-    Preserves the runtime/kernel admission boundary.
+  rationale: 'Preserves the runtime/kernel admission boundary.
+
+    '
   upheld_by_decisions:
-  - DEC-4303
+  - 01a04e96-1f5c-77e6-af0c-94c534115d6b
+  alias_id: INV-4305
+  alias_name: inv-4305
 gaps:
 - id: GAP-4301
-  question: Promote or amend this ADR after draft schemas and fixtures demonstrate deterministic MVC-S construction and rationale-preserving deduplication
+  question: Promote or amend this ADR after draft schemas and fixtures demonstrate
+    deterministic MVC-S construction and rationale-preserving deduplication
   impact: medium
   blocking: false
 - id: GAP-4302
-  question: Decide whether Context Domain and Graph Domain terms remain external contracts or later become Architecture IR semantic ontology extensions
+  question: Decide whether Context Domain and Graph Domain terms remain external contracts
+    or later become Architecture IR semantic ontology extensions
   impact: medium
   blocking: false
+alias_id: ADR-L-0043
+alias_name: context-domain-and-mvc-lifecycle-boundary
