@@ -8,9 +8,9 @@ artifact classes to the STE Spine lifecycle.
 ## Authority Boundary
 
 This document supports
-[`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)
+[`ADR-L-0040`](../adrs/adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md)
 and explicitly defers taxonomy and versioning authority to
-[`../adrs/published/ADR-038-artifact-classification-and-versioning.md`](../adrs/published/ADR-038-artifact-classification-and-versioning.md).
+[`ADR-L-0038`](../adrs/adr-projection/logical/ADR-L-0038-artifact-taxonomy-and-versioning-posture.md).
 
 It does not redefine artifact taxonomy. Spine-local term meanings follow
 ADR-040. In this document:
@@ -99,4 +99,4 @@ authority surface.
 
 - [`STE-Spine-Lifecycle.md`](./STE-Spine-Lifecycle.md)
 - [`STE-Spine-Authority.md`](./STE-Spine-Authority.md)
-- [`../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](../adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)
+- [`ADR-L-0040`](../adrs/adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md)

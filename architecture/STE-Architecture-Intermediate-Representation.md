@@ -380,6 +380,5 @@ At the **pinned** `ir_version` referenced from `ste-spec`:
 - [`../execution/STE-Kernel-Execution-Model.md`](../execution/STE-Kernel-Execution-Model.md)
 - [`../contracts/README.md`](../contracts/README.md)
 - [`../glossary.md`](../glossary.md)
-- [`../adrs/published/ADR-035-architecture-ir-ontology-authority.md`](../adrs/published/ADR-035-architecture-ir-ontology-authority.md)
-
+- [`ADR-L-0035`](../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)
 

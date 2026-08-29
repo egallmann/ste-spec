@@ -1,6 +1,6 @@
 # ste-spec ADR migration inventory
 
-Authoritative legacy markdown for numbered ADRs: `adrs/published/`. Machine-canonical Logical ADRs: `adrs/logical/*.yaml`. Generated human projections: `adrs/adr-projection/logical/*.md` and `adrs/manifest.yaml` (regenerate via **adr-architecture-kit**; do not hand-edit the manifest).
+Canonical authored ADRs: `adrs/logical/*.yaml`. Generated human projections: `adrs/adr-projection/logical/*.md`. `adrs/published/` retains legacy authored Markdown for historical context and is noncanonical where a corresponding logical ADR exists. `adrs/manifest.yaml` and generated registries are derived discovery surfaces (regenerate via **adr-architecture-kit**; do not hand-edit them).
 
 This inventory records the **ste-spec `adrs/published/` → machine ADR-L** migration. All numbered published ADRs listed below are migrated unless explicitly marked otherwise; regenerate projections with **adr-architecture-kit** (`adr compile`, graph emit) after YAML edits.
 

@@ -42,7 +42,7 @@ The following remain explicitly **draft / pre-normative** within this repository
 
 - `contracts/rule-projection/`
 - `contracts/governance-decision-record/`
-- `adrs/published/ADR-034-rule-projection-envelope-authority.md`
+- `adrs/adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md`
 - `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ### Design Freedom Preserved
@@ -78,7 +78,7 @@ This specification distinguishes between:
 
 E-ADRs serve as execution-pressure mechanisms in the working repository. They drive implementation experiments without establishing architectural truth. Only decisions that have converged through repeated validation and proven necessary are promoted to binding ADRs.
 
-**This specification contains only converged ADRs.** E-ADRs and their associated learning artifacts remain in the private working repository.
+**The canonical ADR corpus currently contains 28 accepted ADRs and 11 proposed ADRs.** Accepted ADRs are the converged, binding commitments; proposed ADRs remain non-binding pending decision. E-ADRs and their associated learning artifacts remain in the private working repository.
 
 ## Completeness Acknowledgment
 
@@ -175,4 +175,3 @@ The following are **explicitly deferred** until **rule-projection** and **govern
 **Last Updated**: 2026-03-30  
 **Version**: 1.0.0  
 **Status**: Stable handoff subset (v1.0.0); draft extensions as documented above
-

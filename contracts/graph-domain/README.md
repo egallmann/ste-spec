@@ -29,7 +29,7 @@ prove authority, causal truth, completeness, or current validity.
 
 - `contracts/workspace-graph/README.md`
 - `contracts/architecture-ir/ARCHITECTURE_IR.md`
-- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
-- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
-- `adrs/published/ADR-035-architecture-ir-ontology-authority.md`
-- `adrs/published/ADR-041-compiler-and-merge-authority.md`
+- [`ADR-L-0030`](../../adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md)
+- [`ADR-L-0031`](../../adrs/adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md)
+- [`ADR-L-0035`](../../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)
+- [`ADR-L-0041`](../../adrs/adr-projection/logical/ADR-L-0041-compiler-evidence-and-merge-authority.md)

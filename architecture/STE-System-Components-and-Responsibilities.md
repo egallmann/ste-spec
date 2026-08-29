@@ -54,7 +54,7 @@ referenced from `ste-spec`.
 ### Admission authority
 
 **Authoritative:** **`KernelAdmissionAssessment`** is emitted **only** by
-`ste-kernel` (see `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`,
+`ste-kernel` (see [`ADR-L-0031`](../adrs/adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md),
 `invariants/INV-0002-kernel-final-admission-authority.md`). `ste-kernel`
 determines execution eligibility at the same boundary and does not emit
 permissive caller-facing outcomes when required prerequisites are invalid or
@@ -105,9 +105,9 @@ projections and adjudication**).
 - `architecture/STE-Integration-Model.md`
 - `execution/STE-Kernel-Execution-Model.md`
 - `contracts/README.md`
-- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
-- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
-- `adrs/published/ADR-034-rule-projection-envelope-authority.md` (proposed)
+- [`ADR-L-0030`](../adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md)
+- [`ADR-L-0031`](../adrs/adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md)
+- [`ADR-L-0034`](../adrs/adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md) (proposed)
 
 ## Canon Status
 

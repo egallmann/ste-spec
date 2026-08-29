@@ -2,7 +2,7 @@
 
 This directory is the canonical home for published **runtime/kernel handoff**
 contracts governed by `ste-spec` (see
-`adrs/published/ADR-030-contract-authority-in-ste-spec.md`).
+[`ADR-L-0030`](../adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md)).
 
 **Story (informative):** for a single walkthrough that shows how handoff
 artifacts fit into a fictional team thread, read
@@ -66,7 +66,8 @@ becomes normative.
 
 **Behavioral rules** for these payloads live under `invariants/` (INV-000x
 index: `invariants/STE-Cross-Component-Contract-Invariants.md`). **Rationale**
-lives under `adrs/published/`.
+lives in canonical authored ADRs under `adrs/logical/`; consult generated human
+views under `adrs/adr-projection/logical/`.
 
 **Freshness layering** across `ArchitectureEvidence` and
 `KernelAdmissionAssessment` is normative in
@@ -80,7 +81,7 @@ relationship definitions, and mechanical narrative (`ARCHITECTURE_IR.md`) are
 Architecture IR (ontology, lifecycle, completeness, governance, Architecture
 Index) remains **normative** in
 `architecture/STE-Architecture-Intermediate-Representation.md`
-(`adrs/published/ADR-035-architecture-ir-ontology-authority.md`).
+([`ADR-L-0035`](../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)).
 
 **`ste-kernel`** **consumes** this bundle (for example by resolving the sibling
 `ste-spec` checkout in the STE-workspace layout) and **does not** own the

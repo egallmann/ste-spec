@@ -3,7 +3,7 @@
 ## Status
 
 **Informative only.** This document does not add, remove, or restate normative MUSTs.
-Normative authority remains in `contracts/`, `invariants/`, `adrs/published/`, and the referenced
+Normative authority remains in `contracts/`, `invariants/`, canonical authored ADRs under `adrs/logical/`, and the referenced
 Architecture IR bundle in `ste-kernel` (see `contracts/README.md`).
 
 ---

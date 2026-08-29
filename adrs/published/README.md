@@ -8,7 +8,7 @@ This directory contains the binding architectural decisions published as part of
 ADRs explain why authority is placed where it is. They do not replace
 contracts, invariants, or implementation tests.
 
-**Migration note:** Numbered `adrs/published/*.md` files in this directory now carry a **Migration status** header and are **historical projections** once a machine ADR-L exists. Canonical decisions and invariants live under `../logical/*.yaml`; human-friendly renderings are generated under `../adr-projection/logical/` and `../manifest.yaml` via **adr-architecture-kit** (`adr validate`, `adr compile` with graph emit).
+**Migration note:** Numbered `adrs/published/*.md` files in this directory are retained **historical/legacy authored Markdown** once a machine ADR-L exists. They are not the surface to edit for current ADR authority. Canonical authored decisions and invariants live under `../logical/*.yaml`; current human-readable views are generated under `../adr-projection/logical/`. `../manifest.yaml` and generated registries are derived discovery surfaces produced by **adr-architecture-kit** (`adr validate`, `adr compile` with graph emit).
 
 ## Published Decision Areas
 

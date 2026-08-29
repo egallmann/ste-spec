@@ -18,4 +18,4 @@ contract is explicitly revised.
 
 - `contracts/architecture-evidence.schema.json`
 - `contracts/kernel-admission-assessment.schema.json`
-- `adrs/published/ADR-033-closed-object-discipline.md`
+- [`ADR-L-0033`](../adrs/adr-projection/logical/ADR-L-0033-closed-object-discipline.md)

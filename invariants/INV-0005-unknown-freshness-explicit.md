@@ -16,4 +16,4 @@ Implementations do not substitute optimistic defaults for unknown freshness.
 ## Related Artifacts
 
 - `contracts/architecture-evidence.schema.json`
-- `adrs/published/ADR-032-fail-closed-enforcement-model.md`
+- [`ADR-L-0032`](../adrs/adr-projection/logical/ADR-L-0032-fail-closed-enforcement-model.md)

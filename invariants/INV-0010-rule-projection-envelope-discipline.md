@@ -46,5 +46,5 @@ intent**.
 - `contracts/governance-decision-record/decision-record.schema.json`
 - `architecture/STE-Worked-Example-Walkthrough.md`
 - `execution/STE-Kernel-Execution-Model.md` (**Rules projections and adjudication**)
-- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
-- `adrs/published/ADR-034-rule-projection-envelope-authority.md`
+- [`ADR-L-0030`](../adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md)
+- [`ADR-L-0034`](../adrs/adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md)
