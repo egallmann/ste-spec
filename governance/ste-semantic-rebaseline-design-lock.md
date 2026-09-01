@@ -122,6 +122,191 @@ early normative / imperative STE practice
 This is an approximate design lineage, not a claim of an exact historical
 sequence. The Design Journal remains the detailed evidentiary record.
 
+## FD-01-R1 — Formal Semantic Characterization of Governed Reasoning Space
+
+**Parent:** FD-01 — Governed Reasoning-Space Shaping
+**Status:** LOCKED REFINEMENT
+
+FD-01 remains unchanged in its foundational claim: STE treats computational
+reasoning as operation within an explicitly governed semantic outcome space and
+defines determinism as bounded acceptable outcomes rather than identical
+generated outputs.
+
+### Complementary prose and formal semantics
+
+For semantic concepts amenable to formal characterization, STE SHOULD define the
+concept using complementary human-readable prose and formal semantics. Prose
+communicates architectural intent and operational meaning; formal
+characterization removes ambiguity, makes composition explicit, and exposes
+mechanically evaluable consequences. Neither representation may silently
+contradict or extend the other.
+
+Formal notation MUST be used where it materially improves semantic precision or
+evaluability, not merely to make a specification appear formal. The preferred
+definition pattern is: human-readable definition; formal characterization;
+architectural example; reasoning/composition consequence; validation
+consequence.
+
+### Hard-admissible reasoning space
+
+Let \( \Omega \) be the universe of candidate outcomes available before
+applicable semantic shaping. Let \(H = \{h_1,h_2,\ldots,h_n\}\) be the
+applicable hard normative constraints, where each \(h\) induces an admissible
+subset \(A_h \subseteq \Omega\). The hard-admissible reasoning space is:
+
+$$
+A = \bigcap_{h \in H} A_h
+$$
+
+A candidate \(x\) is hard-conformant only if \(x \in A\). Bounded-outcome
+determinism therefore permits materially different outcomes
+\(x_1,x_2,\ldots,x_n \in A\) when each remains inside the same applicable
+semantic boundary. Determinism constrains the acceptable outcome space; it does
+not require one textual, procedural, or implementation result.
+
+### Preference semantics
+
+Not every normative force changes membership in \(A\). A preference relation
+\(\succ \subseteq A \times A\) orders otherwise hard-admissible candidates:
+\(x \succ y\) means that \(x\) is normatively preferred to \(y\) in the
+applicable context. Preference alone does not imply \(y \notin A\).
+
+For a proposition \(P\), SHOULD(P) ordinarily means that, for materially
+comparable \(x,y \in A\), \(P(x) \land \neg P(y) \Rightarrow x \succ y\),
+subject to applicable competing concerns. SHOULD NOT(P) analogously prefers
+\(\neg P\) without automatically making every P-satisfying candidate
+hard-nonconformant.
+
+### Explicit permission semantics
+
+For proposition \(P\), define:
+
+$$
+A_P = \{x \in A \mid P(x)\}
+$$
+
+MAY(P) affirmatively establishes \(A_P\) as permitted with respect to \(P\). It
+does not necessarily enlarge \(A\), and it is not equivalent to the absence of
+prohibition:
+
+$$
+\mathrm{MAY}(P) \Rightarrow \neg\mathrm{MUST\ NOT}(P)
+$$
+
+but:
+
+$$
+\neg\mathrm{MUST\ NOT}(P) \not\Rightarrow \mathrm{MAY}(P)
+$$
+
+Explicit permission can therefore prevent over-constraint while preserving hard
+restrictions.
+
+### Semantic convergence and validation continuum
+
+Where applicable hard semantics are mechanically reducible, \(A=\varnothing\)
+means no candidate satisfies the complete applicable hard set. Simultaneously
+applicable \(P\) and \(\neg P\) provide the canonical example:
+
+$$
+A_P \cap A_{\neg P} = \varnothing
+$$
+
+This is mechanically demonstrable non-convergence for that applicability
+context. STE MUST NOT generalize that proof level to architectural semantics
+that are not formally reducible. Validation remains a continuum:
+
+1. mechanically reducible contradiction → deterministic validation;
+2. structured semantic incompatibility → graph or rule evaluation;
+3. higher-order semantic incompatibility → bounded, evidence-bearing semantic
+   assessment.
+
+Increasing explicit semantic structure SHOULD increase the portion of governed
+reasoning space that can be evaluated mechanically. STE does not claim that
+arbitrary natural-language architecture can be mathematically proven
+consistent.
+
+## SD-03 — Global Normative Force Semantics
+
+**Parent:** NM-01 — Normative Semantic Model
+**Depends on:** FD-01 / FD-01-R1
+**Status:** LOCKED
+
+### Decision
+
+STE defines these canonical global normative forces:
+
+$$
+\boxed{\mathrm{MUST}},\quad
+\boxed{\mathrm{MUST\ NOT}},\quad
+\boxed{\mathrm{SHOULD}},\quad
+\boxed{\mathrm{SHOULD\ NOT}},\quad
+\boxed{\mathrm{MAY}}
+$$
+
+Their meaning is global and MUST remain invariant across legitimate semantic
+carrier types. A carrier determines what kind of architectural meaning is
+expressed; it MUST NOT redefine the force's meaning. NormativeProposition is one
+canonical carrier. Invariant, future Requirement semantics, contractual
+semantics, and other governed families may participate where their type
+semantics permit.
+
+Tooling MAY derive secondary classifications or normalized representations, but
+derived representations MUST preserve the canonical force and MUST NOT replace
+or weaken it. A separate polarity dimension is not required: MUST NOT and
+SHOULD NOT are complete forces, not positive force plus a reconstructed polarity
+flag.
+
+### Force meanings
+
+| Force | Semantic role | Formal consequence |
+|---|---|---|
+| MUST | Hard positive admissibility: a conforming candidate satisfies \(P\). | \(A_{\mathrm{MUST}(P)}=\{x\in\Omega\mid P(x)\}\); \(x\in A\Rightarrow P(x)\). |
+| MUST NOT | Hard exclusion: a conforming candidate satisfies \(\neg P\). | \(A_{\mathrm{MUST\ NOT}(P)}=\{x\in\Omega\mid\neg P(x)\}\); \(x\in A\Rightarrow\neg P(x)\). |
+| SHOULD | Strong positive preference among otherwise admissible candidates. | \(P(x)\land\neg P(y)\Rightarrow x\succ y\), subject to competing concerns. |
+| SHOULD NOT | Strong negative preference among otherwise admissible candidates. | \(\neg P(x)\land P(y)\Rightarrow x\succ y\), subject to competing concerns. |
+| MAY | Explicit strong permission identifying a known-permitted region. | \(A_P=\{x\in A\mid P(x)\}\) is affirmatively permitted; \(P\) is not required. |
+
+If compatible scope and authority make MUST(P) and MUST NOT(P) simultaneously
+applicable, \(A_P\cap A_{\neg P}=\varnothing\). STE MUST expose this as
+semantic divergence, not silently select a proposition by document order or
+presentation position.
+
+SHOULD and SHOULD NOT are strong expectations, not casual advice. Deviation may
+remain admissible only with a defensible basis under applicable competing
+concerns. Exact recording, waiver, exception, and competing-preference
+resolution remain downstream decisions.
+
+MAY is not mere non-prohibition. It positively communicates permitted
+architectural freedom and can prevent a reasoner from over-generalizing nearby
+restrictions. For example, Runtime MUST preserve canonical snapshot identity,
+Derived state MUST NOT manufacture architectural authority, and Runtime MAY
+maintain disposable local traversal indexes jointly express mandatory identity,
+prohibited authority manufacture, and explicit freedom for disposable indexing.
+
+### Aggregate composition and boundaries
+
+The five forces compose into three semantic roles:
+
+- hard admissibility: MUST, MUST NOT;
+- strong preference: SHOULD, SHOULD NOT;
+- explicit freedom: MAY.
+
+Normative force MUST NOT manufacture authority, applicability, or epistemic
+knowledge. It MUST NOT convert unknown or unsupported state into known or
+authoritative facts. Imperative-looking prose outside an admitted governed
+semantic structure does not acquire force merely because it uses one of these
+words. Conflicts between simultaneously applicable forces MUST NOT be silently
+resolved through document ordering.
+
+### Explicit deferrals
+
+SD-03 does not determine authority/effectivity composition, scope/applicability,
+exception or waiver representation, cross-authority conflict precedence,
+ADR-Kit authoring or normalized storage shape, Requirement-specific semantics,
+Invariant-specific representation, validator implementation, or a universal
+formal predicate language.
+
 ## Current normative tranche
 
 | ID | Design item | Status | Context |
@@ -130,13 +315,17 @@ sequence. The Design Journal remains the detailed evidentiary record.
 | NM-01 | Normative Semantic Model | — | Current tranche grouping for the normative-semantic design work; no additional promotion is implied by this ledger. |
 | SD-01 | NormativeProposition | `LOCKED` | Senior-locked semantic realization of normative meaning; detailed final authoring, authority/effectivity, scope, and representation decisions remain downstream. |
 | SD-02 | NP / Invariant peer taxonomy | `LOCKED` | Senior-locked taxonomy relationship; this ledger records the status only and does not expand its final semantics. |
-| SD-03 | Global normative force semantics | `OPEN` | Exact force vocabulary and cross-carrier semantics remain undecided. |
+| SD-03 | Global normative force semantics | `LOCKED` | Canonical global forces are MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY; their meaning is carrier-invariant. Detailed applicability, authority, effectivity, exceptions, and implementation remain open. |
 | SD-04 | Authority / effectivity | `OPEN` | Authority, lifecycle, effective-state, and conflict composition remain undecided. |
 | SD-05 | Scope / applicability | `OPEN` | Scope resolution and applicability semantics remain undecided. |
 
 `LOCKED` records senior design disposition, not accepted architectural authority.
 `OPEN` records an intentionally unresolved downstream decision, not a defect in
 FD-01.
+
+FD-01-R1 resolves the previously open force-vocabulary question through SD-03;
+this refinement does not alter FD-01's foundational claim or promote either
+design item into accepted architecture.
 
 ## Explicitly deferred by FD-01
 
