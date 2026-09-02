@@ -4,10 +4,10 @@
 
 ## Purpose and authority status
 
-This ledger records the current senior-design status of the normative semantic
-tranche. It does not promote any item into accepted STE-SPEC authority and does
-not amend the ADR corpus. Authority remains with accepted ADRs and their owning
-contracts until a separately reviewed promotion occurs.
+This ledger is the compact senior-design lock record for the STE semantic
+re-baseline. It does not promote any item into accepted STE-SPEC authority and
+does not amend the ADR corpus. Authority remains with accepted ADRs and their
+owning contracts until a separately reviewed promotion occurs.
 
 The deeper reasoning, source archaeology, evidence, alternatives, and unresolved
 questions are recorded in the [STE Semantic Re-Baseline Design
@@ -632,7 +632,7 @@ CE-01 does not determine:
 - persistence or repository architecture;
 - graph storage implementation.
 
-## Current normative tranche
+## Current design locks
 
 | ID | Design item | Status | Context |
 |---|---|---|---|
@@ -650,9 +650,11 @@ CE-01 does not determine:
 `OPEN` identifies intentionally unresolved downstream work outside this
 completed tranche; it is not a defect in FD-01.
 
-The foundational/normative semantic tranche is now `TRANCHE LOCKED / COMPLETE`.
-These locks remain senior design convergence awaiting later controlled
-promotion; they are not canonical STE-SPEC architectural authority.
+The FD-01/FD-01-R1 and SD-01 through SD-05 foundational/normative semantic
+tranche is `TRANCHE LOCKED / COMPLETE`. CE-01 is a subsequent, separately
+locked design item. All of these entries remain senior-design convergence
+awaiting later controlled promotion; none is canonical STE-SPEC architectural
+authority.
 
 ## Explicit deferrals to preserve
 
@@ -677,8 +679,10 @@ implementation has been changed by recording this design-state lock.
 
 ## Checkpoint scope
 
-This ledger is the durable senior-design checkpoint for the completed
-foundational/normative semantic tranche. Subsequent promotion work must cite
-this record, the deeper Design Journal, and the authority-owning ADR/contract
-decisions that are eventually accepted. Until then, all entries remain
-senior-design state and non-authoritative.
+This ledger is the durable senior-design checkpoint for the semantic
+re-baseline design locks recorded within it. The foundational/normative tranche
+is complete, and CE-01 is a subsequent separately locked design item; the
+semantic re-baseline as a whole is not thereby complete. Subsequent promotion
+work must cite this record, the deeper Design Journal, and the authority-owning
+ADR/contract decisions that are eventually accepted. Until then, all entries
+remain senior-design state and non-authoritative.
