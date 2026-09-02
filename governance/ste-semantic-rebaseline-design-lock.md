@@ -226,6 +226,98 @@ reasoning space that can be evaluated mechanically. STE does not claim that
 arbitrary natural-language architecture can be mathematically proven
 consistent.
 
+### Formalism integrity
+
+STE MUST NOT introduce equations, formal notation, or logical expressions
+merely to make specification content appear more rigorous, official,
+mathematical, or impressive. Formal expressions are used only when they
+materially improve semantic understanding, precision, composition, or
+evaluability.
+
+Every formal expression MUST hold within its stated assumptions and domain, and
+non-trivial expressions MUST be locally interpretable. When equations are used,
+the surrounding specification SHOULD provide:
+
+1. the plain-language semantic claim;
+2. the formal expression;
+3. definitions for symbols, functions, relations, variables, and operators;
+4. a plain-English reading;
+5. a worked architectural example where useful;
+6. semantic assumptions, boundary, and non-claim;
+7. a validation consequence where useful.
+
+STE MAY provide logical proofs when a proof materially establishes, clarifies,
+or defends the semantic property. Formal expressions remain subject to
+architectural challenge. When challenged, their assumptions, derivation,
+domain, and validity MUST be defensible. An indefensible expression MUST be
+corrected, narrowed, or removed; mathematical notation does not confer
+authority or correctness.
+
+## SD-01 — NormativeProposition
+
+**Status:** LOCKED
+
+NormativeProposition is a first-class canonical STE semantic entity for an
+independently meaningful normative architectural proposition. It participates in
+the common canonical identity model: UUIDv7 canonical identifier, typed
+human-recognizable alias_id, and semantic alias_name.
+
+For ADR-scoped NormativePropositions, current normative authority derives from
+presence in the current effective authoritative ADR revision. An NP has no
+independent proposed/accepted/deprecated/retired governance lifecycle. Removal
+from the effective ADR removes it from current authority; historical ADR
+revisions preserve prior normative state. Tombstones and mandatory NP-to-NP
+supersedes/refines/coalescence lineage are not required. Materially different
+normative meaning receives a new identity; editorial relocation or wording
+changes may retain identity when semantic meaning is unchanged.
+
+Modal wording alone does not create an NP. NP remains distinct from Invariant,
+Rule, evidence, assessment, broad Constraint semantics, and future Requirement
+semantics. Requirements remain a future first-class semantic family.
+
+### SD-01 refinement — NP semantic materiality
+
+An NP MUST contain independently meaningful normative semantics whose explicit
+presence is materially capable of shaping the governed reasoning space. Before
+admission, the semantic author/reasoner asks:
+
+> Standing on its own as an explicit proposition, can this meaning materially
+> affect what a competent reasoner understands to be required, prohibited,
+> strongly preferred, strongly discouraged, or explicitly permitted?
+
+If yes, the statement is eligible for NP admission. If no, it MUST NOT become
+an NP merely because it contains normative or imperative wording. Explanatory
+prose, rationale, navigation/organizational instructions, narrative statements,
+and restatements without meaningful reasoning-space value remain outside the NP
+set.
+
+Semantic materiality does not require strict logical uniqueness. An NP MAY
+specialize, reinforce, or concretize broader normative semantics when its
+explicit presence materially improves reasoning-space shaping.
+
+This admission-materiality test answers whether a canonical normative
+proposition should exist. It does not answer which already-existing applicable
+propositions should be assembled into a particular LLM reasoning task.
+Task-specific reasoning-state formulation belongs to a separate
+reasoning/CEM/system-component responsibility and MUST NOT be conflated with NP
+admission.
+
+## SD-02 — NormativeProposition / Invariant peer taxonomy
+
+**Status:** LOCKED
+
+NormativeProposition and Invariant are peer first-class normative semantic entity
+types. They share common structural semantics where genuinely equivalent but
+retain distinct type semantics. There is no ordinary NP-to-Invariant promotion
+lifecycle.
+
+Existing explicitly authored invariants remain Invariants. Existing scoped R###
+or constraint-like architectural propositions conservatively migrate toward
+NormativeProposition. Invariant status MUST NOT be inferred merely from modal
+strength, importance, broad scope, or model interpretation. Material cross-type
+evolution is a substantive architecture change, not an entity lifecycle state
+transition.
+
 ## SD-03 — Global Normative Force Semantics
 
 **Parent:** NM-01 — Normative Semantic Model
@@ -307,40 +399,139 @@ ADR-Kit authoring or normalized storage shape, Requirement-specific semantics,
 Invariant-specific representation, validator implementation, or a universal
 formal predicate language.
 
+## SD-04 — Authority and Effectivity
+
+**Status:** LOCKED
+
+STE separates normative force, authority/competence, effectivity, and
+applicability. They MUST NOT be collapsed. Authority is recognized competence
+to establish governing semantic meaning for a bounded semantic domain and system
+boundary. Semantic entities MUST NOT self-authorize, and normative strength
+MUST NOT manufacture authority. Representation, persistence, copying,
+normalization, projection, observation, inference, implementation, and graph
+structure likewise MUST NOT manufacture architectural authority.
+
+### Governing eligibility
+
+The conceptual relation is:
+
+$$
+G(p,d,t)
+\iff
+\exists s\;[
+s\text{ establishes }p
+\land s\text{ is effective at }t
+\land s\text{ has valid competence over }d\text{ at }t
+]
+$$
+
+Here p is the semantic proposition, d the bounded semantic domain/system
+boundary, t the relevant architectural state or time, s the authority-bearing
+source state or revision, and G governing eligibility. This establishes
+competent/effective eligibility, not concrete applicability.
+
+For ADR-scoped semantic entities, governing participation derives from the
+effective authority-bearing source state/revision; no duplicated NP lifecycle is
+required.
+
+### Authority composition
+
+STE-SPEC is authoritative for the system-of-systems intent model and its
+cross-system semantic boundaries. Individual STE systems retain local
+architectural-intent authority within those boundaries; broader authority does
+not imply detailed implementation authority. A local system MUST NOT manufacture
+competence over cross-system semantics reserved to STE-SPEC.
+
+The effective ADR corpus forms a composed authoritative intent-semantic model.
+Relationships across ADR-L, ADR-PS, ADR-PC, Decision, Invariant,
+NormativeProposition, and other admitted intent entities may be explicit or
+validly derived. An LLM's plausible inference is not authoritative.
+
+Runtime owns bounded observation, reconstruction, embodiment entities and
+relationships, coverage, provenance, and derived assessment under its contracts.
+Its semantic graph is not architectural-intent authority. STE MAY compose intent
+and embodiment to produce linkage, realization/support, convergence, divergence,
+coverage, unknown-state, and assessment semantics, but composition MUST NOT
+transfer or union input authorities.
+
+An STE enabling system can be governed by its own ADR corpus while providing
+bounded semantic capability over another system; those roles remain distinct.
+Delegated competence may narrow but cannot exceed upstream competence. Multiple
+legitimate paths cannot manufacture new cross-domain competence by co-presence.
+Conflicts among competent/effective semantics MUST NOT be silently resolved by
+document order, ADR number, newest source, modal strength, implementation state,
+or projection order. Unresolved real conflict is surfaced as semantic
+divergence.
+
+## SD-05 — Scope and Applicability
+
+**Status:** LOCKED
+
+SD-05 closes the authority/effectivity model rather than introducing an
+independent theory. Scope bounds the contexts in which governed meaning can
+potentially apply. It may be inherited from authoritative semantic context and
+may be narrowed by more specific declarations, but it MUST NOT broaden
+governing competence or manufacture authority.
+
+Applicability evaluates already competent and effective meaning against a
+concrete context. Meaning assessed as non-applicable does not govern that
+context. Applicability MUST be grounded in declared or validly inherited scope
+and contextual semantics. Textual similarity, document proximity, or
+ungoverned model intuition MUST NOT manufacture applicability.
+
+The applicability result preserves three epistemically distinct outcomes:
+
+- APPLIES
+- DOES_NOT_APPLY
+- UNKNOWN
+
+Insufficient contextual knowledge remains UNKNOWN. UNKNOWN MUST NOT be collapsed
+into either APPLIES or DOES_NOT_APPLY. Exact downstream behavior while
+applicability is UNKNOWN remains deferred.
+
+Conceptually, the semantic set governing concrete context c at time/state t
+contains propositions with competent/effective eligibility under SD-04 that are
+assessed APPLIES under SD-05. This does not decide task-specific
+reasoning-state assembly or which applicable propositions are selected for an
+individual LLM invocation.
+
 ## Current normative tranche
 
 | ID | Design item | Status | Context |
 |---|---|---|---|
 | FD-01 | Governed Reasoning-Space Shaping | `LOCKED` | STE-wide doctrine: applicable normative semantics collectively shape a bounded semantic outcome space, while epistemic and authority boundaries remain distinct. |
-| NM-01 | Normative Semantic Model | — | Current tranche grouping for the normative-semantic design work; no additional promotion is implied by this ledger. |
+| FD-01-R1 | Formal Semantic Characterization | `LOCKED` | Formal treatment is complementary to prose when it materially improves semantic understanding, precision, composition, or evaluability; decorative mathematics is prohibited. |
+| NM-01 | Normative Semantic Model | `TRANCHE LOCKED / COMPLETE` | FD-01, FD-01-R1, and SD-01 through SD-05 are senior-locked design state; no accepted authority promotion is implied. |
 | SD-01 | NormativeProposition | `LOCKED` | Senior-locked semantic realization of normative meaning; detailed final authoring, authority/effectivity, scope, and representation decisions remain downstream. |
 | SD-02 | NP / Invariant peer taxonomy | `LOCKED` | Senior-locked taxonomy relationship; this ledger records the status only and does not expand its final semantics. |
 | SD-03 | Global normative force semantics | `LOCKED` | Canonical global forces are MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY; their meaning is carrier-invariant. Detailed applicability, authority, effectivity, exceptions, and implementation remain open. |
-| SD-04 | Authority / effectivity | `OPEN` | Authority, lifecycle, effective-state, and conflict composition remain undecided. |
-| SD-05 | Scope / applicability | `OPEN` | Scope resolution and applicability semantics remain undecided. |
+| SD-04 | Authority / effectivity | `LOCKED` | Competent/effective governing eligibility is distinct from force and applicability; semantic entities and derived carriers cannot self-authorize. |
+| SD-05 | Scope / applicability | `LOCKED` | Scope bounds potential application; applicability yields APPLIES, DOES_NOT_APPLY, or UNKNOWN without deciding task-specific context selection. |
 
 `LOCKED` records senior design disposition, not accepted architectural authority.
-`OPEN` records an intentionally unresolved downstream decision, not a defect in
-FD-01.
+`OPEN` identifies intentionally unresolved downstream work outside this
+completed tranche; it is not a defect in FD-01.
 
-FD-01-R1 resolves the previously open force-vocabulary question through SD-03;
-this refinement does not alter FD-01's foundational claim or promote either
-design item into accepted architecture.
+The foundational/normative semantic tranche is now `TRANCHE LOCKED / COMPLETE`.
+These locks remain senior design convergence awaiting later controlled
+promotion; they are not canonical STE-SPEC architectural authority.
 
-## Explicitly deferred by FD-01
+## Explicit deferrals to preserve
 
-FD-01 does not decide:
+The following remain deliberately unresolved:
 
-- the exact canonical normative-force vocabulary;
-- `NormativeProposition` authoring syntax;
-- authority/effectivity composition;
-- scope/applicability semantics;
-- exception or waiver semantics;
-- Invariant-specific realization details;
-- Requirement semantics;
-- ADR-Kit representation or normalization;
+- exact ADR-Kit authoring or normalized schemas;
+- the full Requirement semantic model;
+- exact Invariant representation mechanics;
 - validator implementation;
-- a formal predicate language;
+- a universal predicate language;
+- complete authority-precedence algebra;
+- external intent-binding implementation;
+- detailed applicability schema;
+- waiver/exception mechanics;
+- task-specific reasoning-state selection;
+- intent/embodiment relationship vocabulary;
+- convergence scoring algorithms;
 - CEM lifecycle redesign.
 
 No ADR, contract, schema, validator, Runtime artifact, Kernel artifact, or
