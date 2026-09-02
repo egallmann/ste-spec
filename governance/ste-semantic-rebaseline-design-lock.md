@@ -496,6 +496,142 @@ assessed APPLIES under SD-05. This does not decide task-specific
 reasoning-state assembly or which applicable propositions are selected for an
 individual LLM invocation.
 
+## CE-01 — Canonical Semantic Entity Model
+
+**Status:** LOCKED
+
+CE-01 is recovered and formalized architecture grounded in ADR-Kit's canonical
+identity, semantic-extension, and normalized-model work. It is design-state
+convergence only; it does not promote an ADR-Kit field set or any derived model
+into universal STE authority.
+
+### Locked decision
+
+STE defines a common canonical semantic-record model for independently
+addressable semantic meaning. The peer structural families are:
+
+- Canonical Entity
+- Canonical Relationship
+
+They are not interchangeable. A relationship is not merely an entity attribute,
+and not every relationship is itself an entity. Either family may possess durable
+canonical identity when its semantics require independent addressability,
+reasoning, attribution, provenance, or historical reference.
+
+### Universal canonical identity grammar
+
+Every independently addressable canonical STE semantic record participates in
+one identity grammar:
+
+- id — durable UUIDv7 canonical identity;
+- alias_id — typed human-recognizable semantic identifier;
+- alias_name — stable semantic recognition name.
+
+Semantic specialization MUST NOT create an alternative canonical identity
+scheme. Semantic type may vary; canonical identity grammar does not.
+
+### Canonical Entity
+
+A Canonical Entity represents independently meaningful semantic identity. A
+concept SHOULD become an entity only when durable independent identity is needed
+for meaningful STE reasoning, relationships, provenance, projection, or
+historical reference.
+
+Value objects, metadata fragments, DTOs, projection-only structures,
+diagnostics, temporary analysis structures, parser/compiler intermediates, and
+ephemeral execution records do not become entities merely because they can be
+represented or persisted. Canonicality derives from semantic admission, not
+structural representation or storage.
+
+### Shared structure and type-specific semantics
+
+Canonical entities share structure only where that structure is genuinely
+universal:
+
+~~~text
+common canonical identity
++ common genuinely universal structural semantics
++ entity_type
++ type-specific semantic contract
+~~~
+
+Decision, Invariant, NormativeProposition, Capability, Requirement, and other
+semantic families may share identity and structural conventions while retaining
+distinct reasoning semantics. STE MUST NOT introduce a universal
+BaseEverything ontology merely to maximize schema reuse.
+
+Existing ADR-Kit normalized models evidence the value of a common entity
+envelope, but their version-specific fields are not thereby permanent universal
+ontology. Fields for derived representation, compatibility, projection,
+implementation, lifecycle mapping, provenance, or operations may evolve
+independently. CE-01 does not reopen SD-01's absence of an independent NP
+lifecycle.
+
+### Consumer-defined semantic types
+
+Qualified consumer-defined semantic types participate in the same canonical
+identity and graph model. They MUST NOT create a parallel identity universe just
+because STE does not globally understand their complete type-specific
+semantics. Extension types may introduce bounded local semantics and do not
+automatically become STE core types.
+
+### New core canonical type admission
+
+A candidate new core type must demonstrate all of the following:
+
+1. distinct meaning that cannot be faithfully reduced to an existing core type
+   plus properties;
+2. independent reasoning significance affecting how STE reasons about,
+   validates, relates, or governs the object;
+3. a durable semantic contract stable enough for type-specific expectations;
+4. sufficient cross-system or STE-wide value to justify global canonicalization.
+
+Therefore, a new label, YAML section, or different property set is not by itself
+a new canonical type. A qualified extension SHOULD remain an extension while
+its semantics are consumer-specific, domain-specific, experimental,
+insufficiently stable, or without meaningful cross-system value.
+
+Promotion from extension to core changes semantic classification and contract
+authority. It does not justify a new identity theory. Exact identity migration
+and lineage mechanics remain downstream.
+
+### Canonical Relationships
+
+Canonical Relationships are peer canonical semantic records, not Canonical
+Entities. A relationship SHOULD receive durable identity when the relationship
+itself has independently meaningful semantics requiring addressability,
+attribution, evidence, reasoning, or historical reference. Incidental,
+parser-derived, traversal-only, projection-only, and ephemeral edges do not
+automatically require canonical relationship identity. The complete canonical
+relationship ontology remains deferred.
+
+### Canonicality boundaries and prior locks
+
+Canonicality MUST NOT manufacture authority. An observed or derived entity or
+relationship does not thereby become architectural intent. Persistence, a UUID,
+graph structure, normalization, projection, observation, inference, or
+implementation cannot manufacture canonical semantic status or importance.
+
+CE-01 preserves SD-01's first-class NormativeProposition, SD-02's peer
+NormativeProposition/Invariant taxonomy, and SD-04's rule that canonicality does
+not manufacture authority and intent/embodiment competence domains remain
+distinct.
+
+### Explicit deferrals
+
+CE-01 does not determine:
+
+- exact future normalized-envelope fields;
+- whether every current ADR-Kit normalized field remains universal;
+- final NormativeProposition authoring representation;
+- Requirement's concrete semantic/schema model;
+- exact Invariant representation mechanics;
+- extension-to-core migration mechanics;
+- complete canonical relationship ontology;
+- compatibility/projection record implementation;
+- persistence or repository architecture;
+- graph storage implementation.
+
 ## Current normative tranche
 
 | ID | Design item | Status | Context |
@@ -508,6 +644,7 @@ individual LLM invocation.
 | SD-03 | Global normative force semantics | `LOCKED` | Canonical global forces are MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY; their meaning is carrier-invariant. Remaining deferrals are exception/waiver semantics, representation/normalization, implementation, and validator mechanics. |
 | SD-04 | Authority / effectivity | `LOCKED` | Competent/effective governing eligibility is distinct from force and applicability; semantic entities and derived carriers cannot self-authorize. |
 | SD-05 | Scope / applicability | `LOCKED` | Scope bounds potential application; applicability yields APPLIES, DOES_NOT_APPLY, or UNKNOWN without deciding task-specific context selection. |
+| CE-01 | Canonical Semantic Entity Model | `LOCKED` | Recovered/formalized common identity grammar and peer Entity/Relationship record families; type-specific semantics and current normalized-model fields remain bounded and deferral-safe. |
 
 `LOCKED` records senior design disposition, not accepted architectural authority.
 `OPEN` identifies intentionally unresolved downstream work outside this
