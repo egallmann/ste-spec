@@ -393,11 +393,12 @@ resolved through document ordering.
 
 ### Explicit deferrals
 
-SD-03 does not determine authority/effectivity composition, scope/applicability,
-exception or waiver representation, cross-authority conflict precedence,
-ADR-Kit authoring or normalized storage shape, Requirement-specific semantics,
-Invariant-specific representation, validator implementation, or a universal
-formal predicate language.
+SD-03 leaves authority/effectivity and scope/applicability to the locked
+semantics of SD-04 and SD-05; its remaining deferrals are exception or waiver
+representation, cross-authority conflict precedence, ADR-Kit authoring or
+normalized storage shape, Requirement-specific semantics, Invariant-specific
+representation, validator implementation, and a universal formal predicate
+language.
 
 ## SD-04 — Authority and Effectivity
 
@@ -502,9 +503,9 @@ individual LLM invocation.
 | FD-01 | Governed Reasoning-Space Shaping | `LOCKED` | STE-wide doctrine: applicable normative semantics collectively shape a bounded semantic outcome space, while epistemic and authority boundaries remain distinct. |
 | FD-01-R1 | Formal Semantic Characterization | `LOCKED` | Formal treatment is complementary to prose when it materially improves semantic understanding, precision, composition, or evaluability; decorative mathematics is prohibited. |
 | NM-01 | Normative Semantic Model | `TRANCHE LOCKED / COMPLETE` | FD-01, FD-01-R1, and SD-01 through SD-05 are senior-locked design state; no accepted authority promotion is implied. |
-| SD-01 | NormativeProposition | `LOCKED` | Senior-locked semantic realization of normative meaning; detailed final authoring, authority/effectivity, scope, and representation decisions remain downstream. |
+| SD-01 | NormativeProposition | `LOCKED` | Senior-locked semantic realization of normative meaning; authority/effectivity and scope/applicability are locked by SD-04/SD-05, while detailed authoring, representation, and schema concerns remain downstream. |
 | SD-02 | NP / Invariant peer taxonomy | `LOCKED` | Senior-locked taxonomy relationship; this ledger records the status only and does not expand its final semantics. |
-| SD-03 | Global normative force semantics | `LOCKED` | Canonical global forces are MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY; their meaning is carrier-invariant. Detailed applicability, authority, effectivity, exceptions, and implementation remain open. |
+| SD-03 | Global normative force semantics | `LOCKED` | Canonical global forces are MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY; their meaning is carrier-invariant. Remaining deferrals are exception/waiver semantics, representation/normalization, implementation, and validator mechanics. |
 | SD-04 | Authority / effectivity | `LOCKED` | Competent/effective governing eligibility is distinct from force and applicability; semantic entities and derived carriers cannot self-authorize. |
 | SD-05 | Scope / applicability | `LOCKED` | Scope bounds potential application; applicability yields APPLIES, DOES_NOT_APPLY, or UNKNOWN without deciding task-specific context selection. |
 
@@ -539,7 +540,8 @@ implementation has been changed by recording this design-state lock.
 
 ## Checkpoint scope
 
-This ledger is the first durable senior-design checkpoint for the semantic
-re-baseline. Subsequent promotion work must cite this record, the deeper Design
-Journal, and the authority-owning ADR/contract decisions that are eventually
-accepted. Until then, all entries remain design state.
+This ledger is the durable senior-design checkpoint for the completed
+foundational/normative semantic tranche. Subsequent promotion work must cite
+this record, the deeper Design Journal, and the authority-owning ADR/contract
+decisions that are eventually accepted. Until then, all entries remain
+senior-design state and non-authoritative.
