@@ -585,3 +585,37 @@ unresolved:
   evidence:
   - 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
   - Cross-contract evidence bundle completeness rules
+- id: UGAP-01a06490-5b3c-76c0-9da2-abc5d28f8970-GAP-4401
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#GAP-4401
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  - Native authoring and normalized representation for NormativeProposition remain
+    downstream and must preserve this semantic contract.
+- id: UGAP-01a06490-5b3c-76c0-9da2-abc5d28f8970-GAP-4402
+  gap_class: author_declared
+  gap_type: author_declared_real_gap
+  source_entity_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  severity: advisory
+  provenance:
+    source_type: derived_registry
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#GAP-4402
+    extraction_phase: detect_unresolved
+    classification: explicit
+    generator: adr-architecture-index
+  evidence:
+  - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  - Detailed exception/waiver mechanics, complete authority-precedence algebra, detailed
+    applicability schema, task-specific reasoning-state selection, complete canonical
+    relationship ontology, intent/embodiment relationship vocabulary, convergence
+    scoring, CEM lifecycle redesign, full epistemic composition, exact Requirement
+    semantics, exact future Invariant representation, native ADR-Kit or Runtime NP
+    implementation, and validator mechanics remain downstream.

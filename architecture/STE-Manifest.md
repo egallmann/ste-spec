@@ -46,7 +46,7 @@ path depends on it.
 10. **Failure taxonomy boundaries:** `invariants/STE-Failure-Taxonomy-Boundaries.md`, `invariants/STE-Divergence-Taxonomy.md`
 11. **Cross-component invariants:** `invariants/STE-Cross-Component-Contract-Invariants.md` (INV-000x)
 12. **Architecture orientation (broad):** `architecture/STE-Architecture.md`
-13. **ADR doctrine:** `adrs/logical/` (canonical authored sources), `adrs/adr-projection/logical/` (generated human views), `adrs/published/README.md` (legacy historical context), [`ADR-L-0042`](../adrs/adr-projection/logical/ADR-L-0042-open-standards-and-closed-intelligence-boundary.md)
+13. **ADR doctrine:** `adrs/logical/` (canonical authored sources), `adrs/adr-projection/logical/` (generated human views), `adrs/published/README.md` (legacy historical context), [`ADR-L-0042`](../adrs/adr-projection/logical/ADR-L-0042-open-standards-and-closed-intelligence-boundary.md), [`ADR-L-0044`](../adrs/adr-projection/logical/ADR-L-0044-governed-semantic-reasoning-foundation.md) (governed semantic reasoning foundation)
 14. **Repository README contract:** [`ADR-L-0036`](../adrs/adr-projection/logical/ADR-L-0036-repository-readme-contract.md), `architecture/STE-Repository-README-Checklist.md`
 15. **Artifact map (documentation-state):** `architecture/STE-Canonical-Project-Artifacts.md`
 16. **Governance / security:** `governance/`, `SECURITY.md`

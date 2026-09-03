@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 2
 hash_algorithm: sha256
-source_hash: 476166df97c67127de0647e1ee84ac2cc11c1bcb2c4316438e5c3570d67a3ede
-rendered_hash: 80ef68923909cc2e97a520674089bc22e274e148940315ca01f099d3be14a8d7
+source_hash: 0d5a640d7cf080324f66a33e8ac02c489e807955cf2b39379f006e621d55b77c
+rendered_hash: 7af2203417cc632ed1da3e8eaa54844a9358147b07e1d4f64a7a311652b9ba65
 -->
 
 # ADR-L-0031: Runtime and Kernel Responsibility Boundary
@@ -47,6 +47,7 @@ flowchart LR
   n_01a04e96_1f5c_7e5b_9837_1dea58886565["ADR-L-0041"]
   n_01a04e96_1f5c_7eef_9c36_e3ff0be7a77d["ADR-L-1001"]
   n_01a04e96_1f5d_7793_873c_136f29f470be["ADR-L-1009"]
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970["ADR-L-0044"]
   n_01a04e96_1f5b_7bf6_b33e_aa6024c35c48 -->|"declared_in"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
   n_01a04e96_1f5b_7c4e_aa1f_a1734a987329 -->|"declared_in"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
   n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6 -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
@@ -62,6 +63,7 @@ flowchart LR
   n_01a04e96_1f5c_7e5b_9837_1dea58886565 -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
   n_01a04e96_1f5c_7eef_9c36_e3ff0be7a77d -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
   n_01a04e96_1f5d_7793_873c_136f29f470be -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
 ```
 
 ## Related ADRs
@@ -125,6 +127,17 @@ surface from declared intent, Context Domains, Graph Domains, Linkage Surfaces,
 Architecture IR snapshots, task context, and persona context-selection policy.
 
 [Open projection](ADR-L-0043-context-domain-and-mvc-lifecycle-boundary.md)
+### ADR-L-0044 — Governed Semantic Reasoning Foundation
+
+**Relationships:**
+- 01a06490-5b3c-76c0-9da2-abc5d28f8970 -[:references]-> this ADR
+
+**Context:** This ADR promotes the first bounded semantic re-baseline tranche: FD-01,
+FD-01-R1, and the NM-01 semantic contents represented by SD-01 through SD-05.
+The senior design lock ledger and Design Journal are design evidence only; this
+ADR is the accepted authority for the semantic foundation stated here.
+
+[Open projection](ADR-L-0044-governed-semantic-reasoning-foundation.md)
 ### ADR-L-1001 — Architecture Action Model
 
 **Relationships:**

@@ -5,15 +5,15 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 2
 hash_algorithm: sha256
-source_hash: ffb2448ff93ed4ef5f96df718cab2894c8c11becaa3b1370dd0b41309e9a49fb
-rendered_hash: bb9f83bc000caba7db3c68fc97e464d5b4c308408d11e87944b43eed394ac3e7
+source_hash: f38a490c7c15ff1578fe13b83d384e6e9c24f110f9032045643b9413084a706f
+rendered_hash: d8f2b817a64c88e94ebe728c84250e99ca75cece5c4d995c8bbd5a3b0a9abbad
 -->
 
 # ADR-L-0035: Architecture IR Ontology Authority in ste-spec
 
 **Status:** accepted  
 **Created:** 2025-12-19  
-**Modified:** 2026-03-29  
+**Modified:** 2026-09-02  
 **Authors:** Erik Gallmann, ste-spec  
 **Domains:** architecture-ir, contracts  
 **Tags:** ontology, semantics  
@@ -31,6 +31,7 @@ Legacy: `adrs/published/ADR-035-architecture-ir-ontology-authority.md`.
 
 **Reconciliation vs ADR-L-1006:** **coexist-with-precedence** — evidence authority governs
 evidentiary artifacts; this ADR governs **Architecture IR meaning** versus mechanical enums.
+**Reconciliation vs ADR-L-0044:** **coexist-with-precedence** — ADR-L-0044 establishes cross-cutting governed-reasoning and normative semantic meaning; this ADR remains the authority for semantic Architecture IR ontology and mechanical realization boundaries. No CE-01 identity or compiled IR identity change is implied.
 
 
 ## Relationship graph
@@ -47,6 +48,7 @@ flowchart LR
   n_01a04e96_1f5c_7e5b_9837_1dea58886565["ADR-L-0041"]
   n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1["ADR-L-0035"]
   n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5["ADR-L-1006"]
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970["ADR-L-0044"]
   n_01a04e96_1f5c_7315_962f_572c86c75279 -->|"declared_in"| n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1
   n_01a04e96_1f5c_771f_8f37_e9c2426a3ab9 -->|"declared_in"| n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1
   n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6 -->|"references"| n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1
@@ -59,6 +61,8 @@ flowchart LR
   n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1 -->|"references"| n_01a04e96_1f5b_7efb_a818_9534da2c4cd4
   n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1 -->|"references"| n_01a04e96_1f5c_7e5b_9837_1dea58886565
   n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1 -->|"references"| n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5
+  n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1 -->|"references"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1
 ```
 
 ## Related ADRs
@@ -131,6 +135,18 @@ surface from declared intent, Context Domains, Graph Domains, Linkage Surfaces,
 Architecture IR snapshots, task context, and persona context-selection policy.
 
 [Open projection](ADR-L-0043-context-domain-and-mvc-lifecycle-boundary.md)
+### ADR-L-0044 — Governed Semantic Reasoning Foundation
+
+**Relationships:**
+- 01a06490-5b3c-76c0-9da2-abc5d28f8970 -[:references]-> this ADR
+- this ADR -[:references]-> 01a06490-5b3c-76c0-9da2-abc5d28f8970
+
+**Context:** This ADR promotes the first bounded semantic re-baseline tranche: FD-01,
+FD-01-R1, and the NM-01 semantic contents represented by SD-01 through SD-05.
+The senior design lock ledger and Design Journal are design evidence only; this
+ADR is the accepted authority for the semantic foundation stated here.
+
+[Open projection](ADR-L-0044-governed-semantic-reasoning-foundation.md)
 ### ADR-L-1006 — Evidence Authority Model
 
 **Relationships:**

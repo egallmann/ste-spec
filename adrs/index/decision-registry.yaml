@@ -5396,3 +5396,584 @@ entities:
     extraction_phase: extract_decision
     classification: explicit
     generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abc66f5c17e6
+  alias_id: DEC-4401
+  alias_name: govern-computational-reasoning-within-an-explicit-semantic-outcome-space
+  alias_ref: DEC-4401:govern-computational-reasoning-within-an-explicit-semantic-outcome-space
+  entity_type: decision
+  name: Govern computational reasoning as operation within an explicitly governed
+    semantic outcome space
+  summary: Applicable authoritative semantics collectively shape acceptable outcomes
+    by requiring, prohibiting, preferring, discouraging, or explicitly permitting
+    outcomes while preserving separate authority and epistemic boundarie
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abc66f5c17e6
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:f900644e58b527b90345a029d089afdee02534041175ff6b360828372b67388b
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc66f5c17e6
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: govern-computational-reasoning-within-an-explicit-semantic-outcome-space
+    alias_id: DEC-4401
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc66f5c17e6
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abc77292b641
+  alias_id: DEC-4402
+  alias_name: define-bounded-outcome-determinism-for-ai-reasoning
+  alias_ref: DEC-4402:define-bounded-outcome-determinism-for-ai-reasoning
+  entity_type: decision
+  name: Define deterministic AI reasoning as bounded-outcome determinism
+  summary: Determinism constrains the acceptable outcome space; it does not require
+    one identical textual, procedural, or implementation result.
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abc77292b641
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:ed6b27d80054d8dbef335ae332927b3de059944b48a6ddaef0046e5b6b5f4814
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc77292b641
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: define-bounded-outcome-determinism-for-ai-reasoning
+    alias_id: DEC-4402
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc77292b641
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abc810701700
+  alias_id: DEC-4403
+  alias_name: use-complementary-prose-and-formal-semantics-when-materially-useful
+  alias_ref: DEC-4403:use-complementary-prose-and-formal-semantics-when-materially-useful
+  entity_type: decision
+  name: Use complementary prose and formal semantics when formal treatment materially
+    improves precision or evaluability
+  summary: Formal notation clarifies composition only when its assumptions and domain
+    are locally interpretable and defensible. When used, the specification should
+    state the plain-language claim, expression, symbol/operator definit
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abc810701700
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:7a435387288b64499d923ec94072ad30ab2551598b7eba20b4e90f14c7552aff
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc810701700
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: use-complementary-prose-and-formal-semantics-when-materially-useful
+    alias_id: DEC-4403
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc810701700
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abc922ef02dc
+  alias_id: DEC-4404
+  alias_name: admit-normativeproposition-as-a-first-class-semantic-carrier
+  alias_ref: DEC-4404:admit-normativeproposition-as-a-first-class-semantic-carrier
+  entity_type: decision
+  name: Admit NormativeProposition as a first-class semantic type and carrier for
+    independently meaningful normative architectural propositions
+  summary: Independently meaningful normative meaning needs an explicit carrier whose
+    authority, force, scope, and provenance can be reasoned about without relying
+    on document position or modal wording alone. For ADR-scoped NPs, cu
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abc922ef02dc
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:efcb35c34e7cdb3257715f481ea3ea04ff6974b6b5cbee48254db7a9fc8de86a
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc922ef02dc
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: admit-normativeproposition-as-a-first-class-semantic-carrier
+    alias_id: DEC-4404
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abc922ef02dc
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abca4aa3eaa5
+  alias_id: DEC-4405
+  alias_name: preserve-normativeproposition-and-invariant-as-peer-semantic-types
+  alias_ref: DEC-4405:preserve-normativeproposition-and-invariant-as-peer-semantic-types
+  entity_type: decision
+  name: Preserve NormativeProposition and Invariant as peer semantic types
+  summary: Semantic type determines architectural meaning; modal strength, importance,
+    scope, or model interpretation cannot silently perform cross-type evolution.
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abca4aa3eaa5
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:63d7e46799fef6ca679734ae434ce9ef32825dd8d1b1ad851045407893870ea6
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abca4aa3eaa5
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: preserve-normativeproposition-and-invariant-as-peer-semantic-types
+    alias_id: DEC-4405
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abca4aa3eaa5
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abcb706d9c2f
+  alias_id: DEC-4406
+  alias_name: define-global-carrier-invariant-normative-forces
+  alias_ref: DEC-4406:define-global-carrier-invariant-normative-forces
+  entity_type: decision
+  name: Define global normative forces as MUST, MUST NOT, SHOULD, SHOULD NOT, and
+    MAY
+  summary: One carrier-invariant vocabulary supports human understanding, reasoner
+    steering, semantic composition, and deterministic classification without a required
+    polarity flag. MUST establishes hard positive admissibility; MUS
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abcb706d9c2f
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:c3538d771abe4ba8d83e8fb087004eefb5bcdd7eafcc69314f6c4cdbea013b5b
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcb706d9c2f
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: define-global-carrier-invariant-normative-forces
+    alias_id: DEC-4406
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcb706d9c2f
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abccfd310a81
+  alias_id: DEC-4407
+  alias_name: separate-force-authority-effectivity-and-applicability
+  alias_ref: DEC-4407:separate-force-authority-effectivity-and-applicability
+  entity_type: decision
+  name: Separate normative force, authority, effectivity, and applicability
+  summary: A proposition can be strongly expressed without being competent, effective,
+    or applicable to a concrete case. Conceptually, G(p,d,t) holds iff an authority-bearing
+    source s establishes proposition p, is effective at t, a
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abccfd310a81
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:d82ed513f166a53d573edb53dba220d556c6a004a5f0eb45f7174c7e7d20e6bb
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abccfd310a81
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: separate-force-authority-effectivity-and-applicability
+    alias_id: DEC-4407
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abccfd310a81
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abcd629744d2
+  alias_id: DEC-4408
+  alias_name: bound-authority-composition-and-delegation-to-possessed-competence
+  alias_ref: DEC-4408:bound-authority-composition-and-delegation-to-possessed-competence
+  entity_type: decision
+  name: Bound authority composition and delegation to legitimately possessed competence
+  summary: Delegation may narrow competence but cannot amplify it; multiple authority
+    paths cannot manufacture cross-domain competence through co-presence; unresolved
+    competent/effective conflicts must remain visible rather than be
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abcd629744d2
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:d58a2530428b80e76c4e8f854ab99f400dc79419d55372b92fa7939f3317885a
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcd629744d2
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: bound-authority-composition-and-delegation-to-possessed-competence
+    alias_id: DEC-4408
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcd629744d2
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abcef9d0406f
+  alias_id: DEC-4409
+  alias_name: preserve-tristate-scope-and-applicability-outcomes
+  alias_ref: DEC-4409:preserve-tristate-scope-and-applicability-outcomes
+  entity_type: decision
+  name: Evaluate applicability with APPLIES, DOES_NOT_APPLY, and UNKNOWN outcomes
+  summary: Scope bounds contexts in which governed meaning can potentially apply;
+    it may be inherited and narrowed but must not broaden competence. Applicability
+    evaluates already competent/effective meaning against a concrete cont
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abcef9d0406f
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:bf4ec89ce006f20c44c49df16e15376c108bb48951eeff92a4d0737beb3a4d23
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcef9d0406f
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: preserve-tristate-scope-and-applicability-outcomes
+    alias_id: DEC-4409
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcef9d0406f
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index
+- id: 01a06490-5b3c-76c0-9da2-abcf1f4ae7a3
+  alias_id: DEC-4410
+  alias_name: preserve-distinct-intent-and-embodiment-competence-domains
+  alias_ref: DEC-4410:preserve-distinct-intent-and-embodiment-competence-domains
+  entity_type: decision
+  name: Preserve intent and embodiment as distinct competence domains
+  summary: Runtime and other embodiment systems may provide bounded observation, provenance,
+    coverage, evidence, and assessment without acquiring architectural-intent authority.
+  uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abcf1f4ae7a3
+  created_at: '2026-09-02T23:59:37.276Z'
+  entity_fingerprint: sha256:668f18b693d50fc5643797feaaf21056d56a604d8009d4d285ab604d3b9c45ee
+  lifecycle_stage: active
+  canonical_source:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcf1f4ae7a3
+    artifact_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_refs: []
+  metadata:
+    adr_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    adr_alias_id: ADR-L-0044
+    related_invariants: []
+    enforces_invariants: []
+    enables_capabilities: []
+    governs_components: []
+    supersedes: []
+    refines: []
+    alias_name: preserve-distinct-intent-and-embodiment-competence-domains
+    alias_id: DEC-4410
+  relationships:
+    declared_in:
+    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
+    references: []
+    related_to: []
+    enforces: []
+    enabled_by: []
+    enables: []
+    governs: []
+    implemented_by: []
+    embodied_in: []
+    implements_logical: []
+    supersedes: []
+    superseded_by: []
+    refines: []
+    provides_interface: []
+    composed_of: []
+    binds_substrate: []
+    binds_rule: []
+    expects_evidence: []
+  completeness:
+    status: complete
+    missing_fields: []
+  provenance:
+    source_type: logical_adr
+    source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06490-5b3c-76c0-9da2-abcf1f4ae7a3
+    extraction_phase: extract_decision
+    classification: explicit
+    generator: adr-architecture-index

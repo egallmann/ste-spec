@@ -14,9 +14,9 @@ system_registry_path: adrs/index/system-registry.yaml
 validation_summary:
   hard_failures: 0
   warnings: 0
-  unresolved_entries: 41
+  unresolved_entries: 43
 source_coverage:
-  logical_adrs: 39
+  logical_adrs: 40
   physical_adrs: 0
   physical_system_adrs: 0
   physical_component_adrs: 0

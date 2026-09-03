@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 2
 hash_algorithm: sha256
-source_hash: ad5a34125be475ed2b5264f5f56cc3b3cdeffa751013f0a8cb9e36bd9d15ba0a
-rendered_hash: b25d35abccf90b2ce152606eabdbd825513e4654501da6964e6bf026d81e71f7
+source_hash: 848818a89cafae057e4ff7ddc81cfcec0809d8dfd79c6a40f0453ff42e41e415
+rendered_hash: b58ca38a7f7fc0cb2ff9bfc88ac6c0783fb94af3a22cd6788dea44ebc49dcdf5
 -->
 
 # ADR-L-0030: Contract Authority in ste-spec
@@ -47,6 +47,7 @@ flowchart LR
   n_01a04e96_1f5c_78e0_823f_3c915d07acd6["ADR-L-0040"]
   n_01a04e96_1f5c_7e5b_9837_1dea58886565["ADR-L-0041"]
   n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1["ADR-L-0035"]
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970["ADR-L-0044"]
   n_01a04e96_1f5b_7c87_8a1f_093dbd20805a -->|"declared_in"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
   n_01a04e96_1f5b_7ded_b337_01c79d48c692 -->|"declared_in"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
   n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6 -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
@@ -60,6 +61,7 @@ flowchart LR
   n_01a04e96_1f5c_72a7_8a1b_81cf44933af3 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
   n_01a04e96_1f5c_78e0_823f_3c915d07acd6 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
   n_01a04e96_1f5c_7e5b_9837_1dea58886565 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
+  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
 ```
 
 ## Related ADRs
@@ -146,6 +148,17 @@ surface from declared intent, Context Domains, Graph Domains, Linkage Surfaces,
 Architecture IR snapshots, task context, and persona context-selection policy.
 
 [Open projection](ADR-L-0043-context-domain-and-mvc-lifecycle-boundary.md)
+### ADR-L-0044 — Governed Semantic Reasoning Foundation
+
+**Relationships:**
+- 01a06490-5b3c-76c0-9da2-abc5d28f8970 -[:references]-> this ADR
+
+**Context:** This ADR promotes the first bounded semantic re-baseline tranche: FD-01,
+FD-01-R1, and the NM-01 semantic contents represented by SD-01 through SD-05.
+The senior design lock ledger and Design Journal are design evidence only; this
+ADR is the accepted authority for the semantic foundation stated here.
+
+[Open projection](ADR-L-0044-governed-semantic-reasoning-foundation.md)
 ### ADR-L-1002 — Architecture Admission Model
 
 **Relationships:**

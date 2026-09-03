@@ -4,7 +4,7 @@ id: 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
 title: Architecture IR Ontology Authority in ste-spec
 status: accepted
 created_date: '2025-12-19'
-modified_date: '2026-03-29'
+modified_date: '2026-09-02'
 authors:
 - Erik Gallmann
 - ste-spec
@@ -37,12 +37,18 @@ context: '`architecture/STE-Architecture-Intermediate-Representation.md` is the 
   evidentiary artifacts; this ADR governs **Architecture IR meaning** versus mechanical
   enums.
 
+  **Reconciliation vs ADR-L-0044:** **coexist-with-precedence** — ADR-L-0044 establishes
+  cross-cutting governed-reasoning and normative semantic meaning; this ADR remains the
+  authority for semantic Architecture IR ontology and mechanical realization boundaries.
+  No CE-01 identity or compiled IR identity change is implied.
+
   '
 related_adrs:
 - 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
 - 01a04e96-1f5b-7efb-a818-9534da2c4cd4
 - 01a04e96-1f5c-7e5b-9837-1dea58886565
 - 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
+- 01a06490-5b3c-76c0-9da2-abc5d28f8970
 decisions:
 - id: 01a04e96-1f5c-7315-962f-572c86c75279
   summary: Keep semantic Architecture IR authority in ste-spec prose; keep mechanical

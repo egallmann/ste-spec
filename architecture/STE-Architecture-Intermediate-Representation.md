@@ -62,6 +62,12 @@ A **capability** is an externally meaningful ability or architectural outcome th
 
 A **constraint** is a binding limit on design or behavior (policy, resource, compatibility, or scope). **MUST NOT** conflate **constraint** with **invariant**: constraints are architecture-facing obligations; **invariants** (below) are normative STE or domain rules expressed in the invariant hierarchy or ADR material.
 
+### 2.3a `normative_proposition`
+
+A **NormativeProposition** is a first-class semantic type and carrier for an independently meaningful normative architectural proposition. Its admission and carrier-invariant normative-force semantics are governed by [ADR-L-0044](../adrs/adr-projection/logical/ADR-L-0044-governed-semantic-reasoning-foundation.md); modal wording alone does not create one, and normative force remains distinct from authority, effectivity, applicability, and epistemic state. NormativePropositions and **invariants** are peer semantic types; neither is inferred from modal strength.
+
+This semantic addition does not add a compiled `kind`, change the current Architecture IR identity contract, or promote CE-01. Until a later contract decision, adapters and projections may realize the concept through existing semantic or provenance surfaces with explicit realization notes.
+
 ### 2.4 `invariant`
 
 An **invariant** is a normative rule expressed as **what must hold**, including STE doctrine invariants and ADR-declared architecture invariants. In integration mechanics, invariant-shaped records often map to the mechanical `invariant` entity where adapters emit them.
@@ -381,4 +387,4 @@ At the **pinned** `ir_version` referenced from `ste-spec`:
 - [`../contracts/README.md`](../contracts/README.md)
 - [`../glossary.md`](../glossary.md)
 - [`ADR-L-0035`](../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)
-
+- [`ADR-L-0044`](../adrs/adr-projection/logical/ADR-L-0044-governed-semantic-reasoning-foundation.md)

@@ -4,8 +4,8 @@
 # generator_id: adr-compiler
 # generator_version: 1
 # hash_algorithm: sha256
-# source_hash: acfcddd4b51379a5e9437bcdd51c283946ee3d62e3c67e5e8b937150916d5af1
-# rendered_hash: 00dc1db80dc095db42025e9fb9c3b67fcab82cc386284e9ff186457fbff1e062
+# source_hash: ebc96fe5d6c1827ba2abf24d174d92dc8f48adead623941596cff7c829ad4f3d
+# rendered_hash: 021c3bfc26e955988ca488f951f1602b641d758fbcf0784e4ed1c894ad87bec1
 
 schema_version: '1.1'
 type: entity_registry
@@ -1101,6 +1101,170 @@ entities:
   domains: []
   related_adrs:
   - ADR-L-0043
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4401
+  entity_type: decision
+  name: Govern computational reasoning as operation within an explicitly governed
+    semantic outcome space
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4402
+  entity_type: decision
+  name: Define deterministic AI reasoning as bounded-outcome determinism
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4403
+  entity_type: decision
+  name: Use complementary prose and formal semantics when formal treatment materially
+    improves precision or evaluability
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4404
+  entity_type: decision
+  name: Admit NormativeProposition as a first-class semantic type and carrier for
+    independently meaningful normative architectural propositions
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4405
+  entity_type: decision
+  name: Preserve NormativeProposition and Invariant as peer semantic types
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4406
+  entity_type: decision
+  name: Define global normative forces as MUST, MUST NOT, SHOULD, SHOULD NOT, and
+    MAY
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4407
+  entity_type: decision
+  name: Separate normative force, authority, effectivity, and applicability
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4408
+  entity_type: decision
+  name: Bound authority composition and delegation to legitimately possessed competence
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4409
+  entity_type: decision
+  name: Evaluate applicability with APPLIES, DOES_NOT_APPLY, and UNKNOWN outcomes
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: DEC-4410
+  entity_type: decision
+  name: Preserve intent and embodiment as distinct competence domains
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
   realized_by: []
   relationships:
     depends_on: []
@@ -2270,6 +2434,166 @@ entities:
   domains: []
   related_adrs:
   - ADR-L-0043
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4401
+  entity_type: invariant
+  name: INV-4401
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4402
+  entity_type: invariant
+  name: INV-4402
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4403
+  entity_type: invariant
+  name: INV-4403
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4404
+  entity_type: invariant
+  name: INV-4404
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4405
+  entity_type: invariant
+  name: INV-4405
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4406
+  entity_type: invariant
+  name: INV-4406
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4407
+  entity_type: invariant
+  name: INV-4407
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4408
+  entity_type: invariant
+  name: INV-4408
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4409
+  entity_type: invariant
+  name: INV-4409
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
+  realized_by: []
+  relationships:
+    depends_on: []
+    implements: []
+    consumes: []
+    realizes: []
+- entity_id: INV-4410
+  entity_type: invariant
+  name: INV-4410
+  introduced_by: ADR-L-0044
+  lifecycle_stage: active
+  source_path: adrs/logical/ADR-L-0044-governed-semantic-reasoning-foundation.yaml
+  source_artifact_type: logical_adr
+  domains: []
+  related_adrs:
+  - ADR-L-0044
   realized_by: []
   relationships:
     depends_on: []
