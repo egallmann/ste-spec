@@ -4,8 +4,8 @@
 # generator_id: adr-architecture-graph
 # generator_version: 1
 # hash_algorithm: sha256
-# source_hash: 9fea0da29f08b51b6237ee886daaace36168e356db67142ab82151eefd66c859
-# rendered_hash: 0dda0eab4337d72d84ae72833a1871ec8e350ec8afae01dc0997ba4f6fc64d31
+# source_hash: 0f2e93c16b896438f1d9eead7e1937636e68c31161c251eec0f4a7451ede11f7
+# rendered_hash: e4d620bc7efb96b72c6bc4aca58962cf728ef1cd7f8d9edec0a6d5a7053aa488
 
 schema_version: '1.0'
 type: architecture_graph
@@ -1595,8 +1595,8 @@ nodes:
     artifact_path: adrs/logical/ADR-L-1010-canonical-adr-encoding-moves-to-authoring-1-6.yaml
 - id: 01a10048-430e-761e-b62b-d652182f9ede
   entity_type: decision
-  name: Preserve existing canonical identities and structured semantic content except
-    for the approved carrier and schema change
+  name: Preserve canonical identities and structured semantic content except for the
+    schema_version change
   canonical_source:
     source_type: logical_adr
     source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d652182f9ede

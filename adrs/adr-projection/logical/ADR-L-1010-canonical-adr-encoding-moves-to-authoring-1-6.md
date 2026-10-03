@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: b2cc2419b141ff59f824fe75f5be399b5289a9dd16f7adfe8ce2587c78b8cfd7
-rendered_hash: 6c57dd8cfab6c5c70b38e3f7576a6655200d9de888e7c18a6b4be2629b7de20d
+source_hash: fcad6cf12da7a6853ee674b9aafb0c9fd1f60fed7bcfb1daf9a9d2c412b17939
+rendered_hash: 2e48aa31cf34afaed3594c5c705d30620ae456affe48d09cf53ad5b15df40def
 -->
 
 # ADR-L-1010: Canonical ADR Encoding Moves to Authoring 1.6
@@ -21,14 +21,16 @@ rendered_hash: 6c57dd8cfab6c5c70b38e3f7576a6655200d9de888e7c18a6b4be2629b7de20d
 ## Context
 
 This proposed ADR records the encoding change for ste-spec canonical ADR
-sources. It does not change the schema_version of any existing ADR, and it
-does not add semantic authority.
+sources. It does not change the schema_version of any existing ADR. This ADR
+does not alter existing semantic doctrine or the authority of existing
+semantic content.
 
 The decisions below state only the locked encoding move: authoring 1.3 to
 authoring 1.6, preservation of existing identities and structured semantic
-content aside from that carrier and schema change, absence of
-normative_propositions, exclusion of authoring 1.7 and ACC construction, and
-unchanged ADR-L-0044 semantic authority.
+content, with the only canonical-source transformation being the
+schema_version change from 1.3 to 1.6, absence of normative_propositions,
+exclusion of authoring 1.7 and ACC construction, and unchanged ADR-L-0044
+semantic authority.
 
 
 
@@ -49,10 +51,10 @@ ste-spec canonical ADR encoding moves from authoring 1.3 to authoring 1.6.
 
 
 
-### DEC-6984: Preserve existing canonical identities and structured semantic content except for the approved carrier and schema change
+### DEC-6984: Preserve canonical identities and structured semantic content except for the schema_version change
 
 **Rationale:**
-Existing canonical identities and structured semantic content are preserved except for the approved carrier and schema change.
+The migration changes only schema_version from 1.3 to 1.6. No other canonical source field or semantic content is changed unless separately reviewed and authorized.
 
 
 

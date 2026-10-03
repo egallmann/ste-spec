@@ -14650,8 +14650,8 @@ entities:
   entity_type: adr
   name: Canonical ADR Encoding Moves to Authoring 1.6
   summary: This proposed ADR records the encoding change for ste-spec canonical ADR
-    sources. It does not change the schema_version of any existing ADR, and it does
-    not add semantic authority. The decisions below state only the lock
+    sources. It does not change the schema_version of any existing ADR. This ADR does
+    not alter existing semantic doctrine or the authority of existing
   uri: adr://ste-spec/entities/01a10048-430e-761e-b62b-d65093bd8609
   created_at: '2026-10-03T05:41:38.190Z'
   entity_fingerprint: sha256:c69e4eb83095588f69d66a3a34b31ce86a67188b3b814343edb32b6292aa0e8e
@@ -14774,16 +14774,16 @@ entities:
     generator: adr-architecture-index
 - id: 01a10048-430e-761e-b62b-d652182f9ede
   alias_id: DEC-6984
-  alias_name: preserve-identities-and-structured-content-except-carrier-schema-change
-  alias_ref: DEC-6984:preserve-identities-and-structured-content-except-carrier-schema-change
+  alias_name: preserve-identities-and-structured-content-except-schema-version
+  alias_ref: DEC-6984:preserve-identities-and-structured-content-except-schema-version
   entity_type: decision
-  name: Preserve existing canonical identities and structured semantic content except
-    for the approved carrier and schema change
-  summary: Existing canonical identities and structured semantic content are preserved
-    except for the approved carrier and schema change.
+  name: Preserve canonical identities and structured semantic content except for the
+    schema_version change
+  summary: The migration changes only schema_version from 1.3 to 1.6. No other canonical
+    source field or semantic content is changed unless separately reviewed and authorized.
   uri: adr://ste-spec/entities/01a10048-430e-761e-b62b-d652182f9ede
   created_at: '2026-10-03T05:41:38.190Z'
-  entity_fingerprint: sha256:4a7c925114d784043260b024f77c1ecf0ca95cd800c01031c6a008d21a41a6cc
+  entity_fingerprint: sha256:7531287c5336c9531ba2765b8f99159f20b5a12f7acdc1f84cb7f0b7cfa72001
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -14799,7 +14799,7 @@ entities:
     governs_components: []
     supersedes: []
     refines: []
-    alias_name: preserve-identities-and-structured-content-except-carrier-schema-change
+    alias_name: preserve-identities-and-structured-content-except-schema-version
     alias_id: DEC-6984
   relationships:
     declared_in:

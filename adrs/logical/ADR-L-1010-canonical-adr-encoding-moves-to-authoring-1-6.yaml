@@ -14,14 +14,16 @@ tags:
 - authoring-1-6
 context: |
   This proposed ADR records the encoding change for ste-spec canonical ADR
-  sources. It does not change the schema_version of any existing ADR, and it
-  does not add semantic authority.
+  sources. It does not change the schema_version of any existing ADR. This ADR
+  does not alter existing semantic doctrine or the authority of existing
+  semantic content.
 
   The decisions below state only the locked encoding move: authoring 1.3 to
   authoring 1.6, preservation of existing identities and structured semantic
-  content aside from that carrier and schema change, absence of
-  normative_propositions, exclusion of authoring 1.7 and ACC construction, and
-  unchanged ADR-L-0044 semantic authority.
+  content, with the only canonical-source transformation being the
+  schema_version change from 1.3 to 1.6, absence of normative_propositions,
+  exclusion of authoring 1.7 and ACC construction, and unchanged ADR-L-0044
+  semantic authority.
 related_adrs:
 - 01a06490-5b3c-76c0-9da2-abc5d28f8970
 decisions:
@@ -31,12 +33,12 @@ decisions:
   alias_id: DEC-6983
   alias_name: move-ste-spec-canonical-adr-encoding-from-authoring-1-3-to-authoring-1-6
 - id: 01a10048-430e-761e-b62b-d652182f9ede
-  summary: Preserve existing canonical identities and structured semantic content except
-    for the approved carrier and schema change
-  rationale: Existing canonical identities and structured semantic content are preserved
-    except for the approved carrier and schema change.
+  summary: Preserve canonical identities and structured semantic content except for the
+    schema_version change
+  rationale: The migration changes only schema_version from 1.3 to 1.6. No other canonical
+    source field or semantic content is changed unless separately reviewed and authorized.
   alias_id: DEC-6984
-  alias_name: preserve-identities-and-structured-content-except-carrier-schema-change
+  alias_name: preserve-identities-and-structured-content-except-schema-version
 - id: 01a10048-430e-761e-b62b-d653b428726b
   summary: Leave normative_propositions absent and extract no propositions
   rationale: The normative_propositions key remains absent. No proposition extraction
