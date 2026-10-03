@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: c8f9b4b652c21706010320473f56b37534a350c1dfa8b6dab46ce23365ed1462
-rendered_hash: 1c87f9c42d556b661430baea4c24a960d702c7fe14b45a3854685fbe5f26e142
+source_hash: 0c4184df830701571ed7df7253a0834b95eda160a20a249a17c6199a3cd94402
+rendered_hash: ecfd7743175432e5835b611ae0d528ea9b8cf86f239a7e2681798d6280c881d4
 -->
 
 # ADR-L-0026: Invariant Conflict Detection Semantics
 
-**Status:** accepted  
-**Created:** 2025-12-29  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** fabric, gateway  
-**Tags:** invariants, conflicts  
-**Alias name:** invariant-conflict-detection-semantics  
+**Status:** accepted<br>
+**Created:** 2025-12-29<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** fabric, gateway<br>
+**Tags:** invariants, conflicts<br>
+**Alias name:** invariant-conflict-detection-semantics<br>
 
 ## Context
 
@@ -36,103 +36,7 @@ recomputing conflicts from raw invariant payloads at Gateway.
 invariants separately; this ADR governs **STE eligibility attestation mechanics**.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c["ADR-L-0009"]
-  n_01a04e96_1f5a_7af0_a138_a306f7b93157["ADR-L-0019"]
-  n_01a04e96_1f5b_7486_921f_710866e2aa23["DEC-2603"]
-  n_01a04e96_1f5b_7551_992f_4be395920f16["ADR-L-0028"]
-  n_01a04e96_1f5b_788c_8306_d10c9fe24eaa["ADR-L-0023"]
-  n_01a04e96_1f5b_78d8_823e_e464a03d787a["INV-2601"]
-  n_01a04e96_1f5b_7b70_990f_a7c17a31eed4["DEC-2601"]
-  n_01a04e96_1f5b_7e2a_893d_70c61ec4f8c4["DEC-2602"]
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694["ADR-L-0026"]
-  n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5["ADR-L-1006"]
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970["ADR-L-0044"]
-  n_01a04e96_1f5b_7486_921f_710866e2aa23 -->|"declared_in"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_78d8_823e_e464a03d787a -->|"declared_in"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_7b70_990f_a7c17a31eed4 -->|"declared_in"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_7e2a_893d_70c61ec4f8c4 -->|"declared_in"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5a_7af0_a138_a306f7b93157 -->|"references"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_7551_992f_4be395920f16 -->|"references"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_788c_8306_d10c9fe24eaa -->|"references"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694 -->|"references"| n_01a04e96_1f5a_70b0_a91f_0d25282f542c
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694 -->|"references"| n_01a04e96_1f5b_7551_992f_4be395920f16
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694 -->|"references"| n_01a04e96_1f5b_788c_8306_d10c9fe24eaa
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694 -->|"references"| n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-```
-
-## Related ADRs
-
-### ADR-L-0009 — Assertion Precedence Model
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5a-70b0-a91f-0d25282f542c
-
-**Context:** Manual assertions and deterministic extraction can describe the same elements. The model
-preserves both with provenance, surfaces contradictions, requires evidence for human
-claims, and supports time-bounded validity.
-
-[Open projection](ADR-L-0009-assertion-precedence-model.md)
-### ADR-L-0019 — Gateway Authority and Signing Model
-
-**Relationships:**
-- 01a04e96-1f5a-7af0-a138-a306f7b93157 -[:references]-> this ADR
-
-**Context:** STE Gateway verifies ORG-signed inputs and enforces eligibility; it does **not** attest
-canonical truth or sign canonical artifacts. Eligibility outcomes are ephemeral and
-unsigned.
-
-[Open projection](ADR-L-0019-gateway-authority-and-signing-model.md)
-### ADR-L-0023 — Validation Timing and Responsibility
-
-**Relationships:**
-- 01a04e96-1f5b-788c-8306-d10c9fe24eaa -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5b-788c-8306-d10c9fe24eaa
-
-**Context:** Validation occurs at merge-time (ADF), pre-execution (Gateway), and locally (Runtime).
-Only Gateway may authorize execution; ADF blocks canonical promotion; Runtime checks are
-advisory for eligibility. Normalized outcomes treat INDETERMINATE as blocking for
-authoritative paths.
-
-[Open projection](ADR-L-0023-validation-timing-and-responsibility.md)
-### ADR-L-0028 — AI-DOC Fabric and Gateway Authority Boundaries
-
-**Relationships:**
-- 01a04e96-1f5b-7551-992f-4be395920f16 -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5b-7551-992f-4be395920f16
-
-**Context:** Fabric is the sole canonical state authority, invariant resolver, conflict detector for
-attested bundles, and signer of Fabric Attestations. Gateway is a pure verifier that does
-not query Fabric during eligibility evaluation. Runtime assembles and transports bundles
-and attestations without substituting Fabric authority.
-
-[Open projection](ADR-L-0028-ai-doc-fabric-and-gateway-authority-boundaries.md)
-### ADR-L-0044 — Governed Semantic Reasoning Foundation
-
-**Relationships:**
-- 01a06490-5b3c-76c0-9da2-abc5d28f8970 -[:references]-> this ADR
-
-**Context:** This ADR promotes the first bounded semantic re-baseline tranche: FD-01,
-FD-01-R1, and the NM-01 semantic contents represented by SD-01 through SD-05.
-The senior design lock ledger and Design Journal are design evidence only; this
-ADR is the accepted authority for the semantic foundation stated here.
-
-[Open projection](ADR-L-0044-governed-semantic-reasoning-foundation.md)
-### ADR-L-1006 — Evidence Authority Model
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
-
-**Context:** Runtime evidence is authoritative as **factual observation** within its contract, not as
-a replacement for normative architecture declared in ste-spec and documentation-state.
-When evidence contradicts IR or ADR meaning, the kernel MUST categorize contradiction as
-drift or assessment finding; it MUST NOT silently rewrite normative sources.
-
-[Open projection](ADR-L-1006-evidence-authority-model.md)
 
 
 
@@ -144,9 +48,9 @@ drift or assessment finding; it MUST NOT silently rewrite normative sources.
 
 **Statement:** Gateway MUST NOT treat raw invariant payload comparison as authoritative for conflict
 detection; authoritative conflict signal is the signed Fabric `conflict_status` field.
-  
-**Scope:** global  
-**Enforcement:** must (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -212,7 +116,7 @@ Prevents implementation divergence and hidden state discovery at the boundary.
 
 ### GAP-2601: Future ADR-L for semantic conflict classes or cross-attestation rules if required
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 

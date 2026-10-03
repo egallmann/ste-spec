@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: 0dc245ed03b4583358635a3c2963369494b5f6068da1a60d6a43f1cb755e6d82
-rendered_hash: 149b8ecfe35d939c4a4d441ff36c6871e225cb1cbec30bdc58cf142237bb741c
+source_hash: 99fcd20b9dfa2ca78227506719fe1d38d1fdb591992d565ac3e4faf40d1b2ff9
+rendered_hash: bad7ef637c3b615d758e40361946f07f9c87939e0f9cb8cd468485db1a351397
 -->
 
 # ADR-L-0001: Deterministic Extraction Over ML-Based Inference
 
-**Status:** accepted  
-**Created:** 2025-12-19  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** extraction, documentation-state, recon  
-**Tags:** deterministic-extraction, ast, reproducibility, ai-doc-fabric  
-**Alias name:** deterministic-extraction-over-ml-based-inference  
+**Status:** accepted<br>
+**Created:** 2025-12-19<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** extraction, documentation-state, recon<br>
+**Tags:** deterministic-extraction, ast, reproducibility, ai-doc-fabric<br>
+**Alias name:** deterministic-extraction-over-ml-based-inference<br>
 
 ## Context
 
@@ -41,83 +41,7 @@ series uses other numeric blocks (for example `DEC-61xx`, `INV-50xx`) and is unr
 to this `01xx` allocation.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c["ADR-L-0009"]
-  n_01a04e96_1f5a_7225_ac37_8631a3e857de["INV-0104"]
-  n_01a04e96_1f5a_73a4_8e3f_bef43b56c052["ADR-L-0006"]
-  n_01a04e96_1f5a_7594_a63f_e35090b4aa24["DEC-0102"]
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c["ADR-L-0001"]
-  n_01a04e96_1f5a_7702_883d_6b265c2f46a9["DEC-0101"]
-  n_01a04e96_1f5a_78fc_ac37_5d69fdb35439["INV-0103"]
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c["ADR-L-0008"]
-  n_01a04e96_1f5a_7a59_9e1b_7368051b9f9e["INV-0101"]
-  n_01a04e96_1f5a_7d7f_a63b_839b2a82f7cb["INV-0105"]
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e["ADR-L-0007"]
-  n_01a04e96_1f5a_7fee_b02f_0a03c41fa924["INV-0102"]
-  n_01a04e96_1f5a_7225_ac37_8631a3e857de -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7594_a63f_e35090b4aa24 -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7702_883d_6b265c2f46a9 -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_78fc_ac37_5d69fdb35439 -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7a59_9e1b_7368051b9f9e -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7d7f_a63b_839b2a82f7cb -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7fee_b02f_0a03c41fa924 -->|"declared_in"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_73a4_8e3f_bef43b56c052 -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_70b0_a91f_0d25282f542c
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-```
-
-## Related ADRs
-
-### ADR-L-0006 — Explicit Unknowns Over Inference
-
-**Relationships:**
-- 01a04e96-1f5a-73a4-8e3f-bef43b56c052 -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-73a4-8e3f-bef43b56c052
-
-**Context:** When extractors cannot fully determine relationships or properties, the system must not
-silently guess. This ADR-L encodes explicit **unknowns** alongside known facts.
-
-[Open projection](ADR-L-0006-explicit-unknowns-over-inference.md)
-### ADR-L-0007 — Slice Identity Strategy
-
-**Relationships:**
-- 01a04e96-1f5a-7ea8-b832-ea3972a2f81e -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-7ea8-b832-ea3972a2f81e
-
-**Context:** Slices require unique, stable, deterministic identifiers derived from **observable**
-semantic anchors (contracts, paths, source paths, table names) rather than volatile
-implementation labels alone.
-
-[Open projection](ADR-L-0007-slice-identity-strategy.md)
-### ADR-L-0008 — Correctness and Consistency Contract
-
-**Relationships:**
-- 01a04e96-1f5a-7a29-b11e-4fe242be290c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-7a29-b11e-4fe242be290c
-
-**Context:** Defines user-visible **correctness** and **consistency** guarantees for Fabric
-documentation-state queried over extracted and asserted facts, including partial
-failures, overlapping reconciliation jobs, provenance coexistence, and multi-region
-eventual consistency.
-
-[Open projection](ADR-L-0008-correctness-and-consistency-contract.md)
-### ADR-L-0009 — Assertion Precedence Model
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5a-70b0-a91f-0d25282f542c
-
-**Context:** Manual assertions and deterministic extraction can describe the same elements. The model
-preserves both with provenance, surfaces contradictions, requires evidence for human
-claims, and supports time-bounded validity.
-
-[Open projection](ADR-L-0009-assertion-precedence-model.md)
 
 
 
@@ -130,9 +54,9 @@ claims, and supports time-bounded validity.
 **Statement:** Architecture slice generation from source code MUST be deterministic: identical inputs
 (source artifacts, extractor configuration, extractor version) MUST produce
 identical slice outputs.
-  
-**Scope:** global  
-**Enforcement:** must (test)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (test)<br>
 **Verification:** automated
 
 **Rationale:**
@@ -145,9 +69,9 @@ Enables regression tests, auditability, and confident reprocessing when extracto
 
 **Statement:** Extractors MUST use language-native parsing and explicit pattern rules for framework
 and API detection; they MUST produce identical outputs for identical inputs per INV-0101.
-  
-**Scope:** global  
-**Enforcement:** must (design)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -160,9 +84,9 @@ Implements the concrete extractor discipline implied by deterministic extraction
 
 **Statement:** The extraction graph MUST NOT assert architectural relationships using embeddings,
 probabilistic models, or LLM inference over source code or extraction artifacts.
-  
-**Scope:** global  
-**Enforcement:** must (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -176,9 +100,9 @@ Preserves auditability and prevents silent probabilistic graph mutation.
 **Statement:** When an LLM participates in natural-language query translation, it MUST NOT receive
 extraction results as input for constructing or modifying architecture slices; failure
 to translate MUST fall back to structured query paths without inventing graph content.
-  
-**Scope:** global  
-**Enforcement:** must (design)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -191,9 +115,9 @@ Keeps DEC-0102 compatible with deterministic slice authority.
 
 **Statement:** When deterministic rules cannot observe a relationship or element, the system MUST
 record explicit unknowns per **ADR-L-0006** rather than inferring or guessing.
-  
-**Scope:** global  
-**Enforcement:** must (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** automated
 
 **Rationale:**
@@ -278,7 +202,7 @@ allowing conversational interfaces upstream of structured retrieval.
 
 ### GAP-0101: Further align extraction query surfaces with Architecture IR assertion payloads when schemas land
 
-**Impact:** low  
+**Impact:** low<br>
 **Blocking:** No
 
 
@@ -287,7 +211,7 @@ allowing conversational interfaces upstream of structured retrieval.
 
 ### GAP-0102: Formal performance SLOs for per-file extraction (legacy target cited sub-100ms for small files)
 
-**Impact:** low  
+**Impact:** low<br>
 **Blocking:** No
 
 

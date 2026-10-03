@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: c6e80329ab6cb1f2d193149e7be55bd0d84a3eacba038dee5523dff8f6fcaf0e
-rendered_hash: 3206c02c46b9b70cff8ec91376e15917f0a48163c6e26f669ae96d79fe12ff31
+source_hash: 8b2552b94c4aed2347d67d8bd40774d166f18b6b633579f6be63e0b164674409
+rendered_hash: ee4fa9427a0798952983b4fa1fa1f767096c657d4570a94a1858944e7ad141fd
 -->
 
 # ADR-L-0007: Slice Identity Strategy
 
-**Status:** accepted  
-**Created:** 2025-12-19  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** extraction, documentation-state, recon  
-**Tags:** identity, determinism, slices  
-**Alias name:** slice-identity-strategy  
+**Status:** accepted<br>
+**Created:** 2025-12-19<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** extraction, documentation-state, recon<br>
+**Tags:** identity, determinism, slices<br>
+**Alias name:** slice-identity-strategy<br>
 
 ## Context
 
@@ -35,65 +35,7 @@ future migrated ADR-035); slice identity rules here remain authoritative for **e
 output identity** unless explicitly superseded.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5a_718c_873d_92b5aeafa4d5["INV-0701"]
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c["ADR-L-0001"]
-  n_01a04e96_1f5a_779a_8b2f_7eeb85c66b0d["INV-0702"]
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c["ADR-L-0008"]
-  n_01a04e96_1f5a_7af0_863f_bf2fe3959bc7["DEC-0701"]
-  n_01a04e96_1f5a_7c2d_953f_c3231460c234["DEC-0702"]
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e["ADR-L-0007"]
-  n_01a04e96_1f5b_78b8_972b_af0c783ef246["ADR-L-0025"]
-  n_01a04e96_1f5a_718c_873d_92b5aeafa4d5 -->|"declared_in"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_779a_8b2f_7eeb85c66b0d -->|"declared_in"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7af0_863f_bf2fe3959bc7 -->|"declared_in"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7c2d_953f_c3231460c234 -->|"declared_in"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5b_78b8_972b_af0c783ef246 -->|"references"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-```
-
-## Related ADRs
-
-### ADR-L-0001 — Deterministic Extraction Over ML-Based Inference
-
-**Relationships:**
-- 01a04e96-1f5a-765c-b22f-a35555c5da2c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-765c-b22f-a35555c5da2c
-
-**Context:** AI-DOC Fabric must extract architectural elements from source code. Candidate approaches
-include deterministic extraction (language-native AST parsers and explicit framework
-patterns) versus ML-based inference (embeddings, LLMs, probabilistic models).
-
-[Open projection](ADR-L-0001-deterministic-extraction-over-ml-based-inference.md)
-### ADR-L-0008 — Correctness and Consistency Contract
-
-**Relationships:**
-- 01a04e96-1f5a-7a29-b11e-4fe242be290c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-7a29-b11e-4fe242be290c
-
-**Context:** Defines user-visible **correctness** and **consistency** guarantees for Fabric
-documentation-state queried over extracted and asserted facts, including partial
-failures, overlapping reconciliation jobs, provenance coexistence, and multi-region
-eventual consistency.
-
-[Open projection](ADR-L-0008-correctness-and-consistency-contract.md)
-### ADR-L-0025 — Environment Semantics
-
-**Relationships:**
-- 01a04e96-1f5b-78b8-972b-af0c783ef246 -[:references]-> this ADR
-
-**Context:** Environment is a mandatory, opaque identifier partitioning canonical state and
-attestations. Fabric governance defines allowed values; Gateway enforces exact
-case-sensitive equality between Context Bundle and Fabric Attestation; no inference,
-defaults, aliases, or hierarchy in v1.
-
-[Open projection](ADR-L-0025-environment-semantics.md)
 
 
 
@@ -105,9 +47,9 @@ defaults, aliases, or hierarchy in v1.
 
 **Statement:** Given the same source artifact inputs and extractor version, identity derivation for
 a slice MUST be deterministic and reproducible.
-  
-**Scope:** global  
-**Enforcement:** must (test)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (test)<br>
 **Verification:** automated
 
 **Rationale:**
@@ -121,9 +63,9 @@ Required for regression testing, environment diffs, and ADR-L-0001 determinism.
 **Statement:** Identity derivation MUST prefer observable contract anchors (routes, table names,
 source paths, integration targets, config keys) over volatile implementation labels
 when those anchors are available.
-  
-**Scope:** global  
-**Enforcement:** must (design)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -189,7 +131,7 @@ with explicit suffixes and warnings for manual review.
 
 ### GAP-0701: Formal IR mapping when slice identity rules and IR ontology diverge
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 

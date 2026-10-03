@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: ef54ef574b448599a59d4c8d66e2e0b8901c18b3d803ede7fc06f82deaeea783
-rendered_hash: 90cdaae6379f56acc007a16420d16bbf655984d777b38ec0e3182f41814da5b4
+source_hash: 16a43365fbbe7b799c4cc64c49a379b3a7c57a949f988f192497afc11c384725
+rendered_hash: c518aa65dbc947153124f9c6e0b4fa90d523d2cee7307ec0b0b6b4c9532bfa0f
 -->
 
 # ADR-L-0034: Rule Projection Envelope Authority
 
-**Status:** proposed  
-**Created:** 2025-12-19  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** contracts, governance  
-**Tags:** rule-projection, kernel  
-**Alias name:** rule-projection-envelope-authority  
+**Status:** proposed<br>
+**Created:** 2025-12-19<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** contracts, governance<br>
+**Tags:** rule-projection, kernel<br>
+**Alias name:** rule-projection-envelope-authority<br>
 
 ## Context
 
@@ -33,45 +33,7 @@ governs admitted decisions; rule-projection envelopes are a **separate durable f
 with rules-engine-side closure.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5b_716a_bb2b_77d8e25442e1["DEC-3402"]
-  n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6["ADR-L-0030"]
-  n_01a04e96_1f5b_76a7_9f3e_74a771a33e46["ADR-L-0034"]
-  n_01a04e96_1f5b_7cad_ab3f_0d375339ff50["INV-3401"]
-  n_01a04e96_1f5b_7f03_af0f_3ee27828aeb1["DEC-3401"]
-  n_01a04e96_1f5d_7300_b13f_588156097d46["ADR-L-1008"]
-  n_01a04e96_1f5b_716a_bb2b_77d8e25442e1 -->|"declared_in"| n_01a04e96_1f5b_76a7_9f3e_74a771a33e46
-  n_01a04e96_1f5b_7cad_ab3f_0d375339ff50 -->|"declared_in"| n_01a04e96_1f5b_76a7_9f3e_74a771a33e46
-  n_01a04e96_1f5b_7f03_af0f_3ee27828aeb1 -->|"declared_in"| n_01a04e96_1f5b_76a7_9f3e_74a771a33e46
-  n_01a04e96_1f5b_76a7_9f3e_74a771a33e46 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
-  n_01a04e96_1f5b_76a7_9f3e_74a771a33e46 -->|"references"| n_01a04e96_1f5d_7300_b13f_588156097d46
-```
-
-## Related ADRs
-
-### ADR-L-0030 — Contract Authority in ste-spec
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
-
-**Context:** Cross-repository handoff contracts are governed in **ste-spec**: shape in `contracts/`,
-rules in `invariants/`, rationale in ADRs. Runtime and kernel repos remain subordinate
-implementation surfaces.
-
-[Open projection](ADR-L-0030-contract-authority-in-ste-spec.md)
-### ADR-L-1008 — Decision Outcome Model
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5d-7300-b13f-588156097d46
-
-**Context:** Caller-facing admission emits a small set of canonical outcomes. Each outcome carries
-meaning for whether the **requested action** may execute, what remediation is required,
-and how warnings differ from hard gates.
-
-[Open projection](ADR-L-1008-decision-outcome-model.md)
 
 
 
@@ -84,9 +46,9 @@ and how warnings differ from hard gates.
 **Statement:** Until the rule-projection envelope family is promoted to accepted contract status,
 ste-kernel integrations MUST treat draft schemas as interface-only and MUST NOT imply
 normative closure beyond published disclaimers.
-  
-**Scope:** global  
-**Enforcement:** should (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** should (policy)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -136,7 +98,7 @@ Preserves signing and compilation authority on the rules-engine side for this fa
 
 ### GAP-3401: Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index updates)
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 

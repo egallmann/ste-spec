@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: 8972ffed6d5b63650841096702c928cfdfd19a1747512b52a5ee7a28eabb8dfa
-rendered_hash: 1721ccbe89f997bfd66f0f3c28ddde6f8c0220af085ef4b7df37764ac74d9e9a
+source_hash: 401e42912d92a3e076aa5e231a2f02e4d4dc9a2e3348d56847c61744faae9097
+rendered_hash: 8117af29a3b5b43106cb40b25ec9259e81fc19e736180e462f97ab0b4518d814
 -->
 
 # ADR-L-0044: Governed Semantic Reasoning Foundation
 
-**Status:** accepted  
-**Created:** 2026-09-02  
-**Modified:** 2026-09-02  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** governance, semantics, reasoning, architecture-ir  
-**Tags:** bounded-reasoning, normative-semantics, authority, applicability  
-**Alias name:** governed-semantic-reasoning-foundation  
+**Status:** accepted<br>
+**Created:** 2026-09-02<br>
+**Modified:** 2026-09-02<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** governance, semantics, reasoning, architecture-ir<br>
+**Tags:** bounded-reasoning, normative-semantics, authority, applicability<br>
+**Alias name:** governed-semantic-reasoning-foundation<br>
 
 ## Context
 
@@ -38,149 +38,7 @@ exception/waiver implementations remain governed by their owning surfaces and
 the explicit deferrals below.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6["ADR-L-0030"]
-  n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b["ADR-L-0031"]
-  n_01a04e96_1f5b_7d37_8038_1c811fc5261b["ADR-L-0027"]
-  n_01a04e96_1f5b_7f70_b03f_807ea0fe6694["ADR-L-0026"]
-  n_01a04e96_1f5c_78e0_823f_3c915d07acd6["ADR-L-0040"]
-  n_01a04e96_1f5c_7e5b_9837_1dea58886565["ADR-L-0041"]
-  n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1["ADR-L-0035"]
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970["ADR-L-0044"]
-  n_01a06490_5b3c_76c0_9da2_abc66f5c17e6["DEC-4401"]
-  n_01a06490_5b3c_76c0_9da2_abc77292b641["DEC-4402"]
-  n_01a06490_5b3c_76c0_9da2_abc810701700["DEC-4403"]
-  n_01a06490_5b3c_76c0_9da2_abc922ef02dc["DEC-4404"]
-  n_01a06490_5b3c_76c0_9da2_abca4aa3eaa5["DEC-4405"]
-  n_01a06490_5b3c_76c0_9da2_abcb706d9c2f["DEC-4406"]
-  n_01a06490_5b3c_76c0_9da2_abccfd310a81["DEC-4407"]
-  n_01a06490_5b3c_76c0_9da2_abcd629744d2["DEC-4408"]
-  n_01a06490_5b3c_76c0_9da2_abcef9d0406f["DEC-4409"]
-  n_01a06490_5b3c_76c0_9da2_abcf1f4ae7a3["DEC-4410"]
-  n_01a06490_5b3c_76c0_9da2_abd019c4eafa["INV-4401"]
-  n_01a06490_5b3c_76c0_9da2_abd1988d0c47["INV-4402"]
-  n_01a06490_5b3c_76c0_9da2_abd248766fb3["INV-4403"]
-  n_01a06490_5b3c_76c0_9da2_abd3a0decf0a["INV-4404"]
-  n_01a06490_5b3c_76c0_9da2_abd4898798ad["INV-4405"]
-  n_01a06490_5b3c_76c0_9da2_abd5bcdb8c75["INV-4406"]
-  n_01a06490_5b3c_76c0_9da2_abd6c47b3056["INV-4407"]
-  n_01a06490_5b3c_76c0_9da2_abd7aacbfd63["INV-4408"]
-  n_01a06490_5b3c_76c0_9da2_abd8e8aad9dd["INV-4409"]
-  n_01a06492_55f2_774e_a599_50ed40272e9c["INV-4410"]
-  n_01a06490_5b3c_76c0_9da2_abc66f5c17e6 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abc77292b641 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abc810701700 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abc922ef02dc -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abca4aa3eaa5 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abcb706d9c2f -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abccfd310a81 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abcd629744d2 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abcef9d0406f -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abcf1f4ae7a3 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd019c4eafa -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd1988d0c47 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd248766fb3 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd3a0decf0a -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd4898798ad -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd5bcdb8c75 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd6c47b3056 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd7aacbfd63 -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abd8e8aad9dd -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06492_55f2_774e_a599_50ed40272e9c -->|"declared_in"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1 -->|"references"| n_01a06490_5b3c_76c0_9da2_abc5d28f8970
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_752a_bb27_9bfbb872ffc6
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_7c56_bc3f_75fbbc94d42b
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_7d37_8038_1c811fc5261b
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5b_7f70_b03f_807ea0fe6694
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5c_78e0_823f_3c915d07acd6
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5c_7e5b_9837_1dea58886565
-  n_01a06490_5b3c_76c0_9da2_abc5d28f8970 -->|"references"| n_01a04e96_1f5c_7fd4_bf3e_ddca6103eae1
-```
-
-## Related ADRs
-
-### ADR-L-0026 — Invariant Conflict Detection Semantics
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5b-7f70-b03f-807ea0fe6694
-
-**Context:** For v1, Fabric performs conflict detection when creating attestations and signs a
-`conflict_status` field (`none` or `detected`). Gateway verifies the attestation and
-enforces denial when conflicts are attested; Gateway MUST NOT implement independent
-invariant content parsing for conflict detection.
-
-[Open projection](ADR-L-0026-invariant-conflict-detection-semantics.md)
-### ADR-L-0027 — Scope Semantics and Versioning
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5b-7d37-8038-1c811fc5261b
-
-**Context:** Scope is a colon-delimited hierarchical identifier participating in authority checks.
-Version 1 uses exact string equality; version 2 uses segment-prefix matching with
-most-specific authority resolution and denial on equal-depth ambiguity. Trust Registry
-and Context Bundle must declare `scope_semantics_version` consistently.
-
-[Open projection](ADR-L-0027-scope-semantics-and-versioning.md)
-### ADR-L-0030 — Contract Authority in ste-spec
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5b-752a-bb27-9bfbb872ffc6
-
-**Context:** Cross-repository handoff contracts are governed in **ste-spec**: shape in `contracts/`,
-rules in `invariants/`, rationale in ADRs. Runtime and kernel repos remain subordinate
-implementation surfaces.
-
-[Open projection](ADR-L-0030-contract-authority-in-ste-spec.md)
-### ADR-L-0031 — Runtime and Kernel Responsibility Boundary
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
-
-**Context:** **ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
-admission authority at the evaluated System Instance boundary (explicit environment and
-evaluation scope).
-
-[Open projection](ADR-L-0031-runtime-and-kernel-responsibility-boundary.md)
-### ADR-L-0035 — Architecture IR Ontology Authority in ste-spec
-
-**Relationships:**
-- 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1 -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5c-7fd4-bf3e-ddca6103eae1
-
-**Context:** `architecture/STE-Architecture-Intermediate-Representation.md` is the canonical **semantic**
-specification of Architecture IR. Mechanical JSON Schema and compiled enumerations publish
-under `contracts/architecture-ir/` per the contract pin. ste-kernel consumes the bundle;
-it does not own normative mechanical definitions. Compiler roles are further constrained
-by ADR-L-0041.
-
-[Open projection](ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)
-### ADR-L-0040 — STE Spine Lifecycle and Authority
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5c-78e0-823f-3c915d07acd6
-
-**Context:** Defines the canonical **Spine** lifecycle stages, system states, authority categories, and
-precedence rules tying together ste-spec doctrine, implementation repos, publication,
-Architecture IR compilation, kernel admission, runtime evidence, assessment, and
-governance. Does not redefine ADR-L-0038 taxonomy, ADR-L-0035 ontology, ADR-L-0031
-boundary, or ADR-L-0030 contract authority.
-
-[Open projection](ADR-L-0040-ste-spine-lifecycle-and-authority.md)
-### ADR-L-0041 — Compiler, Evidence, and Merge Authority
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5c-7e5b-9837-1dea58886565
-
-**Context:** Non-overlapping compiler roles: **adr-architecture-kit** is the authoring compiler for
-ADR registries/manifest/rendered views (not a second compiler-of-record for
-`ArchitectureEvidence` or normative `Compiled_IR_Document`). **ste-runtime** is runtime
-evidence compiler of record. **ste-kernel** merges publication fragments, validates IR,
-and emits `KernelAdmissionAssessment` while consuming ste-spec contracts.
-
-[Open projection](ADR-L-0041-compiler-evidence-and-merge-authority.md)
 
 
 
@@ -190,9 +48,9 @@ and emits `KernelAdmissionAssessment` while consuming ste-spec contracts.
 
 ### INV-4401
 
-**Statement:** A conforming reasoning outcome MUST remain within the applicable semantic, authority, normative, and epistemic boundaries; bounded-outcome determinism MUST NOT be interpreted as a requirement for one identical generated result.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** A conforming reasoning outcome MUST remain within the applicable semantic, authority, normative, and epistemic boundaries; bounded-outcome determinism MUST NOT be interpreted as a requirement for one identical generated result.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -202,9 +60,9 @@ Preserves governed reasoning-space shaping while allowing bounded outcome divers
 
 ### INV-4402
 
-**Statement:** STE MUST NOT introduce equations or formal notation merely for rhetorical effect, and every non-trivial formal expression MUST remain locally interpretable and defensible within its declared assumptions and domain.  
-**Scope:** global  
-**Enforcement:** must (design)  
+**Statement:** STE MUST NOT introduce equations or formal notation merely for rhetorical effect, and every non-trivial formal expression MUST remain locally interpretable and defensible within its declared assumptions and domain.<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -214,9 +72,9 @@ Mathematical notation does not confer authority or correctness.
 
 ### INV-4403
 
-**Statement:** A NormativeProposition MUST contain independently meaningful normative semantics whose explicit presence is materially capable of shaping the governed reasoning space; modal or imperative wording alone MUST NOT admit an NP.  
-**Scope:** global  
-**Enforcement:** must (design)  
+**Statement:** A NormativeProposition MUST contain independently meaningful normative semantics whose explicit presence is materially capable of shaping the governed reasoning space; modal or imperative wording alone MUST NOT admit an NP.<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -226,9 +84,9 @@ Admission materiality distinguishes semantic propositions from explanation, navi
 
 ### INV-4404
 
-**Statement:** Normative force MUST retain the same meaning across legitimate semantic carrier types and MUST NOT manufacture authority, effectivity, applicability, or epistemic knowledge.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** Normative force MUST retain the same meaning across legitimate semantic carrier types and MUST NOT manufacture authority, effectivity, applicability, or epistemic knowledge.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -238,9 +96,9 @@ Carrier type determines architectural meaning without redefining force semantics
 
 ### INV-4405
 
-**Statement:** For applicable hard constraints H over candidate universe Ω, each h MUST induce an admissible subset A_h and the hard-admissible space MUST be understood conceptually as A = intersection of all A_h; materially different candidates MAY both conform when each is a member of A.  
-**Scope:** global  
-**Enforcement:** must (design)  
+**Statement:** For applicable hard constraints H over candidate universe Ω, each h MUST induce an admissible subset A_h and the hard-admissible space MUST be understood conceptually as A = intersection of all A_h; materially different candidates MAY both conform when each is a member of A.<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -256,9 +114,9 @@ bounded evidence-bearing semantic assessment for higher-order incompatibility.
 
 ### INV-4406
 
-**Statement:** Preference semantics MUST order otherwise hard-admissible candidates without automatically removing a non-preferred candidate from the hard-admissible space, and MAY(P) MUST be distinguished from mere absence of MUST NOT(P). MAY(P) implies absence of an applicable MUST NOT(P), but absence of MUST NOT(P) does not imply MAY(P).  
-**Scope:** global  
-**Enforcement:** must (design)  
+**Statement:** Preference semantics MUST order otherwise hard-admissible candidates without automatically removing a non-preferred candidate from the hard-admissible space, and MAY(P) MUST be distinguished from mere absence of MUST NOT(P). MAY(P) implies absence of an applicable MUST NOT(P), but absence of MUST NOT(P) does not imply MAY(P).<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -268,9 +126,9 @@ Preserves strong preference and explicit permission as distinct roles.
 
 ### INV-4407
 
-**Statement:** Governing eligibility for proposition p over bounded domain d at relevant state or time t MUST require an authority-bearing source s that establishes p, is effective at t, and possesses valid competence over d at t; this eligibility relation MUST NOT be treated as concrete applicability. Representation, persistence, normalization, projection, observation, inference, implementation, or graph structure MUST NOT manufacture authority.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** Governing eligibility for proposition p over bounded domain d at relevant state or time t MUST require an authority-bearing source s that establishes p, is effective at t, and possesses valid competence over d at t; this eligibility relation MUST NOT be treated as concrete applicability. Representation, persistence, normalization, projection, observation, inference, implementation, or graph structure MUST NOT manufacture authority.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -280,9 +138,9 @@ Separates authority path and effectivity from case-specific applicability.
 
 ### INV-4408
 
-**Statement:** Delegation MUST NOT amplify competence, co-present authority paths MUST NOT manufacture cross-domain competence, and unresolved conflicts among competent effective semantics MUST NOT be silently resolved by document order, recency, modal strength, implementation state, or projection order.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** Delegation MUST NOT amplify competence, co-present authority paths MUST NOT manufacture cross-domain competence, and unresolved conflicts among competent effective semantics MUST NOT be silently resolved by document order, recency, modal strength, implementation state, or projection order.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -292,9 +150,9 @@ Authority composition remains bounded and divergence remains visible.
 
 ### INV-4409
 
-**Statement:** Applicability MUST yield APPLIES, DOES_NOT_APPLY, or UNKNOWN from declared or validly inherited scope and contextual semantics; insufficient contextual knowledge MUST remain UNKNOWN and MUST NOT be collapsed into either other outcome.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** Applicability MUST yield APPLIES, DOES_NOT_APPLY, or UNKNOWN from declared or validly inherited scope and contextual semantics; insufficient contextual knowledge MUST remain UNKNOWN and MUST NOT be collapsed into either other outcome.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -304,9 +162,9 @@ Prevents textual similarity, proximity, or model intuition from manufacturing go
 
 ### INV-4410
 
-**Statement:** Runtime and other embodiment systems MUST NOT manufacture architectural intent authority from observation, reconstruction, provenance, coverage, evidence, persistence, projection, or derived assessment; composition MUST NOT transfer or union the authorities of intent and embodiment inputs.  
-**Scope:** global  
-**Enforcement:** must (policy)  
+**Statement:** Runtime and other embodiment systems MUST NOT manufacture architectural intent authority from observation, reconstruction, provenance, coverage, evidence, persistence, projection, or derived assessment; composition MUST NOT transfer or union the authorities of intent and embodiment inputs.<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -534,7 +392,7 @@ Runtime and other embodiment systems may provide bounded observation, provenance
 
 ### GAP-4401: Native authoring and normalized representation for NormativeProposition remain downstream and must preserve this semantic contract.
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 
@@ -543,7 +401,7 @@ Runtime and other embodiment systems may provide bounded observation, provenance
 
 ### GAP-4402: Detailed exception/waiver mechanics, complete authority-precedence algebra, detailed applicability schema, task-specific reasoning-state selection, complete canonical relationship ontology, intent/embodiment relationship vocabulary, convergence scoring, CEM lifecycle redesign, full epistemic composition, exact Requirement semantics, exact future Invariant representation, native ADR-Kit or Runtime NP implementation, and validator mechanics remain downstream.
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 

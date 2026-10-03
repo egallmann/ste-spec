@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: fde25b036432a4d2e4c6cbc3888e5ae3d09f12c446428dacc59f7d113f85d84d
-rendered_hash: 6663a338138d8446cac5cc525ff72421b5b899593e6c4c255e91f3bcb98fc480
+source_hash: f93466a2e3d5938f5467afc88e14b66c161173252520b3c46c7fa89302397d2f
+rendered_hash: 5410d7b1314074ff34bda9a6e54fb558e69f03bb92b7bd63dd52769a7be0b92a
 -->
 
 # ADR-L-0008: Correctness and Consistency Contract
 
-**Status:** accepted  
-**Created:** 2025-12-19  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** documentation-state, recon, queries  
-**Tags:** consistency, correctness, provenance  
-**Alias name:** correctness-and-consistency-contract  
+**Status:** accepted<br>
+**Created:** 2025-12-19<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** documentation-state, recon, queries<br>
+**Tags:** consistency, correctness, provenance<br>
+**Alias name:** correctness-and-consistency-contract<br>
 
 ## Context
 
@@ -35,122 +35,7 @@ semantics. Kernel fail-closed rules override Fabric query defaults when both app
 shared boundary; otherwise coexist with explicit documentation in consuming services.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c["ADR-L-0009"]
-  n_01a04e96_1f5a_70f1_920d_fb6ab6c21dda["INV-0801"]
-  n_01a04e96_1f5a_7102_be3b_c726b49d5244["DEC-0805"]
-  n_01a04e96_1f5a_7390_9c2d_32da0589f89c["DEC-0802"]
-  n_01a04e96_1f5a_73a4_8e3f_bef43b56c052["ADR-L-0006"]
-  n_01a04e96_1f5a_7481_9423_6bf626cacb83["DEC-0803"]
-  n_01a04e96_1f5a_7526_a93f_48bdd3063ece["DEC-0804"]
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c["ADR-L-0001"]
-  n_01a04e96_1f5a_7770_833e_0d1f60bbf600["INV-0802"]
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c["ADR-L-0008"]
-  n_01a04e96_1f5a_7b2e_b837_48ca2a0680b1["DEC-0801"]
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e["ADR-L-0007"]
-  n_01a04e96_1f5a_7f90_b30d_39b5dcb7ec7f["DEC-0806"]
-  n_01a04e96_1f5b_78b8_972b_af0c783ef246["ADR-L-0025"]
-  n_01a04e96_1f5d_7793_873c_136f29f470be["ADR-L-1009"]
-  n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5["ADR-L-1006"]
-  n_01a04e96_1f5a_70f1_920d_fb6ab6c21dda -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7102_be3b_c726b49d5244 -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7390_9c2d_32da0589f89c -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7481_9423_6bf626cacb83 -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7526_a93f_48bdd3063ece -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7770_833e_0d1f60bbf600 -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7b2e_b837_48ca2a0680b1 -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7f90_b30d_39b5dcb7ec7f -->|"declared_in"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_70b0_a91f_0d25282f542c
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5d_7793_873c_136f29f470be
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5d_78e4_b527_64a4a9e9e2b5
-  n_01a04e96_1f5a_7ea8_b832_ea3972a2f81e -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-  n_01a04e96_1f5b_78b8_972b_af0c783ef246 -->|"references"| n_01a04e96_1f5a_7a29_b11e_4fe242be290c
-```
-
-## Related ADRs
-
-### ADR-L-0001 — Deterministic Extraction Over ML-Based Inference
-
-**Relationships:**
-- 01a04e96-1f5a-765c-b22f-a35555c5da2c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-765c-b22f-a35555c5da2c
-
-**Context:** AI-DOC Fabric must extract architectural elements from source code. Candidate approaches
-include deterministic extraction (language-native AST parsers and explicit framework
-patterns) versus ML-based inference (embeddings, LLMs, probabilistic models).
-
-[Open projection](ADR-L-0001-deterministic-extraction-over-ml-based-inference.md)
-### ADR-L-0006 — Explicit Unknowns Over Inference
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5a-73a4-8e3f-bef43b56c052
-
-**Context:** When extractors cannot fully determine relationships or properties, the system must not
-silently guess. This ADR-L encodes explicit **unknowns** alongside known facts.
-
-[Open projection](ADR-L-0006-explicit-unknowns-over-inference.md)
-### ADR-L-0007 — Slice Identity Strategy
-
-**Relationships:**
-- 01a04e96-1f5a-7ea8-b832-ea3972a2f81e -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-7ea8-b832-ea3972a2f81e
-
-**Context:** Slices require unique, stable, deterministic identifiers derived from **observable**
-semantic anchors (contracts, paths, source paths, table names) rather than volatile
-implementation labels alone.
-
-[Open projection](ADR-L-0007-slice-identity-strategy.md)
-### ADR-L-0009 — Assertion Precedence Model
-
-**Relationships:**
-- 01a04e96-1f5a-70b0-a91f-0d25282f542c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-70b0-a91f-0d25282f542c
-
-**Context:** Manual assertions and deterministic extraction can describe the same elements. The model
-preserves both with provenance, surfaces contradictions, requires evidence for human
-claims, and supports time-bounded validity.
-
-[Open projection](ADR-L-0009-assertion-precedence-model.md)
-### ADR-L-0025 — Environment Semantics
-
-**Relationships:**
-- 01a04e96-1f5b-78b8-972b-af0c783ef246 -[:references]-> this ADR
-
-**Context:** Environment is a mandatory, opaque identifier partitioning canonical state and
-attestations. Fabric governance defines allowed values; Gateway enforces exact
-case-sensitive equality between Context Bundle and Fabric Attestation; no inference,
-defaults, aliases, or hierarchy in v1.
-
-[Open projection](ADR-L-0025-environment-semantics.md)
-### ADR-L-1006 — Evidence Authority Model
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5
-
-**Context:** Runtime evidence is authoritative as **factual observation** within its contract, not as
-a replacement for normative architecture declared in ste-spec and documentation-state.
-When evidence contradicts IR or ADR meaning, the kernel MUST categorize contradiction as
-drift or assessment finding; it MUST NOT silently rewrite normative sources.
-
-[Open projection](ADR-L-1006-evidence-authority-model.md)
-### ADR-L-1009 — Kernel Decision Contract
-
-**Relationships:**
-- this ADR -[:references]-> 01a04e96-1f5d-7793-873c-136f29f470be
-
-**Context:** This ADR-L defines the normative **inputs** and **outputs** of a kernel admission
-decision and the invariants that make decisions auditable and reproducible. It is the
-architectural predecessor to future schemas and integration contracts; it does not specify wire formats.
-
-[Open projection](ADR-L-1009-kernel-decision-contract.md)
 
 
 
@@ -162,9 +47,9 @@ architectural predecessor to future schemas and integration contracts; it does n
 
 **Statement:** Partial extraction MUST NOT silently drop successful slices; failures MUST be
 visible via partial status, unknowns, or equivalent documented signals.
-  
-**Scope:** global  
-**Enforcement:** must (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -178,9 +63,9 @@ Prevents silent data loss and aligns partial failure semantics with ADR-L-0006.
 **Statement:** Query responses that combine extracted and asserted facts MUST retain provenance
 sufficient to filter or explain conflicts unless a superseding ADR-L defines
 automatic precedence.
-  
-**Scope:** global  
-**Enforcement:** must (design)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -304,7 +189,7 @@ acceptable for documentation-state availability trade-offs.
 
 ### GAP-0801: Further align query conflict taxonomy with kernel denial categories when needed
 
-**Impact:** low  
+**Impact:** low<br>
 **Blocking:** No
 
 
@@ -313,7 +198,7 @@ acceptable for documentation-state availability trade-offs.
 
 ### GAP-0802: Quantitative lag SLOs and storage technology references belong in ADR-PS/PC
 
-**Impact:** low  
+**Impact:** low<br>
 **Blocking:** No
 
 

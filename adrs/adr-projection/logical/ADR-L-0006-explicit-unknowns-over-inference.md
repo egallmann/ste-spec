@@ -3,21 +3,21 @@ integrity_schema_version: 1
 generated: deterministic_projection_v1
 artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
-generator_version: 2
+generator_version: 3
 hash_algorithm: sha256
-source_hash: 792085bdce4b8a8f11f24835663b2f48918af53b6f1105b3bfb08ad85a874004
-rendered_hash: c158680e7f08e36b56a25e63a19cddb7d870036befe9fac34139444204d55f44
+source_hash: 85998f894400f9108d26e74d00008ac41d23d65b84cfa3d39892a655f880df20
+rendered_hash: 88b9a1cd45af8c77c3baeb8f4e61e83cd3803be80c6d7dcca1f13fb49187ef91
 -->
 
 # ADR-L-0006: Explicit Unknowns Over Inference
 
-**Status:** accepted  
-**Created:** 2025-12-19  
-**Modified:** 2026-03-29  
-**Authors:** Erik Gallmann, ste-spec  
-**Domains:** extraction, documentation-state, recon  
-**Tags:** unknowns, transparency, extraction  
-**Alias name:** explicit-unknowns-over-inference  
+**Status:** accepted<br>
+**Created:** 2025-12-19<br>
+**Modified:** 2026-03-29<br>
+**Authors:** Erik Gallmann, ste-spec<br>
+**Domains:** extraction, documentation-state, recon<br>
+**Tags:** unknowns, transparency, extraction<br>
+**Alias name:** explicit-unknowns-over-inference<br>
 
 ## Context
 
@@ -34,62 +34,7 @@ conflict appears, kernel governance precedes for **admission**, this ADR for **s
 unknown recording** unless explicitly merged in a future ADR-L.
 
 
-## Relationship graph
 
-```mermaid
-flowchart LR
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c["ADR-L-0009"]
-  n_01a04e96_1f5a_73a4_8e3f_bef43b56c052["ADR-L-0006"]
-  n_01a04e96_1f5a_74ac_ba37_caa3465060f9["DEC-0601"]
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c["ADR-L-0001"]
-  n_01a04e96_1f5a_79db_8311_41a81310d983["INV-0602"]
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c["ADR-L-0008"]
-  n_01a04e96_1f5a_7afd_a307_9540c9e29811["DEC-0602"]
-  n_01a04e96_1f5a_7bee_9e3f_297bb092c614["INV-0601"]
-  n_01a04e96_1f5a_74ac_ba37_caa3465060f9 -->|"declared_in"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_79db_8311_41a81310d983 -->|"declared_in"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_7afd_a307_9540c9e29811 -->|"declared_in"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_7bee_9e3f_297bb092c614 -->|"declared_in"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_70b0_a91f_0d25282f542c -->|"references"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_73a4_8e3f_bef43b56c052 -->|"references"| n_01a04e96_1f5a_765c_b22f_a35555c5da2c
-  n_01a04e96_1f5a_765c_b22f_a35555c5da2c -->|"references"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-  n_01a04e96_1f5a_7a29_b11e_4fe242be290c -->|"references"| n_01a04e96_1f5a_73a4_8e3f_bef43b56c052
-```
-
-## Related ADRs
-
-### ADR-L-0001 — Deterministic Extraction Over ML-Based Inference
-
-**Relationships:**
-- 01a04e96-1f5a-765c-b22f-a35555c5da2c -[:references]-> this ADR
-- this ADR -[:references]-> 01a04e96-1f5a-765c-b22f-a35555c5da2c
-
-**Context:** AI-DOC Fabric must extract architectural elements from source code. Candidate approaches
-include deterministic extraction (language-native AST parsers and explicit framework
-patterns) versus ML-based inference (embeddings, LLMs, probabilistic models).
-
-[Open projection](ADR-L-0001-deterministic-extraction-over-ml-based-inference.md)
-### ADR-L-0008 — Correctness and Consistency Contract
-
-**Relationships:**
-- 01a04e96-1f5a-7a29-b11e-4fe242be290c -[:references]-> this ADR
-
-**Context:** Defines user-visible **correctness** and **consistency** guarantees for Fabric
-documentation-state queried over extracted and asserted facts, including partial
-failures, overlapping reconciliation jobs, provenance coexistence, and multi-region
-eventual consistency.
-
-[Open projection](ADR-L-0008-correctness-and-consistency-contract.md)
-### ADR-L-0009 — Assertion Precedence Model
-
-**Relationships:**
-- 01a04e96-1f5a-70b0-a91f-0d25282f542c -[:references]-> this ADR
-
-**Context:** Manual assertions and deterministic extraction can describe the same elements. The model
-preserves both with provenance, surfaces contradictions, requires evidence for human
-claims, and supports time-bounded validity.
-
-[Open projection](ADR-L-0009-assertion-precedence-model.md)
 
 
 
@@ -102,9 +47,9 @@ claims, and supports time-bounded validity.
 **Statement:** When extraction cannot determine a relationship or property that belongs in the slice
 model, the system MUST record an explicit unknown rather than inventing a definitive
 edge or attribute from heuristics alone.
-  
-**Scope:** global  
-**Enforcement:** must (policy)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (policy)<br>
 **Verification:** audit
 
 **Rationale:**
@@ -117,9 +62,9 @@ Preserves honesty and aligns with ADR-L-0001 prohibition on probabilistic graph 
 
 **Statement:** Unknowns MUST be first-order records in the slice documentation contract (queryable and
 attributable), not only log lines or informal notes.
-  
-**Scope:** global  
-**Enforcement:** must (design)  
+<br>
+**Scope:** global<br>
+**Enforcement:** must (design)<br>
 **Verification:** manual
 
 **Rationale:**
@@ -183,7 +128,7 @@ implementation details outside this ADR-L.
 
 ### GAP-0601: Normative machine schema for unknown records in Architecture IR
 
-**Impact:** medium  
+**Impact:** medium<br>
 **Blocking:** No
 
 
@@ -192,7 +137,7 @@ implementation details outside this ADR-L.
 
 ### GAP-0602: Cross-link to ADR-L-0009 when assertion precedence is machine-encoded
 
-**Impact:** low  
+**Impact:** low<br>
 **Blocking:** No
 
 
