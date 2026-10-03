@@ -1,4 +1,4 @@
-schema_version: '1.3'
+schema_version: '1.6'
 adr_type: logical
 id: 01a04e96-1f5b-7ece-bf1f-4f6ac80361f5
 title: Fail-Closed Enforcement Model

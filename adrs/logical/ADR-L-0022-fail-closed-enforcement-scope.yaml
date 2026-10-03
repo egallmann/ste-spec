@@ -1,4 +1,4 @@
-schema_version: '1.3'
+schema_version: '1.6'
 adr_type: logical
 id: 01a04e96-1f5b-74cc-9a3d-921d80842047
 title: Fail-Closed Semantics and Enforcement Scope

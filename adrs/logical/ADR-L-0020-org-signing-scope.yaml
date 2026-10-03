@@ -1,4 +1,4 @@
-schema_version: '1.3'
+schema_version: '1.6'
 adr_type: logical
 id: 01a04e96-1f5a-720a-bc3f-d1ce4bde0816
 title: ORG-Level Signing Scope

@@ -1,4 +1,4 @@
-schema_version: '1.3'
+schema_version: '1.6'
 adr_type: logical
 id: 01a10048-430e-761e-b62b-d65093bd8609
 title: Canonical ADR Encoding Moves to Authoring 1.6
