@@ -66,3 +66,12 @@ existing derived surface.
 
 Internal markdown link targets fell from 645 to 383 after the related-ADR
 embeds were omitted. The link check still reports 0 broken targets.
+
+## Gate 1 runtime alignment
+
+The published ADR-Kit 0.12.0 package declares `Requires-Python: >=3.14`.
+Local qualification used Python 3.14.7. During Gate 1 cleanup,
+`.github/workflows/adr-governance.yml` was changed from Python 3.13 to the
+3.14 line so the automated governance job can install that pin. Triggers,
+checkout, `requirements-dev.txt` installation, and
+`python scripts/adr_governance.py` were left unchanged.
