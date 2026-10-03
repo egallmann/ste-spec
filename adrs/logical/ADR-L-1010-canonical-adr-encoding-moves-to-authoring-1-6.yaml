@@ -1,0 +1,57 @@
+schema_version: '1.3'
+adr_type: logical
+id: 01a10048-430e-761e-b62b-d65093bd8609
+title: Canonical ADR Encoding Moves to Authoring 1.6
+status: proposed
+created_date: '2026-10-03'
+authors:
+- Erik Gallmann
+- ste-spec
+domains:
+- governance
+tags:
+- encoding
+- authoring-1-6
+context: |
+  This proposed ADR records the encoding change for ste-spec canonical ADR
+  sources. It does not change the schema_version of any existing ADR, and it
+  does not add semantic authority.
+
+  The decisions below state only the locked encoding move: authoring 1.3 to
+  authoring 1.6, preservation of existing identities and structured semantic
+  content aside from that carrier and schema change, absence of
+  normative_propositions, exclusion of authoring 1.7 and ACC construction, and
+  unchanged ADR-L-0044 semantic authority.
+related_adrs:
+- 01a06490-5b3c-76c0-9da2-abc5d28f8970
+decisions:
+- id: 01a10048-430e-761e-b62b-d651253556d7
+  summary: Move ste-spec canonical ADR encoding from authoring 1.3 to authoring 1.6
+  rationale: ste-spec canonical ADR encoding moves from authoring 1.3 to authoring 1.6.
+  alias_id: DEC-6983
+  alias_name: move-ste-spec-canonical-adr-encoding-from-authoring-1-3-to-authoring-1-6
+- id: 01a10048-430e-761e-b62b-d652182f9ede
+  summary: Preserve existing canonical identities and structured semantic content except
+    for the approved carrier and schema change
+  rationale: Existing canonical identities and structured semantic content are preserved
+    except for the approved carrier and schema change.
+  alias_id: DEC-6984
+  alias_name: preserve-identities-and-structured-content-except-carrier-schema-change
+- id: 01a10048-430e-761e-b62b-d653b428726b
+  summary: Leave normative_propositions absent and extract no propositions
+  rationale: The normative_propositions key remains absent. No proposition extraction
+    occurs.
+  alias_id: DEC-6985
+  alias_name: leave-normative-propositions-absent
+- id: 01a10048-430e-761e-b62b-d654b85731c5
+  summary: Do not adopt authoring 1.7 or ACC construction
+  rationale: Authoring 1.7 and ACC construction are not adopted by this migration.
+  alias_id: DEC-6986
+  alias_name: do-not-adopt-authoring-1-7-or-acc-construction
+- id: 01a10048-430e-761e-b62b-d6558d1e77d7
+  summary: Leave ADR-L-0044 semantic authority unchanged
+  rationale: ADR-L-0044 semantic authority remains unchanged.
+  alias_id: DEC-6987
+  alias_name: leave-adr-l-0044-semantic-authority-unchanged
+alias_id: ADR-L-1010
+alias_name: canonical-adr-encoding-moves-to-authoring-1-6

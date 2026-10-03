@@ -2101,6 +2101,66 @@ relationships:
   canonical_source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970#01a06492-55f2-774e-a599-50ed40272e9c
   confidence: 1.0
   metadata: {}
+- relationship_id: declared_in:01a10048-430e-761e-b62b-d651253556d7:01a10048-430e-761e-b62b-d65093bd8609
+  assertion_id: asrt-a98c4aa463c596e8c6d21ce177566f79c64ece017f51977531250c33989a755c
+  relationship_type: declared_in
+  from_entity_id: 01a10048-430e-761e-b62b-d651253556d7
+  to_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d651253556d7
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d651253556d7
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:01a10048-430e-761e-b62b-d652182f9ede:01a10048-430e-761e-b62b-d65093bd8609
+  assertion_id: asrt-5e3c644cfb8229a3b1a2e7fd7012af486034c17f554c9e985f70c372bc4d0015
+  relationship_type: declared_in
+  from_entity_id: 01a10048-430e-761e-b62b-d652182f9ede
+  to_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d652182f9ede
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d652182f9ede
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:01a10048-430e-761e-b62b-d653b428726b:01a10048-430e-761e-b62b-d65093bd8609
+  assertion_id: asrt-efcd99965b90aa1b7e79a2b10471736e3a71d1394b87860fb53f5c181a4b715e
+  relationship_type: declared_in
+  from_entity_id: 01a10048-430e-761e-b62b-d653b428726b
+  to_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d653b428726b
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d653b428726b
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:01a10048-430e-761e-b62b-d654b85731c5:01a10048-430e-761e-b62b-d65093bd8609
+  assertion_id: asrt-71dd6e57670e2e1a64833087c71c3fcdaf3984b07ce544c67ef6519a2d912ce6
+  relationship_type: declared_in
+  from_entity_id: 01a10048-430e-761e-b62b-d654b85731c5
+  to_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d654b85731c5
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d654b85731c5
+  confidence: 1.0
+  metadata: {}
+- relationship_id: declared_in:01a10048-430e-761e-b62b-d6558d1e77d7:01a10048-430e-761e-b62b-d65093bd8609
+  assertion_id: asrt-054e62c5b9f3a8b544dedb6629d3ceccebf380c62d31d07d56f6bcd40d23c03e
+  relationship_type: declared_in
+  from_entity_id: 01a10048-430e-761e-b62b-d6558d1e77d7
+  to_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d6558d1e77d7
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609#01a10048-430e-761e-b62b-d6558d1e77d7
+  confidence: 1.0
+  metadata: {}
 - relationship_id: references:01a04e96-1f5a-70b0-a91f-0d25282f542c:01a04e96-1f5a-73a4-8e3f-bef43b56c052
   assertion_id: asrt-00b137a486a8e6ef462d5f07faa1db4cf445bbf209cee6cefdaabec4a20eaf07
   relationship_type: references
@@ -4259,5 +4319,17 @@ relationships:
   evidence:
   - 01a06490-5b3c-76c0-9da2-abc5d28f8970
   canonical_source_ref: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  confidence: 1.0
+  metadata: {}
+- relationship_id: references:01a10048-430e-761e-b62b-d65093bd8609:01a06490-5b3c-76c0-9da2-abc5d28f8970
+  assertion_id: asrt-f16566066d036ab30b5393fa0c406abf36f4e2d77799f077597a6eeb1f9affb5
+  relationship_type: references
+  from_entity_id: 01a10048-430e-761e-b62b-d65093bd8609
+  to_entity_id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
+  source_owner_id: 01a10048-430e-761e-b62b-d65093bd8609
+  provenance_classification: explicit
+  evidence:
+  - 01a10048-430e-761e-b62b-d65093bd8609
+  canonical_source_ref: 01a10048-430e-761e-b62b-d65093bd8609
   confidence: 1.0
   metadata: {}
