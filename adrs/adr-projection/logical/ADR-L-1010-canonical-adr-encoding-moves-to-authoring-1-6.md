@@ -5,13 +5,13 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: fcad6cf12da7a6853ee674b9aafb0c9fd1f60fed7bcfb1daf9a9d2c412b17939
-rendered_hash: 2e48aa31cf34afaed3594c5c705d30620ae456affe48d09cf53ad5b15df40def
+source_hash: bb85f23fa3efe53963a8eab82297af3afc73442baf6637c5c403b43a1abf6ad5
+rendered_hash: e76ed43574be9b8808eeedc52acab116f5b5d5d7792eabeb7240cae72f16b813
 -->
 
 # ADR-L-1010: Canonical ADR Encoding Moves to Authoring 1.6
 
-**Status:** proposed<br>
+**Status:** accepted<br>
 **Created:** 2026-10-03<br>
 **Authors:** Erik Gallmann, ste-spec<br>
 **Domains:** governance<br>

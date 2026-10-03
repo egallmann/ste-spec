@@ -14655,14 +14655,14 @@ entities:
   uri: adr://ste-spec/entities/01a10048-430e-761e-b62b-d65093bd8609
   created_at: '2026-10-03T05:41:38.190Z'
   entity_fingerprint: sha256:c69e4eb83095588f69d66a3a34b31ce86a67188b3b814343edb32b6292aa0e8e
-  lifecycle_stage: proposed
+  lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
     source_ref: 01a10048-430e-761e-b62b-d65093bd8609
     artifact_path: adrs/logical/ADR-L-1010-canonical-adr-encoding-moves-to-authoring-1-6.yaml
   source_refs: []
   metadata:
-    status: proposed
+    status: accepted
     domains:
     - governance
     tags:
