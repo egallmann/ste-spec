@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: d107031e4b3b5b9a17e4c0d344d8e7b0e7f9d51166ede0156dc16196756f4b4e
-rendered_hash: 53f1dc39e4b7610e4432ed136ce81fbc695392707141eac4da35b54b0c75adf1
+source_hash: f8c2d4538ffeaeb66ef721bcb139683fcd12cf543f229aece6bc4d0457b0f894
+rendered_hash: e4d42a79c7864d146c8c80dd07e3122b5fbd3b90056de709d9f6d3e643734d8e
 -->
 
 # ADR-L-0020: ORG-Level Signing Scope
@@ -99,7 +99,7 @@ expanding ORG signing to every computation.
 
 ### GAP-2001: Enumerate artifact kinds in Architecture IR that require ORG signatures
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

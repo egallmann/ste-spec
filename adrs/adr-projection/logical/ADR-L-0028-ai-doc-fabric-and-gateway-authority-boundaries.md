@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 3c0a46a9ac8e7c9128d6d1cacf9412fb0e11926e9cabad22fd276c321fdc76c3
-rendered_hash: 49668f64cce105edf4123d935246682e5f4811bf16bd9aa2100eb21d9e14f624
+source_hash: df532745760eb8aa6b05f75097d4f9210fc733d02ffba6c6a833364517dae07f
+rendered_hash: 82e4bdf0a9d0b53f52d82ed13b74ecd2ed295181a96c184f33edf34de43c0e2a
 -->
 
 # ADR-L-0028: AI-DOC Fabric and Gateway Authority Boundaries
@@ -114,7 +114,7 @@ Keeps canonical publisher boundary singular.
 
 ### GAP-2801: Physical deployment patterns for Fabric availability belong in ADR-PS when authored
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

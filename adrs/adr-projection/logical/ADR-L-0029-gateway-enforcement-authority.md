@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 6c5adbdfd5927dca6c5e951de833de1e500ada40fdfab0f8e3c13a9b8a3ccca7
-rendered_hash: 90c5748bddfb35420f9ee57e1fcc1de086199900fc68c0fd9fb9abbbd320c2ee
+source_hash: ccf1ad98cd06540c621db157b046660b8c55dc39110b9b4ba796f25e02c6caea
+rendered_hash: ac49a014a5ba45f6ff99f53f3f48da2c73433aec04017275200e466d25c1e6ec
 -->
 
 # ADR-L-0029: Gateway Enforcement Authority
@@ -101,7 +101,7 @@ Avoids false equivalence between point-in-time enforcement and durable canonical
 
 ### GAP-2901: Align specification section references (e.g. §6.1.5) with handbook and ISO-42010 views
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

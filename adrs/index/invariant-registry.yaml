@@ -1,4 +1,4 @@
-schema_version: '2.0'
+schema_version: '2.3'
 type: normalized_entity_registry
 entities:
 - id: 01a04e96-1f5a-70f1-920d-fb6ab6c21dda
@@ -11,7 +11,7 @@ entities:
     be visible via partial status, unknowns, or equivalent documented signals.
   uri: adr://ste-spec/entities/01a04e96-1f5a-70f1-920d-fb6ab6c21dda
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:6a1f0db5a8754d06707fb8df05ab9cd4d2a27baa64ad346d5e5f4b712f8beb35
+  entity_fingerprint: sha256:36db03027e4581b532f60cd2e265c63cebaad5fb39d578e504932952d9901d34
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -81,7 +81,7 @@ entities:
     for a slice MUST be deterministic and reproducible.
   uri: adr://ste-spec/entities/01a04e96-1f5a-718c-873d-92b5aeafa4d5
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:302e8f75c56beed275d273b363af622243a9c1e15d6533f4ab41e000997d3f6e
+  entity_fingerprint: sha256:46bdf6d06a1a0dd5c780a546b62b11e910ee088b3d16613948f5fae8590e1762
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -152,7 +152,7 @@ entities:
     slices; failure to translate MUST fall back to structured query p
   uri: adr://ste-spec/entities/01a04e96-1f5a-7225-ac37-8631a3e857de
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:077fcb2ba2b3bbb173fe389aa60ec935b73b0d613f6f513c7dcde1e3449572d3
+  entity_fingerprint: sha256:2552eb7580aec29d745a6677bb9ddf3dbc01ed80385d8a2366e077944f03a725
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -227,7 +227,7 @@ entities:
     precedence.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7281-a32f-7054f4753ed6
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:d9f54a27191fbd2eef93ff48ec8eb6857895a73deac587177a4470e1df643ef8
+  entity_fingerprint: sha256:5cc34e11f6e0f315087a7f173f3a6285fa8fff01b9fb167b6dc5bdfd248e3d09
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -298,7 +298,7 @@ entities:
     enforcement-only outcomes, or caches without a new ADR-L that documents the rationale.
   uri: adr://ste-spec/entities/01a04e96-1f5a-73d6-bf3c-1e8252cbf0d3
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:940c02e73701df6dbdcc2ce7bfd74683ce5666233c6c7f04eef9edf9b4ad5715
+  entity_fingerprint: sha256:62ae71b4ed0ccd01eff91f4c2fe4f2921d32c649ee24ae6318ee89e0004dbb7b
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -371,7 +371,7 @@ entities:
     precedence.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7770-833e-0d1f60bbf600
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:9142dd65a9f2c3d91686736996e4cf9bc667017367a1f52795f18ec6173c3e4e
+  entity_fingerprint: sha256:d3ef870eab6a64a461d15560952d270ff01c0cf874c4e750267f90d65b978f71
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -444,7 +444,7 @@ entities:
     labels when those anchors are available.
   uri: adr://ste-spec/entities/01a04e96-1f5a-779a-8b2f-7eeb85c66b0d
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:1093f6c5d1c368f1d92c151ad36bc2ff74be952887111579cef8400a043a724a
+  entity_fingerprint: sha256:05304ac3d01b84f7c055724a740c3531d7d79bd536814517ee7a3985b1996953
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -517,7 +517,7 @@ entities:
     substitutes for ORG attestation of canonical truth.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7816-8927-f4d57777ac40
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:269f8f72a71c43f2ff5432bcfb24d60e157f3409bfd6e9d2759d0cbafe09a689
+  entity_fingerprint: sha256:3433732376d290272dd5a939e29c7c422efa68763c0d86bf2c8f63d998c82567
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -589,7 +589,7 @@ entities:
     artifacts.
   uri: adr://ste-spec/entities/01a04e96-1f5a-78fc-ac37-5d69fdb35439
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:7d6e3b97854afe998292e183bc765981109353cbcee815a2a57ce29ae690d5bb
+  entity_fingerprint: sha256:559ef9b9dda9dc11b1b3670d735d3d40534a054da6fdc1d7cff46707ffec4e5b
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -659,7 +659,7 @@ entities:
     (queryable and attributable), not only log lines or informal notes.
   uri: adr://ste-spec/entities/01a04e96-1f5a-79db-8311-41a81310d983
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:13d0b766ffc5eb4e6b187cac1c9e6dddf7080945cc3e839bc8942de35d49348b
+  entity_fingerprint: sha256:3c5ae3a3f0889de7f11221e99111fa10ff4276a8aef1caaa9245aa857853c12c
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -731,7 +731,7 @@ entities:
     MUST produce identical slice outputs.'
   uri: adr://ste-spec/entities/01a04e96-1f5a-7a59-9e1b-7368051b9f9e
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:03d352f867621164d957f6fc8e45bbcbc38136d82f332ba7872daac966b21811
+  entity_fingerprint: sha256:eb09202b9bb0765c603d16a4723a5a075114ff2082ce63d6460e534e61486985
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -804,7 +804,7 @@ entities:
     surfaces.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7ac7-8d37-1a5ae157a7ee
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:99f20bc2df0b4363f0f043a6afced71634b3b03a02921be52a337d993b588780
+  entity_fingerprint: sha256:91ec916a10a4330cb39e24d57d5bf550a1ad3274ef0ae61384641f8311774d17
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -875,7 +875,7 @@ entities:
     a definitive edge or attribute from heuristics alone.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7bee-9e3f-297bb092c614
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:911d36d97d0d794365d61f08d32c6a16ae4867101c74e76497717f0f8281d124
+  entity_fingerprint: sha256:21da569d4480539a53ee4537a2b51b55314da2cad9ad2b4df97908b13b872a06
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -948,7 +948,7 @@ entities:
     or guessing.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7d7f-a63b-839b2a82f7cb
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:579d4516c1f668200966d9f9ce3e3a8621cd1c21c5c274786fb416c4018bd301
+  entity_fingerprint: sha256:26e29a17f82726d6a82f09e2df1447b4b6148ae5bdc1887811b35c500e012658
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1019,7 +1019,7 @@ entities:
     inputs per INV-0101.
   uri: adr://ste-spec/entities/01a04e96-1f5a-7fee-b02f-0a03c41fa924
   created_at: '2026-08-29T17:34:16.410Z'
-  entity_fingerprint: sha256:a646dcf65756e4401fe4c419add4789d5570bb3c19fc7d9c67fe2cf71a11b34b
+  entity_fingerprint: sha256:c9b0c223e2131c1de49b3b26354919e8625dbaa64fdc79040e3704608bef3a83
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1091,7 +1091,7 @@ entities:
     to obtain canonical claims.
   uri: adr://ste-spec/entities/01a04e96-1f5b-71cb-bf3d-e00053d15db3
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:e5cbcf5e2211de30a6ba24ae1647fc12550490b508804d5bc23d25e5fac0026d
+  entity_fingerprint: sha256:18b66686026babb91fc6f3148d3e897e8e8de4e6c363b3bf123c39fde540104d
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1165,7 +1165,7 @@ entities:
     identifiers is permitted.
   uri: adr://ste-spec/entities/01a04e96-1f5b-726c-b02f-53152aaef0e3
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:732687cad3900d628dbeaac02246a16e3e9589436937145d4e5eb174f3bf6499
+  entity_fingerprint: sha256:623901983610c4c285b859d6bfcb1678d850ae22ab03aa4bb1de9b981e488b33
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1239,7 +1239,7 @@ entities:
     returned an explicit ALLOW outcome per contract.
   uri: adr://ste-spec/entities/01a04e96-1f5b-732e-a30b-df7cb468dfa9
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:d39e04a968f5e1e3f7eb3c65653361aae91069f5c8464ad1a2066a7910b360e1
+  entity_fingerprint: sha256:caae5c988afb3ddfdabc7c00c284a9e49c058a3b7b578124f1561b2f3f90e4e2
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1312,7 +1312,7 @@ entities:
     contract-valid without an explicit ste-spec contract and invariant update.
   uri: adr://ste-spec/entities/01a04e96-1f5b-746b-ac2f-1bb3fc19ee2c
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:03bda5749d9e337efe639802a7265c9300eaf1bc8ec0eb2d5f81ff67ef9eefc2
+  entity_fingerprint: sha256:118a962452c920411608efdf57fdba0555f69cad31bc73276d68530f06615d05
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1383,7 +1383,7 @@ entities:
     closed).
   uri: adr://ste-spec/entities/01a04e96-1f5b-7594-b03f-c7fd665334c9
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:6d0d7fd919a67f9f5e99732dd0b350aed0f29ad8bede1b8cd656d814e2d62efd
+  entity_fingerprint: sha256:230ed29cd94e4ed8f89a7d9d46b8b82afa87432d356b4d8eaeaef130e8b8ad4e
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1454,7 +1454,7 @@ entities:
     field.
   uri: adr://ste-spec/entities/01a04e96-1f5b-78d8-823e-e464a03d787a
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:e8b21402c31facb3b51be9762adc806e4ff8dc1abd6e024c91f7b2952044e635
+  entity_fingerprint: sha256:1740c80217eac9d8faf7937f7ba7f2fee8f03ea88f6ce9310cfa02190c51dc7a
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1527,7 +1527,7 @@ entities:
     promotion MUST be blocked.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7b06-9b3d-3e00ff8dd8a3
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:a93a8e66c3a79279d26e8a54eabd9f8072469bc3a26e75d7a097d4504ac2bb9f
+  entity_fingerprint: sha256:f3557fc4c8ba0280451e6259f30f8a33fddc55d85be5d759694751184c7367fc
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1601,7 +1601,7 @@ entities:
     compilation and admission per ADR-L-0033 and ADR-L-0035.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7bd0-a11f-4f729a3e921e
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:7a8bcca89c0aa685167035e3382233c94a30f562c84ad21b25e83e00cb20fde6
+  entity_fingerprint: sha256:bed82cdc25892bc29aa15a78e5a899aaadb50e884d059d0279120a27e35f93c0
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1675,7 +1675,7 @@ entities:
     execution.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7bd0-b031-b2f4718c8161
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:e2f7e7b7c01dd35c9364a1fdda0f308732a0ba028ee64d99072b9b962b555baa
+  entity_fingerprint: sha256:56ab5f1cfac95460f3dd376525ec70fd66744657cc11ed06451fb23949091c23
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1747,7 +1747,7 @@ entities:
     and enforcement per ADR-L-0019 and ADR-L-0028.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7be7-8f0e-f05b133a9c34
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:40a24322ab49bd08f17bc5e33c2f25a85d85a44c236c38fa5bbfec2cf9c22732
+  entity_fingerprint: sha256:d2a523cec8328f5dcd7878fc8c7059aa0a3defd2ebb9951bac816df2aa580f51
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1819,7 +1819,7 @@ entities:
     declared versions between Trust Registry and Context Bundle MUST result in denial.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7bf5-bd37-214f7b31179c
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:54f223e0a59ca5868a8789a9c87a636bb62947eb9f32b5b930604e8526d246c4
+  entity_fingerprint: sha256:2f0835391ca9daa3e4f3e3d50c2b033f9604f0cb3aa678deefec13bd0569f7ca
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1890,7 +1890,7 @@ entities:
     contracts.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7bf6-b33e-aa6024c35c48
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:c42292a3724cc7f9b5c4f45749865325e4a03603cba53432cda4f537ce9e83e7
+  entity_fingerprint: sha256:fed25e0ced224f4cc68e816e3801bef1baf7f44c5a8eb3149457cd101e517000
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -1962,7 +1962,7 @@ entities:
     for the same handoff surfaces.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7c87-8a1f-093dbd20805a
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:20f6f948e17083fd408b9531c910d4976740ccfa016fbdcf4125f91b657b9bda
+  entity_fingerprint: sha256:009907fe88109e79e404221b6625e51eadb055ba3f682ddb719bae2af7fb1318
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2036,7 +2036,7 @@ entities:
     MUST NOT imply normative closure beyond published disclaimers.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7cad-ab3f-0d375339ff50
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:b85b58b36020b5c302b170ddc8bfbdb787ebd99ddfcf57042afd15b61ec1f278
+  entity_fingerprint: sha256:444147735e0a54e7f054897e5248adbfd1c2ad3bb0feb827184c9480d33d6415
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2110,7 +2110,7 @@ entities:
     status.
   uri: adr://ste-spec/entities/01a04e96-1f5b-7e02-823f-35b65cfdf09d
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:d6b25f98af444feb622cfee1b88dbbb258faf984e7065458d98c4a8ea7bbb021
+  entity_fingerprint: sha256:49af44d03f7b7581e55cf3dd22a589dec3932855075589806a0ed66ce9a8fbd4
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2182,7 +2182,7 @@ entities:
     IR schema without an explicit superseding ADR-L.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7083-a03e-3069ae14e755
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:9ee3fe15b9b82b8f15367889183b972aa4bb7429eb579272411b50ce4794c451
+  entity_fingerprint: sha256:73dde0bc190f00bb0c7fb593e20a9fa283e3771e0cc53732ab88fbda817d40ce
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2257,7 +2257,7 @@ entities:
     contracts, or doctrine.
   uri: adr://ste-spec/entities/01a04e96-1f5c-709c-b913-901d9db36b5a
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:a06c3d49ec2d24e7e9b5721f65ef2225c8c85e5e4645d4e4159e2ebf2f3fa3c7
+  entity_fingerprint: sha256:266a4661c954ff1120427db7018efbd59f3315c01f94e62f7ebb9036506af707
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2329,7 +2329,7 @@ entities:
     to reproduce its fingerprint from the same declared inputs.
   uri: adr://ste-spec/entities/01a04e96-1f5c-70f0-a33c-92add9f15fdc
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:ccd2ed9454d1333c355aec7bd3479f13b490f5ac47ebcdf6fe875550cde1b974
+  entity_fingerprint: sha256:854335eb86fe9606c626fa29829b206c99f7a204ee2c47f8fdd528a1dd8e5938
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2402,7 +2402,7 @@ entities:
     README MUST be corrected.
   uri: adr://ste-spec/entities/01a04e96-1f5c-714a-aa37-80e9b4523045
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:a1cc7570c4e1b97c6597ecbc4e5978236ffbbb605b313f6d9f80d95360ed42f4
+  entity_fingerprint: sha256:9d52b9bf66d2059243e5ddfc86a96d9ad43841dc78ea99bee62d72cc5382b5fa
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2473,7 +2473,7 @@ entities:
     relationships, evidence, constraints, or admission outcomes.
   uri: adr://ste-spec/entities/01a04e96-1f5c-72a2-be3b-67b3013b25eb
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:052f6e83cafeb30427e570b71f6def75d44b665cb796c45b83226f0ac2bedb00
+  entity_fingerprint: sha256:9df0187c6ec4dabb20a76ceb952a97930c762602302f238e8a995a4edc5aafb1
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2544,7 +2544,7 @@ entities:
     an ADR-L or contract change.
   uri: adr://ste-spec/entities/01a04e96-1f5c-72d0-9e3f-60746dfccab0
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:0d3a957bbe47586f2778868bf11e789c62c7d383b71612040b9724df18eaf47e
+  entity_fingerprint: sha256:b802bb09bc2aefd425776f289879da1fa54c6ad2b8302675b5eed4bc56e4a554
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2616,7 +2616,7 @@ entities:
     documented extension; omission MUST be treated as invalid inp
   uri: adr://ste-spec/entities/01a04e96-1f5c-7305-af3f-f7c4f10ea54a
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:6806b72764e8e1e41532ee347c92d83ac5775ce432b4b38b5184597eb9b2268d
+  entity_fingerprint: sha256:7dfbdc56d92fc9160def71032fe2e45f9dc257d1ce394bdcd206efbde3a35502
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2690,7 +2690,7 @@ entities:
     posture or Golden status MUST remain deterministic.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7406-803e-d5c97956b681
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:d2496bd0ed0d72f974330f296c5c5b20305a5d032d8476338d944cd8a3df79ce
+  entity_fingerprint: sha256:2478b7e061d3042cb86d87cfa10ac9a26ab160a2522df184b9add2266a551e67
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2760,7 +2760,7 @@ entities:
     only.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7434-853e-b563bb747c3e
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:ebbfc777daea7bb1c6b3988e7415cea3fdcd3c85c972d2f43ba8d715956b5161
+  entity_fingerprint: sha256:289e7f1263797a94dc24c056260da273618ed4dd29747d0c448890731ec1920b
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2829,7 +2829,7 @@ entities:
     without redefining Spine stages, authority ownership, or ADR-L-0038 taxonomy kinds.
   uri: adr://ste-spec/entities/01a04e96-1f5c-753a-9a16-416c98d7dd74
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:53778543cf335204ffa955e516796556e1fc5625bc52914fb702b193af92dfa9
+  entity_fingerprint: sha256:d7e17a0b2015d9dbc2382e526abbd91b02afff87ae99d4fea71bbd4602bf77b4
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2900,7 +2900,7 @@ entities:
     this ADR-L.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7581-9233-99cb13ff0806
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:7bdac04219060358bccf21456b51ca86008eda7e2ca037fd4cb4bc8ac2308ce4
+  entity_fingerprint: sha256:ed31f1a0a1fdc26948b0f900d8ade34bde07a1c890f0e1453fa953b3bf81d0b3
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -2971,7 +2971,7 @@ entities:
     materialized result.
   uri: adr://ste-spec/entities/01a04e96-1f5c-76e4-b53f-4144dd3eb255
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:1da3d8d0c275e3ce807059626b54fc74ca6a0e0bdf10031488c5860a100ae993
+  entity_fingerprint: sha256:0a4e00d953112ec98b96c431128a2af1859defbb960c74521629fdc8809d41d2
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3046,7 +3046,7 @@ entities:
     prose first with explicit realization notes.
   uri: adr://ste-spec/entities/01a04e96-1f5c-771f-8f37-e9c2426a3ab9
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:f195d6e3e80c564f43acab9a343df451b8f55c453651e94dd142697c8bee05ec
+  entity_fingerprint: sha256:ea2c8178088f4c187b7ae1b485dc12d32acccdbc7113b8ac52bfeab72877508e
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3119,7 +3119,7 @@ entities:
     a successful admission ALLOW outcome.
   uri: adr://ste-spec/entities/01a04e96-1f5c-79fa-b53d-d2af75e525c3
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:594e88ea001415b018aea720184e65d2fb1532edd6d65495ed5777745f1ef243
+  entity_fingerprint: sha256:a2dfed60414ae03d4f4d578c54ffccdb4783f71f9ba5ad7040bb94f5e3478403
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3188,7 +3188,7 @@ entities:
     MUST be surfaced as a primary-tier finding, not ignored.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7a0f-bb35-919bc15e2952
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:9b9a6324d78ca52f7e9e950d28b515b034c1da90fe76b40067f1361cdeae291b
+  entity_fingerprint: sha256:f7f5efa51b58bf7ddfd231e31e21c794e735216234855453e29f381b725c8311
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3258,7 +3258,7 @@ entities:
     NOT emit caller-facing admission decisions.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7a41-8f31-ece0400e5f91
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:384ea9263aa8ce869eab9359cdabafb107a0b86adef1800a899b009d81802a0c
+  entity_fingerprint: sha256:c7320ce63a459fa27e8b1312efe6c23fb71f800e9f0e3dd5a79ec0e4cea6a0fc
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3330,7 +3330,7 @@ entities:
     or successful unvalidated IR consumption.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7a98-963e-7b7199d3c6a2
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:be483ad9216c559c62eca464dc51a04074dfed219fcc57efd2aa0471d05a1327
+  entity_fingerprint: sha256:a7eb601c7511e46620e4dc1f5c3ffa5d6e4c24a8015d2a1c3292aae423f95b89
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3400,7 +3400,7 @@ entities:
     identity, requested_action, environment, and evaluation scope su
   uri: adr://ste-spec/entities/01a04e96-1f5c-7a9f-940f-570e0ffed0bb
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:8bd56026581de628d869f53c6aefaf25b41097385bb8ca50da9a3d772151fd90
+  entity_fingerprint: sha256:bbf76c0a6e74fd9714fdff2769cc7b0574c177f4371a2b900ee1001436ed2998
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3473,7 +3473,7 @@ entities:
     is informational for admission authority and MUST use the assessment
   uri: adr://ste-spec/entities/01a04e96-1f5c-7b2c-af2d-a5bbefb108f5
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:c8a294ce94dcb8830121a3c7abc42b73bdd092ac68d43135d603dd7a2e1aeef8
+  entity_fingerprint: sha256:542b3f2c98a9f79ac97abcd6314c29a1ec9f82887beceb591968a8778df9fde8
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3548,7 +3548,7 @@ entities:
     expanding ste-spec contracts.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7e13-8837-12e15900749f
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:38473daac1ec5b62c32ddec7ff0555635a257734aefc30baf1b6b1ec5a006923
+  entity_fingerprint: sha256:65c91c8f693415c98dd6ffdb182e09069e54eb9ac679bafc5baff2139ddfefaf
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3619,7 +3619,7 @@ entities:
     rules; posture MUST NOT override normative architecture authority in ste-spec.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7e1d-8b0f-fc21eeed2a3f
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:c741eb74173844b4c26ebc4d55bd89c28df684a0aa2709249a08f825ceef72be
+  entity_fingerprint: sha256:ced76662a0e8fb38d87d98d6ca03f3dbbd8287b793f10fd0fa798a452754b118
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3689,7 +3689,7 @@ entities:
     exist.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7ecb-953f-8db47e2c0ee1
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:4e4538131fac3319aa435f1479865d55b660f1ab51044f93e72280a6edfdd7bd
+  entity_fingerprint: sha256:fa54e7ba23f6dc52303f6e772544701698cfa7b382ad992d9d18b88e6534b557
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3759,7 +3759,7 @@ entities:
     replay of admission outcomes.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7ecc-be35-762ba64080ba
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:a3ba512df106054356f1ebd916560eb4a5ae5cfe66cbd5fe3e8a5bca7b258578
+  entity_fingerprint: sha256:ef5a4f4d0156aebc882a5e673e94c4df976d6aa8a0ed041a120228610e08cca7
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3829,7 +3829,7 @@ entities:
     artifact.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7f8b-a011-b21ca3e72f33
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:1e4d3e6893297f59e80af4297f64cf707a792112638b852aae426659728c932d
+  entity_fingerprint: sha256:b4d7bafeb5609a0cb1c71300bcdfa1edb1239b82867cb4d57184386481e6bbe4
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3902,7 +3902,7 @@ entities:
     treatment for STE artifacts.
   uri: adr://ste-spec/entities/01a04e96-1f5c-7fd8-b63f-3ac4ee97f34c
   created_at: '2026-08-29T17:34:16.412Z'
-  entity_fingerprint: sha256:ce0b0e62df5c89529aa0c22a4583fd7ba10f847981aeb6c5937830c6f4a6dd43
+  entity_fingerprint: sha256:3f1b690c80dc8c1ef34e32f9f06372be9643b94ecdc45e11a7e3351160a6122a
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -3974,7 +3974,7 @@ entities:
     the kernel MUST produce the same decision outcom
   uri: adr://ste-spec/entities/01a04e96-1f5d-70ae-b717-dd800d661b13
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:78bc87439384ac248ee0be74579e9f0ac298a68b2de0a9e5ea5a99ad05ac37b8
+  entity_fingerprint: sha256:743bdf20503edf829701c83520814b5e9fa051d55553c2b7e679f6aee4171d0a
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4048,7 +4048,7 @@ entities:
     and explicit promotion records; silent promotion MUST be forbidden.
   uri: adr://ste-spec/entities/01a04e96-1f5d-7679-933f-daa8ddec3521
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:36ad9968475c37145fc7b094a945ac4dffed8ee3b2ec0e49ca720015794e91cb
+  entity_fingerprint: sha256:2b71668cceb39ea116529baa45bb4cf02f08a9fe80abeb9c0d25a2c876322c15
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4118,7 +4118,7 @@ entities:
     is forbidden.
   uri: adr://ste-spec/entities/01a04e96-1f5d-790f-8c39-084c55a0208c
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:2dfe289881ad295c17908534395507c5d345eb04ce3a930f19a2219d2635e1b6
+  entity_fingerprint: sha256:00912621fbd1f65940fa3c5e1881a4e0326b9a81818500cc24550f54bf278f13
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4189,7 +4189,7 @@ entities:
     require documented preconditions before execution; WARNING MUST su
   uri: adr://ste-spec/entities/01a04e96-1f5d-7b84-891b-a39e05101a84
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:428b8344cee37a0f392ecacfb8f83d8c10bbd9900a3a28f005374a4e7170be39
+  entity_fingerprint: sha256:a4e69837ea454ec7620c84adac3bf76b3e14c92ec2cb8b12ca0426e1ac469dbf
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4264,7 +4264,7 @@ entities:
     the outcome; vague summaries without pointers are non-conformant.
   uri: adr://ste-spec/entities/01a04e96-1f5d-7ec2-a43f-156b4b2fcb9b
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:bd108e560437b2030e499c8227404df9ff5d98188baa41d83a95a622aa2092d1
+  entity_fingerprint: sha256:6cc15708a93a895b0f84e52bdef2f8d24cd0fd8082977d64a7653844d1c3261b
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4336,7 +4336,7 @@ entities:
     MUST flow from governance artifacts, not from raw observations alone.
   uri: adr://ste-spec/entities/01a04e96-1f5d-7ec8-b43f-930c76aed494
   created_at: '2026-08-29T17:34:16.413Z'
-  entity_fingerprint: sha256:d47e86155a05dff438cfe400ae05b48beab438a3883267b0214fb16f4e3d1fab
+  entity_fingerprint: sha256:bb9480a223af2c3096c39d4a2d112e0f39a4cd3bba6c7b131331e43666b28580
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4406,7 +4406,7 @@ entities:
     NOT be interpreted as a requirement for one identical generated '
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd019c4eafa
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:fbbde61f93858ec0ff0547e071add504e42d8afd831f346673a39953ee02fb82
+  entity_fingerprint: sha256:b1523528f312f200b05c54b81138b42ebc46fc9fb53734b2499e8857e40dd0ad
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4474,7 +4474,7 @@ entities:
     and defensible within its declared assumptions and domain.
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd1988d0c47
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:6327e9e6886d5a23830825cc2bf028b869872a61d99f8bacf3e4beee3e0c06cd
+  entity_fingerprint: sha256:4fc26c57a908ac1a266388b208be985bf1a8b99fa4ddb61f34abf82afdbbca05
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4542,7 +4542,7 @@ entities:
     reasoning space; modal or imperative wording alone MUST NOT admit an '
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd248766fb3
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:031c99fad2b3b779c9af064b139b9140769b51ead74ce7e8ecdcd7d5ed4303ab
+  entity_fingerprint: sha256:fd29c7a55d0830c769368444e5210ffc2a29bd754734d841f3572f3908821535
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4610,7 +4610,7 @@ entities:
     or epistemic knowledge.
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd3a0decf0a
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:a1937dc33113e4ddaa2b4a9882af601cdecf568dae0a32d9fa59e3013174f263
+  entity_fingerprint: sha256:ae467025d336b2959d1194e60dc8b4546619db60e085173552b7ea4c13e05d2e
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4679,7 +4679,7 @@ entities:
     conceptually as A = intersection of all A_h; materially different '
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd4898798ad
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:d2b2eed11fa9e5ae959030afa2cfb5f669e78105b0da47dd30a5ce20f5508efc
+  entity_fingerprint: sha256:9a1814d815eb0aa0acc97e7dd55ec982094ce38a8844441cc21dad634a7c73ca
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4749,7 +4749,7 @@ entities:
     and MAY(P) MUST be distinguished from mere absence of MUST NOT
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd5bcdb8c75
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:14182848cbc545625c66c93934e45f1f52f69a3c39a6c9efd0d0600ae27c500d
+  entity_fingerprint: sha256:fcd7626aa79a041b8dffba901a1d68fc976f889f562a92a4fc3277dec8da54c1
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4820,7 +4820,7 @@ entities:
     is effective at t, and possesses valid competence over d at t; this
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd6c47b3056
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:56ae798ca48c210de7209b8ed6bb95dbf1154a6c8201b3aa88c193f9e526a668
+  entity_fingerprint: sha256:58f329ea2d032ae92edb297c540491c5168404aafd51d80f7ad6fb19baaf1365
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4892,7 +4892,7 @@ entities:
     effective semantics MUST NOT be silently resolved by document orde
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd7aacbfd63
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:6c79b866df9b8ea3abaf2a3d87001624e62fcd7c55d3428a00b2e6a8e6673577
+  entity_fingerprint: sha256:dd4f6e51b7a4b8ed9e4b53086e22d3033da5a27ab0c1cb197077206d58de0c09
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -4961,7 +4961,7 @@ entities:
     MUST remain UNKNOWN and MUST NOT be collapsed into either '
   uri: adr://ste-spec/entities/01a06490-5b3c-76c0-9da2-abd8e8aad9dd
   created_at: '2026-09-02T23:59:37.276Z'
-  entity_fingerprint: sha256:dac599e8fcaf6268ceadcbcb17b2faf8b3303040f8cec13a435b190417e0b6d7
+  entity_fingerprint: sha256:baa59b690d2ce52b50d9496f2ff401fca03909cbcc7dfafa4850b47701fa5ba1
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -5029,7 +5029,7 @@ entities:
     persistence, projection, or derived assessment; composition MUST '
   uri: adr://ste-spec/entities/01a06492-55f2-774e-a599-50ed40272e9c
   created_at: '2026-09-03T00:01:46.994Z'
-  entity_fingerprint: sha256:5baf7268ba5e1aadb9ef5e007d2d6640fabfb22fb1e9bc37ae5662d4957c0970
+  entity_fingerprint: sha256:43dcf49314188520ab65eeef908ef752febbdddc827dc6af218eb5bb3b649200
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr

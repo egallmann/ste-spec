@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: acd7484ed539b5c2eb2288581281ec4a90e361f1691bdd84242cd2dbd1794c1b
-rendered_hash: 21fba516ce55a23d11cd9900d3fdeb1ebdbb76a709ac0bd620645b1131100668
+source_hash: 3512614599df76d88d20554d2f864511dfc1c495790968161c25282ac9ac7c5e
+rendered_hash: d3022aa67000413eb91c56bb816ed4b672f9679e11bc40d22c3e4b0751e232d6
 -->
 
 # ADR-L-1009: Kernel Decision Contract
@@ -115,7 +115,7 @@ Consumers need both human and structured machine narratives tied to cited causes
 
 ### GAP-5081: Formal schema for machine-readable explanation graph
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

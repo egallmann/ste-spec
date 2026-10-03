@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 06bd9adb7703bb4edc8b9779a1156ea7191a74dbf81907611f968c11ad8eb4ea
-rendered_hash: 9b006409e8659e4ac815b6989920534b122fa15b720d625c90fa94fa5fad3ebb
+source_hash: ecbd7cda80d8442ed948e042a78997723521a4af96aad085997f2f714b06f83c
+rendered_hash: c90da1be66343499ea3a67aa85189022d66f6c9481315a8469bd3081fe574ba4
 -->
 
 # ADR-L-0031: Runtime and Kernel Responsibility Boundary
@@ -81,7 +81,7 @@ one role.
 
 ### GAP-3101: Wire-format examples live in contracts; keep ADR-L scoped to authority
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

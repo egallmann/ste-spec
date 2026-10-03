@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: b3fe310283e7c96a98e51260fdf79637ee167803c5b3a6076e4e6b9b85c50052
-rendered_hash: da17fc81a70b9b5ef5cc09b5430e4e4ba5d19a4b4047d560e1a583d86cf3f88e
+source_hash: c6996d3e225d3c92333091d7db648c47c97ebd1a7157464ac5c13fb5fdbd76ce
+rendered_hash: fbab8e7b5e285e9031caf9abad092269f6d4a9310607912aec647ff1ab362056
 -->
 
 # ADR-L-0032: Fail-Closed Enforcement Model
@@ -85,7 +85,7 @@ Unsupported or semantically invalid evidence must not yield action-eligible admi
 
 ### GAP-3201: Diagnostic richness for denial paths is contract-defined; keep schemas aligned
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

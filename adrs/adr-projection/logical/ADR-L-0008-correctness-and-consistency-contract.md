@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: f93466a2e3d5938f5467afc88e14b66c161173252520b3c46c7fa89302397d2f
-rendered_hash: 5410d7b1314074ff34bda9a6e54fb558e69f03bb92b7bd63dd52769a7be0b92a
+source_hash: 976947e65a89a1152b41342111fd52715d32974dffc4bd8f47d336597b6e039a
+rendered_hash: 81f9cd9eebca463957ec174f8587745b7729dbbc33a5295c9729583a74bd72c1
 -->
 
 # ADR-L-0008: Correctness and Consistency Contract
@@ -189,7 +189,7 @@ acceptable for documentation-state availability trade-offs.
 
 ### GAP-0801: Further align query conflict taxonomy with kernel denial categories when needed
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 
@@ -198,7 +198,7 @@ acceptable for documentation-state availability trade-offs.
 
 ### GAP-0802: Quantitative lag SLOs and storage technology references belong in ADR-PS/PC
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

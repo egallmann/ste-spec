@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 4166d5a8b3aa05420f78e3205b926831d3987c625936a4164a82db988ac9ac65
-rendered_hash: 1e8d00dce6676db86fb446aa19c92e0423910772b79b079b93b1e38f46152ef5
+source_hash: c60680072b68d0bafe880073d2a31988d6be4527e699082558cc5f1707453538
+rendered_hash: 4a2c0b876d443c66a8a75d62bb903cf8f1c341b2f047800c5b113c9fe86b8ff2
 -->
 
 # ADR-L-0043: Context Domain and MVC Lifecycle Boundary
@@ -208,7 +208,7 @@ preferences, and rationale. Projection is only one dimension of persona behavior
 
 ### GAP-4301: Promote or amend this ADR after draft schemas and fixtures demonstrate deterministic MVC-S construction and rationale-preserving deduplication
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 
@@ -217,7 +217,7 @@ preferences, and rationale. Projection is only one dimension of persona behavior
 
 ### GAP-4302: Decide whether Context Domain and Graph Domain terms remain external contracts or later become Architecture IR semantic ontology extensions
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

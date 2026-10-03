@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 22cc1bdbe0aad8d4cdbc59df0ffdd43007f96d88c86f4eeb9d215853ebe5241a
-rendered_hash: b82d0d8e56e987a0a8f966dcd64eccf6b65ef2e25a5764d9fdb1c079d8eb69cb
+source_hash: 1e2107af4c240106f14a86c46d26198f07a2aaca5d12579f3529743f7e2868f2
+rendered_hash: 8ad34be6ee3347decac5c0a429cc6cf22b3c85672e966ba6f421352b99ada357
 -->
 
 # ADR-L-0025: Environment Semantics
@@ -114,7 +114,7 @@ Stops substitution and hidden derivation of scope.
 
 ### GAP-2501: Future ADR-L for hierarchical environments, wildcards, or aliases if needed
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

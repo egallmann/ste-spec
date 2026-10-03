@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 830219f14613aefe6b0c9d7771493b05f57f98506563cbb01d71ba2d87e4c654
-rendered_hash: 038f0c0b6879624793c409df500a08d3dd7e64546a9f4903cbe5efbeaec1b4e6
+source_hash: 0b88c717ed7bd4c7a6dd02edc3ab67c12b76fbb197b8d9ef08cd3bcc2563a5b5
+rendered_hash: e073e6b76628d8c5cc326d229ee5db6291d714a1bb710958b83a0e1479ddbe40
 -->
 
 # ADR-L-0019: Gateway Authority and Signing Model
@@ -100,7 +100,7 @@ logged for audit without becoming canonical attestations.
 
 ### GAP-1901: Map STE-System section references to machine cross-links in handbook/runtime
 
-**Impact:** low<br>
+**Impact:** <br>
 **Blocking:** No
 
 

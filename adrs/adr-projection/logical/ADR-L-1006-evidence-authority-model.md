@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 739992fe6d37ff81e40716c5d0f4cb2489f7d54130a654fd63f251ec49ca7e60
-rendered_hash: 4f7645f9579fe7d13052db143978ab3f588d95ce1419daf202d968bec197f46e
+source_hash: a14a423b9faae809258e4ca7eb20ad4eacc726f5efa6f58545b67638ba17aee9
+rendered_hash: b56acc4b0c2ee108d29a64a69b68bf7b70033a616832c062baa1745a56738f05
 -->
 
 # ADR-L-1006: Evidence Authority Model
@@ -79,7 +79,7 @@ Preserves documentation-state authority and auditability.
 
 ### GAP-5051: Cross-contract evidence bundle completeness rules
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: a31991e65722e93ce284166a0616c35facf77d9e568b9d4a10b752b4ff9ddc7c
-rendered_hash: 21d73c59c59391f8a22f58a0dd73a6b55f52a9f2ab777d6e32eacf57e46f0758
+source_hash: 32da3650f9f43a755049b6953d1f6095c05a20bf5b92f63647ddbf893484ad46
+rendered_hash: a26a77be3314579149f839c9e8972561d06ff3f848704882f331db293039ab6d
 -->
 
 # ADR-L-0009: Assertion Precedence Model
@@ -114,7 +114,7 @@ claims from default query results while preserving history when explicitly reque
 
 ### GAP-0901: Machine schema for assertion payloads and conflict records in Architecture IR
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

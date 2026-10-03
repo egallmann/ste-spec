@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: fc41712d2f3231e22261049b7179d4e730720b7d6d643e83b35d1f95fb215644
-rendered_hash: 4fc4927ca9ca562bb06ab1e848fbf11df6ff2693721bf0c2b8c8ea057c639539
+source_hash: 838bdcfb09af45c9864f1e2924f92aca4b3fe0906a5ead783263ca3083a6d6d5
+rendered_hash: 55a978b90d965ab68944ca5d851f3a30d0d99cc57749e059e5107a46aee8d09d
 -->
 
 # ADR-L-1001: Architecture Action Model
@@ -150,7 +150,7 @@ Provides a minimal closed verb set; extensions require explicit documentation.
 
 ### GAP-5001: Formal machine encoding of action payloads and extension registration
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 7f03e327a8ee367156d95b3dfa7e342017acdad54dba16fc04bbcccd1d02d975
-rendered_hash: 74c8920c035d653ba19ce40d0600edb9c3c5d84420b8ee1cdd56818b6245ccd0
+source_hash: 9aff3366980f3e21d84c611ccfd0a441e9b65e94fdd2f0b38ca3e1c698fd7370
+rendered_hash: 7056051f5e7a6ef1b3db5b0066f3beaba0f471cf7ab599267b0bf3cd85be71e9
 -->
 
 # ADR-L-1005: Architecture Drift Model
@@ -147,7 +147,7 @@ Timeliness mismatches gate or warn per ADR-L-1004 interplay.
 
 ### GAP-5041: Machine labels for drift kinds at IR/evidence boundary
 
-**Impact:** medium<br>
+**Impact:** <br>
 **Blocking:** No
 
 
