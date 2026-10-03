@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 17990cd61e6bb398221cde3b96a6c089a8474763129185c6712f3625aa37e725
-rendered_hash: a351a28e07b33ac794309a79bd9b06c59c062ecf2666db127eb0116d93c2951d
+source_hash: dcd51a71cb0aa85d04e143aa40f1578db6bc4f8ac416f444be740d076e02cd2e
+rendered_hash: 491c7598c9aa8e5ceea198bb1ef2ddf7e3be0defd62960269756ce14b44f81f7
 -->
 
 # ADR-L-0042: Open Standards and Closed Intelligence Boundary
@@ -80,7 +80,7 @@ Enables third-party compatibility without leaking proprietary leverage into publ
 
 ### GAP-4201: Link detailed threat and tradeoff narratives from architecture supporting docs
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

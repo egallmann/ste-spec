@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: e9a4e8f0ca09ae6e2566a14389783fe5ec05484f55e8777b1fef2fe32a248b5b
-rendered_hash: 759394b7c467f7ec6dc08a2dddca365ab756773dab3a6b96a873eebe475d6340
+source_hash: 10f60a74e5b299428a7c1866ac07fc1ebf21069ce1e43b0c3a6196b79d78dce0
+rendered_hash: acb3e976b1431aa85caa3536819cf1cd678390e020e7e38529f6639889cedc79
 -->
 
 # ADR-L-0038: Artifact Taxonomy and Versioning Posture
@@ -113,7 +113,7 @@ Avoids equating git presence with governance authority.
 
 ### GAP-3801: Publication artifact exceptions remain labeled in doctrine; track in handbook index
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 155601966ec683931574519ff067bbf84b6b40e9f46f380744f5980e2fbc03ef
-rendered_hash: 6d7d4ff371d3fd673997d5cecd595c07355df8b8988b54629c1903b7759b55ff
+source_hash: 2759e1aba067c30516e0fbd252f83bdf2bd4a4f8578d2ca6821abf53ac313ee2
+rendered_hash: 82b275bd77c3a71df038a56baef9ab061360f528d561937337ba0c09a31aecc6
 -->
 
 # ADR-L-0030: Contract Authority in ste-spec
@@ -82,7 +82,7 @@ at the runtime/kernel boundary.
 
 ### GAP-3001: Enumerate every handoff contract family in Architecture IR when catalogs mature
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 6dee40d452708811b9edd722d5641dbb2f822eaa30636cb5d28bedac5fe8dfc0
-rendered_hash: d080fbd2cc2a31e6ca53dd4cefa97b75099ccd05c60e313cc556ba27e95b78f9
+source_hash: 03dea5f9e2e4e2bd828761b664464d13d120511ca2258abdb2169e0f950d135d
+rendered_hash: 8117af29a3b5b43106cb40b25ec9259e81fc19e736180e462f97ab0b4518d814
 -->
 
 # ADR-L-0044: Governed Semantic Reasoning Foundation
@@ -392,7 +392,7 @@ Runtime and other embodiment systems may provide bounded observation, provenance
 
 ### GAP-4401: Native authoring and normalized representation for NormativeProposition remain downstream and must preserve this semantic contract.
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 
@@ -401,7 +401,7 @@ Runtime and other embodiment systems may provide bounded observation, provenance
 
 ### GAP-4402: Detailed exception/waiver mechanics, complete authority-precedence algebra, detailed applicability schema, task-specific reasoning-state selection, complete canonical relationship ontology, intent/embodiment relationship vocabulary, convergence scoring, CEM lifecycle redesign, full epistemic composition, exact Requirement semantics, exact future Invariant representation, native ADR-Kit or Runtime NP implementation, and validator mechanics remain downstream.
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

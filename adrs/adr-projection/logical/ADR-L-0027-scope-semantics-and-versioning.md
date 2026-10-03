@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: a06b991a5b9bd51c27b97b268bf582ac6c1ca36c3e50a5a95a0432200b18055e
-rendered_hash: c6379764969fa2350c705e433e0b8ab20294cd45403c4a967fd2f9eaf90d9413
+source_hash: da583277d8f64a91608b9ed67b0e850e1818a144f5477577d777665a8aad867b
+rendered_hash: 06ae7720d9d1aa1b6841f71662d59d87448d6e41fa7612792f153cd1260778d0
 -->
 
 # ADR-L-0027: Scope Semantics and Versioning
@@ -113,7 +113,7 @@ Supports delegated authority without regex or fuzzy matching.
 
 ### GAP-2701: Future versions beyond v2 require new ADR-L and explicit version values
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

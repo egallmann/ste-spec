@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 6984a2f4bcfbda01e05ad752a484c692711dd448f01c7910245c38fa1d3d36f3
-rendered_hash: 94530e7638636d789ea479aeb6534d289403a8f3eceba762821a82cff639792d
+source_hash: e643bf15c12984f852cb38c651019a867c3c8b6e6250968f59334fab6253b07f
+rendered_hash: ec39432accc17cd9786e1e277db90e13221fa282fef3caaad4973834904cec30
 -->
 
 # ADR-L-1003: Governance Posture State Model
@@ -93,7 +93,7 @@ Prevents silent escalation or relaxation of enforcement posture.
 
 ### GAP-5021: Exact matrix of posture x action class defaults
 
-**Impact:** <br>
+**Impact:** high<br>
 **Blocking:** No
 
 

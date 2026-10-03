@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 686f4f61016e48d793272fd2212defc97e80ee364346dafa177ac7b5f77d4749
-rendered_hash: 4612158b881f24cb9963eebbb5bf79eaf858c4d878c150e4a0d616b37d576579
+source_hash: 6bb6563784539bafdaca41c9c4d0a6123c3445a7fb029f32b4cec8f8cb885f6b
+rendered_hash: 61b677a018323219b0a9dfe92a1cad3cf2f607dc11eb324f61a08e0362eefc93
 -->
 
 # ADR-L-0036: Repository README Contract
@@ -79,7 +79,7 @@ Prevents repository responsibility drift while keeping normative truth in ADRs a
 
 ### GAP-3601: Optional checklist templates per repository role belong in handbook or scripts
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

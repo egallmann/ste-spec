@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: e73ca1eeaceecd4f1e67d6c6704b46c7405890509286af8a5b0510aed444ac93
-rendered_hash: cf63653cb605da8394eee0fc49c3ae6adbc5daaacc9d9ad023db36d442e052ab
+source_hash: c60e3567fd4ee90c5c14d2d9017098f0a018ade16c447f4ed71ff38545dff67e
+rendered_hash: 52b57da53d5aedf6e43229e34c7c7736a2421f86afec8bcbc47e5144a9ded443
 -->
 
 # ADR-L-0040: STE Spine Lifecycle and Authority
@@ -115,7 +115,7 @@ Prevents accidental override via explanatory documents.
 
 ### GAP-4001: Visual projections (e.g. STE-Spine-Lifecycle.md) remain subordinate; regenerate when stages change
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

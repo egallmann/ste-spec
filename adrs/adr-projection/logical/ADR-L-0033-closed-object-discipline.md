@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 2048dc3901f8cd22f67ddcc2e87145499d864dad83c511b492c70cbc69340228
-rendered_hash: 2aede9d1d18c5e65b2c6296d7037938acc4204bf55fab95972d717cd164c5e25
+source_hash: 294ca73a99601016cb7d423b06f2eb246059dc117299a51d05a4161b815d1ce8
+rendered_hash: be3bf3773c932343a1713f8b1fd90b34984bfb61833cd3d3a86f14bf5c09c66f
 -->
 
 # ADR-L-0033: Closed-Object Discipline
@@ -79,7 +79,7 @@ Bounded objects force explicit contract evolution and deterministic rejection of
 
 ### GAP-3301: Per-contract closedness flags belong in schema metadata and invariants indexes
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

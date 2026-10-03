@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 3429c20ec1a86cf07ac703935d50cf75fab4ae3e41dcd9eb58e1ecc8b2b991d9
-rendered_hash: c735947ae26f0c3d0ffb5ffb31d73e126689584752f2fad879571477d1ee65f6
+source_hash: caca084648819bc2f812a0e349bb72bdf502b7f5a530e6c9d551b9291b9b7b1f
+rendered_hash: b25fcc96526530b6ad8684dd0ff936ef81c99f20643f3bbbd70f38333d260d19
 -->
 
 # ADR-L-0039: Structured Diagram Format (Mermaid)
@@ -79,7 +79,7 @@ Reduces format drift and keeps diagrams diffable and reviewable.
 
 ### GAP-3901: Authoring conventions and CI checks may be added under separate governance
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

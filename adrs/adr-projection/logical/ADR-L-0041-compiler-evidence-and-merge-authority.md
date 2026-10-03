@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 89f40fb872aac2765aea35705e49d2d5625294f17fe87d8a04cc60b8aae783d5
-rendered_hash: 18cf69a3b0dff3e30db003a4f3505bd3aa92305f4fd938d0fab97ac56d451a62
+source_hash: f20159a200a644d5f11ecebed1a963dab2a6c7f2fba08edf81edf8786adc376a
+rendered_hash: 689f70c6e5fa1a737413e18b2b8870d97e2037bc99e184585af31ae85dc4eb24
 -->
 
 # ADR-L-0041: Compiler, Evidence, and Merge Authority
@@ -105,7 +105,7 @@ Keeps evidence factual and kernel decision-bearing per ADR-L-0031.
 
 ### GAP-4101: Keep ste-runtime CLI install docs aligned when global `ste` npm shim diverges from workspace builds
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

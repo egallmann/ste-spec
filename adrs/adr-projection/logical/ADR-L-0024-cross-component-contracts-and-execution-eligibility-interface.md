@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 7a0819ad7e1fcf79b88a53d561d016b143f8868ccd6d32dd8535b362dd3271c2
-rendered_hash: 3c503d630deb119c6c93d10f446fd6d097147a7bdba975e3cf306b5a807d8d18
+source_hash: c8630becf242b0ff334ab631b8c99e2be18eb6ed89940a9cded3056071698d1b
+rendered_hash: e572e43af97ebf8a976c0f3af975a5de1d2840107c7b457fd5465cc36fc2e56b
 -->
 
 # ADR-L-0024: Cross-Component Contracts and Execution Eligibility Interface
@@ -112,7 +112,7 @@ Enables machine-actionable handling and aligns with normalized outcomes (ADR-L-0
 
 ### GAP-2401: Transport and serialization formats remain implementation-specific if contract semantics are preserved
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

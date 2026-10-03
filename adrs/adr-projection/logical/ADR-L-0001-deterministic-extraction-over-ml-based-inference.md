@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 23609b52663ba5e19c90a651119aeb941972750e56f40a81c740bae850efa0c1
-rendered_hash: 11fbef579c3d0d96071c56eb5e10758a7cca4d7242ae5437bb358b7eca1aeacf
+source_hash: 5468a00c37a5e545ede3435d99e2a371f698b23fd8a0c72449729717615ab18e
+rendered_hash: bad7ef637c3b615d758e40361946f07f9c87939e0f9cb8cd468485db1a351397
 -->
 
 # ADR-L-0001: Deterministic Extraction Over ML-Based Inference
@@ -202,7 +202,7 @@ allowing conversational interfaces upstream of structured retrieval.
 
 ### GAP-0101: Further align extraction query surfaces with Architecture IR assertion payloads when schemas land
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 
@@ -211,7 +211,7 @@ allowing conversational interfaces upstream of structured retrieval.
 
 ### GAP-0102: Formal performance SLOs for per-file extraction (legacy target cited sub-100ms for small files)
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

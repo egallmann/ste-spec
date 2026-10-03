@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: a6ec22ea449f83e2dd845ac18ef83867c204ab4218397b229f3ed99044fb1273
-rendered_hash: 544c2cd9d1437e6a352b77973b3680f9400ca4dbccf59b87c10e96a9a179fa9d
+source_hash: b5f1a52cbfdff48e4c4bb78712464b9815e05a52c249a24b880f2043e978e6ab
+rendered_hash: 3bc935bd94ce0a35bd67639d7ffe9a2e86726fcd281522cd468d55410ca380b5
 -->
 
 # ADR-L-1004: Architecture Freshness Model
@@ -120,7 +120,7 @@ Mismatch is not resolved by picking a winner; it is classified per ADR-L-1005.
 
 ### GAP-5031: Required evidence classes per action and environment
 
-**Impact:** <br>
+**Impact:** high<br>
 **Blocking:** No
 
 

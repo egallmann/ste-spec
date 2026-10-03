@@ -75,3 +75,17 @@ Local qualification used Python 3.14.7. During Gate 1 cleanup,
 3.14 line so the automated governance job can install that pin. Triggers,
 checkout, `requirements-dev.txt` installation, and
 `python scripts/adr_governance.py` were left unchanged.
+
+## 0.12.1 patch qualification
+
+Historical sections above remain the 0.12.0 record. This section only records
+the later consumer pin.
+
+- Pin: `adr-architecture-kit==0.12.1` in `requirements-dev.txt`.
+- Reason: restore authoring-1.6 human-projection fidelity for authored gap
+  impact. ADR-Kit 0.12.0 dropped scalar impact values from gaps represented as
+  plain mappings.
+- Canonical migration sources remain unchanged.
+- No semantic or schema-contract change is being adopted.
+- Qualification consumes the published package. The local ADR-Kit checkout is
+  not the authority.

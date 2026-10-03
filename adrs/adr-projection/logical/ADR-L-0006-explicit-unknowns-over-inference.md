@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 448ce670f63857f9bca5614d5e470e3b24e7e4803b25624c13d085791756b3b0
-rendered_hash: 09c79aa682ae015cc472cc2ba0e89e3b5e2509be7cdbdbe3bb5b1ae5f2a9b930
+source_hash: d257369ef2794803b837b4c9cc4db5b355fabe5260f68b4463e523881d7ca132
+rendered_hash: 88b9a1cd45af8c77c3baeb8f4e61e83cd3803be80c6d7dcca1f13fb49187ef91
 -->
 
 # ADR-L-0006: Explicit Unknowns Over Inference
@@ -128,7 +128,7 @@ implementation details outside this ADR-L.
 
 ### GAP-0601: Normative machine schema for unknown records in Architecture IR
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 
@@ -137,7 +137,7 @@ implementation details outside this ADR-L.
 
 ### GAP-0602: Cross-link to ADR-L-0009 when assertion precedence is machine-encoded
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: eae29272c74a5c4ad70f75ad7d2e35650722c5b54e363b7fb619add69c17dadb
-rendered_hash: 760a89f335cf1041a6b046bc0db411fb0eefda408cbe2038f55997aa262e5c44
+source_hash: 26ddab66107a8513f4ad7283af210449afc0199ea6390d8a2e7a692e73489812
+rendered_hash: f904ff2f44f9244acadeb9d22175c1603173dd49f7eba5c536340d02b9cc38f6
 -->
 
 # ADR-L-1007: Golden System Model
@@ -88,7 +88,7 @@ Golden systems act as reference baselines for stricter inheritance or copying ru
 
 ### GAP-5061: Automated versus human-only promotion gates per environment
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

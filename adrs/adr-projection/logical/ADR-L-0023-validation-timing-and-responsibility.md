@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: ddf20bbdb14468ba1c8e32f3ca24e42b1e3cfd72b2e90d318ba1544f279804c3
-rendered_hash: 1ed32e8abd12f29f97d451af6b4ecf4a19e044b48f8f1cffd4c9ccc2ac6d23bf
+source_hash: ec31d191de525cdeb255d7aa0310389fedcf0e1752d20cd44b7cc42f6a61965a
+rendered_hash: f6b2589d428e71c7901763e7f700849f1c53f5e799cb7ace8c612fa069575790
 -->
 
 # ADR-L-0023: Validation Timing and Responsibility
@@ -117,7 +117,7 @@ Gateway remains the definitive enforcement boundary; ADF may fail fast before pu
 
 ### GAP-2301: Machine schemas for validation result envelopes in Architecture IR
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

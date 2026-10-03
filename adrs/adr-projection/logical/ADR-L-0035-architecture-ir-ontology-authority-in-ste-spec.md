@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 2d5c52561e8d7f8d34323962d499289e270371852886fe907f0472477f910c51
-rendered_hash: d04d9e4ad5642349528df6be8a620e84c13df033a6a0af3b536fd22731ba0aef
+source_hash: f83793e7fc22d6516820663af852009c1b0311bc39e190c4de218c3206f1cdf1
+rendered_hash: 452158acd2c4d6b4f8b2d724890ac4c7fe2a35196eb0f973deca25e7325515db
 -->
 
 # ADR-L-0035: Architecture IR Ontology Authority in ste-spec
@@ -83,7 +83,7 @@ Prevents conflating JSON `kind` enums with the full ontology and avoids duplicat
 
 ### GAP-3501: Registry surfaces and adapter projections should cite both prose ontology and mechanical pin
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 600a5fef6845bf3d1ecc7f2b3c47704b42e256fb2bc8f34bf4324dc233704938
-rendered_hash: d8245db97c6a762d680a8e0f105ce7e6b097075c76062028858dc5f5e657ba4f
+source_hash: 577e2c17d83ea690452a60b83623dcf2a7e3da2c5b5cf8400efb3e8f695d6976
+rendered_hash: b9d472f9e1809b9b0f760da36d9f384953b53d46f4de885af723c18e39e3f130
 -->
 
 # ADR-L-0022: Fail-Closed Semantics and Enforcement Scope
@@ -129,7 +129,7 @@ Operators need diagnostics without granting execution or promotion.
 
 ### GAP-2201: Operational SLAs and retry semantics remain out of band for this ADR-L
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

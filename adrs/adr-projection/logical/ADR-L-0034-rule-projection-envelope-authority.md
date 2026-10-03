@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: aa967863b2cd72a8512cbe6488efc462bcb52cb4b9e7694b0879c3ba41ccd4f3
-rendered_hash: c02a965e96c9b02fb8bc3969bb001bbcbb24a79129b5fd6d7eaed225fd470a22
+source_hash: a5a9636dd4c053327effdfa3dbe3be45f593cb319cb99177c9739039f082039d
+rendered_hash: c518aa65dbc947153124f9c6e0b4fa90d523d2cee7307ec0b0b6b4c9532bfa0f
 -->
 
 # ADR-L-0034: Rule Projection Envelope Authority
@@ -98,7 +98,7 @@ Preserves signing and compilation authority on the rules-engine side for this fa
 
 ### GAP-3401: Promotion checklist in ADR-034 legacy prose (stable $id`, tests, index updates)
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

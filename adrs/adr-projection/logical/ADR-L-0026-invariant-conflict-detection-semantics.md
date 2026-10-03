@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 7aebf64d539253f93064f8c5c8b122c24aa936188e3dfb43e7fdb61ec810cff2
-rendered_hash: df20ad5c6dcb80334b651151be73b28c3ebbc6c7ee6f86b39c69dfa4f07be3c5
+source_hash: 68423c4951bd0de961bc0e62769674fb2e4c6a0a6c2e04d67b84c5ee8df91048
+rendered_hash: ecfd7743175432e5835b611ae0d528ea9b8cf86f239a7e2681798d6280c881d4
 -->
 
 # ADR-L-0026: Invariant Conflict Detection Semantics
@@ -116,7 +116,7 @@ Prevents implementation divergence and hidden state discovery at the boundary.
 
 ### GAP-2601: Future ADR-L for semantic conflict classes or cross-attestation rules if required
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

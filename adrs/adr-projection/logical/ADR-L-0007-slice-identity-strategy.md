@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 540ce7d8bb32b940b933a15663d9b6546818280fd81fa2c36e7e942f283f3137
-rendered_hash: 4feee37ef3159f3d26c565b83e4c1a5d62bd642a320596e9296de2ecad5a2614
+source_hash: 5c17686380fd8c0025b66bcbe6fe4ac491d3d08e31f7c946cc04952150e45bc5
+rendered_hash: ee4fa9427a0798952983b4fa1fa1f767096c657d4570a94a1858944e7ad141fd
 -->
 
 # ADR-L-0007: Slice Identity Strategy
@@ -131,7 +131,7 @@ with explicit suffixes and warnings for manual review.
 
 ### GAP-0701: Formal IR mapping when slice identity rules and IR ontology diverge
 
-**Impact:** <br>
+**Impact:** medium<br>
 **Blocking:** No
 
 

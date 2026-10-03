@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 8c890f0759ad1badf88e5b125e4fa73753df1b1648d36093e4691d92722554d5
-rendered_hash: a70dbb202908a3790af8fe6c59fc1c77e727db29bce8626cbcb33825e3abae0e
+source_hash: 79922eea0325952dfe75155178c8120c6da3bed975c65ac5cbe56ca53c1c494a
+rendered_hash: ee4cb000e8e5c6dfc4285f0d938397e093303cf95e741d0c58a248d24087f8ab
 -->
 
 # ADR-L-0037: Repository README Conformance and Reference Implementation
@@ -79,7 +79,7 @@ Provides a concrete converged example after ste-spec refactor.
 
 ### GAP-3701: Automated linting for README sections is optional tooling outside this ADR-L
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 

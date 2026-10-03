@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 50500178d2ecc2717aae14ea7850327ebe7ec1c7d2ff9dc56b92be005bc02a17
-rendered_hash: 2dc38b451ac1ddd9cdc4ecb3dbe9965bdda08b02b27665c5651746ffd5db44f0
+source_hash: 7e6ef3a942c2a67c478545f6713bdb2820f3694f533332de6c62e3c122e4bf5d
+rendered_hash: 0a5a604d9306a9c96d4f7de445341b1e098f65c72f8de94eaa2eccbfb1ffa61c
 -->
 
 # ADR-L-0021: Gateway Trust Verification Model
@@ -98,7 +98,7 @@ must be explicitly non-authoritative.
 
 ### GAP-2101: Physical deployment patterns for registry HA belong in ADR-PS when authored
 
-**Impact:** <br>
+**Impact:** low<br>
 **Blocking:** No
 
 
