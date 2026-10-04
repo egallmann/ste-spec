@@ -213,7 +213,7 @@ All divergence here is critical.
 ### **Doc-Missing-Inventory**
 **Occurs when:**
 - required documentation-state artifacts are missing  
-- inventories do not reflect actual truth  
+- inventories do not reflect their source artifacts  
 
 **Gate Type:** User-Gated  
 **Resolution Path:** Create missing inventory or populate from source artifacts  
@@ -222,7 +222,7 @@ All divergence here is critical.
 
 ### **Doc-State-Staleness**
 **Occurs when:**
-- documentation is outdated relative to system truth  
+- documentation is outdated relative to current source artifacts  
 
 **Gate Type:** Auto-Resolvable  
 **Resolution Path:** Refresh documentation-state from current source artifacts  
