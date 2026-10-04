@@ -4,7 +4,7 @@ id: 01a06490-5b3c-76c0-9da2-abc5d28f8970
 title: Governed Semantic Reasoning Foundation
 status: accepted
 created_date: '2026-09-02'
-modified_date: '2026-09-02'
+modified_date: '2026-10-04'
 authors:
 - Erik Gallmann
 - ste-spec
@@ -106,9 +106,16 @@ decisions:
     derives from presence in the effective authoritative ADR revision; no independent
     NP governance lifecycle is required; removal removes current authority while
     historical revisions preserve prior state. Tombstones and mandatory
-    supersedes/refines/coalescence lineage are not inherently required. Materially
-    changed meaning receives a new identity; editorial relocation or non-semantic
-    wording change may retain identity. NormativeProposition remains distinct from
+    supersedes/refines/coalescence lineage are not inherently required. NP identity
+    tracks proposition meaning, not its authority container. Materially changed
+    meaning, including a material change to statement, normative force, or scope
+    meaning, receives a new identity; editorial relocation or non-semantic wording
+    change may retain identity only while that meaning remains materially
+    unchanged. Retained identity carries no authority: authority, competence, and
+    effectivity are re-derived from the governing source that currently
+    establishes the NP. Relocation across authority-bearing sources
+    is never automatically editorial, carries no automatic authority continuity,
+    and requires competent review. NormativeProposition remains distinct from
     Invariant, Rule, evidence, assessment, broad Constraint semantics, and future
     Requirement semantics.
   consequences:
@@ -143,6 +150,12 @@ decisions:
     MAY(P) implies absence of an applicable MUST NOT(P), but absence of MUST NOT(P)
     does not imply MAY(P). MAY can therefore record positive permission without
     enlarging the hard-admissible set.
+    Invariants may express normative force through their authored statements. The
+    Invariant enforcement_level attribute is orthogonal enforcement metadata, not
+    normative force, and no mapping between enforcement_level values and these
+    forces is defined. Absence of a structured normative-force field on a carrier
+    does not weaken the force its authored statement expresses; exact structured
+    Invariant force representation remains deferred.
   consequences:
     positive:
     - Hard admissibility, preference, and explicit freedom are distinguishable.
@@ -158,7 +171,16 @@ decisions:
     applicable to a concrete case. Conceptually, G(p,d,t) holds iff an
     authority-bearing source s establishes proposition p, is effective at t, and has
     valid competence over bounded domain d at t. G is governing eligibility, not
-    concrete applicability. STE-SPEC governs system-of-systems intent semantics and
+    concrete applicability. An ADR revision is effective only as part of an
+    explicitly admitted governing corpus or source basis. Admission is an act of the
+    owning governance over an immutable source basis and may establish effectivity
+    only within that governance's competent jurisdiction and explicit admission
+    bounds; it is distinct from NormativeProposition admission and from Kernel
+    admission of requested actions. Accepted status does not by itself make a
+    revision effective, and a proposed ADR is never effective. Git merge, branch,
+    tag, publication, pull-request approval, file presence, or generated-registry
+    presence may participate in implementing or evidencing admission, but none is
+    itself effectivity. STE-SPEC governs system-of-systems intent semantics and
     cross-system boundaries; local STE systems retain bounded intent authority inside
     those boundaries and MUST NOT manufacture competence over semantics reserved to
     STE-SPEC. Explicitly established or validly derived semantic relationships
@@ -198,11 +220,17 @@ decisions:
     already competent/effective meaning against a concrete context and must arise from
     declared or validly inherited scope/context semantics. Insufficient contextual
     knowledge must not be converted into a positive or negative applicability claim.
+    Competence belongs to the authority-bearing source or corpus,
+    not to the propositions it establishes; a proposition's scope is a semantic
+    bound inside that source's competence.
+    A scope of `global` denotes the full competent domain of the authority-bearing
+    source, not universal authority across STE.
   consequences:
     positive:
     - Applicability remains grounded in declared or inherited scope and context.
     negative:
     - Detailed context assembly and task-specific reasoning selection remain separate.
+    - Structured competence representation and a governed scope vocabulary remain downstream.
   alias_id: DEC-4409
   alias_name: preserve-tristate-scope-and-applicability-outcomes
 - id: 01a06490-5b3c-76c0-9da2-abcf1f4ae7a3
@@ -240,7 +268,7 @@ invariants:
   verification_method: manual
   rationale: Mathematical notation does not confer authority or correctness.
   upheld_by_decisions:
-  - 01a06490-5b3c-76c0-9da2-abc77292b641
+  - 01a06490-5b3c-76c0-9da2-abc810701700
   alias_id: INV-4402
   alias_name: formal-expressions-are-purposeful-local-and-defensible
 - id: 01a06490-5b3c-76c0-9da2-abd248766fb3
@@ -288,8 +316,8 @@ invariants:
     contradiction checks, graph/rule evaluation for structured incompatibility, and
     bounded evidence-bearing semantic assessment for higher-order incompatibility.
   upheld_by_decisions:
-  - 01a06490-5b3c-76c0-9da2-abc5d28f8970
   - 01a06490-5b3c-76c0-9da2-abc77292b641
+  - 01a06490-5b3c-76c0-9da2-abc810701700
   alias_id: INV-4405
   alias_name: hard-admissible-space-is-the-intersection-of-applicable-hard-constraints
 - id: 01a06490-5b3c-76c0-9da2-abd5bcdb8c75
@@ -304,8 +332,7 @@ invariants:
   verification_method: manual
   rationale: Preserves strong preference and explicit permission as distinct roles.
   upheld_by_decisions:
-  - 01a06490-5b3c-76c0-9da2-abc5d28f8970
-  - 01a06490-5b3c-76c0-9da2-abc922ef02dc
+  - 01a06490-5b3c-76c0-9da2-abcb706d9c2f
   alias_id: INV-4406
   alias_name: preference-and-explicit-permission-remain-distinct-from-hard-admissibility
 - id: 01a06490-5b3c-76c0-9da2-abd6c47b3056
@@ -321,8 +348,7 @@ invariants:
   verification_method: manual
   rationale: Separates authority path and effectivity from case-specific applicability.
   upheld_by_decisions:
-  - 01a06490-5b3c-76c0-9da2-abc810701700
-  - 01a06490-5b3c-76c0-9da2-abc922ef02dc
+  - 01a06490-5b3c-76c0-9da2-abccfd310a81
   alias_id: INV-4407
   alias_name: governing-eligibility-requires-competent-effective-authority
 - id: 01a06490-5b3c-76c0-9da2-abd7aacbfd63
