@@ -794,18 +794,20 @@ Resolution: Fix syntax error in src/api/users.py, then retry regeneration
 - Bidirectional consistency violated
 - Performance exceeded O(changed files) bounds
 
-**Severity:** Error (blocking)
+**Severity:** Error
 
-**Gate Type:** Blocking
+**Gate Type:** User-Gated
 
 **Resolution Path:**
-- Rollback to previous AI-DOC state (preserve consistency)
-- Fall back to full RECON (guaranteed correct result)
-- Investigate incremental algorithm (may indicate implementation bug)
+- Rollback to previous AI-DOC state automatically (preserve consistency)
+- Request user consent to run full RECON (guaranteed correct result; may take longer)
+- After consent, run full RECON
 - Log failure details for debugging
-- User proceeds with full RECON (may take longer)
+- Investigate incremental algorithm as follow-up (may indicate implementation bug)
 
-**Auto-Resolvable:** Yes (automatic fallback to full RECON)
+**Auto-Resolvable:** Partial (rollback is automatic; full RECON requires user consent)
+
+**User Prompt:** "Incremental update failed validation. Run full RECON?"
 
 **Validator:** Incremental RECON Validator
 
@@ -815,6 +817,8 @@ Incremental Update: src/api/users.py
 Validation: Equivalence check failed
 Issue: Incremental result missing dependency (models/role)
 Action: Rollback incremental changes
+Gate: User consent required for full RECON
+Consent: Approved
 Fallback: Running full RECON (~2 minutes)
 Result: Full RECON completed successfully
 ```
