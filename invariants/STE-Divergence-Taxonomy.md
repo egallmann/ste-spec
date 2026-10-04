@@ -693,9 +693,9 @@ The following divergence types govern operational AI-DOC maintenance, including 
 - Incremental RECON not executed after file changes
 - File watcher or git hook failed to trigger update
 
-**Severity:** Error (blocking for reasoning tasks) | Warning (for analysis tasks)
+**Severity:** Error for reasoning tasks; Warning for analysis tasks
 
-**Gate Type:** Blocking (reasoning) | User-Gated (analysis)
+**Gate Type:** Auto-Resolvable
 
 **Resolution Path:**
 - Execute Incremental RECON for affected items
@@ -703,7 +703,7 @@ The following divergence types govern operational AI-DOC maintenance, including 
 - Validate updated items pass AI-DOC Graph Validator
 - Update extraction timestamps
 
-**Auto-Resolvable:** Yes (if incremental RECON available)
+**Auto-Resolvable:** Yes
 
 **Validator:** AI-DOC Currency Validator
 
