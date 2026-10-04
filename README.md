@@ -192,7 +192,7 @@ python scripts/adr_governance.py
 The governance entrypoint runs ADR project-metadata, complete-scope,
 cross-reference, and generated-document freshness checks, followed by the
 repository's Markdown-link and pytest checks. The ADR corpus uses authoring
-schema 1.3 with UUIDv7 canonical identities while preserving its ADR aliases.
+schema 1.6 with UUIDv7 canonical identities while preserving its ADR aliases.
 
 ## Repository Boundary and Adjacent Repositories
 

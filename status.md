@@ -78,7 +78,7 @@ This specification distinguishes between:
 
 E-ADRs serve as execution-pressure mechanisms in the working repository. They drive implementation experiments without establishing architectural truth. Only decisions that have converged through repeated validation and proven necessary are promoted to binding ADRs.
 
-**The canonical ADR corpus currently contains 28 accepted ADRs and 11 proposed ADRs.** Accepted ADRs are the converged, binding commitments; proposed ADRs remain non-binding pending decision. E-ADRs and their associated learning artifacts remain in the private working repository.
+**The canonical ADR corpus currently contains 30 accepted ADRs and 11 proposed ADRs.** Accepted ADRs are the converged, binding commitments; proposed ADRs remain non-binding pending decision. E-ADRs and their associated learning artifacts remain in the private working repository.
 
 ## Completeness Acknowledgment
 
@@ -172,6 +172,6 @@ The following are **explicitly deferred** until **rule-projection** and **govern
 
 ---
 
-**Last Updated**: 2026-03-30  
+**Last Updated**: 2026-10-04  
 **Version**: 1.0.0  
 **Status**: Stable handoff subset (v1.0.0); draft extensions as documented above
