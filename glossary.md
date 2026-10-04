@@ -252,9 +252,7 @@ Classification determining how divergence is communicated to users: Auto-Resolva
 
 ## Documentation-State
 
-### Documentation-State
-
-The explicit, machine-readable substrate that grounds reasoning. Provides complete, consistent, validated truth for cognition. Must be synchronized before reasoning proceeds.
+Terms in this section operate on documentation-state as defined by **Documentation-State** under **State Planes**. For governed reasoning, documentation-state must be explicit, complete, consistent, and validated, and must be synchronized before reasoning proceeds (see [`invariants/STE-Invariant-Hierarchy.md`](invariants/STE-Invariant-Hierarchy.md), section 2, Layer 5 — Documentation-State Layer).
 
 ### AI-DOC
 
@@ -262,7 +260,7 @@ Structured, explicit, machine-interpretable representation of system state. Bidi
 
 ### RECON (Reconciliation Protocol)
 
-The protocol for bootstrapping explicit domain truth from existing artifacts. Extracts project structure, relationships, and semantics into AI-DOC. Prerequisite for reasoning (SYS-6: RECON Completion Prerequisite).
+The protocol for bootstrapping explicit domain state from existing artifacts. Extracts project structure, relationships, and semantics into AI-DOC. Prerequisite for reasoning (SYS-6: RECON Completion Prerequisite).
 
 ### RSS (Runtime State Slicing)
 
@@ -459,7 +457,7 @@ The **Invariant Kernel** is the Prime and System invariant layers that provide f
 
 ### Filesystem
 
-AI-DOC, providing explicit structured machine-interpretable truth analogous to OS filesystem.
+AI-DOC, providing explicit structured machine-interpretable state analogous to OS filesystem.
 
 ### System Calls
 

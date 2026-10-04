@@ -219,7 +219,7 @@ If a conflict exists:
 2. System Invariants control Domain Invariants  
 3. Domain Invariants constrain Artifact Specifications  
 4. Artifact Specifications govern how all artifacts must be created  
-5. Documentation-State expresses the truth but cannot contradict higher invariants  
+5. Documentation-State expresses authoritative declared state but cannot contradict higher invariants  
 6. Framework Synchronization controls structure but not conceptual rules  
 7. Meta-Invariants (future) may influence framework evolution but cannot override Prime Invariant  
 
