@@ -4,7 +4,7 @@ id: 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
 title: Runtime and Kernel Responsibility Boundary
 status: accepted
 created_date: '2025-12-19'
-modified_date: '2026-03-29'
+modified_date: '2026-10-04'
 authors:
 - Erik Gallmann
 - ste-spec
@@ -54,7 +54,7 @@ decisions:
     positive:
     - Clear handoff semantics
     negative:
-    - Runtime cannot emit admission outcomes
+    - Runtime cannot emit caller-facing admission or execution-eligibility decision semantics
   alias_id: DEC-3101
   alias_name: confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
 invariants:
