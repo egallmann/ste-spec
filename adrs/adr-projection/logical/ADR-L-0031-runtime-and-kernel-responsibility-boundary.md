@@ -5,15 +5,15 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 6e3d51903c34113b81acdb65de64b7b1408f044a6db0bcb21dc420f794469dfa
-rendered_hash: 9b006409e8659e4ac815b6989920534b122fa15b720d625c90fa94fa5fad3ebb
+source_hash: c6add1b9d7473295f2cc32509de6e08da65ae5ab60c588dcbc4245a3cdd913c9
+rendered_hash: 3ad854620b9f92c2c83ba6401be51334069a0c58d2fb2581758c302f28986414
 -->
 
 # ADR-L-0031: Runtime and Kernel Responsibility Boundary
 
 **Status:** accepted<br>
 **Created:** 2025-12-19<br>
-**Modified:** 2026-03-29<br>
+**Modified:** 2026-10-04<br>
 **Authors:** Erik Gallmann, ste-spec<br>
 **Domains:** kernel, runtime<br>
 **Tags:** admission, evidence<br>
@@ -73,7 +73,7 @@ one role.
 - Clear handoff semantics
 
 **Negative:**
-- Runtime cannot emit admission outcomes
+- Runtime cannot emit caller-facing admission or execution-eligibility decision semantics
 
 
 
