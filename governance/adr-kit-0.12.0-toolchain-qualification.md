@@ -89,3 +89,24 @@ the later consumer pin.
 - No semantic or schema-contract change is being adopted.
 - Qualification consumes the published package. The local ADR-Kit checkout is
   not the authority.
+
+## 0.12.2 patch qualification
+
+Sections above remain the 0.12.0 and 0.12.1 record. This section only records
+the later consumer pin.
+
+- Pin: `adr-architecture-kit==0.12.2` in `requirements-dev.txt`.
+- Reason: decision and invariant `lifecycle_stage` in generated registries now
+  follows the declaring ADR status. ADR-Kit 0.12.1 projected every
+  authoring-1.6 child as `active`.
+- Regenerated diff: 58 `lifecycle_stage` values changed from `active` to
+  `proposed` (35 decisions, 23 invariants), all children of the 11 proposed
+  logical ADRs. No other registry field, projection, manifest, or graph changed.
+- `tests/test_adr_kit_child_lifecycle.py` compiles a temporary authoring-1.6
+  project and fails on 0.12.1.
+- The B1 baseline no longer freezes the live corpus. B0 and B1 remain unchanged
+  historical evidence.
+- Canonical migration sources and `PROJECT.yaml` remain unchanged.
+- No semantic or schema-contract change is being adopted.
+- Qualification consumes the published package. The local ADR-Kit checkout is
+  not the authority.

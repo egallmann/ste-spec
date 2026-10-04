@@ -23,6 +23,7 @@ B1_PATH = FIXTURE_DIR / "b1.json"
 ALLOWLIST = frozenset({"schema_version"})
 ENCODING_ADR = "ADR-L-1010-canonical-adr-encoding-moves-to-authoring-1-6.yaml"
 B0_REF = "e21b8409f09d01be419db09d979ce924a92e3777"
+B1_REF = "f10abe05bdf74ece3e163757d087c2c3355e44eb"
 
 
 def parse_adr_bytes(payload: bytes) -> dict[str, Any]:

@@ -1379,7 +1379,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5b-716a-bb2b-77d8e25442e1
   created_at: '2026-08-29T17:34:16.411Z'
   entity_fingerprint: sha256:f89c2c4d1b7644db3e8a801e4bac5f547d6edbc3afd11480b003c7d93c0abf3b
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5b-76a7-9f3e-74a771a33e46#01a04e96-1f5b-716a-bb2b-77d8e25442e1
@@ -3059,7 +3059,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5b-7f03-af0f-3ee27828aeb1
   created_at: '2026-08-29T17:34:16.411Z'
   entity_fingerprint: sha256:c26ec04331a008370e39e57bcc48beafeac5e4928a964f6d0f0fd717c9911f7b
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5b-76a7-9f3e-74a771a33e46#01a04e96-1f5b-7f03-af0f-3ee27828aeb1
@@ -3317,7 +3317,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7088-813f-d682a21ed5e1
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:c474cf580cf0a08fee43ed519caac8caa4c1a4373ab8aea89e4d247f27eb059c
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d#01a04e96-1f5c-7088-813f-d682a21ed5e1
@@ -3380,7 +3380,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-708e-ab0f-f71a9adad3ab
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:2d4b5c6f24ed1e517a6b6f04a6a396b72f189e447c419faf4f9926c37d73ee6b
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-70ba-9337-084a88667cc5#01a04e96-1f5c-708e-ab0f-f71a9adad3ab
@@ -3444,7 +3444,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7259-842f-bcf1a844b040
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:57e5af4f4d68da797507097d3d844ca0be7cabdd37f08da9a9f5ee59343e51a2
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-7259-842f-bcf1a844b040
@@ -3507,7 +3507,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-72b1-b937-cc74d565d8fd
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:ad25f5e8808a653b046acb3d20bd0b67192b24dbd932abac195755cd8ec48713
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7ff0-b23d-2ed1f789092f#01a04e96-1f5c-72b1-b937-cc74d565d8fd
@@ -3570,7 +3570,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-72c3-b33f-d47dcb98478b
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:2c29dfd3dcd20b56e1c87c69b119505e5c5406769bb25a012ff31b804e9acf28
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-72c3-b33f-d47dcb98478b
@@ -3829,7 +3829,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-739a-9f2f-8e770b0af13e
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:89ee6f03f9d85fc21ae66582c4f156cdd8a5ea5886a955469c21b2bce0489bb6
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d#01a04e96-1f5c-739a-9f2f-8e770b0af13e
@@ -3892,7 +3892,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-74cb-9331-6789dec581f6
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:3841ddea09d419c034c62b0d91bf9f2131a2014849e94250b1dd255b30552738
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d#01a04e96-1f5c-74cb-9331-6789dec581f6
@@ -4021,7 +4021,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-77c4-b236-084eab1c0e1f
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:d8e7e77d80549eb6c7cc2bace2adcedf54260db0efa322653eaa701906a0b2d1
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-77c4-b236-084eab1c0e1f
@@ -4084,7 +4084,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-77d0-a52f-ea70f6aebe9b
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:4a186c9e60fc007467167c78af5500cf36dc57a0cbae43e414324a4b8f0e6879
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7ff0-b23d-2ed1f789092f#01a04e96-1f5c-77d0-a52f-ea70f6aebe9b
@@ -4149,7 +4149,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-77e6-af0c-94c534115d6b
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:dff54fb094ab76a4b019b6358c163a924dad29b4bb403d27153bd958eb5ee2bc
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-72a7-8a1b-81cf44933af3#01a04e96-1f5c-77e6-af0c-94c534115d6b
@@ -4214,7 +4214,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7802-843a-0888e1c91a21
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:8a3eefebfa8032efc41bcaf7588c67e2a7976c6233173782df2bbcb18b6e7c6e
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-72a7-8a1b-81cf44933af3#01a04e96-1f5c-7802-843a-0888e1c91a21
@@ -4278,7 +4278,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-782e-8536-94c023b9f672
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:7ac5e7c32caaf4b8e99c0f7b7525e2b0a08d8a7db772c0eb6ea21410ee2c8e49
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-73c9-ad1f-df05ef43cae1#01a04e96-1f5c-782e-8536-94c023b9f672
@@ -4341,7 +4341,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7928-a73e-8841a476f1d5
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:b94a253a241233bb03d3499d5a5d247f74ee2c21f196117dcc7c7ba850b2f764
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-7928-a73e-8841a476f1d5
@@ -4468,7 +4468,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-797b-8b0b-b10f1f7b64a4
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:86495326bbafcb4d2adeba87babf447ba08a3ed55ad6c05af7a1d7ed1e49c9a6
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-797b-8b0b-b10f1f7b64a4
@@ -4532,7 +4532,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7a27-a11f-75a40eb74970
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:40152135ee3112cd02efef72c196bb29aecb3b27a59f13b5c8e0eef1c23b2e5d
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5#01a04e96-1f5c-7a27-a11f-75a40eb74970
@@ -4723,7 +4723,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7b1e-983a-299a24ca9edd
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:6355957041a3308e7fffdc406725d7a5820420181aa46dd8ffc9f02e25e8e3e2
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7eef-9c36-e3ff0be7a77d#01a04e96-1f5c-7b1e-983a-299a24ca9edd
@@ -4981,7 +4981,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7be6-891f-a440906c1126
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:1791e176629ba1038da77fb94f44a7405f286bf5f8196caa4b4f9e603cb51732
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-70ba-9337-084a88667cc5#01a04e96-1f5c-7be6-891f-a440906c1126
@@ -5045,7 +5045,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7c3c-883d-59b691cc355e
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:efed2924cfd6102e27b0f5c7e737dd6e73b31d166bcba12568ce4de91c89759b
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-73c9-ad1f-df05ef43cae1#01a04e96-1f5c-7c3c-883d-59b691cc355e
@@ -5108,7 +5108,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7dac-b63e-cc26f29a5f4f
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:66c24e38a286878e7e8fa16351afaff9d1cd47774df2f5f981f8cf6f56c97c00
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-70ba-9337-084a88667cc5#01a04e96-1f5c-7dac-b63e-cc26f29a5f4f
@@ -5171,7 +5171,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7dba-9c3f-4c50ed20c164
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:40d4401286145add49557a6f4a9a4f032c111690737d90c8e0e5121b0cc8598d
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-70ba-9337-084a88667cc5#01a04e96-1f5c-7dba-9c3f-4c50ed20c164
@@ -5234,7 +5234,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7dcc-8737-05fb5c8a02a3
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:4c0a5c7bd034cb8b0916e8a40d76729269f8ca74bfc0a18e70088985cff1223c
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-7dcc-8737-05fb5c8a02a3
@@ -5298,7 +5298,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7dce-bd1e-f6cbbb87ea98
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:625929a7493fa98ab59a4a71aa757a62ada912c3f0604926c48f16ad851ee326
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-7b1e-943d-6db525f77bf0#01a04e96-1f5c-7dce-bd1e-f6cbbb87ea98
@@ -5362,7 +5362,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7e44-b92e-00b4597c4b7c
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:c7bfa1eb375b7489194644009444185aef529b21c99bf99d39b0f1d3f6f8fe31
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-70ba-9337-084a88667cc5#01a04e96-1f5c-7e44-b92e-00b4597c4b7c
@@ -5428,7 +5428,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7fa7-801f-bea4daf41e2f
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:a46f7a8597dd73238210dcf026c4eeae408079f3bb18c6f97e9b180ee6b33a38
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-72a7-8a1b-81cf44933af3#01a04e96-1f5c-7fa7-801f-bea4daf41e2f
@@ -5494,7 +5494,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5c-7fcf-bf3f-0a9a3d6993ea
   created_at: '2026-08-29T17:34:16.412Z'
   entity_fingerprint: sha256:d319e2b58d34014a1190b2ebcb7745c402474632365e6bcdb341fef0b6b71deb
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5c-72a7-8a1b-81cf44933af3#01a04e96-1f5c-7fcf-bf3f-0a9a3d6993ea
@@ -5557,7 +5557,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-7159-991f-8adaf86a4158
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:db5cd041b778ae4fd195a019132be0eb14cea60e1033c3ad24c89046f6a88f24
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7507-ba3f-41979e12af8f#01a04e96-1f5d-7159-991f-8adaf86a4158
@@ -5620,7 +5620,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-7277-be37-f79241a3d199
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:05f6b8add27d4b88438568fdb5f3b47466d113b23c1854c424891558cdda15a7
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7507-ba3f-41979e12af8f#01a04e96-1f5d-7277-be37-f79241a3d199
@@ -5683,7 +5683,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-72db-8531-d6d6316b8dd1
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:de0acb719e3029a1e1474efee31732f45ae5ef97d80d3f568aae6d95bfa26a7b
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-78e4-b527-64a4a9e9e2b5#01a04e96-1f5d-72db-8531-d6d6316b8dd1
@@ -5746,7 +5746,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-760e-ab27-013de298ba9a
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:d4eff4487d2f0d55ade83144ed7ca447f6dd10bb2e1a7718b214751ba5061589
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7300-b13f-588156097d46#01a04e96-1f5d-760e-ab27-013de298ba9a
@@ -5810,7 +5810,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-7672-a51f-eff6163e36a0
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:6397b72346c59da71178ab376c01ca4af0616e1b3a0db7cb0d71fa43f1da6e3f
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7793-873c-136f29f470be#01a04e96-1f5d-7672-a51f-eff6163e36a0
@@ -5874,7 +5874,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-7720-8e2f-bc5a00b54ae5
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:f1949edf68842681560785a9431580fd0c428d395e9aeb1c4dd28d56cc1596c9
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7793-873c-136f29f470be#01a04e96-1f5d-7720-8e2f-bc5a00b54ae5
@@ -5938,7 +5938,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-79a4-9539-309865a57e9b
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:2ae3d066b7cf5388d310a319fd13e9c7349e99d568d35625c6a784ff3d3c0fba
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7507-ba3f-41979e12af8f#01a04e96-1f5d-79a4-9539-309865a57e9b
@@ -6001,7 +6001,7 @@ entities:
   uri: adr://ste-spec/entities/01a04e96-1f5d-7a8f-a93d-759244ff601d
   created_at: '2026-08-29T17:34:16.413Z'
   entity_fingerprint: sha256:7d4bdfe55667c9dac449100f8ba214f5f56fd5af1837d39e7aeb19264f448ff5
-  lifecycle_stage: active
+  lifecycle_stage: proposed
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5d-7300-b13f-588156097d46#01a04e96-1f5d-7a8f-a93d-759244ff601d
