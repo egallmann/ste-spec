@@ -5,15 +5,15 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: 03dea5f9e2e4e2bd828761b664464d13d120511ca2258abdb2169e0f950d135d
-rendered_hash: 8117af29a3b5b43106cb40b25ec9259e81fc19e736180e462f97ab0b4518d814
+source_hash: 6d5727e7bcf4238fc82f119168ad98c19ce3ddf704e5574ff4da585e2cca4ac4
+rendered_hash: a96d79ddbf88744e84d9774c944991b0b205057af2d5c9ccdb7b9468e2e52b74
 -->
 
 # ADR-L-0044: Governed Semantic Reasoning Foundation
 
 **Status:** accepted<br>
 **Created:** 2026-09-02<br>
-**Modified:** 2026-09-02<br>
+**Modified:** 2026-10-04<br>
 **Authors:** Erik Gallmann, ste-spec<br>
 **Domains:** governance, semantics, reasoning, architecture-ir<br>
 **Tags:** bounded-reasoning, normative-semantics, authority, applicability<br>
@@ -244,9 +244,16 @@ document position or modal wording alone. For ADR-scoped NPs, current authority
 derives from presence in the effective authoritative ADR revision; no independent
 NP governance lifecycle is required; removal removes current authority while
 historical revisions preserve prior state. Tombstones and mandatory
-supersedes/refines/coalescence lineage are not inherently required. Materially
-changed meaning receives a new identity; editorial relocation or non-semantic
-wording change may retain identity. NormativeProposition remains distinct from
+supersedes/refines/coalescence lineage are not inherently required. NP identity
+tracks proposition meaning, not its authority container. Materially changed
+meaning, including a material change to statement, normative force, or scope
+meaning, receives a new identity; editorial relocation or non-semantic wording
+change may retain identity only while that meaning remains materially
+unchanged. Retained identity carries no authority: authority, competence, and
+effectivity are re-derived from the governing source that currently
+establishes the NP. Relocation across authority-bearing sources
+is never automatically editorial, carries no automatic authority continuity,
+and requires competent review. NormativeProposition remains distinct from
 Invariant, Rule, evidence, assessment, broad Constraint semantics, and future
 Requirement semantics.
 
@@ -290,6 +297,12 @@ candidate hard-nonconformant.
 MAY(P) implies absence of an applicable MUST NOT(P), but absence of MUST NOT(P)
 does not imply MAY(P). MAY can therefore record positive permission without
 enlarging the hard-admissible set.
+Invariants may express normative force through their authored statements. The
+Invariant enforcement_level attribute is orthogonal enforcement metadata, not
+normative force, and no mapping between enforcement_level values and these
+forces is defined. Absence of a structured normative-force field on a carrier
+does not weaken the force its authored statement expresses; exact structured
+Invariant force representation remains deferred.
 
 
 
@@ -310,7 +323,16 @@ A proposition can be strongly expressed without being competent, effective, or
 applicable to a concrete case. Conceptually, G(p,d,t) holds iff an
 authority-bearing source s establishes proposition p, is effective at t, and has
 valid competence over bounded domain d at t. G is governing eligibility, not
-concrete applicability. STE-SPEC governs system-of-systems intent semantics and
+concrete applicability. An ADR revision is effective only as part of an
+explicitly admitted governing corpus or source basis. Admission is an act of the
+owning governance over an immutable source basis and may establish effectivity
+only within that governance's competent jurisdiction and explicit admission
+bounds; it is distinct from NormativeProposition admission and from Kernel
+admission of requested actions. Accepted status does not by itself make a
+revision effective, and a proposed ADR is never effective. Git merge, branch,
+tag, publication, pull-request approval, file presence, or generated-registry
+presence may participate in implementing or evidencing admission, but none is
+itself effectivity. STE-SPEC governs system-of-systems intent semantics and
 cross-system boundaries; local STE systems retain bounded intent authority inside
 those boundaries and MUST NOT manufacture competence over semantics reserved to
 STE-SPEC. Explicitly established or validly derived semantic relationships
@@ -360,6 +382,11 @@ inherited and narrowed but must not broaden competence. Applicability evaluates
 already competent/effective meaning against a concrete context and must arise from
 declared or validly inherited scope/context semantics. Insufficient contextual
 knowledge must not be converted into a positive or negative applicability claim.
+Competence belongs to the authority-bearing source or corpus,
+not to the propositions it establishes; a proposition's scope is a semantic
+bound inside that source's competence.
+A scope of `global` denotes the full competent domain of the authority-bearing
+source, not universal authority across STE.
 
 
 
@@ -370,6 +397,7 @@ knowledge must not be converted into a positive or negative applicability claim.
 
 **Negative:**
 - Detailed context assembly and task-specific reasoning selection remain separate.
+- Structured competence representation and a governed scope vocabulary remain downstream.
 
 
 ### DEC-4410: Preserve intent and embodiment as distinct competence domains

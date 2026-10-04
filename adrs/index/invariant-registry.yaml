@@ -4491,7 +4491,7 @@ entities:
     enforcement_level: must
     declaration_mode: local
     upheld_by_decisions:
-    - 01a06490-5b3c-76c0-9da2-abc77292b641
+    - 01a06490-5b3c-76c0-9da2-abc810701700
     supersedes: []
     alias_id: INV-4402
     alias_name: formal-expressions-are-purposeful-local-and-defensible
@@ -4697,8 +4697,8 @@ entities:
     enforcement_level: must
     declaration_mode: local
     upheld_by_decisions:
-    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
     - 01a06490-5b3c-76c0-9da2-abc77292b641
+    - 01a06490-5b3c-76c0-9da2-abc810701700
     supersedes: []
     alias_id: INV-4405
     alias_name: hard-admissible-space-is-the-intersection-of-applicable-hard-constraints
@@ -4768,8 +4768,7 @@ entities:
     enforcement_level: must
     declaration_mode: local
     upheld_by_decisions:
-    - 01a06490-5b3c-76c0-9da2-abc5d28f8970
-    - 01a06490-5b3c-76c0-9da2-abc922ef02dc
+    - 01a06490-5b3c-76c0-9da2-abcb706d9c2f
     supersedes: []
     alias_id: INV-4406
     alias_name: preference-and-explicit-permission-remain-distinct-from-hard-admissibility
@@ -4840,8 +4839,7 @@ entities:
     enforcement_level: must
     declaration_mode: local
     upheld_by_decisions:
-    - 01a06490-5b3c-76c0-9da2-abc810701700
-    - 01a06490-5b3c-76c0-9da2-abc922ef02dc
+    - 01a06490-5b3c-76c0-9da2-abccfd310a81
     supersedes: []
     alias_id: INV-4407
     alias_name: governing-eligibility-requires-competent-effective-authority
