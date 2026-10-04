@@ -65,7 +65,7 @@ When constraints are explicit, the cognitive path becomes predictable.
 STE cleanly separates:
 
 - **what must be true** (invariants)  
-- **what exists** (documentation-state)  
+- **what is declared** (documentation-state)  
 - **how cognition proceeds** (execution model)  
 - **how correctness is enforced** (validators)  
 - **how state is bootstrapped** (RECON protocol)  
@@ -78,9 +78,11 @@ This separation ensures clarity, stability, and non-overlapping responsibilities
 
 STE **MUST** treat three related planes as distinct:
 
-1. **Documentation-state** — declared truth in repositories (AI-DOC, ADRs, manifests, schemas).
+1. **Documentation-state** — governed declarations in repositories (AI-DOC, ADRs, manifests, schemas). Documentation-state is authoritative for what the organization has declared, within the competence of each declaring source; it is not, by itself, a record of everything the embodied system contains.
 2. **Integration-state** — the merged, validated **`Compiled_IR_Document`** consumed by `ste-kernel` for orchestration and admission projection. Integration-state is the mechanical instantiation of **Architecture IR** at a pinned `ir_version`; **normative semantics** for that IR (entities, relationships, provenance classes, lifecycle, completeness, governance, Architecture Index) live in `architecture/STE-Architecture-Intermediate-Representation.md`, while **JSON Schema and compiled enumerations** remain **referenced** from `ste-kernel` per `contracts/README.md`.
 3. **Runtime evidence** — factual **`ArchitectureEvidence`** from `ste-runtime` (bundle health, freshness); non-decision-bearing at the handoff boundary.
+
+These planes do not substitute for one another. Compiling or projecting documentation-state into integration-state does not add authority the source declarations lack, and Runtime evidence does not become architectural intent by being observed ([ADR-L-0044](../adrs/adr-projection/logical/ADR-L-0044-governed-semantic-reasoning-foundation.md) INV-4407, INV-4410). State that no plane declares or establishes remains unknown (§3.3).
 
 Normative handoff contracts and roles: `architecture/STE-Integration-Model.md`, `execution/STE-Kernel-Execution-Model.md`, `glossary.md`.
 
@@ -110,7 +112,7 @@ STE's hierarchical structure ensures that:
 - higher-level constraints dominate  
 - lower-level invariants specialize without contradiction  
 - artifact specifications reinforce consistency  
-- documentation-state provides truth  
+- documentation-state provides the declared state reasoning relies on  
 - synchronization rules maintain coherence  
 
 Layering creates predictable cognitive boundaries.
@@ -171,17 +173,17 @@ Divergence is the core mechanism for preventing drift and maintaining the integr
 
 ---
 
-## 3.3 Documentation-State as the Authoritative Truth
-Documentation-state expresses the **current truth** of the system.
+## 3.3 Documentation-State as Authoritative Declared State
+Documentation-state expresses the **current declared state** of the system: what the organization has explicitly declared, within the competence of each declaring source. It is the authoritative input for governed reasoning; it is not, by itself, proof of what the embodied system contains.
 
 It must:
 
-- reflect actual reality  
+- be accurate and current for what it declares  
 - precede reasoning  
 - be updated before cognitive steps that depend on it  
 - be validated at required checkpoints  
 
-Undocumented state is treated as nonexistent.
+Undocumented state must not influence governed reasoning. This constrains reasoning inputs; it is not a claim about the system. Absence from documentation-state does not establish that something does not exist. What no competent source establishes remains **unknown**, and reasoning must not resolve it into existence or nonexistence by assumption. A negative conclusion requires a competent source that establishes it within a bounded scope.
 
 ---
 
@@ -219,7 +221,7 @@ Synchronization prevents the framework itself from drifting.
 | **Invariants** | Bound cognition through explicit constraints |
 | **Taxonomy** | Classify and route divergence |
 | **Artifact Specifications** | Define structure and formatting rules |
-| **Documentation-State** | Express authoritative project truth |
+| **Documentation-State** | Express authoritative declared project state |
 | **Validators** | Enforce rule correctness and consistency |
 | **Execution Model** | Govern how reasoning proceeds |
 | **Sync Layer** | Maintain coherence of the entire framework |
@@ -241,7 +243,7 @@ legend** in `README.md` and `architecture/STE-Manifest.md`.
 # 5. Essential STE Properties
 
 ## 5.1 No Implicit State
-All state must exist in AI-DOC.  
+All state that reasoning relies on must be explicit in documentation-state (AI-DOC).  
 Anything not documented must not influence reasoning.
 
 ## 5.2 No Undeclared Concepts

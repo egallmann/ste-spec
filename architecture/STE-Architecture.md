@@ -800,7 +800,7 @@ Agent/Workspace
 ```mermaid
 flowchart TD
   Artifacts["Project Artifacts<br/>(code, config, schemas, etc.)"]
-  Recon["RECON (6 phases)<br/>1. Discovery - Enumerate files<br/>2. Extraction - Parse structures<br/>3. Inference - Infer invariants<br/>4. Normalization - Align to schema<br/>5. Population - Fill 13 domains<br/>6. Divergence - Map inconsistency"]
+  Recon["RECON (6 phases)<br/>1. Discovery - Enumerate files<br/>2. Extraction - Parse structures<br/>3. Inference - Infer candidate invariants<br/>4. Normalization - Align to schema<br/>5. Population - Fill 13 domains<br/>6. Divergence - Map inconsistency"]
   subgraph AIDoc["AI-DOC (13 Domains)"]
     ProjectIdentity["Project Identity"]
     ApiSurface["API Surface"]
