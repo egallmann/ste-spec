@@ -216,8 +216,9 @@ Use the following authority split when reading this repository:
 - Normative
   - `contracts/` for contract shape
   - `invariants/` for semantic rules and constraints
-  - canonical authored ADRs in `adrs/logical/` (with generated human views in
-    `adrs/adr-projection/logical/`)
+  - accepted canonical authored ADRs in `adrs/logical/`; proposed ADRs in the
+    same directory remain non-binding until accepted (with generated human
+    views in `adrs/adr-projection/logical/`)
   - semantic Architecture IR doctrine in
     [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md)
     as assigned by

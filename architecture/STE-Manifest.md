@@ -19,7 +19,7 @@ path depends on it.
 
 ## 1.1 Reading legend (normative vs orientation vs illustration)
 
-- **Normative (law):** `contracts/` JSON Schemas, `invariants/`, and canonical authored ADRs under `adrs/logical/`; human-readable ADR views under `adrs/adr-projection/logical/` are generated from those sources. Architecture IR **semantics** are in `architecture/STE-Architecture-Intermediate-Representation.md` (see [`ADR-L-0035`](../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)).
+- **Normative (law):** `contracts/` JSON Schemas, `invariants/`, and accepted canonical authored ADRs under `adrs/logical/`; proposed ADRs in that directory remain non-binding until accepted. Human-readable ADR views under `adrs/adr-projection/logical/` are generated from those sources. Architecture IR **semantics** are in `architecture/STE-Architecture-Intermediate-Representation.md` (see [`ADR-L-0035`](../adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)).
 - **Accepted normative supporting doctrine:** `architecture/STE-Spine-Lifecycle.md`, `architecture/STE-Spine-Authority.md`, `architecture/STE-Spine-Artifact-Mapping.md`, and `architecture/STE-Spine-State-Model.md`. These files are accepted supporting doctrine subordinate to ADR-040 and ADR-038 and do not override accepted ADR authority.
 - **Orientation (viewpoint):** most of `architecture/`, `execution/`, and
   `governance/` is navigation and viewpoint material and does not override
