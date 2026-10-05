@@ -96,7 +96,7 @@ A measure of whether the **architecture model** for a declared scope has require
 
 ### Provenance class
 
-Classification of how a record’s authority basis is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
+Classification of how a record came to be trusted or computed: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
 
 ### Runtime-State (evidence)
 
