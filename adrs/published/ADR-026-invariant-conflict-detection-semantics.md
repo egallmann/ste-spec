@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0026** — [`adrs/logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml`](../logical/ADR-L-0026-invariant-conflict-detection-semantics.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0026.md`](../rendered/ADR-L-0026.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0026-invariant-conflict-detection-semantics.md`](../adr-projection/logical/ADR-L-0026-invariant-conflict-detection-semantics.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -977,5 +977,4 @@ These behaviors are **testable, observable, and falsifiable** by inspection, rep
 **Last Updated:** 2025-12-29  
 **Status:** Accepted  
 **Next Review:** After v1 Implementation Feedback
-
 

@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0033** — [`adrs/logical/ADR-L-0033-closed-object-discipline.yaml`](../logical/ADR-L-0033-closed-object-discipline.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0033.md`](../rendered/ADR-L-0033.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0033-closed-object-discipline.md`](../adr-projection/logical/ADR-L-0033-closed-object-discipline.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

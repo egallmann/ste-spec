@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0031** — [`adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml`](../logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0031.md`](../rendered/ADR-L-0031.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md`](../adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

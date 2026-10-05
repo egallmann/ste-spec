@@ -96,7 +96,7 @@ A measure of whether the **architecture model** for a declared scope has require
 
 ### Provenance class
 
-Classification of how a record’s truth is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
+Classification of how a record came to be trusted or computed: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
 
 ### Runtime-State (evidence)
 
@@ -244,7 +244,7 @@ Specific classification within the taxonomy. Examples: Doc-Missing-Inventory, Do
 
 ### Drift
 
-Gradual divergence from documented truth over time. STE treats drift as detectable and correctable condition, not inevitable failure. Uncorrected drift is prohibited.
+Gradual divergence of documentation-state from the current declared or source-derived state it is required to reflect. STE treats drift as a detectable and correctable condition, not inevitable failure. Uncorrected drift is prohibited.
 
 ### Gate Type
 
@@ -252,9 +252,7 @@ Classification determining how divergence is communicated to users: Auto-Resolva
 
 ## Documentation-State
 
-### Documentation-State
-
-The explicit, machine-readable substrate that grounds reasoning. Provides complete, consistent, validated truth for cognition. Must be synchronized before reasoning proceeds.
+Terms in this section operate on documentation-state as defined by **Documentation-State** under **State Planes**. For governed reasoning, documentation-state must be explicit, complete, consistent, and validated, and must be synchronized before reasoning proceeds (see [`invariants/STE-Invariant-Hierarchy.md`](invariants/STE-Invariant-Hierarchy.md), section 2, Layer 5 — Documentation-State Layer).
 
 ### AI-DOC
 
@@ -262,7 +260,7 @@ Structured, explicit, machine-interpretable representation of system state. Bidi
 
 ### RECON (Reconciliation Protocol)
 
-The protocol for bootstrapping explicit domain truth from existing artifacts. Extracts project structure, relationships, and semantics into AI-DOC. Prerequisite for reasoning (SYS-6: RECON Completion Prerequisite).
+The protocol for bootstrapping explicit domain state from existing artifacts. Extracts project structure, relationships, and semantics into AI-DOC. Prerequisite for reasoning (SYS-6: RECON Completion Prerequisite).
 
 ### RSS (Runtime State Slicing)
 
@@ -459,7 +457,7 @@ The **Invariant Kernel** is the Prime and System invariant layers that provide f
 
 ### Filesystem
 
-AI-DOC, providing explicit structured machine-interpretable truth analogous to OS filesystem.
+AI-DOC, providing explicit structured machine-interpretable state analogous to OS filesystem.
 
 ### System Calls
 
@@ -483,7 +481,7 @@ Complete realization of a viewpoint with exhaustive detail. This specification i
 
 ### Architecture IR
 
-The versioned, schema-governed **graph interchange** that `ste-kernel` merges and validates after adapter publication. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **normative in `ste-spec`** under [`contracts/architecture-ir/`](contracts/architecture-ir/). See also [`ADR-041-compiler-and-merge-authority.md`](adrs/published/ADR-041-compiler-and-merge-authority.md).
+The versioned, schema-governed **graph interchange** that `ste-kernel` merges and validates after adapter publication. Architecture IR is **derived** from adapter inputs. The mechanical contract (schema bundle, merge order, identity rules) is **normative in `ste-spec`** under [`contracts/architecture-ir/`](contracts/architecture-ir/). See also [`ADR-L-0041`](adrs/adr-projection/logical/ADR-L-0041-compiler-evidence-and-merge-authority.md).
 
 ### ArchModel
 
@@ -562,7 +560,7 @@ The process by which provisional workspace state becomes canonical state through
 
 ### Canonical State
 
-Security-vetted artifacts in target branches (develop, master) that serve as organizational source of truth. RECON operates exclusively on canonical state. Security validation occurs via CI/CD gates before artifacts reach canonical state.
+Security-vetted artifacts in target branches (develop, master) that serve as the admitted canonical repository basis. RECON operates exclusively on canonical state. Security validation occurs via CI/CD gates before artifacts reach canonical state.
 
 ### Environment
 
@@ -615,4 +613,3 @@ Spell out acronyms on first use in each document, then use acronym consistently.
 ---
 
 **This glossary defines STE architectural terminology for precision and consistency across the specification.**
-

@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0042** — [`adrs/logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml`](../logical/ADR-L-0042-open-standards-closed-intelligence-boundary.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0042.md`](../rendered/ADR-L-0042.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0042-open-standards-and-closed-intelligence-boundary.md`](../adr-projection/logical/ADR-L-0042-open-standards-and-closed-intelligence-boundary.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Non-numbered note migrated to ADR-L-0042 |
 

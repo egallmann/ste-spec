@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0019** — [`adrs/logical/ADR-L-0019-gateway-authority-signing.yaml`](../logical/ADR-L-0019-gateway-authority-signing.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0019.md`](../rendered/ADR-L-0019.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0019-gateway-authority-and-signing-model.md`](../adr-projection/logical/ADR-L-0019-gateway-authority-and-signing-model.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -220,4 +220,3 @@ After amendments, verify:
 - Trust registry fail-closed vs. cache policy (Blocker 1.3)
 - Scope semantics definition (Blocker 1.4)
 - Context Bundle transmission protocol (Blocker 2.3)
-

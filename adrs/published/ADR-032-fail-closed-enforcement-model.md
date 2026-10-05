@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0032** — [`adrs/logical/ADR-L-0032-fail-closed-enforcement-model.yaml`](../logical/ADR-L-0032-fail-closed-enforcement-model.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0032.md`](../rendered/ADR-L-0032.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0032-fail-closed-enforcement-model.md`](../adr-projection/logical/ADR-L-0032-fail-closed-enforcement-model.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

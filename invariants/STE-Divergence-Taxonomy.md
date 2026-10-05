@@ -213,7 +213,7 @@ All divergence here is critical.
 ### **Doc-Missing-Inventory**
 **Occurs when:**
 - required documentation-state artifacts are missing  
-- inventories do not reflect actual truth  
+- inventories do not reflect their source artifacts  
 
 **Gate Type:** User-Gated  
 **Resolution Path:** Create missing inventory or populate from source artifacts  
@@ -222,7 +222,7 @@ All divergence here is critical.
 
 ### **Doc-State-Staleness**
 **Occurs when:**
-- documentation is outdated relative to system truth  
+- documentation is outdated relative to current source artifacts  
 
 **Gate Type:** Auto-Resolvable  
 **Resolution Path:** Refresh documentation-state from current source artifacts  
@@ -693,9 +693,9 @@ The following divergence types govern operational AI-DOC maintenance, including 
 - Incremental RECON not executed after file changes
 - File watcher or git hook failed to trigger update
 
-**Severity:** Error (blocking for reasoning tasks) | Warning (for analysis tasks)
+**Severity:** Error for reasoning tasks; Warning for analysis tasks
 
-**Gate Type:** Blocking (reasoning) | User-Gated (analysis)
+**Gate Type:** Auto-Resolvable
 
 **Resolution Path:**
 - Execute Incremental RECON for affected items
@@ -703,7 +703,7 @@ The following divergence types govern operational AI-DOC maintenance, including 
 - Validate updated items pass AI-DOC Graph Validator
 - Update extraction timestamps
 
-**Auto-Resolvable:** Yes (if incremental RECON available)
+**Auto-Resolvable:** Yes
 
 **Validator:** AI-DOC Currency Validator
 
@@ -794,18 +794,20 @@ Resolution: Fix syntax error in src/api/users.py, then retry regeneration
 - Bidirectional consistency violated
 - Performance exceeded O(changed files) bounds
 
-**Severity:** Error (blocking)
+**Severity:** Error
 
-**Gate Type:** Blocking
+**Gate Type:** User-Gated
 
 **Resolution Path:**
-- Rollback to previous AI-DOC state (preserve consistency)
-- Fall back to full RECON (guaranteed correct result)
-- Investigate incremental algorithm (may indicate implementation bug)
+- Rollback to previous AI-DOC state automatically (preserve consistency)
+- Request user consent to run full RECON (guaranteed correct result; may take longer)
+- After consent, run full RECON
 - Log failure details for debugging
-- User proceeds with full RECON (may take longer)
+- Investigate incremental algorithm as follow-up (may indicate implementation bug)
 
-**Auto-Resolvable:** Yes (automatic fallback to full RECON)
+**Auto-Resolvable:** Partial (rollback is automatic; full RECON requires user consent)
+
+**User Prompt:** "Incremental update failed validation. Run full RECON?"
 
 **Validator:** Incremental RECON Validator
 
@@ -815,6 +817,8 @@ Incremental Update: src/api/users.py
 Validation: Equivalence check failed
 Issue: Incremental result missing dependency (models/role)
 Action: Rollback incremental changes
+Gate: User consent required for full RECON
+Consent: Approved
 Fallback: Running full RECON (~2 minutes)
 Result: Full RECON completed successfully
 ```

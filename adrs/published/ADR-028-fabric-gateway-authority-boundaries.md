@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0028** — [`adrs/logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml`](../logical/ADR-L-0028-fabric-gateway-authority-boundaries.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0028.md`](../rendered/ADR-L-0028.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0028-ai-doc-fabric-and-gateway-authority-boundaries.md`](../adr-projection/logical/ADR-L-0028-ai-doc-fabric-and-gateway-authority-boundaries.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -894,5 +894,4 @@ Gateway does not cache attestations, invariant content, or canonical state. Each
 **Last Updated:** 2025-12-29  
 **Status:** Accepted  
 **Next Review:** After v1 Implementation Feedback
-
 

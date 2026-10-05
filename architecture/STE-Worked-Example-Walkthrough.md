@@ -5,7 +5,7 @@
 **Informative only.** This file is a **single threaded story** that ties together
 workspace cognition, optional agent-shaped tooling, and the **integration plane**. It
 does **not** add MUSTs. **Normative** requirements remain in `contracts/`,
-`invariants/`, binding `adrs/published/`, and the referenced Architecture IR bundle in
+`invariants/`, canonical authored ADRs under `adrs/logical/`, and the referenced Architecture IR bundle in
 `ste-kernel`.
 
 **How to read STE:** see the short legend in `README.md` and

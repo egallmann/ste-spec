@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0036** — [`adrs/logical/ADR-L-0036-repository-readme-contract.yaml`](../logical/ADR-L-0036-repository-readme-contract.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0036.md`](../rendered/ADR-L-0036.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0036-repository-readme-contract.md`](../adr-projection/logical/ADR-L-0036-repository-readme-contract.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

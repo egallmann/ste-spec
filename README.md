@@ -45,7 +45,8 @@ kernel decisions, runtime evidence generation, or rules-engine behavior.
 `ste-spec` primarily consumes architectural authoring and review work rather
 than runtime evidence or kernel internals. In practice, that means it takes in:
 
-- converged architectural decisions published under `adrs/published/`
+- canonical authored ADRs under `adrs/logical/`, with generated human-readable
+  projections under `adrs/adr-projection/logical/`
 - contract definitions and schema work for cross-repository handoffs
 - invariant definitions and semantic rule definitions
 - orientation and viewpoint material that explains the published specification
@@ -67,8 +68,13 @@ authority.
     [`contracts/architecture-ir/spec-ir-fragments.json`](contracts/architecture-ir/spec-ir-fragments.json)
 - `invariants/`
   - normative semantic constraints and cross-component rules
+- `adrs/logical/`
+  - canonical authored architectural decisions
+- `adrs/adr-projection/logical/`
+  - generated human-readable projections of the canonical ADRs
 - `adrs/published/`
-  - architectural decisions and rationale
+  - retained historical/legacy authored Markdown and rationale; noncanonical
+    where a corresponding logical ADR exists
 - `architecture/`, `execution/`, `governance/`
   - mostly orientation and viewpoint material, with named accepted exceptions
     for normative supporting doctrine
@@ -179,12 +185,14 @@ validation commands for maintainers and reviewers.
 Repeatable checks:
 
 ```bash
-python scripts/check_internal_md_links.py
-python scripts/run_local_contract_checks.py
+python -m pip install -r requirements-dev.txt
+python scripts/adr_governance.py
 ```
 
-Use these commands when changing normative or orientation surfaces so internal
-links and published contract artifacts do not drift.
+The governance entrypoint runs ADR project-metadata, complete-scope,
+cross-reference, and generated-document freshness checks, followed by the
+repository's Markdown-link and pytest checks. The ADR corpus uses authoring
+schema 1.6 with UUIDv7 canonical identities while preserving its ADR aliases.
 
 ## Repository Boundary and Adjacent Repositories
 
@@ -208,11 +216,13 @@ Use the following authority split when reading this repository:
 - Normative
   - `contracts/` for contract shape
   - `invariants/` for semantic rules and constraints
-  - binding ADRs in `adrs/published/`
+  - accepted canonical authored ADRs in `adrs/logical/`; proposed ADRs in the
+    same directory remain non-binding until accepted (with generated human
+    views in `adrs/adr-projection/logical/`)
   - semantic Architecture IR doctrine in
     [`architecture/STE-Architecture-Intermediate-Representation.md`](architecture/STE-Architecture-Intermediate-Representation.md)
     as assigned by
-    [`adrs/published/ADR-035-architecture-ir-ontology-authority.md`](adrs/published/ADR-035-architecture-ir-ontology-authority.md)
+    [`adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md`](adrs/adr-projection/logical/ADR-L-0035-architecture-ir-ontology-authority-in-ste-spec.md)
 - Orientation
   - most of `architecture/`, `execution/`, and `governance/`
   - `status.md`
@@ -224,9 +234,9 @@ Use the following authority split when reading this repository:
   - `architecture/STE-Spine-Artifact-Mapping.md`
   - `architecture/STE-Spine-State-Model.md`
   - these files are normative supporting doctrine subordinate to
-    [`adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md`](adrs/published/ADR-040-ste-spine-lifecycle-and-authority.md)
+    [`adrs/adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md`](adrs/adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md)
     and
-    [`adrs/published/ADR-038-artifact-classification-and-versioning.md`](adrs/published/ADR-038-artifact-classification-and-versioning.md)
+    [`adrs/adr-projection/logical/ADR-L-0038-artifact-taxonomy-and-versioning-posture.md`](adrs/adr-projection/logical/ADR-L-0038-artifact-taxonomy-and-versioning-posture.md)
     and do not override accepted ADR authority
   - `architecture/STE-Spine-Extracted-Doctrine.md` is analysis-only and
     non-normative
@@ -256,8 +266,10 @@ Start here based on your goal:
 - Understand scope limits and non-goals
   - [`scope-and-non-goals.md`](scope-and-non-goals.md)
   - [`NON-GOALS.md`](NON-GOALS.md)
-- Understand architectural decisions
-  - [`adrs/published/README.md`](adrs/published/README.md)
+- Understand canonical architectural decisions
+  - authored sources: [`adrs/logical/`](adrs/logical/)
+  - generated human views: [`adrs/adr-projection/logical/`](adrs/adr-projection/logical/)
+  - historical context: [`adrs/published/README.md`](adrs/published/README.md)
 
 ## Status and Maturity
 
@@ -272,7 +284,7 @@ Draft / pre-normative surfaces currently called out by the repo include:
 
 - `contracts/rule-projection/`
 - `contracts/governance-decision-record/`
-- `adrs/published/ADR-034-rule-projection-envelope-authority.md`
+- `adrs/adr-projection/logical/ADR-L-0034-rule-projection-envelope-authority.md`
 - `invariants/INV-0010-rule-projection-envelope-discipline.md`
 
 ## Contribution and Maintenance Guidance
@@ -282,7 +294,9 @@ When changing this repository:
 - update the correct authority surface
   - `contracts/` for shape
   - `invariants/` for rules
-  - `adrs/published/` for rationale
+  - `adrs/logical/` for canonical authored ADR changes
+  - `adrs/published/` only for retained historical rationale; do not treat it
+    as the current ADR authority surface
   - orientation docs only when navigation or explanation must change
 - update named accepted supporting-doctrine exceptions in line with their
   governing ADRs rather than treating them as generic orientation prose

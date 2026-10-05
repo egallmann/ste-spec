@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0040** — [`adrs/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml`](../logical/ADR-L-0040-ste-spine-lifecycle-and-authority.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0040.md`](../rendered/ADR-L-0040.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md`](../adr-projection/logical/ADR-L-0040-ste-spine-lifecycle-and-authority.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one (dense narrative retained here as context) |
 

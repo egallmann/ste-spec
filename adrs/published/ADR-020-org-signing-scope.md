@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0020** — [`adrs/logical/ADR-L-0020-org-signing-scope.yaml`](../logical/ADR-L-0020-org-signing-scope.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0020.md`](../rendered/ADR-L-0020.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0020-org-level-signing-scope.md`](../adr-projection/logical/ADR-L-0020-org-level-signing-scope.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -294,4 +294,3 @@ After spec amendments, verify:
 - Deterministic YAML serialization mechanism (Blocker 1.6)
 - Merge-time validation mechanisms (Blocker 2.2)
 - Audit log signing policy (out of scope - separate system)
-

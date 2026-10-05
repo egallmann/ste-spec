@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0022** — [`adrs/logical/ADR-L-0022-fail-closed-enforcement-scope.yaml`](../logical/ADR-L-0022-fail-closed-enforcement-scope.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0022.md`](../rendered/ADR-L-0022.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0022-fail-closed-semantics-and-enforcement-scope.md`](../adr-projection/logical/ADR-L-0022-fail-closed-semantics-and-enforcement-scope.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -173,4 +173,3 @@ While this ADR does not define implementation mechanisms, implementers should no
 - ADR-019: Gateway Authority and Signing Model
 - ADR-020: ORG-Level Signing Scope
 - ADR-021: Gateway Trust Verification Model
-

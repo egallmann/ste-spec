@@ -1,0 +1,46 @@
+{
+  "before_ref": "feature/adr-governance-baseline",
+  "counts": {
+    "after": {
+      "adr_count": 39,
+      "boundaries": 0,
+      "capabilities": 0,
+      "components": 0,
+      "constraints": 0,
+      "decisions": 94,
+      "gaps": 41,
+      "invariants": 61,
+      "statuses": {
+        "accepted": 28,
+        "proposed": 11
+      }
+    },
+    "before": {
+      "adr_count": 39,
+      "boundaries": 0,
+      "capabilities": 0,
+      "components": 0,
+      "constraints": 0,
+      "decisions": 94,
+      "gaps": 41,
+      "invariants": 61,
+      "statuses": {
+        "accepted": 28,
+        "proposed": 11
+      }
+    },
+    "relationships_after": 327,
+    "relationships_before": 327
+  },
+  "errors": [],
+  "identity_map_fingerprint": "sha256:f6c0753763a2f286d441232fead13a683e54c0e354862d0734cf61f35e7758de",
+  "representational_deltas": [
+    "schema_version",
+    "id",
+    "alias_id",
+    "alias_name",
+    "YAML serializer normalization of legacy double-encoded dash punctuation"
+  ],
+  "semantic_parity_verified": true,
+  "type": "identity_v13_semantic_parity"
+}

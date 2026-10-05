@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0030** — [`adrs/logical/ADR-L-0030-contract-authority-in-ste-spec.yaml`](../logical/ADR-L-0030-contract-authority-in-ste-spec.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0030.md`](../rendered/ADR-L-0030.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md`](../adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 

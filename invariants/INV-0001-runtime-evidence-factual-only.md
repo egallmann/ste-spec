@@ -19,5 +19,5 @@ Contract conformance rejects undeclared or policy-bearing evidence fields.
 ## Related Artifacts
 
 - `contracts/architecture-evidence.schema.json`
-- `adrs/published/ADR-030-contract-authority-in-ste-spec.md`
-- `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`
+- [`ADR-L-0030`](../adrs/adr-projection/logical/ADR-L-0030-contract-authority-in-ste-spec.md)
+- [`ADR-L-0031`](../adrs/adr-projection/logical/ADR-L-0031-runtime-and-kernel-responsibility-boundary.md)

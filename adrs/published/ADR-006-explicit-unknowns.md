@@ -5,7 +5,7 @@
 | Field | Value |
 | --- | --- |
 | **Canonical record** | Machine ADR **ADR-L-0006** — [`adrs/logical/ADR-L-0006-explicit-unknowns.yaml`](../logical/ADR-L-0006-explicit-unknowns.yaml) |
-| **Human projection** | [`adrs/rendered/ADR-L-0006.md`](../rendered/ADR-L-0006.md) (generated; do not edit by hand) |
+| **Human projection** | [`adrs/adr-projection/logical/ADR-L-0006-explicit-unknowns-over-inference.md`](../adr-projection/logical/ADR-L-0006-explicit-unknowns-over-inference.md) (generated; do not edit by hand) |
 | **This file** | Legacy published markdown; **not canonical** |
 | **Disposition** | Migrated one-to-one |
 
@@ -194,7 +194,6 @@ def extract_integration_clients(ast: AST) -> List[ClientElement]:
 This architectural decision is fully specified within the STE specification. Applied examples and historical artifacts are intentionally excluded from this publication.
 
 **Stakeholders**: Architects, Development Teams, Quality Assurance
-
 
 
 
