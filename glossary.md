@@ -96,7 +96,7 @@ A measure of whether the **architecture model** for a declared scope has require
 
 ### Provenance class
 
-Classification of how a record’s truth is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
+Classification of how a record’s authority basis is established: **explicit** (authoritative documentation-state), **derived** (computed from explicit inputs by deterministic or versioned rules), or **heuristic** (inferred with documented uncertainty). Applies to entities, relationships, gaps, evidence, and normalized entities at the semantic layer; mechanical `provenance` object shape for `Compiled_IR_Document` is defined in the Architecture IR JSON Schema under [`contracts/architecture-ir/`](contracts/architecture-ir/).
 
 ### Runtime-State (evidence)
 
@@ -244,7 +244,7 @@ Specific classification within the taxonomy. Examples: Doc-Missing-Inventory, Do
 
 ### Drift
 
-Gradual divergence from documented truth over time. STE treats drift as detectable and correctable condition, not inevitable failure. Uncorrected drift is prohibited.
+Gradual divergence of documentation-state from the current declared or source-derived state it is required to reflect. STE treats drift as a detectable and correctable condition, not inevitable failure. Uncorrected drift is prohibited.
 
 ### Gate Type
 
@@ -560,7 +560,7 @@ The process by which provisional workspace state becomes canonical state through
 
 ### Canonical State
 
-Security-vetted artifacts in target branches (develop, master) that serve as organizational source of truth. RECON operates exclusively on canonical state. Security validation occurs via CI/CD gates before artifacts reach canonical state.
+Security-vetted artifacts in target branches (develop, master) that serve as the admitted canonical repository basis. RECON operates exclusively on canonical state. Security validation occurs via CI/CD gates before artifacts reach canonical state.
 
 ### Environment
 

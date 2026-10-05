@@ -4,8 +4,8 @@
 # generator_id: adr-architecture-graph
 # generator_version: 1
 # hash_algorithm: sha256
-# source_hash: c0279c028cabe41d1606bd494f93e267ab433bf2ff2ec47f9fc7e9abcd245f53
-# rendered_hash: 8c1883bc60dfaa8f720c230f7ebbd1b2b693ea4771a289db3d0784121760789e
+# source_hash: a1dee9e510288d2254c7dd55601e1161fc82c2f4da4ac2f7f7878e5d8d070dad
+# rendered_hash: d0eefda827f046759f8ca095a5fea816af25f966a86f956c5538b6d65f8e56ce
 
 schema_version: '1.0'
 type: architecture_graph
@@ -625,8 +625,8 @@ nodes:
     artifact_path: adrs/logical/ADR-L-0031-runtime-kernel-responsibility-boundary.yaml
 - id: 01a04e96-1f5b-7c4e-aa1f-a1734a987329
   entity_type: decision
-  name: Confine ste-runtime to evidence production; assign caller-facing admission
-    to ste-kernel
+  name: Preserve ste-runtime embodiment reconstruction authority while assigning caller-facing
+    admission and execution-eligibility decisions to ste-kernel
   canonical_source:
     source_type: logical_adr
     source_ref: 01a04e96-1f5b-7c56-bc3f-75fbbc94d42b#01a04e96-1f5b-7c4e-aa1f-a1734a987329

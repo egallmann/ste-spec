@@ -5683,16 +5683,17 @@ entities:
     generator: adr-architecture-index
 - id: 01a04e96-1f5b-7c4e-aa1f-a1734a987329
   alias_id: DEC-3101
-  alias_name: confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
-  alias_ref: DEC-3101:confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
+  alias_name: preserve-runtime-embodiment-authority-assign-caller-facing-admission-to-kernel
+  alias_ref: DEC-3101:preserve-runtime-embodiment-authority-assign-caller-facing-admission-to-kernel
   entity_type: decision
-  name: Confine ste-runtime to evidence production; assign caller-facing admission
-    to ste-kernel
-  summary: Keeps runtime factual and kernel authoritative without collapsing shared
-    contracts into one role.
+  name: Preserve ste-runtime embodiment reconstruction authority while assigning caller-facing
+    admission and execution-eligibility decisions to ste-kernel
+  summary: ste-runtime retains evidence-backed observation, embodiment reconstruction,
+    and the governed resolution, support derivation, assessment, Runtime-semantic
+    admission, and Snapshot qualification assigned by Runtime authorit
   uri: adr://ste-spec/entities/01a04e96-1f5b-7c4e-aa1f-a1734a987329
   created_at: '2026-08-29T17:34:16.411Z'
-  entity_fingerprint: sha256:d5a7de002db152abfac1bf895b14fa89d9c04a4f38c885ebfa674d7c811b2fb7
+  entity_fingerprint: sha256:5e36c1953ae61cd1ed4e0d1e0e3278d4f9794e32b603edc2c4393461efab83d4
   lifecycle_stage: active
   canonical_source:
     source_type: logical_adr
@@ -5708,7 +5709,7 @@ entities:
     governs_components: []
     supersedes: []
     refines: []
-    alias_name: confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
+    alias_name: preserve-runtime-embodiment-authority-assign-caller-facing-admission-to-kernel
     alias_id: DEC-3101
   relationships:
     declared_in:
@@ -5752,9 +5753,9 @@ entities:
   alias_ref: ADR-L-0031:runtime-and-kernel-responsibility-boundary
   entity_type: adr
   name: Runtime and Kernel Responsibility Boundary
-  summary: '**ste-runtime** produces factual evidence only. **ste-kernel** is the
-    caller-facing admission authority at the evaluated System Instance boundary (explicit
-    environment and evaluation scope). Legacy: `adrs/published/ADR-0'
+  summary: '**ste-runtime** owns bounded observation and evidence-backed embodiment
+    reconstruction, including Runtime embodiment identity, semantic relationships,
+    and the governed resolution, support derivation, assessment, Runtime-'
   uri: adr://ste-spec/entities/01a04e96-1f5b-7c56-bc3f-75fbbc94d42b
   created_at: '2026-08-29T17:34:16.411Z'
   entity_fingerprint: sha256:b498eeecc1e06a8a0205aeb75a37de9ecab0b400c3d261944e0c2d2e7da76cb4

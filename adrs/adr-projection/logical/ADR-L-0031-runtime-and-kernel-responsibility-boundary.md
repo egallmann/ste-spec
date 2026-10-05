@@ -5,8 +5,8 @@ artifact_kind: rendered_adr_markdown
 generator_id: adr-projection-markdown
 generator_version: 3
 hash_algorithm: sha256
-source_hash: c6add1b9d7473295f2cc32509de6e08da65ae5ab60c588dcbc4245a3cdd913c9
-rendered_hash: 3ad854620b9f92c2c83ba6401be51334069a0c58d2fb2581758c302f28986414
+source_hash: ffa4dd0a23774998cdd301c26fa4fe7b4bbcfcb9b2580db5f1ad2b5833dc19a2
+rendered_hash: c8f435b5b39780e3d5027dc858c05c47f74ce28d72fc064afc93300d8d0f198e
 -->
 
 # ADR-L-0031: Runtime and Kernel Responsibility Boundary
@@ -21,9 +21,14 @@ rendered_hash: 3ad854620b9f92c2c83ba6401be51334069a0c58d2fb2581758c302f28986414
 
 ## Context
 
-**ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
-admission authority at the evaluated System Instance boundary (explicit environment and
-evaluation scope).
+**ste-runtime** owns bounded observation and evidence-backed embodiment
+reconstruction, including Runtime embodiment identity, semantic relationships, and
+the governed resolution, support derivation, assessment, Runtime-semantic admission,
+and Snapshot qualification assigned by Runtime authority. It is not architectural-intent
+authority. **ste-kernel** is the caller-facing admission authority at the evaluated
+System Instance boundary (explicit environment and evaluation scope) and alone emits
+`KernelAdmissionAssessment`. Runtime semantic admission of reconstructed Runtime state
+is not that caller-facing decision.
 
 Legacy: `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`.
 
@@ -50,7 +55,9 @@ semantics; ste-kernel alone emits `KernelAdmissionAssessment` per published cont
 **Verification:** audit
 
 **Rationale:**
-Enforces the evidence versus decision split at the boundary.
+Enforces the caller-facing admission boundary. It does not confine ste-runtime
+to raw observation, transfer architectural-intent authority to ste-runtime, or
+treat Runtime semantic admission as `KernelAdmissionAssessment`.
 
 
 
@@ -59,18 +66,22 @@ Enforces the evidence versus decision split at the boundary.
 
 ## Decisions
 
-### DEC-3101: Confine ste-runtime to evidence production; assign caller-facing admission to ste-kernel
+### DEC-3101: Preserve ste-runtime embodiment reconstruction authority while assigning caller-facing admission and execution-eligibility decisions to ste-kernel
 
 **Rationale:**
-Keeps runtime factual and kernel authoritative without collapsing shared contracts into
-one role.
+ste-runtime retains evidence-backed observation, embodiment reconstruction,
+and the governed resolution, support derivation, assessment, Runtime-semantic
+admission, and Snapshot qualification assigned by Runtime authority. That authority
+is not architectural intent, and it does not include caller-facing admission or
+execution-eligibility decisions. ste-kernel alone emits `KernelAdmissionAssessment`.
+Runtime semantic admission is not `KernelAdmissionAssessment`.
 
 
 
 **Consequences:**
 
 **Positive:**
-- Clear handoff semantics
+- Runtime reconstruction authority and kernel caller-facing admission remain distinct
 
 **Negative:**
 - Runtime cannot emit caller-facing admission or execution-eligibility decision semantics

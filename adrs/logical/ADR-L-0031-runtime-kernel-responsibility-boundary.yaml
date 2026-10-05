@@ -14,12 +14,21 @@ domains:
 tags:
 - admission
 - evidence
-context: '**ste-runtime** produces factual evidence only. **ste-kernel** is the caller-facing
+context: '**ste-runtime** owns bounded observation and evidence-backed embodiment
 
-  admission authority at the evaluated System Instance boundary (explicit environment
-  and
+  reconstruction, including Runtime embodiment identity, semantic relationships, and
 
-  evaluation scope).
+  the governed resolution, support derivation, assessment, Runtime-semantic admission,
+
+  and Snapshot qualification assigned by Runtime authority. It is not architectural-intent
+
+  authority. **ste-kernel** is the caller-facing admission authority at the evaluated
+
+  System Instance boundary (explicit environment and evaluation scope) and alone emits
+
+  `KernelAdmissionAssessment`. Runtime semantic admission of reconstructed Runtime state
+
+  is not that caller-facing decision.
 
 
   Legacy: `adrs/published/ADR-031-runtime-kernel-responsibility-boundary.md`.
@@ -42,21 +51,28 @@ related_adrs:
 - 01a04e96-1f5d-7793-873c-136f29f470be
 decisions:
 - id: 01a04e96-1f5b-7c4e-aa1f-a1734a987329
-  summary: Confine ste-runtime to evidence production; assign caller-facing admission
-    to ste-kernel
-  rationale: 'Keeps runtime factual and kernel authoritative without collapsing shared
-    contracts into
+  summary: Preserve ste-runtime embodiment reconstruction authority while assigning
+    caller-facing admission and execution-eligibility decisions to ste-kernel
+  rationale: 'ste-runtime retains evidence-backed observation, embodiment reconstruction,
 
-    one role.
+    and the governed resolution, support derivation, assessment, Runtime-semantic
+
+    admission, and Snapshot qualification assigned by Runtime authority. That authority
+
+    is not architectural intent, and it does not include caller-facing admission or
+
+    execution-eligibility decisions. ste-kernel alone emits `KernelAdmissionAssessment`.
+
+    Runtime semantic admission is not `KernelAdmissionAssessment`.
 
     '
   consequences:
     positive:
-    - Clear handoff semantics
+    - Runtime reconstruction authority and kernel caller-facing admission remain distinct
     negative:
     - Runtime cannot emit caller-facing admission or execution-eligibility decision semantics
   alias_id: DEC-3101
-  alias_name: confine-ste-runtime-to-evidence-production-assign-caller-facing-admission-to-ste-kernel
+  alias_name: preserve-runtime-embodiment-authority-assign-caller-facing-admission-to-kernel
 invariants:
 - id: 01a04e96-1f5b-7bf6-b33e-aa6024c35c48
   statement: 'ste-runtime MUST NOT emit caller-facing admission or execution-eligibility
@@ -69,7 +85,11 @@ invariants:
   enforcement_level: must
   enforcement_mechanism: policy
   verification_method: audit
-  rationale: 'Enforces the evidence versus decision split at the boundary.
+  rationale: 'Enforces the caller-facing admission boundary. It does not confine ste-runtime
+
+    to raw observation, transfer architectural-intent authority to ste-runtime, or
+
+    treat Runtime semantic admission as `KernelAdmissionAssessment`.
 
     '
   upheld_by_decisions:
